@@ -76,6 +76,7 @@ public:
     VCubicBezier Rotate(const QPointF &originPoint, qreal degrees, const QString &prefix = QString()) const;
     VCubicBezier Flip(const QLineF &axis, const QString &prefix = QString()) const;
     VCubicBezier Move(qreal length, qreal angle, const QString &prefix = QString()) const;
+    VCubicBezier Scale(const QPointF &originPoint, qreal sx, qreal sy, const QString &prefix = QString()) const;
     virtual ~VCubicBezier();
 
     VCubicBezier &operator=(const VCubicBezier &curve);

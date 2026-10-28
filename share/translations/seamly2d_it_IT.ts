@@ -4071,6 +4071,10 @@ Volete scaricarla?</translation>
         <source>Color</source>
         <translation>Colore</translation>
     </message>
+    <message>
+        <source>%1 - Scale</source>
+        <translation>%1 - Scala</translation>
+    </message>
 </context>
 <context>
     <name>HistoryDialog</name>
@@ -4285,6 +4289,10 @@ Volete scaricarla?</translation>
     <message>
         <source>Center point</source>
         <translation>Punto centrale</translation>
+    </message>
+    <message>
+        <source>Scale from point %1 (X %2, Y %3). Suffix %4</source>
+        <translation>Scala dal punto %1 (X %2, Y %3). Suffisso %4</translation>
     </message>
 </context>
 <context>
@@ -7134,6 +7142,18 @@ Premere Invio per aggiungerlo temporaneamente all&apos;elenco.</translation>
     <message>
         <source>Are you sure you want to delete basepoint and current draft block?</source>
         <translation>Sei sicuro di voler eliminare il punto base e il blocco bozza corrente?</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Tool::Operations - Scale:&lt;/b&gt; Select one or more objects - Hold &lt;b&gt;%1&lt;/b&gt; for multiple selection, Press &lt;b&gt;ENTER&lt;/b&gt; to confirm selection</source>
+        <translation>&lt;b&gt;Strumento::Operazioni - Scala:&lt;/b&gt; Seleziona uno o più oggetti - Tieni premuto &lt;b&gt;%1&lt;/b&gt; per la selezione multipla, premi &lt;b&gt;INVIO&lt;/b&gt; per confermare la selezione</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Scala</translation>
+    </message>
+    <message>
+        <source>Scale Selected Objects (S, C)</source>
+        <translation>Scala gli oggetti selezionati (S, C)</translation>
     </message>
 </context>
 <context>
@@ -13152,6 +13172,10 @@ caricare in SeamlyME come di consueto.
         <source>Piece path doesn&apos;t contain nodes</source>
         <translation>Il percorso del pezzo non contiene nodi</translation>
     </message>
+    <message>
+        <source>Error creating or updating operation of scaling</source>
+        <translation>Errore nella creazione o nell'aggiornamento dell'operazione di scala</translation>
+    </message>
 </context>
 <context>
     <name>VPoster</name>
@@ -13942,6 +13966,18 @@ caricare in SeamlyME come di consueto.
     <message>
         <source>Curve length:</source>
         <translation>Lunghezza curva:</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Scala</translation>
+    </message>
+    <message>
+        <source>Horizontal (X):</source>
+        <translation>Orizzontale (X):</translation>
+    </message>
+    <message>
+        <source>Vertical (Y):</source>
+        <translation>Verticale (Y):</translation>
     </message>
 </context>
 <context>
@@ -15650,6 +15686,95 @@ di controllo</translation>
     <message>
         <source>Information</source>
         <translation>Informazioni</translation>
+    </message>
+</context>
+<context>
+    <name>DialogScale</name>
+    <message>
+        <source>Scale</source>
+        <translation>Scala</translation>
+    </message>
+    <message>
+        <source>Selection</source>
+        <translation>Selezione</translation>
+    </message>
+    <message>
+        <source>Origin pt:</source>
+        <translation>Punto base:</translation>
+    </message>
+    <message>
+        <source>Suffix:</source>
+        <translation>Suffisso:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation>Geometria</translation>
+    </message>
+    <message>
+        <source>Horizontal (X):</source>
+        <translation>Orizzontale (X):</translation>
+    </message>
+    <message>
+        <source>Vertical (Y):</source>
+        <translation>Verticale (Y):</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation>Valore</translation>
+    </message>
+    <message>
+        <source>Formula wizard</source>
+        <translation>Formula magica</translation>
+    </message>
+    <message>
+        <source>Use the horizontal factor for both directions</source>
+        <translation>Usa il fattore orizzontale in entrambe le direzioni</translation>
+    </message>
+    <message>
+        <source>Keep proportions (Y = X)</source>
+        <translation>Mantieni le proporzioni (Y = X)</translation>
+    </message>
+    <message>
+        <source>Factors: 1 = unchanged, 1.1 = 10% longer, 0.9 = 10% shorter. A negative factor also mirrors.</source>
+        <translation>Fattori: 1 = invariato, 1.1 = 10% più lungo, 0.9 = 10% più corto. Un fattore negativo specchia anche.</translation>
+    </message>
+    <message>
+        <source>Select the origin point of the scaling</source>
+        <translation>Seleziona il punto base della scala</translation>
+    </message>
+    <message>
+        <source>Select an origin point that is not part of the list of objects</source>
+        <translation>Seleziona un punto base che non faccia parte degli oggetti selezionati</translation>
+    </message>
+    <message>
+        <source>Edit horizontal scale</source>
+        <translation>Modifica la scala orizzontale</translation>
+    </message>
+    <message>
+        <source>Edit vertical scale</source>
+        <translation>Modifica la scala verticale</translation>
+    </message>
+</context>
+<context>
+    <name>VToolScale</name>
+    <message>
+        <source>  Origin point</source>
+        <translation>  Punto base</translation>
+    </message>
+    <message>
+        <source>Horizontal scale</source>
+        <translation>Scala orizzontale</translation>
+    </message>
+    <message>
+        <source>Vertical scale</source>
+        <translation>Scala verticale</translation>
+    </message>
+</context>
+<context>
+    <name>VisToolScale</name>
+    <message>
+        <source>Scale X = %1%3, Y = %2%3</source>
+        <translation>Scala X = %1%3, Y = %2%3</translation>
     </message>
 </context>
 </TS>

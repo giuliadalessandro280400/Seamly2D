@@ -3117,6 +3117,53 @@ void VPattern::ParseToolRotation(VMainGraphicsScene *scene, QDomElement &domElem
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void VPattern::ParseToolScale(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse)
+{
+    SCASSERT(scene != nullptr)
+    Q_ASSERT_X(domElement.isNull() == false, Q_FUNC_INFO, "domElement is null");
+
+    try
+    {
+        quint32 id = NULL_ID;
+
+        ToolsCommonAttributes(domElement, id);
+        const quint32 center = GetParametrUInt(domElement, AttrCenter, NULL_ID_STR);
+        const QString xScale = GetParametrString(domElement, AttrXScale, "1");
+        QString xs = xScale;//need for saving fixed formula;
+        const QString yScale = GetParametrString(domElement, AttrYScale, "1");
+        QString ys = yScale;//need for saving fixed formula;
+        const QString suffix = GetParametrString(domElement, AttrSuffix, "");
+
+        QVector<SourceItem> source;
+        QVector<DestinationItem> destination;
+        VAbstractOperation::ExtractData(domElement, source, destination);
+
+        VToolScale::Create(id, center, xs, ys, suffix, source, destination, scene, this, data, parse,
+                           Source::FromFile);
+        //Rewrite attribute formula. Need for situation when we have wrong formula.
+        if (xs != xScale || ys != yScale)
+        {
+            SetAttribute(domElement, AttrXScale, xs);
+            SetAttribute(domElement, AttrYScale, ys);
+            modified = true;
+            haveLiteChange();
+        }
+    }
+    catch (const VExceptionBadId &error)
+    {
+        VExceptionObjectError excep(tr("Error creating or updating operation of scaling"), domElement);
+        excep.AddMoreInformation(error.ErrorMessage());
+        throw excep;
+    }
+    catch (qmu::QmuParserError &error)
+    {
+        VExceptionObjectError excep(tr("Error creating or updating operation of scaling"), domElement);
+        excep.AddMoreInformation(QString("Message:     " + error.GetMsg() + "\n"+ "Expression:  " + error.GetExpr()));
+        throw excep;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void VPattern::ParseToolMirrorByLine(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse)
 {
     SCASSERT(scene != nullptr)
@@ -3517,7 +3564,8 @@ void VPattern::ParseOperationElement(VMainGraphicsScene *scene, QDomElement &dom
     const QStringList opers = QStringList() << VToolRotation::ToolType        /*0*/
                                             << VToolMirrorByLine::ToolType  /*1*/
                                             << VToolMirrorByAxis::ToolType  /*2*/
-                                            << VToolMove::ToolType;           /*3*/
+                                            << VToolMove::ToolType            /*3*/
+                                            << VToolScale::ToolType;          /*4*/
 
     switch (opers.indexOf(type))
     {
@@ -3532,6 +3580,9 @@ void VPattern::ParseOperationElement(VMainGraphicsScene *scene, QDomElement &dom
             break;
         case 3: //VToolMove::ToolType
             ParseToolMove(scene, domElement, parse);
+            break;
+        case 4: //VToolScale::ToolType
+            ParseToolScale(scene, domElement, parse);
             break;
         default:
             VException e(tr("Unknown operation type '%1'.").arg(type));
@@ -4160,7 +4211,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 QRectF VPattern::ActiveDrawBoundingRect() const
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 54, "Not all tools were used.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were used.");
 
     QRectF rect;
 
@@ -4224,6 +4275,7 @@ QRectF VPattern::ActiveDrawBoundingRect() const
                     rect = ToolBoundingRect<VToolDoublePoint>(rect, tool.getId());
                     break;
                 case Tool::Rotation:
+                case Tool::Scale:
                 case Tool::MirrorByLine:
                 case Tool::MirrorByAxis:
                 case Tool::Move:

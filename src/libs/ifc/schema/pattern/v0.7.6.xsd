@@ -266,6 +266,8 @@
                           <xs:attribute name="angle" type="xs:string"/>
                           <xs:attribute name="rotationAngle" type="xs:string"/>
                           <xs:attribute name="length" type="xs:string"/>
+                          <xs:attribute name="xScale" type="xs:string"/>
+                          <xs:attribute name="yScale" type="xs:string"/>
                           <xs:attribute name="suffix" type="xs:string"/>
                           <xs:attribute name="type" type="xs:string" use="required"/>
                           <xs:attribute name="p1Line" type="xs:unsignedInt"/>

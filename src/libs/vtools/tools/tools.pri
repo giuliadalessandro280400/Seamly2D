@@ -57,6 +57,7 @@ HEADERS += \
     $$PWD/drawTools/toolcurve/vtoolcubicbezier.h \
     $$PWD/drawTools/toolcurve/vtoolcubicbezierpath.h \
     $$PWD/drawTools/operation/vtoolrotation.h \
+    $$PWD/drawTools/operation/vtoolscale.h \
     $$PWD/drawTools/operation/vabstractoperation.h \
     $$PWD/drawTools/operation/vtoolmove.h \
     $$PWD/drawTools/toolcurve/vtoolellipticalarc.h \
@@ -116,6 +117,7 @@ SOURCES += \
     $$PWD/drawTools/toolcurve/vtoolcubicbezier.cpp \
     $$PWD/drawTools/toolcurve/vtoolcubicbezierpath.cpp \
     $$PWD/drawTools/operation/vtoolrotation.cpp \
+    $$PWD/drawTools/operation/vtoolscale.cpp \
     $$PWD/drawTools/operation/vabstractoperation.cpp \
     $$PWD/drawTools/operation/vtoolmove.cpp \
     $$PWD/drawTools/toolcurve/vtoolellipticalarc.cpp \

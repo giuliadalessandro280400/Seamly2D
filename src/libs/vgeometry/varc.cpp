@@ -483,3 +483,36 @@ qreal VArc::GetRadius() const
 {
     return d->radius;
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Scale returns a copy of the arc scaled relative to originPoint.
+ *
+ * A circular arc stays circular. With equal factors the result is exact. With different X and Y factors a true
+ * result would be an ellipse, so the arc keeps its scaled end directions and gets the average scaled radius.
+ */
+VArc VArc::Scale(const QPointF &originPoint, qreal sx, qreal sy, const QString &prefix) const
+{
+    const VPointF center = GetCenter().Scale(originPoint, sx, sy);
+
+    const QPointF p1 = VPointF::ScalePF(originPoint, GetP1(), sx, sy);
+    const QPointF p2 = VPointF::ScalePF(originPoint, GetP2(), sx, sy);
+
+    const qreal f1 = QLineF(static_cast<QPointF>(center), p1).angle();
+    const qreal f2 = QLineF(static_cast<QPointF>(center), p2).angle();
+
+    qreal radius = GetRadius() * qAbs(sx);
+    if (not VFuzzyComparePossibleNulls(qAbs(sx), qAbs(sy)))
+    {
+        radius = (QLineF(static_cast<QPointF>(center), p1).length() +
+                  QLineF(static_cast<QPointF>(center), p2).length()) / 2.0;
+    }
+
+    VArc arc(center, radius, f1, f2);
+    arc.setName(name() + prefix);
+    arc.setLineColor(getLineColor());
+    arc.SetPenStyle(GetPenStyle());
+    arc.setLineWeight(getLineWeight());
+    arc.SetFlipped(sx * sy < 0 ? not IsFlipped() : IsFlipped());
+    return arc;
+}

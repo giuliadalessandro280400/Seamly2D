@@ -248,6 +248,7 @@ private:
     void ParseNodeEllipticalArc(const QDomElement &domElement, const Document &parse);
 
     void ParseToolRotation(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);
+    void ParseToolScale(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);
     void ParseToolMirrorByLine(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);
     void ParseToolMirrorByAxis(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);
     void ParseToolMove(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);

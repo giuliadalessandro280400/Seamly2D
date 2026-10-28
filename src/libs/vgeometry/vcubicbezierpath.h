@@ -74,6 +74,8 @@ public:
                                          const QString &prefix = QString()) const;
     VCubicBezierPath              Flip(const QLineF &axis, const QString &prefix = QString()) const;
     VCubicBezierPath              Move(qreal length, qreal angle, const QString &prefix = QString()) const;
+    VCubicBezierPath              Scale(const QPointF &originPoint, qreal sx, qreal sy,
+                                        const QString &prefix = QString()) const;
     virtual                      ~VCubicBezierPath();
 
     VCubicBezierPath             &operator=(const VCubicBezierPath &curve);

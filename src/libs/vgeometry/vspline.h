@@ -86,6 +86,7 @@ public:
     VSpline Rotate(const QPointF &originPoint, qreal degrees, const QString &prefix = QString()) const;
     VSpline Flip(const QLineF &axis, const QString &prefix = QString()) const;
     VSpline Move(qreal length, qreal angle, const QString &prefix = QString()) const;
+    VSpline Scale(const QPointF &originPoint, qreal sx, qreal sy, const QString &prefix = QString()) const;
     virtual ~VSpline();
 
     VSpline &operator=(const VSpline &spline);

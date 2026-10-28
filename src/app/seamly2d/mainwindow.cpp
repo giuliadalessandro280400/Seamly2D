@@ -1616,6 +1616,26 @@ void MainWindow::handleRotationTool(bool checked)
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void MainWindow::handleScaleTool(bool checked)
+{
+    ToolSelectOperationObjects();
+    const QString tooltip = tr("<b>Tool::Operations - Scale:</b> Select one or more objects -"
+                               " Hold <b>%1</b> for multiple selection, "
+                               "Press <b>ENTER</b> to confirm selection")
+                               .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
+                                                                strCtrl.toUtf8().constData()));
+    SetToolButtonWithApply<DialogScale>
+    (
+        checked,
+        Tool::Scale,
+        ":/cursor/scale_cursor.png",
+        tooltip,
+        &MainWindow::ClosedDrawDialogWithApply<VToolScale>,
+        &MainWindow::ApplyDrawDialog<VToolScale>
+    );
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handleMirrorByLineTool(bool checked)
 {
     ToolSelectOperationObjects();
@@ -3082,7 +3102,7 @@ void MainWindow::initializeToolButtons()
     connect(ui->arrowPointer_ToolButton, &QToolButton::clicked, this, &MainWindow::handleArrowTool);
 
     // This check helps to find missed tools
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 54, "Check if all tools were connected.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Check if all tools were connected.");
 
     connect(ui->pointAtDistanceAngle_ToolButton, &QToolButton::clicked,
             this, &MainWindow::handlePointAtDistanceAngleTool);
@@ -3126,6 +3146,7 @@ void MainWindow::initializeToolButtons()
     connect(ui->exportDraftBlocks_ToolButton, &QToolButton::clicked, this, &MainWindow::exportDraftBlocksAs);
     connect(ui->group_ToolButton,          &QToolButton::clicked, this, &MainWindow::handleGroupTool);
     connect(ui->rotation_ToolButton,       &QToolButton::clicked, this, &MainWindow::handleRotationTool);
+    connect(ui->scale_ToolButton,          &QToolButton::clicked, this, &MainWindow::handleScaleTool);
     connect(ui->mirrorByLine_ToolButton,   &QToolButton::clicked, this, &MainWindow::handleMirrorByLineTool);
     connect(ui->mirrorByAxis_ToolButton,   &QToolButton::clicked, this, &MainWindow::handleMirrorByAxisTool);
     connect(ui->move_ToolButton,           &QToolButton::clicked, this, &MainWindow::handleMoveTool);
@@ -3421,6 +3442,7 @@ void MainWindow::handleOperationsMenu()
     QAction *action_MirrorByLine = menu.addAction(QIcon(":/toolicon/32x32/mirror_by_line.png"), tr("Mirror by Line") + "\tM, L");
     QAction *action_MirrorByAxis = menu.addAction(QIcon(":/toolicon/32x32/mirror_by_axis.png"), tr("Mirror by Axis") + "\tM, A");
     QAction *action_Move         = menu.addAction(QIcon(":/toolicon/32x32/move.png"),           tr("Move") + "\t" + tr("Alt+M"));
+    QAction *action_Scale        = menu.addAction(QIcon(":/toolicon/32x32/scale.png"),          tr("Scale") + "\tS, C");
     QAction *action_TrueDarts    = menu.addAction(QIcon(":/toolicon/32x32/true_darts.png"),     tr("True Darts") + "\tT, D");
     QAction *action_ExportDraftBlocks = menu.addAction(QIcon(":/toolicon/32x32/export.png"),    tr("Export Draft Blocks") + "\tE, D");
 
@@ -3459,6 +3481,12 @@ void MainWindow::handleOperationsMenu()
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         ui->move_ToolButton->setChecked(true);
         handleMoveTool(true);
+    }
+    else if (selectedAction == action_Scale)
+    {
+        ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
+        ui->scale_ToolButton->setChecked(true);
+        handleScaleTool(true);
     }
     else if (selectedAction == action_TrueDarts)
     {
@@ -3622,7 +3650,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 void MainWindow::CancelTool()
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 54, "Not all tools were handled.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were handled.");
 
     qCDebug(vMainWindow, "Canceling tool.");
     dialogTool.clear();
@@ -3770,6 +3798,9 @@ void MainWindow::CancelTool()
             break;
         case Tool::Rotation:
             ui->rotation_ToolButton->setChecked(false);
+            break;
+        case Tool::Scale:
+            ui->scale_ToolButton->setChecked(false);
             break;
         case Tool::MirrorByLine:
             ui->mirrorByLine_ToolButton->setChecked(false);
@@ -5266,7 +5297,7 @@ void MainWindow::setToolsEnabled(bool enable)
     }
 
     // This check helps to find missed tools
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 54, "Not all tools were handled.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were handled.");
 
     //Toolbox Drafting Tools
     //Points
@@ -5310,6 +5341,7 @@ void MainWindow::setToolsEnabled(bool enable)
     //Operations
     ui->group_ToolButton->setEnabled(draftTools);
     ui->rotation_ToolButton->setEnabled(draftTools);
+    ui->scale_ToolButton->setEnabled(draftTools);
     ui->mirrorByLine_ToolButton->setEnabled(draftTools);
     ui->mirrorByAxis_ToolButton->setEnabled(draftTools);
     ui->move_ToolButton->setEnabled(draftTools);
@@ -5386,6 +5418,7 @@ void MainWindow::setToolsEnabled(bool enable)
     //Operations
     ui->group_Action->setEnabled(draftTools);
     ui->rotation_Action->setEnabled(draftTools);
+    ui->scale_Action->setEnabled(draftTools);
     ui->mirrorByLine_Action->setEnabled(draftTools);
     ui->mirrorByAxis_Action->setEnabled(draftTools);
     ui->move_Action->setEnabled(draftTools);
@@ -5792,7 +5825,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 void MainWindow::LastUsedTool()
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 54, "Not all tools were handled.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were handled.");
 
     if (currentTool == lastUsedTool)
     {
@@ -5961,6 +5994,10 @@ void MainWindow::LastUsedTool()
         case Tool::Rotation:
             ui->rotation_ToolButton->setChecked(true);
             handleRotationTool(true);
+            break;
+        case Tool::Scale:
+            ui->scale_ToolButton->setChecked(true);
+            handleScaleTool(true);
             break;
         case Tool::MirrorByLine:
             ui->mirrorByLine_ToolButton->setChecked(true);
@@ -6423,6 +6460,13 @@ void MainWindow::createActions()
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         ui->rotation_ToolButton->setChecked(true);
         handleRotationTool(true);
+    });
+
+    connect(ui->scale_Action, &QAction::triggered, this, [this]
+    {
+        ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
+        ui->scale_ToolButton->setChecked(true);
+        handleScaleTool(true);
     });
 
     connect(ui->mirrorByLine_Action, &QAction::triggered, this, [this]

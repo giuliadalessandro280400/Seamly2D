@@ -87,6 +87,8 @@ public:
                                         const QString &prefix = QString()) const;
     VArc                         Flip(const QLineF &axis, const QString &prefix = QString()) const;
     VArc                         Move(qreal length, qreal angle, const QString &prefix = QString()) const;
+    VArc                         Scale(const QPointF &originPoint, qreal sx, qreal sy,
+                                       const QString &prefix = QString()) const;
     virtual                     ~VArc() override;
 
     VArc                        &operator= (const VArc &arc);

@@ -378,3 +378,20 @@ VPointF VCubicBezierPath::LastPoint() const
         return VPointF();
     }
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+VCubicBezierPath VCubicBezierPath::Scale(const QPointF &originPoint, qreal sx, qreal sy,
+                                         const QString &prefix) const
+{
+    const QVector<VPointF> points = GetCubicPath();
+    VCubicBezierPath curve;
+    for(int i=0; i < points.size(); ++i)
+    {
+        curve.append(points.at(i).Scale(originPoint, sx, sy));
+    }
+    curve.setName(name() + prefix);
+    curve.setLineColor(getLineColor());
+    curve.SetPenStyle(GetPenStyle());
+    curve.setLineWeight(getLineWeight());
+    return curve;
+}

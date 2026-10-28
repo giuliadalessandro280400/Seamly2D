@@ -581,3 +581,26 @@ qreal VEllipticalArc::getRealEndAngle() const
 
     return endAngle;
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Scale returns a copy of the elliptical arc scaled relative to originPoint. The result is exact because the
+ * scaling is stored in the arc transformation.
+ */
+VEllipticalArc VEllipticalArc::Scale(const QPointF &originPoint, qreal sx, qreal sy, const QString &prefix) const
+{
+    QTransform scale;
+    scale.translate(originPoint.x(), originPoint.y());
+    scale.scale(sx, sy);
+    scale.translate(-originPoint.x(), -originPoint.y());
+
+    VEllipticalArc elArc(VAbstractArc::GetCenter(), GetRadius1(), GetRadius2(), VAbstractArc::GetStartAngle(),
+                         VAbstractArc::GetEndAngle(), getRotationAngle());
+    elArc.setName(name() + prefix);
+    elArc.setLineColor(getLineColor());
+    elArc.SetPenStyle(GetPenStyle());
+    elArc.setLineWeight(getLineWeight());
+    elArc.SetFlipped(sx * sy < 0 ? not IsFlipped() : IsFlipped());
+    elArc.setTransform(d->m_transform * scale);
+    return elArc;
+}

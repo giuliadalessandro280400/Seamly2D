@@ -117,7 +117,7 @@ void VToolOptionsPropertyBrowser::clearPropertyBrowser()
 void VToolOptionsPropertyBrowser::showItemOptions(QGraphicsItem *item)
 {
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 54, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were used in switch.");
 
     switch (item->type())
     {
@@ -218,6 +218,9 @@ void VToolOptionsPropertyBrowser::showItemOptions(QGraphicsItem *item)
         case VToolRotation::Type:
             showOptionsToolRotation(item);
             break;
+        case VToolScale::Type:
+            showOptionsToolScale(item);
+            break;
         case VToolMirrorByLine::Type:
             showOptionsToolMirrorByLine(item);
             break;
@@ -244,7 +247,7 @@ void VToolOptionsPropertyBrowser::updateOptions()
     }
 
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 54, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were used in switch.");
 
     switch (currentItem->type())
     {
@@ -342,6 +345,9 @@ void VToolOptionsPropertyBrowser::updateOptions()
         case VToolRotation::Type:
             updateOptionsToolRotation();
             break;
+        case VToolScale::Type:
+            updateOptionsToolScale();
+            break;
         case VToolMirrorByLine::Type:
             updateOptionsToolMirrorByLine();
             break;
@@ -389,7 +395,7 @@ void VToolOptionsPropertyBrowser::userChangedData(VPE::VProperty *property)
     }
 
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 54, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were used in switch.");
 
     switch (currentItem->type())
     {
@@ -482,6 +488,9 @@ void VToolOptionsPropertyBrowser::userChangedData(VPE::VProperty *property)
             break;
         case VToolRotation::Type:
             changeDataToolRotation(prop);
+            break;
+        case VToolScale::Type:
+            changeDataToolScale(prop);
             break;
         case VToolMirrorByLine::Type:
             changeDataToolMirrorByLine(prop);
@@ -834,6 +843,7 @@ QMap<QString, quint32> VToolOptionsPropertyBrowser::getObjectList(Tool *tool, GO
                 case 46:    //Tool::MirrorByLine
                 case 47:    //Tool::MirrorByAxis
                 case 48:    //Tool::Move
+                case static_cast<int>(::Tool::Scale):
                 {
                     QVector<quint32> list = qApp->getCurrentDocument()->getOpItems(recId, QStringLiteral("destination"));
                     for (qint32 j = 0; j < list.size(); ++j)
@@ -2332,6 +2342,36 @@ void VToolOptionsPropertyBrowser::changeDataToolRotation(VPE::VProperty *propert
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::changeDataToolScale(VPE::VProperty *property)
+{
+    SCASSERT(property != nullptr)
+
+    QVariant value = property->data(VPE::VProperty::DPC_Data, Qt::DisplayRole);
+    const QString id = propertyToId[property];
+
+    VToolScale *tool = qgraphicsitem_cast<VToolScale *>(currentItem);
+    SCASSERT(tool != nullptr)
+    switch (propertiesList().indexOf(id))
+    {
+        case 38: // AttrSuffix
+            setOperationSuffix<VToolScale>(value.toString());
+            break;
+        case 65: // AttrXScale
+            tool->setFormulaXScale(value.value<VFormula>());
+            break;
+        case 66: // AttrYScale
+            tool->setFormulaYScale(value.value<VFormula>());
+            break;
+        case 11: // AttrCenter
+            tool->setOriginPointId(value.toInt());
+            break;
+        default:
+            qWarning() << "Unknown property type. id = "<<id;
+            break;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void VToolOptionsPropertyBrowser::changeDataToolMove(VPE::VProperty *property)
 {
     SCASSERT(property != nullptr)
@@ -3083,6 +3123,22 @@ void VToolOptionsPropertyBrowser::showOptionsToolRotation(QGraphicsItem *item)
 
     addPropertyLabel(tr("Geometry"), AttrName);
     addPropertyFormula(tr("Angle:"), tool->GetFormulaAngle(), AttrAngle);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::showOptionsToolScale(QGraphicsItem *item)
+{
+    VToolScale *tool = qgraphicsitem_cast<VToolScale *>(item);
+    tool->ShowVisualization(true);
+    formView->setTitle(tr("Scale"));
+
+    addPropertyLabel(tr("Selection"), AttrName);
+    addObjectProperty(tool, tool->getOriginPointName(), tr("Origin point:"), AttrCenter, GOType::Point);
+    addPropertyOperationSuffix(tool, tr("Suffix:"));
+
+    addPropertyLabel(tr("Geometry"), AttrName);
+    addPropertyFormula(tr("Horizontal (X):"), tool->getFormulaXScale(), VAbstractPattern::AttrXScale);
+    addPropertyFormula(tr("Vertical (Y):"), tool->getFormulaYScale(), VAbstractPattern::AttrYScale);
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -4154,6 +4210,27 @@ void VToolOptionsPropertyBrowser::updateOptionsToolRotation()
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::updateOptionsToolScale()
+{
+    VToolScale *tool = qgraphicsitem_cast<VToolScale *>(currentItem);
+    idToProperty[AttrSuffix]->setValue(tool->Suffix());
+
+    QVariant valueX;
+    valueX.setValue(tool->getFormulaXScale());
+    idToProperty[VAbstractPattern::AttrXScale]->setValue(valueX);
+
+    QVariant valueY;
+    valueY.setValue(tool->getFormulaYScale());
+    idToProperty[VAbstractPattern::AttrYScale]->setValue(valueY);
+
+    {
+        const qint32 index = VPE::VObjectProperty::indexOfObject(getObjectList(tool, GOType::Point),
+                                                                 tool->getOriginPointName());
+        idToProperty[AttrCenter]->setValue(index);
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void VToolOptionsPropertyBrowser::updateOptionsToolMove()
 {
     VToolMove *tool = qgraphicsitem_cast<VToolMove *>(currentItem);
@@ -4327,6 +4404,8 @@ QStringList VToolOptionsPropertyBrowser::propertiesList() const
                                             << AttrObjName                        /* 61 */
                                             << AttrDirection                      /* 62 */
                                             << AttrAutoSmooth                     /* 63 */
-                                            << AttrLengthMode;                    /* 64 */
+                                            << AttrLengthMode                     /* 64 */
+                                            << VAbstractPattern::AttrXScale       /* 65 */
+                                            << VAbstractPattern::AttrYScale;      /* 66 */
     return attr;
 }

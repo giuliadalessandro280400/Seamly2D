@@ -94,6 +94,7 @@ public:
     VPointF           Rotate(const QPointF &originPoint, qreal degrees, const QString &prefix = QString()) const;
     VPointF           Flip(const QLineF &axis, const QString &prefix = QString()) const;
     VPointF           Move(qreal length, qreal angle, const QString &prefix = QString()) const;
+    VPointF           Scale(const QPointF &originPoint, qreal sx, qreal sy, const QString &prefix = QString()) const;
     qreal             mx() const;
     qreal             my() const;
     void              setMx(qreal mx);
@@ -110,6 +111,7 @@ public:
     static QPointF    RotatePF(const QPointF &originPoint, const QPointF &point, qreal degrees);
     static QPointF    FlipPF(const QLineF &axis, const QPointF &point);
     static QPointF    MovePF(const QPointF &originPoint, qreal length, qreal angle);
+    static QPointF    ScalePF(const QPointF &originPoint, const QPointF &point, qreal sx, qreal sy);
 
 private:
     QSharedDataPointer<VPointFData> d;

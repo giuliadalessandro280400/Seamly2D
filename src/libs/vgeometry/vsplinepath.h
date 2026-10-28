@@ -84,6 +84,8 @@ public:
     VSplinePath            Rotate(const QPointF &originPoint, qreal degrees, const QString &prefix = QString()) const;
     VSplinePath            Flip(const QLineF &axis, const QString &prefix = QString()) const;
     VSplinePath            Move(qreal length, qreal angle, const QString &prefix = QString()) const;
+    VSplinePath            Scale(const QPointF &originPoint, qreal sx, qreal sy,
+                                 const QString &prefix = QString()) const;
     virtual               ~VSplinePath() override;
 
     VSplinePoint          &operator[](int indx);

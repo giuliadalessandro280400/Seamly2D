@@ -29,6 +29,7 @@ HEADERS += \
     $$PWD/line/vistoolpointofintersectionarcs.h \
     $$PWD/line/vistoolpointfromarcandtangent.h \
     $$PWD/line/operation/vistoolrotation.h \
+    $$PWD/line/operation/vistoolscale.h \
     $$PWD/path/vispath.h \
     $$PWD/path/vistoolarc.h \
     $$PWD/path/vistoolcutarc.h \
@@ -72,6 +73,7 @@ SOURCES += \
     $$PWD/line/vistoolpointofintersectionarcs.cpp \
     $$PWD/line/vistoolpointfromarcandtangent.cpp \
     $$PWD/line/operation/vistoolrotation.cpp \
+    $$PWD/line/operation/vistoolscale.cpp \
     $$PWD/path/vispath.cpp \
     $$PWD/path/vistoolarc.cpp \
     $$PWD/path/vistoolcutarc.cpp \

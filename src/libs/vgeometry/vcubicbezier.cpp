@@ -250,3 +250,18 @@ QPointF VCubicBezier::GetControlPoint2() const
 {
     return static_cast<QPointF>(GetP3());
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+VCubicBezier VCubicBezier::Scale(const QPointF &originPoint, qreal sx, qreal sy, const QString &prefix) const
+{
+    const VPointF p1 = GetP1().Scale(originPoint, sx, sy);
+    const VPointF p2 = GetP2().Scale(originPoint, sx, sy);
+    const VPointF p3 = GetP3().Scale(originPoint, sx, sy);
+    const VPointF p4 = GetP4().Scale(originPoint, sx, sy);
+    VCubicBezier curve(p1, p2, p3, p4);
+    curve.setName(name() + prefix);
+    curve.setLineColor(getLineColor());
+    curve.SetPenStyle(GetPenStyle());
+    curve.setLineWeight(getLineWeight());
+    return curve;
+}

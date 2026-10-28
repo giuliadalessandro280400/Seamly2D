@@ -289,3 +289,22 @@ QPointF VPointF::MovePF(const QPointF &originPoint, qreal length, qreal angle)
     line.setAngle(angle);
     return line.p2();
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Scale returns a copy of the point scaled relative to originPoint by sx horizontally and sy vertically.
+ */
+VPointF VPointF::Scale(const QPointF &originPoint, qreal sx, qreal sy, const QString &prefix) const
+{
+    const QPointF newPoint = ScalePF(originPoint, toQPointF(), sx, sy);
+    VPointF scaled(newPoint, name() + prefix, mx(), my());
+    scaled.setShowPointName(isShowPointName());
+    return scaled;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+QPointF VPointF::ScalePF(const QPointF &originPoint, const QPointF &point, qreal sx, qreal sy)
+{
+    return QPointF(originPoint.x() + (point.x() - originPoint.x()) * sx,
+                   originPoint.y() + (point.y() - originPoint.y()) * sy);
+}

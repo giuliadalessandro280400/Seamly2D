@@ -83,6 +83,7 @@
 #include "toolpoint/toolsinglepoint/vtoolpointfromarcandtangent.h"
 #include "toolpoint/tooldoublepoint/vtooltruedarts.h"
 #include "operation/vtoolrotation.h"
+#include "operation/vtoolscale.h"
 #include "operation/mirror/vtoolmirrorbyline.h"
 #include "operation/mirror/vtoolmirrorbyaxis.h"
 #include "operation/vtoolmove.h"

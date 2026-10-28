@@ -231,6 +231,7 @@ private slots:
 
     void handleGroupTool(bool checked);
     void handleRotationTool(bool checked);
+    void handleScaleTool(bool checked);
     void handleMirrorByLineTool(bool checked);
     void handleMirrorByAxisTool(bool checked);
     void handleMoveTool(bool checked);

@@ -205,6 +205,7 @@
      <addaction name="mirrorByLine_Action"/>
      <addaction name="mirrorByAxis_Action"/>
      <addaction name="move_Action"/>
+     <addaction name="scale_Action"/>
      <addaction name="trueDarts_Action"/>
      <addaction name="exportDraftBlocks_Action"/>
     </widget>
@@ -716,6 +717,7 @@
    <addaction name="mirrorByLine_Action"/>
    <addaction name="mirrorByAxis_Action"/>
    <addaction name="move_Action"/>
+   <addaction name="scale_Action"/>
    <addaction name="trueDarts_Action"/>
    <addaction name="exportDraftBlocks_Action"/>
   </widget>
@@ -2121,6 +2123,32 @@
                  </property>
                 </widget>
                </item>
+               <item row="3" column="1">
+                <widget class="QToolButton" name="scale_ToolButton">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="toolTip">
+                  <string>Scale Selected Objects (S, C)</string>
+                 </property>
+                 <property name="text">
+                  <string notr="true">...</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="share/resources/toolicon.qrc">
+                   <normaloff>:/toolicon/32x32/scale.png</normaloff>:/toolicon/32x32/scale.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>32</width>
+                   <height>32</height>
+                  </size>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
              <widget class="QWidget" name="piece_Page">
@@ -2980,6 +3008,27 @@
    </property>
    <property name="shortcut">
     <string notr="true">R</string>
+   </property>
+  </action>
+  <action name="scale_Action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="share/resources/toolicon.qrc">
+     <normaloff>:/toolicon/32x32/scale.png</normaloff>:/toolicon/32x32/scale.png</iconset>
+   </property>
+   <property name="text">
+    <string>Scale</string>
+   </property>
+   <property name="iconText">
+    <string>Scale</string>
+   </property>
+   <property name="toolTip">
+    <string>Scale Selected Objects (S, C)</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">S, C</string>
    </property>
   </action>
   <action name="mirrorByLine_Action">

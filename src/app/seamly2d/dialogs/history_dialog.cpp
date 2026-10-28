@@ -350,7 +350,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 RowData HistoryDialog::record(const VToolRecord &tool)
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 54, "Not all tools were used in history.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were used in history.");
 
     RowData rowData;
     const quint32 &toolId = tool.getId();
@@ -647,6 +647,18 @@ RowData HistoryDialog::record(const VToolRecord &tool)
                 rowData.name = getDestinationNames(domElement, suffix);
                 rowData.tool = tr("Rotation around point %1. Suffix %2")
                                 .arg(getName(attrUInt(domElement, AttrCenter)), suffix);
+                break;
+            }
+
+            case Tool::Scale:
+            {
+                const QString suffix = m_doc->GetParametrString(domElement, AttrSuffix, QString());
+                rowData.icon = ":/toolicon/32x32/scale.png";
+                rowData.name = getDestinationNames(domElement, suffix);
+                rowData.tool = tr("Scale from point %1 (X %2, Y %3). Suffix %4")
+                                .arg(getName(attrUInt(domElement, AttrCenter)))
+                                .arg(m_doc->GetParametrString(domElement, VAbstractPattern::AttrXScale, "1"))
+                                .arg(m_doc->GetParametrString(domElement, VAbstractPattern::AttrYScale, "1"), suffix);
                 break;
             }
 

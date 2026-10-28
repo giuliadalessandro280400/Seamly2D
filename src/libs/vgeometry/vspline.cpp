@@ -587,3 +587,20 @@ QPointF VSpline::GetControlPoint2() const
 {
     return static_cast<QPointF>(GetP3 ());
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+VSpline VSpline::Scale(const QPointF &originPoint, qreal sx, qreal sy, const QString &prefix) const
+{
+    const VPointF p1 = GetP1().Scale(originPoint, sx, sy);
+    const VPointF p4 = GetP4().Scale(originPoint, sx, sy);
+
+    const QPointF p2 = VPointF::ScalePF(originPoint, static_cast<QPointF>(GetP2()), sx, sy);
+    const QPointF p3 = VPointF::ScalePF(originPoint, static_cast<QPointF>(GetP3()), sx, sy);
+
+    VSpline spl(p1, p2, p3, p4);
+    spl.setName(name() + prefix);
+    spl.setLineColor(getLineColor());
+    spl.SetPenStyle(GetPenStyle());
+    spl.setLineWeight(getLineWeight());
+    return spl;
+}

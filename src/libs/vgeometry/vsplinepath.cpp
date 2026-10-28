@@ -485,3 +485,28 @@ void VSplinePath::Clear()
     d->path.clear();
     SetDuplicate(0);
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+VSplinePath VSplinePath::Scale(const QPointF &originPoint, qreal sx, qreal sy, const QString &prefix) const
+{
+    QVector<VSplinePoint> newPoints(CountPoints());
+    for (qint32 i = 1; i <= CountSubSpl(); ++i)
+    {
+        const VSpline spl = GetSpline(i).Scale(originPoint, sx, sy);
+
+        newPoints[i-1].SetP(spl.GetP1());
+        newPoints[i-1].SetAngle2(spl.GetStartAngle(), spl.GetStartAngleFormula());
+        newPoints[i-1].SetLength2(spl.GetC1Length(), spl.GetC1LengthFormula());
+
+        newPoints[i].SetP(spl.GetP4());
+        newPoints[i].SetAngle1(spl.GetEndAngle(), spl.GetEndAngleFormula());
+        newPoints[i].SetLength1(spl.GetC2Length(), spl.GetC2LengthFormula());
+    }
+
+    VSplinePath splPath(newPoints);
+    splPath.setName(name() + prefix);
+    splPath.setLineColor(getLineColor());
+    splPath.SetPenStyle(GetPenStyle());
+    splPath.setLineWeight(getLineWeight());
+    return splPath;
+}
