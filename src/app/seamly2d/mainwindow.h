@@ -63,6 +63,7 @@
 
 #include <QMap>
 #include <QPointer>
+#include <QPainterPath>
 #include <QSharedPointer>
 
 namespace Ui
@@ -88,6 +89,8 @@ class DraftToolBox;
 class PieceToolBox;
 class LayoutToolBox;
 class QToolButton;
+class QTimer;
+class QGraphicsScene;
 class QDoubleSpinBox;
 class QFontComboBox;
 
@@ -283,6 +286,9 @@ private slots:
 #endif //defined(Q_OS_MAC)
 
     void ChangedSize(int index);
+    void toggleAllSizes(bool checked);
+    void scheduleAllSizesUpdate();
+    void updateAllSizes();
     void ChangedHeight(int index);
 
 private:
@@ -336,6 +342,13 @@ private:
     QPointer<QComboBox>               gradationSizes;
     QPointer<QLabel>                  gradationHeightsLabel;
     QPointer<QLabel>                  gradationSizesLabel;
+    QPointer<QToolButton>             m_allSizesButton;     ///< shows every size of a multisize pattern at once
+    QPointer<QLabel>                  m_allSizesLegend;     ///< colors of the sizes shown together
+    QTimer                           *m_allSizesTimer {nullptr};
+    bool                              m_allSizesUpdating {false};
+
+    void                              clearAllSizes();
+    QPainterPath                      captureSceneGeometry(QGraphicsScene *scene, bool activeBlockOnly) const;
     VToolOptionsPropertyBrowser      *toolProperties;
     GroupsWidget                     *groups_widget;
     PiecesWidget                     *piecesWidget;

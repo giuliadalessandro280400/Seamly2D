@@ -7155,6 +7155,18 @@ Premere Invio per aggiungerlo temporaneamente all&apos;elenco.</translation>
         <source>Scale Selected Objects (S, C)</source>
         <translation>Scala gli oggetti selezionati (S, C)</translation>
     </message>
+    <message>
+        <source>Show all sizes together</source>
+        <translation>Mostra tutte le taglie insieme</translation>
+    </message>
+    <message>
+        <source>Size %1</source>
+        <translation>Taglia %1</translation>
+    </message>
+    <message>
+        <source>Sizes shown together. The current size is in brackets.</source>
+        <translation>Taglie mostrate insieme. La taglia corrente è tra parentesi quadre.</translation>
+    </message>
 </context>
 <context>
     <name>MainWindowsNoGUI</name>

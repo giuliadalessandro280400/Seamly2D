@@ -65,6 +65,8 @@
         <file>toolicon/32x32/rotation@2x.png</file>
         <file>toolicon/32x32/scale.png</file>
         <file>toolicon/32x32/scale@2x.png</file>
+        <file>toolicon/32x32/all_sizes.png</file>
+        <file>toolicon/32x32/all_sizes@2x.png</file>
         <file>toolicon/32x32/midpoint.png</file>
         <file>toolicon/32x32/midpoint@2x.png</file>
         <file>toolicon/32x32/mirror_by_line@2x.png</file>

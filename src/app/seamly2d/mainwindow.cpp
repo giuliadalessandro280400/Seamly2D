@@ -92,6 +92,10 @@
 #include "../vtools/tools/pattern_piece_tool.h"
 #include "../vtools/tools/union_tool.h"
 #include "../vtools/tools/drawTools/drawtools.h"
+#include "../vwidgets/vscenepoint.h"
+#include "../vwidgets/scalesceneitems.h"
+#include <QGraphicsPathItem>
+#include <QGraphicsLineItem>
 #include "../vtools/tools/nodeDetails/anchorpoint_tool.h"
 #include "../vtools/tools/nodeDetails/internal_path_tool.h"
 #include "../vtools/undocommands/addgroup.h"
@@ -2476,6 +2480,15 @@ void MainWindow::initializeStatusToolBar()
     {
         delete gradationSizesLabel;
     }
+    if (!m_allSizesButton.isNull())
+    {
+        clearAllSizes();
+        delete m_allSizesButton;
+    }
+    if (!m_allSizesLegend.isNull())
+    {
+        delete m_allSizesLegend;
+    }
 
     if (qApp->patternType() == MeasurementsType::Multisize)
     {
@@ -2500,6 +2513,21 @@ void MainWindow::initializeStatusToolBar()
         connect(gradationSizes.data(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
                 this, &MainWindow::ChangedSize);
 
+        // Show all sizes together (nest view)
+        m_allSizesButton = new QToolButton(this);
+        m_allSizesButton->setObjectName(QStringLiteral("allSizes_ToolButton"));
+        m_allSizesButton->setCheckable(true);
+        m_allSizesButton->setIcon(QIcon(":/toolicon/32x32/all_sizes.png"));
+        m_allSizesButton->setIconSize(QSize(20, 20));
+        m_allSizesButton->setToolTip(tr("Show all sizes together"));
+        ui->statusBar->addPermanentWidget(m_allSizesButton);
+        connect(m_allSizesButton.data(), &QToolButton::toggled, this, &MainWindow::toggleAllSizes);
+
+        m_allSizesLegend = new QLabel(this);
+        m_allSizesLegend->setVisible(false);
+        ui->statusBar->addPermanentWidget(m_allSizesLegend);
+
+        connect(doc, &VPattern::FullUpdateFromFile, this, &MainWindow::scheduleAllSizesUpdate, Qt::UniqueConnection);
     }
 
     if (mouseCoordinates.isNull())
@@ -5198,6 +5226,273 @@ void MainWindow::ChangedSize(int index)
             qCWarning(vMainWindow, "Couldn't restore size value.");
         }
     }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+namespace
+{
+// Marks the overlay items that draw the other sizes.
+const int AllSizesItemKey = 0x5CA1E;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief toggleAllSizes shows or hides every size of a multisize pattern drawn on top of each other (nest view).
+ */
+void MainWindow::toggleAllSizes(bool checked)
+{
+    if (checked)
+    {
+        updateAllSizes();
+    }
+    else
+    {
+        if (m_allSizesTimer != nullptr)
+        {
+            m_allSizesTimer->stop();
+        }
+        clearAllSizes();
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief scheduleAllSizesUpdate recalculates the nest view shortly after the pattern changed.
+ */
+void MainWindow::scheduleAllSizesUpdate()
+{
+    if (m_allSizesUpdating || m_allSizesButton.isNull() || not m_allSizesButton->isChecked())
+    {
+        return;
+    }
+
+    if (m_allSizesTimer == nullptr)
+    {
+        m_allSizesTimer = new QTimer(this);
+        m_allSizesTimer->setSingleShot(true);
+        m_allSizesTimer->setInterval(400);
+        connect(m_allSizesTimer, &QTimer::timeout, this, &MainWindow::updateAllSizes);
+    }
+    m_allSizesTimer->start();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void MainWindow::clearAllSizes()
+{
+    const QList<QGraphicsScene *> scenes = {draftScene, pieceScene};
+    for (QGraphicsScene *scene : scenes)
+    {
+        if (scene == nullptr)
+        {
+            continue;
+        }
+        const QList<QGraphicsItem *> items = scene->items();
+        for (QGraphicsItem *item : items)
+        {
+            if (item->data(AllSizesItemKey).toBool())
+            {
+                scene->removeItem(item);
+                delete item;
+            }
+        }
+    }
+
+    if (not m_allSizesLegend.isNull())
+    {
+        m_allSizesLegend->clear();
+        m_allSizesLegend->setVisible(false);
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief captureSceneGeometry collects the outlines currently drawn in a scene: curves, lines, piece outlines and a
+ * small cross for every point.
+ */
+QPainterPath MainWindow::captureSceneGeometry(QGraphicsScene *scene, bool activeBlockOnly) const
+{
+    QPainterPath result;
+    if (scene == nullptr)
+    {
+        return result;
+    }
+
+    const qreal cross = ToPixel(1.5, Unit::Mm);
+
+    const QList<QGraphicsItem *> items = scene->items();
+    for (QGraphicsItem *item : items)
+    {
+        if (not item->isVisible() || item->data(AllSizesItemKey).toBool())
+        {
+            continue;
+        }
+
+        // In draft mode tools of the other draft blocks are disabled.
+        if (activeBlockOnly && not item->isEnabled())
+        {
+            continue;
+        }
+
+        if (auto *point = dynamic_cast<VScenePoint *>(item))
+        {
+            const QPointF p = point->scenePos();
+            result.moveTo(p.x() - cross, p.y());
+            result.lineTo(p.x() + cross, p.y());
+            result.moveTo(p.x(), p.y() - cross);
+            result.lineTo(p.x(), p.y() + cross);
+            continue;
+        }
+
+        if (auto *pathItem = dynamic_cast<QGraphicsPathItem *>(item))
+        {
+            result.addPath(pathItem->sceneTransform().map(pathItem->path()));
+            continue;
+        }
+
+        if (auto *lineItem = dynamic_cast<QGraphicsLineItem *>(item))
+        {
+            // Skip the small leader lines between a point and its label, and arrows.
+            if (dynamic_cast<VScenePoint *>(lineItem->parentItem()) != nullptr ||
+                dynamic_cast<ArrowedLineItem *>(lineItem) != nullptr)
+            {
+                continue;
+            }
+            const QLineF line = lineItem->sceneTransform().map(lineItem->line());
+            result.moveTo(line.p1());
+            result.lineTo(line.p2());
+        }
+    }
+    return result;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief updateAllSizes recalculates the pattern for every size of the multisize measurements, captures the drawing
+ * and shows the other sizes in color under the current (base) size, like a nest view.
+ */
+void MainWindow::updateAllSizes()
+{
+    if (m_allSizesUpdating)
+    {
+        return;
+    }
+
+    clearAllSizes();
+
+    if (m_allSizesButton.isNull() || not m_allSizesButton->isChecked() || gradationSizes.isNull() ||
+        qApp->patternType() != MeasurementsType::Multisize)
+    {
+        return;
+    }
+
+    // Do not recalculate while a tool is being created, try again later.
+    if (not dialogTool.isNull())
+    {
+        scheduleAllSizesUpdate();
+        return;
+    }
+
+    m_allSizesUpdating = true;
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    struct SizeShape
+    {
+        qreal        size;
+        QPainterPath draft;
+        QPainterPath pieces;
+    };
+
+    // The current size is the one shown in the status bar.
+    bool baseOk = false;
+    qreal baseSize = gradationSizes->currentText().toDouble(&baseOk);
+    if (not baseOk)
+    {
+        baseSize = VContainer::size();
+    }
+    QVector<qreal> sizes;
+    for (int i = 0; i < gradationSizes->count(); ++i)
+    {
+        bool ok = false;
+        const qreal size = gradationSizes->itemText(i).toDouble(&ok);
+        if (ok)
+        {
+            sizes.append(size);
+        }
+    }
+
+    QVector<SizeShape> shapes;
+    for (const qreal size : std::as_const(sizes))
+    {
+        if (qFuzzyCompare(size, baseSize))
+        {
+            continue;
+        }
+        VContainer::setSize(size);
+        doc->LiteParseTree(Document::LiteParse);
+        shapes.append({size, captureSceneGeometry(draftScene, true), captureSceneGeometry(pieceScene, false)});
+    }
+
+    // Back to the current size
+    VContainer::setSize(baseSize);
+    doc->LiteParseTree(Document::LiteParse);
+    emit pieceScene->DimensionsChanged();
+
+    // Colors run from blue (smallest) to red (largest); the current size keeps its normal black drawing.
+    QStringList legend;
+    const int count = sizes.size();
+    for (int i = 0; i < count; ++i)
+    {
+        const qreal size = sizes.at(i);
+        const qreal t = count > 1 ? static_cast<qreal>(i) / (count - 1) : 0;
+        const QColor color = QColor::fromHsv(static_cast<int>(240 * (1.0 - t)), 230, 215);
+        const QString sizeText = gradationSizes->itemText(i);
+
+        if (qFuzzyCompare(size, baseSize))
+        {
+            legend.append(QStringLiteral("<b>[%1]</b>").arg(sizeText));
+            continue;
+        }
+        legend.append(QStringLiteral("<span style=\"color:%1\">&#9632;</span>%2").arg(color.name(), sizeText));
+
+        for (const SizeShape &shape : std::as_const(shapes))
+        {
+            if (not qFuzzyCompare(shape.size, size))
+            {
+                continue;
+            }
+
+            const QList<QPair<QGraphicsScene *, QPainterPath>> targets = {{draftScene, shape.draft},
+                                                                          {pieceScene, shape.pieces}};
+            for (const auto &target : targets)
+            {
+                if (target.first == nullptr || target.second.isEmpty())
+                {
+                    continue;
+                }
+                QPen pen(color);
+                pen.setCosmetic(true);
+                pen.setWidthF(1.2);
+                auto *item = new QGraphicsPathItem(target.second);
+                item->setPen(pen);
+                item->setBrush(Qt::NoBrush);
+                item->setZValue(-10);
+                item->setAcceptedMouseButtons(Qt::NoButton);
+                item->setData(AllSizesItemKey, true);
+                item->setToolTip(tr("Size %1").arg(sizeText));
+                target.first->addItem(item);
+            }
+        }
+    }
+
+    if (not m_allSizesLegend.isNull())
+    {
+        m_allSizesLegend->setText(legend.join(QStringLiteral(" ")));
+        m_allSizesLegend->setToolTip(tr("Sizes shown together. The current size is in brackets."));
+        m_allSizesLegend->setVisible(true);
+    }
+
+    QApplication::restoreOverrideCursor();
+    m_allSizesUpdating = false;
 }
 
 //---------------------------------------------------------------------------------------------------------------------
