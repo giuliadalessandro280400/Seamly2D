@@ -21,6 +21,7 @@ HEADERS += \
     $$PWD/drawTools/toolcurve/vtoolsplinepath.h \
     $$PWD/drawTools/toolcurve/vtoolspline.h \
     $$PWD/drawTools/toolcurve/proportionalhandles.h \
+    $$PWD/piece_node_handle.h \
     $$PWD/drawTools/toolpoint/toolsinglepoint/toollinepoint/vtoolshoulderpoint.h \
     $$PWD/drawTools/toolpoint/toolsinglepoint/vtoolsinglepoint.h \
     $$PWD/drawTools/toolpoint/toolsinglepoint/toollinepoint/vtoolnormal.h \
@@ -121,6 +122,7 @@ SOURCES += \
     $$PWD/drawTools/operation/vtoolrotation.cpp \
     $$PWD/drawTools/operation/vtoolscale.cpp \
     $$PWD/drawTools/operation/vtoolalign.cpp \
+    $$PWD/piece_node_handle.cpp \
     $$PWD/drawTools/operation/vabstractoperation.cpp \
     $$PWD/drawTools/operation/vtoolmove.cpp \
     $$PWD/drawTools/toolcurve/vtoolellipticalarc.cpp \

@@ -378,6 +378,8 @@ public:
     static const QString AttrArrowLength;
     static const QString AttrNodeReverse;
     static const QString AttrNodeExcluded;
+    static const QString AttrNodeOffsetX;
+    static const QString AttrNodeOffsetY;
     static const QString AttrNodeIsNotch;
     static const QString AttrNodeNotchType;
     static const QString AttrNodeNotchSubType;

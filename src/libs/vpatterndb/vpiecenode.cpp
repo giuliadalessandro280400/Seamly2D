@@ -418,3 +418,28 @@ void VPieceNode::SetExcluded(bool exclude)
 {
     d->m_excluded = exclude;
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief getOffset returns the manual displacement of the point in the piece editor, in pattern units.
+ * The draft is not changed: only this piece uses the displaced point.
+ */
+QPointF VPieceNode::getOffset() const
+{
+    return d->m_offset;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VPieceNode::setOffset(const QPointF &offset)
+{
+    if (d->m_typeTool == Tool::NodePoint)
+    {
+        d->m_offset = offset;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+bool VPieceNode::hasOffset() const
+{
+    return not qFuzzyIsNull(d->m_offset.x()) || not qFuzzyIsNull(d->m_offset.y());
+}

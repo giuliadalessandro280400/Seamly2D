@@ -141,6 +141,7 @@ public slots:
     void                 updatePatternLabel();
     void                 updateGrainline();
     void                 editPieceProperties();
+    void                 resetAllNodeOffsets();
 
 protected slots:
     void                 saveMovePiece(const QPointF &ptPos);
@@ -158,6 +159,8 @@ private slots:
     void                 notchChanged(quint32 id, NotchData notchData);
     void                 nodeExcluded(quint32 id);
     void                 nodeDeleted(quint32 id);
+    void                 nodeHandleMoved(quint32 nodeId, const QPointF &position);
+    void                 nodeHandleReset(quint32 nodeId);
 
 protected:
     virtual void         AddToFile () override;
@@ -189,12 +192,16 @@ private:
     VTextGraphicsItem      *m_patternInfo;
     VGrainlineItem         *m_grainLine;
     QGraphicsPathItem      *m_notches;
+    QGraphicsPathItem      *m_draftTrace;   /// @brief outline of the piece as the draft has it (piece editor)
+    QVector<class PieceNodeHandle *> m_nodeHandles; /// @brief draggable points of the piece editor
 
                            PatternPieceTool(VAbstractPattern *doc, VContainer *data, const quint32 &id,
                                               const Source &typeCreation, VMainGraphicsScene *scene,
                                               const QString &blockName, QGraphicsItem * parent = nullptr);
 
     void                  updateExcludeState();
+    void                  updateNodeHandles();
+    static void           applyNodeOffsets(quint32 pieceId, const VPiece &piece, VContainer *data);
     void                  updateInternalPaths();
 
     VPieceItem::MoveTypes findLabelGeometry(const VPatternLabelData &labelData, qreal &rotationAngle, qreal &labelWidth,

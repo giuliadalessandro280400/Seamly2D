@@ -638,6 +638,13 @@ QDomElement VAbstractTool::AddSANode(VAbstractPattern *doc, const QString &tagNa
         {
             doc->SetAttribute(nod, VAbstractPattern::AttrSAAfter, node.GetFormulaSAAfter());
         }
+
+        // Manual displacement made in the piece editor
+        if (node.hasOffset())
+        {
+            doc->SetAttribute(nod, VAbstractPattern::AttrNodeOffsetX, node.getOffset().x());
+            doc->SetAttribute(nod, VAbstractPattern::AttrNodeOffsetY, node.getOffset().y());
+        }
     }
 
     {

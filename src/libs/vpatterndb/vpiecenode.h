@@ -54,6 +54,7 @@
 #include <QtGlobal>
 #include <QSharedDataPointer>
 #include <QMetaType>
+#include <QPointF>
 
 #include "../vmisc/def.h"
 
@@ -135,6 +136,10 @@ public:
     void                setNotchAngle(qreal notchAngle);
 
     int                 getNotchCount() const;
+
+    QPointF             getOffset() const;
+    void                setOffset(const QPointF &offset);
+    bool                hasOffset() const;
     void                setNotchCount(int notchCount);
 
 private:

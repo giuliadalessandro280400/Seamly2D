@@ -92,6 +92,12 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QPainterPathStroker>
+#include "piece_node_handle.h"
+#include "../undocommands/movepiecenode.h"
+#include "../vgeometry/vspline.h"
+#include "../vgeometry/vsplinepath.h"
+#include "../vgeometry/vcubicbezier.h"
+#include "../vgeometry/vcubicbezierpath.h"
 
 // Current version of seam allowance tag need for backward compatibility
 const quint8 PatternPieceTool::pieceVersion = 2;
@@ -166,6 +172,9 @@ PatternPieceTool *PatternPieceTool::Create(quint32 id, VPiece newPiece, QString 
             doc->UpdateToolData(id, data);
         }
     }
+
+    // Piece editor: points moved by hand in this piece (the draft is not changed)
+    applyNodeOffsets(id, newPiece, data);
 
     PatternPieceTool *patternPiece = nullptr;
     if (parse == Document::FullParse)
@@ -1074,6 +1083,11 @@ QVariant PatternPieceTool::itemChange(QGraphicsItem::GraphicsItemChange change, 
         }
     }
 
+    if (change == QGraphicsItem::ItemSelectedHasChanged)
+    {
+        updateNodeHandles();
+    }
+
     return QGraphicsPathItem::itemChange(change, value);
 }
 
@@ -1215,6 +1229,15 @@ void PatternPieceTool::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
     _referens > 0 ? deletePiece->setEnabled(false) : deletePiece->setEnabled(true);
     deletePiece->setEnabled(lock);
 
+    // Piece editor: put every point back where the draft has it
+    bool hasOffsets = false;
+    for (int i = 0; i < piece.GetPath().nodeCount(); ++i)
+    {
+        hasOffsets = hasOffsets || piece.GetPath().at(i).hasOffset();
+    }
+    QAction *resetShape = menu.addAction(tr("Reset to Draft Shape"));
+    resetShape->setEnabled(lock && hasOffsets);
+
     QAction *selectedAction = menu.exec(event->screenPos());
     if (selectedAction == editProperties)
     {
@@ -1263,6 +1286,10 @@ void PatternPieceTool::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
     else if (selectedAction == rename)
     {
         renamePiece(piece);
+    }
+    else if (selectedAction == resetShape)
+    {
+        resetAllNodeOffsets();
     }
     else if (selectedAction == deletePiece)
     {
@@ -1431,7 +1458,21 @@ PatternPieceTool::PatternPieceTool(VAbstractPattern *doc, VContainer *data, cons
     , m_patternInfo(new VTextGraphicsItem(this))
     , m_grainLine(new VGrainlineItem(this))
     , m_notches(new QGraphicsPathItem(this))
+    , m_draftTrace(new QGraphicsPathItem(this))
+    , m_nodeHandles()
 {
+    {
+        // Piece editor: the outline of the draft stays visible under a modified piece.
+        QPen tracePen(QColor(150, 150, 150));
+        tracePen.setCosmetic(true);
+        tracePen.setWidthF(1.0);
+        tracePen.setStyle(Qt::DashLine);
+        m_draftTrace->setPen(tracePen);
+        m_draftTrace->setBrush(Qt::NoBrush);
+        m_draftTrace->setFlag(QGraphicsItem::ItemStacksBehindParent, true);
+        m_draftTrace->setAcceptedMouseButtons(Qt::NoButton);
+    }
+
     VPiece piece = data->GetPiece(id);
     initializeNodes(piece, scene);
     InitCSAPaths(piece);
@@ -1583,6 +1624,7 @@ void PatternPieceTool::RefreshGeometry()
 
     m_notches->setPath(piece.getNotchesPath(this->getData(), seamAllowancePoints));
 
+    updateNodeHandles();
     updatePieceDetails();
 
     this->setPos(piece.GetMx(), piece.GetMy());
@@ -2409,4 +2451,326 @@ void PatternPieceTool::lowerItemToBottom(QGraphicsItem *item)
             }
         }
     }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+// Piece editor
+//---------------------------------------------------------------------------------------------------------------------
+namespace
+{
+// Outline of every modified piece as the draft has it, filled while the pattern is parsed.
+QHash<quint32, QPainterPath> &draftTraces()
+{
+    static QHash<quint32, QPainterPath> traces;
+    return traces;
+}
+
+bool samePoint(const QPointF &a, const QPointF &b)
+{
+    return QLineF(a, b).length() < 0.5; // pixels
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief moveCurveEnd moves the end of a curve copy that touches a displaced point, together with its handle, like
+ * moving an anchor point in a vector editor. Arcs cannot be bent this way and are left as they are.
+ */
+void moveCurveEnd(VContainer *data, quint32 curveId, const QPointF &endPoint, const QPointF &delta)
+{
+    const QSharedPointer<VGObject> obj = data->GetGObject(curveId);
+    const auto copyProperties = [](VAbstractCurve &target, const VAbstractCurve &source)
+    {
+        target.setName(source.name());
+        target.setLineColor(source.getLineColor());
+        target.SetPenStyle(source.GetPenStyle());
+        target.setLineWeight(source.getLineWeight());
+        target.SetDuplicate(source.GetDuplicate());
+        target.setIdObject(source.getIdObject());
+        target.setMode(source.getMode());
+    };
+
+    switch (static_cast<GOType>(obj->getType()))
+    {
+        case GOType::Spline:
+        {
+            const QSharedPointer<VSpline> spl = data->GeometricObject<VSpline>(curveId);
+            VPointF p1 = spl->GetP1();
+            VPointF p4 = spl->GetP4();
+            QPointF p2 = static_cast<QPointF>(spl->GetP2());
+            QPointF p3 = static_cast<QPointF>(spl->GetP3());
+            if (samePoint(static_cast<QPointF>(p1), endPoint))
+            {
+                p1.setX(p1.x() + delta.x()); p1.setY(p1.y() + delta.y()); p2 += delta;
+            }
+            else if (samePoint(static_cast<QPointF>(p4), endPoint))
+            {
+                p4.setX(p4.x() + delta.x()); p4.setY(p4.y() + delta.y()); p3 += delta;
+            }
+            else
+            {
+                return;
+            }
+            VSpline moved(p1, p2, p3, p4, spl->getIdObject(), spl->getMode());
+            copyProperties(moved, *spl);
+            data->UpdateGObject(curveId, new VSpline(moved));
+            break;
+        }
+        case GOType::CubicBezier:
+        {
+            const QSharedPointer<VCubicBezier> spl = data->GeometricObject<VCubicBezier>(curveId);
+            VPointF p1 = spl->GetP1(), p2 = spl->GetP2(), p3 = spl->GetP3(), p4 = spl->GetP4();
+            auto shift = [&delta](VPointF &p) { p.setX(p.x() + delta.x()); p.setY(p.y() + delta.y()); };
+            if (samePoint(static_cast<QPointF>(p1), endPoint))
+            {
+                shift(p1); shift(p2);
+            }
+            else if (samePoint(static_cast<QPointF>(p4), endPoint))
+            {
+                shift(p4); shift(p3);
+            }
+            else
+            {
+                return;
+            }
+            VCubicBezier moved(p1, p2, p3, p4, spl->getIdObject(), spl->getMode());
+            copyProperties(moved, *spl);
+            data->UpdateGObject(curveId, new VCubicBezier(moved));
+            break;
+        }
+        case GOType::SplinePath:
+        {
+            const QSharedPointer<VSplinePath> path = data->GeometricObject<VSplinePath>(curveId);
+            VSplinePath moved = *path;
+            const int last = moved.CountPoints() - 1;
+            int index = -1;
+            if (samePoint(static_cast<QPointF>(moved.at(0).P()), endPoint))
+            {
+                index = 0;
+            }
+            else if (last > 0 && samePoint(static_cast<QPointF>(moved.at(last).P()), endPoint))
+            {
+                index = last;
+            }
+            if (index < 0)
+            {
+                return;
+            }
+            // Handles are stored as angle and length, so moving the point moves its handle too.
+            VSplinePoint point = moved.at(index);
+            VPointF p = point.P();
+            p.setX(p.x() + delta.x());
+            p.setY(p.y() + delta.y());
+            point.SetP(p);
+            moved[index] = point;
+            data->UpdateGObject(curveId, new VSplinePath(moved));
+            break;
+        }
+        case GOType::CubicBezierPath:
+        {
+            const QSharedPointer<VCubicBezierPath> path = data->GeometricObject<VCubicBezierPath>(curveId);
+            QVector<VPointF> points = path->GetCubicPath();
+            if (points.size() < 4)
+            {
+                return;
+            }
+            auto shift = [&delta](VPointF &p) { p.setX(p.x() + delta.x()); p.setY(p.y() + delta.y()); };
+            const int last = points.size() - 1;
+            if (samePoint(static_cast<QPointF>(points.at(0)), endPoint))
+            {
+                shift(points[0]); shift(points[1]);
+            }
+            else if (samePoint(static_cast<QPointF>(points.at(last)), endPoint))
+            {
+                shift(points[last]); shift(points[last - 1]);
+            }
+            else
+            {
+                return;
+            }
+            VCubicBezierPath moved(points, path->getIdObject(), path->getMode());
+            copyProperties(moved, *path);
+            data->UpdateGObject(curveId, new VCubicBezierPath(moved));
+            break;
+        }
+        default:
+            break; // arcs keep their shape
+    }
+}
+} // namespace
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief applyNodeOffsets moves the points of a piece by the offsets set in the piece editor.
+ *
+ * The piece is built from copies of the draft objects, so only the copies are changed and the draft stays as it is.
+ * The curves next to a moved point follow it. The outline before the change is kept to draw the draft trace.
+ */
+void PatternPieceTool::applyNodeOffsets(quint32 pieceId, const VPiece &piece, VContainer *data)
+{
+    const VPiecePath path = piece.GetPath();
+    bool hasOffsets = false;
+    for (int i = 0; i < path.nodeCount(); ++i)
+    {
+        hasOffsets = hasOffsets || (path.at(i).GetTypeTool() == Tool::NodePoint && path.at(i).hasOffset());
+    }
+
+    if (not hasOffsets)
+    {
+        draftTraces().remove(pieceId);
+        return;
+    }
+
+    // Trace of the draft shape, before moving anything
+    {
+        QPainterPath trace;
+        const QVector<QPointF> points = piece.mainPathPoints(data);
+        if (not points.isEmpty())
+        {
+            trace.addPolygon(QPolygonF(points));
+            trace.closeSubpath();
+        }
+        draftTraces().insert(pieceId, trace);
+    }
+
+    const int count = path.nodeCount();
+    for (int i = 0; i < count; ++i)
+    {
+        const VPieceNode &node = path.at(i);
+        if (node.GetTypeTool() != Tool::NodePoint || not node.hasOffset())
+        {
+            continue;
+        }
+
+        const QSharedPointer<VPointF> point = data->GeometricObject<VPointF>(node.GetId());
+        const QPointF original = static_cast<QPointF>(*point);
+        const QPointF delta(qApp->toPixel(node.getOffset().x()), qApp->toPixel(node.getOffset().y()));
+
+        VPointF moved(*point);
+        moved.setX(original.x() + delta.x());
+        moved.setY(original.y() + delta.y());
+        data->UpdateGObject(node.GetId(), new VPointF(moved));
+
+        // The curves before and after the point follow it
+        for (const int neighbour : {(i - 1 + count) % count, (i + 1) % count})
+        {
+            const VPieceNode &curveNode = path.at(neighbour);
+            if (neighbour != i && curveNode.GetTypeTool() != Tool::NodePoint)
+            {
+                moveCurveEnd(data, curveNode.GetId(), original, delta);
+            }
+        }
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief updateNodeHandles shows a draggable square on every point of the selected piece and the draft trace under a
+ * modified piece.
+ */
+void PatternPieceTool::updateNodeHandles()
+{
+    const VPiece piece = VAbstractTool::data.GetPiece(m_id);
+    const VPiecePath path = piece.GetPath();
+
+    m_draftTrace->setPath(draftTraces().value(m_id));
+    m_draftTrace->setVisible(not m_draftTrace->path().isEmpty());
+
+    QVector<quint32> nodeIds;
+    QVector<bool> modified;
+    for (int i = 0; i < path.nodeCount(); ++i)
+    {
+        const VPieceNode &node = path.at(i);
+        if (node.GetTypeTool() == Tool::NodePoint)
+        {
+            // The point marks of the piece were drawn before the offsets were applied: refresh them.
+            if (auto *nodePoint = qobject_cast<VNodePoint *>(VAbstractPattern::getTool(node.GetId())))
+            {
+                nodePoint->FullUpdateFromFile();
+            }
+        }
+        if (node.GetTypeTool() == Tool::NodePoint && not node.isExcluded())
+        {
+            nodeIds.append(node.GetId());
+            modified.append(node.hasOffset());
+        }
+    }
+
+    // Recreate the handles only when the points of the piece changed (never during a drag)
+    bool sameNodes = m_nodeHandles.size() == nodeIds.size();
+    for (int i = 0; sameNodes && i < nodeIds.size(); ++i)
+    {
+        sameNodes = m_nodeHandles.at(i)->nodeId() == nodeIds.at(i);
+    }
+    if (not sameNodes)
+    {
+        qDeleteAll(m_nodeHandles);
+        m_nodeHandles.clear();
+        for (const quint32 nodeId : nodeIds)
+        {
+            auto *handle = new PieceNodeHandle(nodeId, this);
+            connect(handle, &PieceNodeHandle::moved, this, &PatternPieceTool::nodeHandleMoved);
+            connect(handle, &PieceNodeHandle::resetRequested, this, &PatternPieceTool::nodeHandleReset);
+            m_nodeHandles.append(handle);
+        }
+    }
+
+    const bool show = isSelected() && not piece.isLocked();
+    for (int i = 0; i < m_nodeHandles.size(); ++i)
+    {
+        PieceNodeHandle *handle = m_nodeHandles.at(i);
+        handle->setModified(modified.at(i));
+        if (not handle->isDragging())
+        {
+            handle->setPos(static_cast<QPointF>(*VAbstractTool::data.GeometricObject<VPointF>(handle->nodeId())));
+        }
+        handle->setVisible(show);
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::nodeHandleMoved(quint32 nodeId, const QPointF &position)
+{
+    const VPiece piece = VAbstractTool::data.GetPiece(m_id);
+    const VPiecePath path = piece.GetPath();
+    const int index = path.indexOfNode(nodeId);
+    if (index < 0)
+    {
+        return;
+    }
+
+    // Draft position = current position - current offset
+    const QPointF current = static_cast<QPointF>(*VAbstractTool::data.GeometricObject<VPointF>(nodeId));
+    const QPointF oldOffset = path.at(index).getOffset();
+    const QPointF draftPosition(current.x() - qApp->toPixel(oldOffset.x()), current.y() - qApp->toPixel(oldOffset.y()));
+    const QPointF newOffset(qApp->fromPixel(position.x() - draftPosition.x()),
+                            qApp->fromPixel(position.y() - draftPosition.y()));
+
+    auto *cmd = new MovePieceNode(doc, m_id, nodeId, newOffset);
+    connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
+    qApp->getUndoStack()->push(cmd);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::nodeHandleReset(quint32 nodeId)
+{
+    auto *cmd = new MovePieceNode(doc, m_id, nodeId, QPointF());
+    connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
+    qApp->getUndoStack()->push(cmd);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::resetAllNodeOffsets()
+{
+    const VPiecePath path = VAbstractTool::data.GetPiece(m_id).GetPath();
+    qApp->getUndoStack()->beginMacro(tr("reset piece to draft shape"));
+    for (int i = 0; i < path.nodeCount(); ++i)
+    {
+        if (path.at(i).hasOffset())
+        {
+            auto *cmd = new MovePieceNode(doc, m_id, path.at(i).GetId(), QPointF());
+            connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
+            qApp->getUndoStack()->push(cmd);
+        }
+    }
+    qApp->getUndoStack()->endMacro();
 }

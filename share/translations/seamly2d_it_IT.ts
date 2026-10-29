@@ -8500,6 +8500,14 @@ Premere Invio per aggiungerlo temporaneamente all&apos;elenco.</translation>
         <source>Delete Node</source>
         <translation>Elimina nodo</translation>
     </message>
+    <message>
+        <source>Reset to Draft Shape</source>
+        <translation>Ripristina la forma della bozza</translation>
+    </message>
+    <message>
+        <source>reset piece to draft shape</source>
+        <translation>ripristina il pezzo alla forma della bozza</translation>
+    </message>
 </context>
 <context>
     <name>PenToolBar</name>
@@ -15948,6 +15956,13 @@ di controllo</translation>
     <message>
         <source>Align: rotation %1°</source>
         <translation>Allinea: rotazione %1°</translation>
+    </message>
+</context>
+<context>
+    <name>PieceNodeHandle</name>
+    <message>
+        <source>Drag to move this point of the piece (the draft does not change). Double click to put it back.</source>
+        <translation>Trascina per spostare questo punto del pezzo (la bozza non cambia). Doppio clic per rimetterlo a posto.</translation>
     </message>
 </context>
 </TS>
