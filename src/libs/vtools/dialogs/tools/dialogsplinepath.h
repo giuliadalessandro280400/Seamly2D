@@ -75,6 +75,8 @@ public:
                  DialogSplinePath(const VContainer *data, const quint32 &toolId, QWidget *parent = nullptr);
     virtual     ~DialogSplinePath() override;
 
+    bool         getProportionalHandles() const;
+    void         setProportionalHandles(bool value);
     VSplinePath  GetPath() const;
     void         SetPath(const VSplinePath &value);
 

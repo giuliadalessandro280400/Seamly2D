@@ -50,6 +50,7 @@
  *************************************************************************/
 
 #include "movespline.h"
+#include "../tools/drawTools/toolcurve/proportionalhandles.h"
 
 #include <QDomElement>
 
@@ -133,6 +134,24 @@ void MoveSpline::Do(const VSpline &spl)
         doc->SetAttribute(domElement, AttrAngle2,  spl.GetEndAngleFormula());
         doc->SetAttribute(domElement, AttrLength1, spl.GetC1LengthFormula());
         doc->SetAttribute(domElement, AttrLength2, spl.GetC2LengthFormula());
+
+        // Proportional handles: store the dragged lengths relative to the reference chord.
+        const qreal refChord = domElement.attribute(ProportionalHandles::attrRefChord(), QStringLiteral("0")).toDouble();
+        if (refChord > 0)
+        {
+            const qreal currentChord = ProportionalHandles::chord(static_cast<QPointF>(spl.GetP1()),
+                                                                  static_cast<QPointF>(spl.GetP4()));
+            if (ProportionalHandles::isNumber(spl.GetC1LengthFormula()))
+            {
+                doc->SetAttribute(domElement, AttrLength1, ProportionalHandles::toStored(
+                                      qApp->fromPixel(spl.GetC1Length()), currentChord, refChord));
+            }
+            if (ProportionalHandles::isNumber(spl.GetC2LengthFormula()))
+            {
+                doc->SetAttribute(domElement, AttrLength2, ProportionalHandles::toStored(
+                                      qApp->fromPixel(spl.GetC2Length()), currentChord, refChord));
+            }
+        }
 
         emit NeedLiteParsing(Document::LiteParse);
     }

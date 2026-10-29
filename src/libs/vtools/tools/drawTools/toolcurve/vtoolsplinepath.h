@@ -79,12 +79,14 @@ public:
                                    VAbstractPattern *doc, VContainer *data);
     static VToolSplinePath *Create(const quint32 _id, VSplinePath *path,
                                    VMainGraphicsScene *scene, VAbstractPattern *doc, VContainer *data,
-                                   const Document &parse, const Source &typeCreation);
+                                   const Document &parse, const Source &typeCreation,
+                                   const QVector<qreal> &refChords = QVector<qreal>());
     static VToolSplinePath *Create(const quint32 _id, const QVector<quint32> &points, QVector<QString> &a1,
                                    QVector<QString> &a2, QVector<QString> &l1, QVector<QString> &l2,
                                    const QString &color, const QString &penStyle, const QString &lineWeight,
                                    quint32 duplicate, VMainGraphicsScene *scene, VAbstractPattern *doc,
-                                   VContainer *data, const Document &parse, const Source &typeCreation);
+                                   VContainer *data, const Document &parse, const Source &typeCreation,
+                                   const QVector<qreal> &refChords = QVector<qreal>());
     static const QString ToolType;
     static const QString OldToolType;
     static void   UpdatePathPoints(VAbstractPattern *doc, QDomElement &element, const VSplinePath &path);
@@ -95,6 +97,10 @@ public:
     void          setSplinePath(const VSplinePath &splPath);
 
     virtual void  ShowVisualization(bool show) override;
+
+    QVector<qreal> getRefChords() const;
+    static QVector<qreal> segmentChords(const VSplinePath &path);
+    static VSplinePath    toStoredLengths(const VSplinePath &path, const QVector<qreal> &refChords);
 
 signals:
     // @brief refreshLine refresh control line.
@@ -115,6 +121,7 @@ protected slots:
 
 protected:
     virtual void  RemoveReferens() override;
+    virtual void  ReadToolAttributes(const QDomElement &domElement) override;
     virtual void  SaveDialog(QDomElement &domElement) override;
     virtual void  SaveOptions(QDomElement &tag, QSharedPointer<VGObject> &obj) override;
     virtual void  mousePressEvent(QGraphicsSceneMouseEvent * event) override;
@@ -129,9 +136,11 @@ private:
     Q_DISABLE_COPY(VToolSplinePath)
     QPointF       oldPosition;
     int           splIndex;
+    QVector<qreal> m_refChords;  ///< reference chords of the segments for proportional handles, empty = off
 
                   VToolSplinePath(VAbstractPattern *doc, VContainer *data, quint32 id,
-                                  const Source &typeCreation, QGraphicsItem *parent = nullptr);
+                                  const Source &typeCreation, const QVector<qreal> &refChords = QVector<qreal>(),
+                                  QGraphicsItem *parent = nullptr);
 
     bool          IsMovable(int index) const;
     static void   AddPathPoint(VAbstractPattern *doc, QDomElement &domElement, const VSplinePoint &splPoint);

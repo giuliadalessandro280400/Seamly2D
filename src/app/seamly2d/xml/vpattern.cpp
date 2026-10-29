@@ -54,6 +54,7 @@
 #include "../vtools/tools/pattern_piece_tool.h"
 #include "../vtools/tools/union_tool.h"
 #include "../vtools/tools/drawTools/drawtools.h"
+#include "../vtools/tools/drawTools/toolcurve/proportionalhandles.h"
 #include "../vtools/tools/nodeDetails/nodedetails.h"
 #include "../tools/images/image_tool.h"
 #include "../ifc/exception/vexceptionobjecterror.h"
@@ -2461,10 +2462,11 @@ void VPattern::ParseToolSpline(VMainGraphicsScene *scene, QDomElement &domElemen
         const bool autoSmooth = (domElement.attribute(AttrAutoSmooth) == QStringLiteral("true"));
         const int lengthMode = domElement.attribute(AttrLengthMode, QStringLiteral("0")).toInt();
         const QString targetLength = domElement.attribute(AttrLength, QString());
+        const qreal refChord = domElement.attribute(ProportionalHandles::attrRefChord(), QStringLiteral("0")).toDouble();
 
         VToolSpline *spl = VToolSpline::Create(id, point1, point4, a1, a2, l1, l2, duplicate, color, penStyle,
                                                lineWeight, scene, this, data, parse, Source::FromFile,
-                                               autoSmooth, lengthMode, targetLength);
+                                               autoSmooth, lengthMode, targetLength, refChord);
 
         if (spl != nullptr)
         {
@@ -2658,8 +2660,11 @@ void VPattern::ParseToolSplinePath(VMainGraphicsScene *scene, const QDomElement 
         l1 = length1;
         l2 = length2;
 
+        const QVector<qreal> refChords = ProportionalHandles::parseList(
+                    domElement.attribute(ProportionalHandles::attrRefChords()));
         VToolSplinePath *spl = VToolSplinePath::Create(id, points, a1, a2, l1, l2, color, penStyle, lineWeight,
-                                                       duplicate, scene, this, data, parse, Source::FromFile);
+                                                       duplicate, scene, this, data, parse, Source::FromFile,
+                                                       refChords);
 
         if (spl != nullptr)
         {

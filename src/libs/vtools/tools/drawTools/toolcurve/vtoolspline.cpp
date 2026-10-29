@@ -74,6 +74,7 @@
 #include "../ifc/exception/vexception.h"
 #include "../ifc/ifcdef.h"
 #include "../qmuparser/qmutokenparser.h"
+#include "proportionalhandles.h"
 #include "../vgeometry/vabstractcurve.h"
 #include "../vgeometry/vgobject.h"
 #include "../vgeometry/vpointf.h"
@@ -98,13 +99,14 @@ const QString VToolSpline::OldToolType = QStringLiteral("simple");
 // @param parent parent object.
 VToolSpline::VToolSpline(VAbstractPattern *doc, VContainer *data, quint32 id,
                          bool autoSmooth, int lengthMode,
-                         const QString &targetLength,
+                         const QString &targetLength, qreal refChord,
                          const Source &typeCreation, QGraphicsItem *parent)
     : VAbstractSpline(doc, data, id, parent)
     , oldPosition()
     , m_autoSmooth(autoSmooth)
     , m_lengthMode(lengthMode)
     , m_targetLength(targetLength)
+    , m_refChord(refChord)
 {
     m_sceneType = SceneObject::Spline;
 
@@ -153,6 +155,7 @@ void VToolSpline::setDialog()
     dialogTool->SetAutoSmooth(m_autoSmooth);
     dialogTool->SetLengthMode(m_lengthMode);
     dialogTool->SetTargetLength(m_targetLength);
+    dialogTool->setProportionalHandles(m_refChord > 0);
     dialogTool->setLineColor(spl->getLineColor());
     dialogTool->setLineWeight(spl->getLineWeight());
     dialogTool->setPenStyle(spl->GetPenStyle());
@@ -179,8 +182,13 @@ VToolSpline* VToolSpline::Create(QSharedPointer<DialogTool> dialog, VMainGraphic
     const int lengthMode = dialogTool->GetLengthMode();
     const QString targetLength = dialogTool->GetTargetLength();
 
+    // Proportional handles: the current chord becomes the reference, so the curve looks exactly as drawn now.
+    const qreal refChord = dialogTool->getProportionalHandles()
+            ? ProportionalHandles::chord(static_cast<QPointF>(spline->GetP1()), static_cast<QPointF>(spline->GetP4()))
+            : 0;
+
     auto spl = Create(0, spline, scene, doc, data, Document::FullParse, Source::FromGui, autoSmooth,
-                      lengthMode, targetLength);
+                      lengthMode, targetLength, refChord);
 
     if (spl != nullptr)
     {
@@ -200,7 +208,7 @@ VToolSpline* VToolSpline::Create(QSharedPointer<DialogTool> dialog, VMainGraphic
 // @return the created tool
 VToolSpline* VToolSpline::Create(const quint32 _id, VSpline *spline, VMainGraphicsScene *scene, VAbstractPattern *doc,
                                  VContainer *data, const Document &parse, const Source &typeCreation,
-                                 bool autoSmooth, int lengthMode, const QString &targetLength)
+                                 bool autoSmooth, int lengthMode, const QString &targetLength, qreal refChord)
 {
     quint32 id = _id;
 
@@ -222,7 +230,7 @@ VToolSpline* VToolSpline::Create(const quint32 _id, VSpline *spline, VMainGraphi
     if (parse == Document::FullParse)
     {
         VDrawTool::AddRecord(id, Tool::Spline, doc);
-        auto _spl = new VToolSpline(doc, data, id, autoSmooth, lengthMode, targetLength, typeCreation);
+        auto _spl = new VToolSpline(doc, data, id, autoSmooth, lengthMode, targetLength, refChord, typeCreation);
         scene->addItem(_spl);
         initSplineToolConnections(scene, _spl);
         VAbstractPattern::AddTool(id, _spl);
@@ -239,16 +247,20 @@ VToolSpline *VToolSpline::Create(const quint32 _id, quint32 point1, quint32 poin
                                  const QString &penStyle, const QString &lineWeight, VMainGraphicsScene *scene,
                                  VAbstractPattern *doc, VContainer *data, const Document &parse,
                                  const Source &typeCreation, bool autoSmooth,
-                                 int lengthMode, const QString &targetLength)
+                                 int lengthMode, const QString &targetLength, qreal refChord)
 {
     const qreal calcAngle1 = CheckFormula(_id, a1, data);
     const qreal calcAngle2 = CheckFormula(_id, a2, data);
 
-    const qreal calcLength1 = qApp->toPixel(CheckFormula(_id, l1, data));
-    const qreal calcLength2 = qApp->toPixel(CheckFormula(_id, l2, data));
-
     auto p1 = data->GeometricObject<VPointF>(point1);
     auto p4 = data->GeometricObject<VPointF>(point4);
+
+    // Proportional handles follow the chord of the curve (1 when the option is off).
+    const qreal handleFactor = ProportionalHandles::factor(
+                ProportionalHandles::chord(static_cast<QPointF>(*p1), static_cast<QPointF>(*p4)), refChord);
+
+    const qreal calcLength1 = qApp->toPixel(CheckFormula(_id, l1, data)) * handleFactor;
+    const qreal calcLength2 = qApp->toPixel(CheckFormula(_id, l2, data)) * handleFactor;
 
     qreal finalLength1 = calcLength1;
     qreal finalLength2 = calcLength2;
@@ -303,7 +315,7 @@ VToolSpline *VToolSpline::Create(const quint32 _id, quint32 point1, quint32 poin
     spline->setLineWeight(lineWeight);
 
     return VToolSpline::Create(_id, spline, scene, doc, data, parse, typeCreation, autoSmooth,
-                               lengthMode, targetLength);
+                               lengthMode, targetLength, refChord);
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -370,6 +382,12 @@ void VToolSpline::SetLengthMode(int value)
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+qreal VToolSpline::getRefChord() const
+{
+    return m_refChord;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void VToolSpline::ShowVisualization(bool show)
 {
     ShowToolVisualization<VisToolSpline>(show);
@@ -425,6 +443,7 @@ void VToolSpline::ReadToolAttributes(const QDomElement &domElement)
     m_autoSmooth = (domElement.attribute(AttrAutoSmooth) == QStringLiteral("true"));
     m_lengthMode = domElement.attribute(AttrLengthMode, QStringLiteral("0")).toInt();
     m_targetLength = domElement.attribute(AttrLength, QString());
+    m_refChord = domElement.attribute(ProportionalHandles::attrRefChord(), QStringLiteral("0")).toDouble();
 }
 
 // @brief RemoveReferens decrement value of reference.
@@ -443,6 +462,20 @@ void VToolSpline::SaveDialog(QDomElement &domElement)
     SCASSERT(dialogTool != nullptr)
 
     const VSpline spl = dialogTool->GetSpline();
+    const qreal currentChord = ProportionalHandles::chord(static_cast<QPointF>(spl.GetP1()),
+                                                          static_cast<QPointF>(spl.GetP4()));
+    const qreal oldRefChord = m_refChord;
+    if (dialogTool->getProportionalHandles())
+    {
+        if (m_refChord <= 0)
+        {
+            m_refChord = currentChord; // switched on: the curve keeps its current shape in this size
+        }
+    }
+    else
+    {
+        m_refChord = 0;
+    }
     m_autoSmooth = dialogTool->GetAutoSmooth();
     m_lengthMode = dialogTool->GetLengthMode();
     m_targetLength = dialogTool->GetTargetLength();
@@ -457,6 +490,20 @@ void VToolSpline::SaveDialog(QDomElement &domElement)
     m_controlPoints[1]->blockSignals(false);
 
     SetSplineAttributes(domElement, spl);
+
+    // Switched off: keep the shape of the current size by storing the actual handle lengths.
+    if (oldRefChord > 0 && m_refChord <= 0)
+    {
+        const qreal f = ProportionalHandles::factor(currentChord, oldRefChord);
+        if (ProportionalHandles::isNumber(spl.GetC1LengthFormula()))
+        {
+            doc->SetAttribute(domElement, AttrLength1, QString::number(spl.GetC1LengthFormula().toDouble() * f));
+        }
+        if (ProportionalHandles::isNumber(spl.GetC2LengthFormula()))
+        {
+            doc->SetAttribute(domElement, AttrLength2, QString::number(spl.GetC2LengthFormula().toDouble() * f));
+        }
+    }
     doc->SetAttribute(domElement, AttrColor,      dialogTool->getLineColor());
     doc->SetAttribute(domElement, AttrPenStyle,   dialogTool->getPenStyle());
     doc->SetAttribute(domElement, AttrLineWeight, dialogTool->getLineWeight());
@@ -749,6 +796,15 @@ void VToolSpline::SetSplineAttributes(QDomElement &domElement, const VSpline &sp
     if (domElement.hasAttribute(AttrKAsm2))
     {
         domElement.removeAttribute(AttrKAsm2);
+    }
+
+    if (m_refChord > 0)
+    {
+        doc->SetAttribute(domElement, ProportionalHandles::attrRefChord(), m_refChord);
+    }
+    else
+    {
+        domElement.removeAttribute(ProportionalHandles::attrRefChord());
     }
 
     if (m_autoSmooth)

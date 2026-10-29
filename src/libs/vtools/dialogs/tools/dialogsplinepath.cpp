@@ -177,6 +177,18 @@ DialogSplinePath::~DialogSplinePath()
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+bool DialogSplinePath::getProportionalHandles() const
+{
+    return ui->proportionalHandles_CheckBox->isChecked();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void DialogSplinePath::setProportionalHandles(bool value)
+{
+    ui->proportionalHandles_CheckBox->setChecked(value);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 /**
  * @brief SetPath set spline path
  * @param value path

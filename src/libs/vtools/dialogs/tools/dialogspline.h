@@ -81,6 +81,8 @@ public:
     VSpline       GetSpline() const;
     void          SetSpline(const VSpline &spline);
 
+    bool          getProportionalHandles() const;
+    void          setProportionalHandles(bool value);
     bool          GetAutoSmooth() const;
     void          SetAutoSmooth(bool value);
 

@@ -79,13 +79,13 @@ public:
                                VMainGraphicsScene *scene, VAbstractPattern *doc, VContainer *data,
                                const Document &parse, const Source &typeCreation,
                                bool autoSmooth = false, int lengthMode = 0,
-                               const QString &targetLength = QString());
+                               const QString &targetLength = QString(), qreal refChord = 0);
     static VToolSpline *Create(const quint32 _id, quint32 point1, quint32 point4, QString &a1, QString &a2, QString &l1,
                                QString &l2, quint32 duplicate, const QString &color, const QString &penStyle,
                                const QString &lineWeight, VMainGraphicsScene *scene, VAbstractPattern *doc,
                                VContainer *data, const Document &parse, const Source &typeCreation,
                                bool autoSmooth = false, int lengthMode = 0,
-                               const QString &targetLength = QString());
+                               const QString &targetLength = QString(), qreal refChord = 0);
     static const QString ToolType;
     static const QString OldToolType;
     virtual int   type() const override {return Type;}
@@ -101,6 +101,7 @@ public:
     void          SetTargetLength(const QString &value);
 
     int           GetLengthMode() const;
+    qreal         getRefChord() const;
     void          SetLengthMode(int value);
 
     virtual void  ShowVisualization(bool show) override;
@@ -132,10 +133,11 @@ private:
     bool          m_autoSmooth;
     int           m_lengthMode;
     QString       m_targetLength;
+    qreal         m_refChord;    ///< chord of the reference size for proportional handles, 0 = off
 
                   VToolSpline (VAbstractPattern *doc, VContainer *data, quint32 id,
                                bool autoSmooth, int lengthMode,
-                               const QString &targetLength,
+                               const QString &targetLength, qreal refChord,
                                const Source &typeCreation, QGraphicsItem *parent = nullptr);
 
     bool          IsMovable() const;

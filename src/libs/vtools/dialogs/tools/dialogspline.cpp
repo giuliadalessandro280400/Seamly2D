@@ -589,6 +589,18 @@ VSpline DialogSpline::GetSpline() const
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+bool DialogSpline::getProportionalHandles() const
+{
+    return ui->proportionalHandles_CheckBox->isChecked();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void DialogSpline::setProportionalHandles(bool value)
+{
+    ui->proportionalHandles_CheckBox->setChecked(value);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 bool DialogSpline::GetAutoSmooth() const
 {
     return ui->comboBoxAutoSmooth->currentIndex() == 1;

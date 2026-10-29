@@ -905,6 +905,22 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
+           <widget class="QCheckBox" name="proportionalHandles_CheckBox">
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string>The handles get longer or shorter with the curve when the size changes, so the curve keeps its shape in every size. The current size is the reference.</string>
+              </property>
+              <property name="text">
+               <string>Proportional handles (follow the sizes)</string>
+              </property>
+             </widget>
+          </item>
+          <item>
            <layout class="QHBoxLayout" name="hLayoutAutoSmooth">
             <item>
              <widget class="QLabel" name="labelAutoSmooth">

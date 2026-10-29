@@ -55,6 +55,7 @@
 
 #include "../ifc/xml/vabstractpattern.h"
 #include "../tools/drawTools/toolcurve/vtoolsplinepath.h"
+#include "../tools/drawTools/toolcurve/proportionalhandles.h"
 #include "../vmisc/logging.h"
 #include "../vmisc/vabstractapplication.h"
 #include "../vmisc/def.h"
@@ -126,7 +127,17 @@ void MoveSplinePath::Do(const VSplinePath &splPath)
     QDomElement domElement = doc->elementById(nodeId, VAbstractPattern::TagSpline);
     if (domElement.isElement())
     {
-        VToolSplinePath::UpdatePathPoints(doc, domElement, splPath);
+        // Proportional handles: store the dragged lengths relative to the reference chords.
+        const QVector<qreal> refChords = ProportionalHandles::parseList(
+                    domElement.attribute(ProportionalHandles::attrRefChords()));
+        if (not refChords.isEmpty())
+        {
+            VToolSplinePath::UpdatePathPoints(doc, domElement, VToolSplinePath::toStoredLengths(splPath, refChords));
+        }
+        else
+        {
+            VToolSplinePath::UpdatePathPoints(doc, domElement, splPath);
+        }
 
         emit NeedLiteParsing(Document::LiteParse);
     }

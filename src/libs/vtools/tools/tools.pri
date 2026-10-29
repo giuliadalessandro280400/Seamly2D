@@ -20,6 +20,7 @@ HEADERS += \
     $$PWD/drawTools/toolpoint/toolsinglepoint/vtooltriangle.h \
     $$PWD/drawTools/toolcurve/vtoolsplinepath.h \
     $$PWD/drawTools/toolcurve/vtoolspline.h \
+    $$PWD/drawTools/toolcurve/proportionalhandles.h \
     $$PWD/drawTools/toolpoint/toolsinglepoint/toollinepoint/vtoolshoulderpoint.h \
     $$PWD/drawTools/toolpoint/toolsinglepoint/vtoolsinglepoint.h \
     $$PWD/drawTools/toolpoint/toolsinglepoint/toollinepoint/vtoolnormal.h \

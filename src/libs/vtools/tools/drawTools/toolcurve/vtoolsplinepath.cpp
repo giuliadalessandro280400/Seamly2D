@@ -76,6 +76,7 @@
 #include "../ifc/xml/vdomdocument.h"
 #include "../ifc/ifcdef.h"
 #include "../qmuparser/qmutokenparser.h"
+#include "proportionalhandles.h"
 #include "../vgeometry/vabstractcubicbezierpath.h"
 #include "../vgeometry/vabstractcurve.h"
 #include "../vgeometry/vgobject.h"
@@ -102,10 +103,11 @@ const QString VToolSplinePath::OldToolType = QStringLiteral("path");
 // @param typeCreation way we create this tool.
 // @param parent parent object.
 VToolSplinePath::VToolSplinePath(VAbstractPattern *doc, VContainer *data, quint32 id, const Source &typeCreation,
-                                 QGraphicsItem *parent)
+                                 const QVector<qreal> &refChords, QGraphicsItem *parent)
     : VAbstractSpline(doc, data, id, parent)
     , oldPosition()
     , splIndex(-1)
+    , m_refChords(refChords)
 {
     m_sceneType = SceneObject::SplinePath;
 
@@ -154,6 +156,7 @@ void VToolSplinePath::setDialog()
     SCASSERT(!dialogTool.isNull())
     const QSharedPointer<VSplinePath> splPath = VAbstractTool::data.GeometricObject<VSplinePath>(m_id);
     dialogTool->SetPath(*splPath);
+    dialogTool->setProportionalHandles(not m_refChords.isEmpty());
     dialogTool->setLineColor(splPath->getLineColor());
     dialogTool->setLineWeight(splPath->getLineWeight());
     dialogTool->setPenStyle(splPath->GetPenStyle());
@@ -180,7 +183,10 @@ VToolSplinePath* VToolSplinePath::Create(QSharedPointer<DialogTool> dialog, VMai
     path->SetPenStyle(dialogTool->getPenStyle());
     path->setLineWeight(dialogTool->getLineWeight());
 
-    VToolSplinePath* spl = Create(0, path, scene, doc, data, Document::FullParse, Source::FromGui);
+    // Proportional handles: the current chords become the reference, so the curve looks exactly as drawn now.
+    const QVector<qreal> refChords = dialogTool->getProportionalHandles() ? segmentChords(*path) : QVector<qreal>();
+
+    VToolSplinePath* spl = Create(0, path, scene, doc, data, Document::FullParse, Source::FromGui, refChords);
     if (spl != nullptr)
     {
         spl->m_dialog = dialogTool;
@@ -198,7 +204,7 @@ VToolSplinePath* VToolSplinePath::Create(QSharedPointer<DialogTool> dialog, VMai
 // @param typeCreation way we create this tool.
 VToolSplinePath* VToolSplinePath::Create(const quint32 _id, VSplinePath *path, VMainGraphicsScene *scene,
                                          VAbstractPattern *doc, VContainer *data, const Document &parse,
-                                         const Source &typeCreation)
+                                         const Source &typeCreation, const QVector<qreal> &refChords)
 {
     quint32 id = _id;
 
@@ -220,7 +226,7 @@ VToolSplinePath* VToolSplinePath::Create(const quint32 _id, VSplinePath *path, V
     if (parse == Document::FullParse)
     {
         VDrawTool::AddRecord(id, Tool::SplinePath, doc);
-        VToolSplinePath *spl = new VToolSplinePath(doc, data, id, typeCreation);
+        VToolSplinePath *spl = new VToolSplinePath(doc, data, id, typeCreation, refChords);
         scene->addItem(spl);
         initSplinePathToolConnections(scene, spl);
         VAbstractPattern::AddTool(id, spl);
@@ -234,7 +240,8 @@ VToolSplinePath *VToolSplinePath::Create(const quint32 _id, const QVector<quint3
                                          QVector<QString> &a2, QVector<QString> &l1, QVector<QString> &l2,
                                          const QString &color, const QString &penStyle, const QString &lineWeight,
                                          quint32 duplicate, VMainGraphicsScene *scene, VAbstractPattern *doc,
-                                         VContainer *data, const Document &parse, const Source &typeCreation)
+                                         VContainer *data, const Document &parse, const Source &typeCreation,
+                                         const QVector<qreal> &refChords)
 {
     auto path = new VSplinePath();
 
@@ -243,13 +250,27 @@ VToolSplinePath *VToolSplinePath::Create(const quint32 _id, const QVector<quint3
         path->SetDuplicate(duplicate);
     }
 
+    // Proportional handles: a handle belongs to the segment it points into. Its length follows the chord of that
+    // segment (factor 1 when the option is off).
+    const bool proportional = refChords.size() == points.size() - 1;
+    auto segmentFactor = [&](int segment)
+    {
+        if (not proportional || segment < 0 || segment >= refChords.size())
+        {
+            return 1.0;
+        }
+        const QPointF a = static_cast<QPointF>(*data->GeometricObject<VPointF>(points.at(segment)));
+        const QPointF b = static_cast<QPointF>(*data->GeometricObject<VPointF>(points.at(segment + 1)));
+        return ProportionalHandles::factor(ProportionalHandles::chord(a, b), refChords.at(segment));
+    };
+
     for (int i = 0; i < points.size(); ++i)
     {
         const qreal calcAngle1 = CheckFormula(_id, a1[i], data);
         const qreal calcAngle2 = CheckFormula(_id, a2[i], data);
 
-        const qreal calcLength1 = qApp->toPixel(CheckFormula(_id, l1[i], data));
-        const qreal calcLength2 = qApp->toPixel(CheckFormula(_id, l2[i], data));
+        const qreal calcLength1 = qApp->toPixel(CheckFormula(_id, l1[i], data)) * segmentFactor(i - 1);
+        const qreal calcLength2 = qApp->toPixel(CheckFormula(_id, l2[i], data)) * segmentFactor(i);
 
         const auto p = *data->GeometricObject<VPointF>(points.at(i));
 
@@ -261,7 +282,67 @@ VToolSplinePath *VToolSplinePath::Create(const quint32 _id, const QVector<quint3
     path->SetPenStyle(penStyle);
     path->setLineWeight(lineWeight);
 
-    return VToolSplinePath::Create(_id, path, scene, doc, data, parse, typeCreation);
+    return VToolSplinePath::Create(_id, path, scene, doc, data, parse, typeCreation, refChords);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+QVector<qreal> VToolSplinePath::getRefChords() const
+{
+    return m_refChords;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief segmentChords returns the chord (distance between the end points) of every segment, in pattern units.
+ */
+QVector<qreal> VToolSplinePath::segmentChords(const VSplinePath &path)
+{
+    QVector<qreal> chords;
+    for (int i = 0; i + 1 < path.CountPoints(); ++i)
+    {
+        chords.append(ProportionalHandles::chord(static_cast<QPointF>(path.at(i).P()),
+                                                 static_cast<QPointF>(path.at(i + 1).P())));
+    }
+    return chords;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief toStoredLengths converts the actual handle lengths of a path to the values stored for the reference chords.
+ * Only plain numbers are rewritten, formulas are kept.
+ */
+VSplinePath VToolSplinePath::toStoredLengths(const VSplinePath &path, const QVector<qreal> &refChords)
+{
+    VSplinePath result = path;
+    const QVector<qreal> chords = segmentChords(path);
+    if (refChords.size() != chords.size())
+    {
+        return result;
+    }
+
+    for (int i = 0; i < result.CountPoints(); ++i)
+    {
+        VSplinePoint point = result.at(i);
+        if (i > 0 && ProportionalHandles::isNumber(point.Length1Formula()))
+        {
+            point.SetLength1(point.Length1(), ProportionalHandles::toStored(qApp->fromPixel(point.Length1()),
+                                                                             chords.at(i - 1), refChords.at(i - 1)));
+        }
+        if (i + 1 < result.CountPoints() && ProportionalHandles::isNumber(point.Length2Formula()))
+        {
+            point.SetLength2(point.Length2(), ProportionalHandles::toStored(qApp->fromPixel(point.Length2()),
+                                                                             chords.at(i), refChords.at(i)));
+        }
+        result[i] = point;
+    }
+    return result;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VToolSplinePath::ReadToolAttributes(const QDomElement &domElement)
+{
+    VAbstractSpline::ReadToolAttributes(domElement);
+    m_refChords = ProportionalHandles::parseList(domElement.attribute(ProportionalHandles::attrRefChords()));
 }
 
 // @brief controlPointPositionChanged handle change position control point.
@@ -329,6 +410,16 @@ void VToolSplinePath::SetSplinePathAttributes(QDomElement &domElement, const VSp
     if (domElement.hasAttribute(AttrKCurve))
     {
         domElement.removeAttribute(AttrKCurve);
+    }
+
+    if (not m_refChords.isEmpty())
+    {
+        doc->SetAttribute(domElement, ProportionalHandles::attrRefChords(),
+                          ProportionalHandles::formatList(m_refChords));
+    }
+    else
+    {
+        domElement.removeAttribute(ProportionalHandles::attrRefChords());
     }
 
     UpdatePathPoints(doc, domElement, path);
@@ -435,7 +526,41 @@ void VToolSplinePath::SaveDialog(QDomElement &domElement)
     QSharedPointer<DialogSplinePath> dialogTool = m_dialog.objectCast<DialogSplinePath>();
     SCASSERT(!dialogTool.isNull())
 
-    const VSplinePath splPath = dialogTool->GetPath();
+    VSplinePath splPath = dialogTool->GetPath();
+
+    // Proportional handles on/off. The lengths in the dialog are the stored (reference) values.
+    const QVector<qreal> currentChords = segmentChords(splPath);
+    if (dialogTool->getProportionalHandles())
+    {
+        if (m_refChords.size() != currentChords.size())
+        {
+            m_refChords = currentChords; // switched on (or points changed): keep the current shape in this size
+        }
+    }
+    else if (not m_refChords.isEmpty())
+    {
+        // Switched off: store the actual lengths of the current size so the shape does not change.
+        if (m_refChords.size() == currentChords.size())
+        {
+            for (int i = 0; i < splPath.CountPoints(); ++i)
+            {
+                VSplinePoint point = splPath.at(i);
+                if (i > 0 && ProportionalHandles::isNumber(point.Length1Formula()))
+                {
+                    const qreal f = ProportionalHandles::factor(currentChords.at(i - 1), m_refChords.at(i - 1));
+                    point.SetLength1(point.Length1(), QString::number(point.Length1Formula().toDouble() * f));
+                }
+                if (i + 1 < splPath.CountPoints() && ProportionalHandles::isNumber(point.Length2Formula()))
+                {
+                    const qreal f = ProportionalHandles::factor(currentChords.at(i), m_refChords.at(i));
+                    point.SetLength2(point.Length2(), QString::number(point.Length2Formula().toDouble() * f));
+                }
+                splPath[i] = point;
+            }
+        }
+        m_refChords.clear();
+    }
+
     for (qint32 i = 1; i <= splPath.CountSubSpl(); ++i)
     {
         VSpline spl = splPath.GetSpline(i);

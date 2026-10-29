@@ -2727,6 +2727,14 @@ p, li { white-space: pre-wrap; }
         <source>Edit curve length</source>
         <translation>Modifica lunghezza curva</translation>
     </message>
+    <message>
+        <source>Proportional handles (follow the sizes)</source>
+        <translation>Maniglie proporzionali (seguono le taglie)</translation>
+    </message>
+    <message>
+        <source>The handles get longer or shorter with the curve when the size changes, so the curve keeps its shape in every size. The current size is the reference.</source>
+        <translation>Quando cambia la taglia le maniglie si allungano o si accorciano insieme alla curva, così la curva mantiene la stessa forma in tutte le taglie. La taglia corrente è quella di riferimento.</translation>
+    </message>
 </context>
 <context>
     <name>DialogSplinePath</name>
@@ -2841,6 +2849,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Result value</source>
         <translation>Valore del risultato</translation>
+    </message>
+    <message>
+        <source>Proportional handles (follow the sizes)</source>
+        <translation>Maniglie proporzionali (seguono le taglie)</translation>
+    </message>
+    <message>
+        <source>The handles get longer or shorter with the curve when the size changes, so the curve keeps its shape in every size. The current size is the reference.</source>
+        <translation>Quando cambia la taglia le maniglie si allungano o si accorciano insieme alla curva, così la curva mantiene la stessa forma in tutte le taglie. La taglia corrente è quella di riferimento.</translation>
     </message>
 </context>
 <context>
