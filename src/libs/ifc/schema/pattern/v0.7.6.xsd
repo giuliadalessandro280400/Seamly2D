@@ -268,6 +268,10 @@
                           <xs:attribute name="length" type="xs:string"/>
                           <xs:attribute name="xScale" type="xs:string"/>
                           <xs:attribute name="yScale" type="xs:string"/>
+                          <xs:attribute name="sourcePoint" type="xs:unsignedInt"/>
+                          <xs:attribute name="sourceDirection" type="xs:unsignedInt"/>
+                          <xs:attribute name="targetPoint" type="xs:unsignedInt"/>
+                          <xs:attribute name="targetDirection" type="xs:unsignedInt"/>
                           <xs:attribute name="suffix" type="xs:string"/>
                           <xs:attribute name="type" type="xs:string" use="required"/>
                           <xs:attribute name="p1Line" type="xs:unsignedInt"/>

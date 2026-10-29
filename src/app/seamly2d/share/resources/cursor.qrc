@@ -66,6 +66,8 @@
         <file>cursor/rotation_cursor@2x.png</file>
         <file>cursor/scale_cursor.png</file>
         <file>cursor/scale_cursor@2x.png</file>
+        <file>cursor/align_cursor.png</file>
+        <file>cursor/align_cursor@2x.png</file>
         <file>cursor/midpoint_cursor.png</file>
         <file>cursor/midpoint_cursor@2x.png</file>
         <file>cursor/mirror_by_line_cursor@2x.png</file>

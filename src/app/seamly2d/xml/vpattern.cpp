@@ -3164,6 +3164,53 @@ void VPattern::ParseToolScale(VMainGraphicsScene *scene, QDomElement &domElement
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void VPattern::ParseToolAlign(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse)
+{
+    SCASSERT(scene != nullptr)
+    Q_ASSERT_X(domElement.isNull() == false, Q_FUNC_INFO, "domElement is null");
+
+    try
+    {
+        quint32 id = NULL_ID;
+
+        ToolsCommonAttributes(domElement, id);
+        const quint32 sourcePoint     = GetParametrUInt(domElement, VToolAlign::AttrSourcePoint, NULL_ID_STR);
+        const quint32 sourceDirection = GetParametrUInt(domElement, VToolAlign::AttrSourceDirection, NULL_ID_STR);
+        const quint32 targetPoint     = GetParametrUInt(domElement, VToolAlign::AttrTargetPoint, NULL_ID_STR);
+        const quint32 targetDirection = GetParametrUInt(domElement, VToolAlign::AttrTargetDirection, NULL_ID_STR);
+        const QString angle = GetParametrString(domElement, AttrAngle, "0");
+        QString a = angle;//need for saving fixed formula;
+        const QString suffix = GetParametrString(domElement, AttrSuffix, "");
+
+        QVector<SourceItem> source;
+        QVector<DestinationItem> destination;
+        VAbstractOperation::ExtractData(domElement, source, destination);
+
+        VToolAlign::Create(id, sourcePoint, sourceDirection, targetPoint, targetDirection, a, suffix, source,
+                           destination, scene, this, data, parse, Source::FromFile);
+        //Rewrite attribute formula. Need for situation when we have wrong formula.
+        if (a != angle)
+        {
+            SetAttribute(domElement, AttrAngle, a);
+            modified = true;
+            haveLiteChange();
+        }
+    }
+    catch (const VExceptionBadId &error)
+    {
+        VExceptionObjectError excep(tr("Error creating or updating operation of aligning"), domElement);
+        excep.AddMoreInformation(error.ErrorMessage());
+        throw excep;
+    }
+    catch (qmu::QmuParserError &error)
+    {
+        VExceptionObjectError excep(tr("Error creating or updating operation of aligning"), domElement);
+        excep.AddMoreInformation(QString("Message:     " + error.GetMsg() + "\n"+ "Expression:  " + error.GetExpr()));
+        throw excep;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void VPattern::ParseToolMirrorByLine(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse)
 {
     SCASSERT(scene != nullptr)
@@ -3565,7 +3612,8 @@ void VPattern::ParseOperationElement(VMainGraphicsScene *scene, QDomElement &dom
                                             << VToolMirrorByLine::ToolType  /*1*/
                                             << VToolMirrorByAxis::ToolType  /*2*/
                                             << VToolMove::ToolType            /*3*/
-                                            << VToolScale::ToolType;          /*4*/
+                                            << VToolScale::ToolType           /*4*/
+                                            << VToolAlign::ToolType;          /*5*/
 
     switch (opers.indexOf(type))
     {
@@ -3583,6 +3631,9 @@ void VPattern::ParseOperationElement(VMainGraphicsScene *scene, QDomElement &dom
             break;
         case 4: //VToolScale::ToolType
             ParseToolScale(scene, domElement, parse);
+            break;
+        case 5: //VToolAlign::ToolType
+            ParseToolAlign(scene, domElement, parse);
             break;
         default:
             VException e(tr("Unknown operation type '%1'.").arg(type));
@@ -4211,7 +4262,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 QRectF VPattern::ActiveDrawBoundingRect() const
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were used.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were used.");
 
     QRectF rect;
 
@@ -4276,6 +4327,7 @@ QRectF VPattern::ActiveDrawBoundingRect() const
                     break;
                 case Tool::Rotation:
                 case Tool::Scale:
+                case Tool::Align:
                 case Tool::MirrorByLine:
                 case Tool::MirrorByAxis:
                 case Tool::Move:

@@ -329,6 +329,7 @@ enum class Tool : ToolVisHolderType
     InsertNodes,
     BackgroundImage,
     Scale,
+    Align,
     LAST_ONE_DO_NOT_USE //add new stuffs above this, this constant must be last and never used
 };
 
@@ -376,6 +377,7 @@ enum class Vis : ToolVisHolderType
     ToolMirrorByAxis,
     ToolMove,
     ToolScale,
+    ToolAlign,
     ToolEllipticalArc,
     ToolPiece,
     ToolInternalPath,

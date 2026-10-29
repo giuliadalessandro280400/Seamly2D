@@ -4075,6 +4075,10 @@ Volete scaricarla?</translation>
         <source>%1 - Scale</source>
         <translation>%1 - Scala</translation>
     </message>
+    <message>
+        <source>%1 - Align</source>
+        <translation>%1 - Allinea</translation>
+    </message>
 </context>
 <context>
     <name>HistoryDialog</name>
@@ -4293,6 +4297,10 @@ Volete scaricarla?</translation>
     <message>
         <source>Scale from point %1 (X %2, Y %3). Suffix %4</source>
         <translation>Scala dal punto %1 (X %2, Y %3). Suffisso %4</translation>
+    </message>
+    <message>
+        <source>Align %1 to %2, line %1_%3 along %2_%4. Suffix %5</source>
+        <translation>Allinea %1 su %2, linea %1_%3 lungo %2_%4. Suffisso %5</translation>
     </message>
 </context>
 <context>
@@ -7166,6 +7174,14 @@ Premere Invio per aggiungerlo temporaneamente all&apos;elenco.</translation>
     <message>
         <source>Sizes shown together. The current size is in brackets.</source>
         <translation>Taglie mostrate insieme. La taglia corrente è tra parentesi quadre.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Tool::Operations - Align:&lt;/b&gt; Select one or more objects - Hold &lt;b&gt;%1&lt;/b&gt; for multiple selection, Press &lt;b&gt;ENTER&lt;/b&gt; to confirm selection</source>
+        <translation>&lt;b&gt;Strumento::Operazioni - Allinea:&lt;/b&gt; Seleziona uno o più oggetti - Tieni premuto &lt;b&gt;%1&lt;/b&gt; per la selezione multipla, premi &lt;b&gt;INVIO&lt;/b&gt; per confermare la selezione</translation>
+    </message>
+    <message>
+        <source>Align Selected Objects to a Point and a Line (A, G)</source>
+        <translation>Allinea gli oggetti selezionati a un punto e a una linea (A, G)</translation>
     </message>
 </context>
 <context>
@@ -13188,6 +13204,10 @@ caricare in SeamlyME come di consueto.
         <source>Error creating or updating operation of scaling</source>
         <translation>Errore nella creazione o nell'aggiornamento dell'operazione di scala</translation>
     </message>
+    <message>
+        <source>Error creating or updating operation of aligning</source>
+        <translation>Errore nella creazione o nell'aggiornamento dell'operazione di allineamento</translation>
+    </message>
 </context>
 <context>
     <name>VPoster</name>
@@ -13990,6 +14010,30 @@ caricare in SeamlyME come di consueto.
     <message>
         <source>Vertical (Y):</source>
         <translation>Verticale (Y):</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>Allinea</translation>
+    </message>
+    <message>
+        <source>Point to move (P):</source>
+        <translation>Punto da spostare (P):</translation>
+    </message>
+    <message>
+        <source>Direction in group (A):</source>
+        <translation>Direzione nel gruppo (A):</translation>
+    </message>
+    <message>
+        <source>Target point (T):</source>
+        <translation>Punto di arrivo (T):</translation>
+    </message>
+    <message>
+        <source>Target direction (B):</source>
+        <translation>Direzione di arrivo (B):</translation>
+    </message>
+    <message>
+        <source>Extra angle:</source>
+        <translation>Angolo aggiuntivo:</translation>
     </message>
 </context>
 <context>
@@ -15787,6 +15831,107 @@ di controllo</translation>
     <message>
         <source>Scale X = %1%3, Y = %2%3</source>
         <translation>Scala X = %1%3, Y = %2%3</translation>
+    </message>
+</context>
+<context>
+    <name>DialogAlign</name>
+    <message>
+        <source>Align</source>
+        <translation>Allinea</translation>
+    </message>
+    <message>
+        <source>Selection</source>
+        <translation>Selezione</translation>
+    </message>
+    <message>
+        <source>Point to move (P):</source>
+        <translation>Punto da spostare (P):</translation>
+    </message>
+    <message>
+        <source>Direction in group (A):</source>
+        <translation>Direzione nel gruppo (A):</translation>
+    </message>
+    <message>
+        <source>Target point (T):</source>
+        <translation>Punto di arrivo (T):</translation>
+    </message>
+    <message>
+        <source>Target direction (B):</source>
+        <translation>Direzione di arrivo (B):</translation>
+    </message>
+    <message>
+        <source>Suffix:</source>
+        <translation>Suffisso:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation>Geometria</translation>
+    </message>
+    <message>
+        <source>Extra angle:</source>
+        <translation>Angolo aggiuntivo:</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation>Valore</translation>
+    </message>
+    <message>
+        <source>Formula wizard</source>
+        <translation>Formula magica</translation>
+    </message>
+    <message>
+        <source>P moves onto T, then the group turns so that line P-A lies along line T-B. The extra angle tilts it further.</source>
+        <translation>P si sposta su T, poi il gruppo ruota finché la linea P-A si sovrappone alla linea T-B. L'angolo aggiuntivo la inclina ancora.</translation>
+    </message>
+    <message>
+        <source>Select the point of the group to move (P)</source>
+        <translation>Seleziona il punto del gruppo da spostare (P)</translation>
+    </message>
+    <message>
+        <source>Select the second point of the group line (A)</source>
+        <translation>Seleziona il secondo punto della linea del gruppo (A)</translation>
+    </message>
+    <message>
+        <source>Select the target point (T)</source>
+        <translation>Seleziona il punto di arrivo (T)</translation>
+    </message>
+    <message>
+        <source>Select the second point of the target line (B)</source>
+        <translation>Seleziona il secondo punto della linea di arrivo (B)</translation>
+    </message>
+    <message>
+        <source>Select a point different from P</source>
+        <translation>Seleziona un punto diverso da P</translation>
+    </message>
+    <message>
+        <source>Select a point different from T</source>
+        <translation>Seleziona un punto diverso da T</translation>
+    </message>
+    <message>
+        <source>Edit extra angle</source>
+        <translation>Modifica angolo aggiuntivo</translation>
+    </message>
+</context>
+<context>
+    <name>VToolAlign</name>
+    <message>
+        <source>Point</source>
+        <translation>Punto</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Linea</translation>
+    </message>
+    <message>
+        <source>Extra angle</source>
+        <translation>Angolo aggiuntivo</translation>
+    </message>
+</context>
+<context>
+    <name>VisToolAlign</name>
+    <message>
+        <source>Align: rotation %1°</source>
+        <translation>Allinea: rotazione %1°</translation>
     </message>
 </context>
 </TS>

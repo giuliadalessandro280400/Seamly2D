@@ -117,7 +117,7 @@ void VToolOptionsPropertyBrowser::clearPropertyBrowser()
 void VToolOptionsPropertyBrowser::showItemOptions(QGraphicsItem *item)
 {
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were used in switch.");
 
     switch (item->type())
     {
@@ -221,6 +221,9 @@ void VToolOptionsPropertyBrowser::showItemOptions(QGraphicsItem *item)
         case VToolScale::Type:
             showOptionsToolScale(item);
             break;
+        case VToolAlign::Type:
+            showOptionsToolAlign(item);
+            break;
         case VToolMirrorByLine::Type:
             showOptionsToolMirrorByLine(item);
             break;
@@ -247,7 +250,7 @@ void VToolOptionsPropertyBrowser::updateOptions()
     }
 
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were used in switch.");
 
     switch (currentItem->type())
     {
@@ -348,6 +351,9 @@ void VToolOptionsPropertyBrowser::updateOptions()
         case VToolScale::Type:
             updateOptionsToolScale();
             break;
+        case VToolAlign::Type:
+            updateOptionsToolAlign();
+            break;
         case VToolMirrorByLine::Type:
             updateOptionsToolMirrorByLine();
             break;
@@ -395,7 +401,7 @@ void VToolOptionsPropertyBrowser::userChangedData(VPE::VProperty *property)
     }
 
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were used in switch.");
 
     switch (currentItem->type())
     {
@@ -491,6 +497,9 @@ void VToolOptionsPropertyBrowser::userChangedData(VPE::VProperty *property)
             break;
         case VToolScale::Type:
             changeDataToolScale(prop);
+            break;
+        case VToolAlign::Type:
+            changeDataToolAlign(prop);
             break;
         case VToolMirrorByLine::Type:
             changeDataToolMirrorByLine(prop);
@@ -844,6 +853,7 @@ QMap<QString, quint32> VToolOptionsPropertyBrowser::getObjectList(Tool *tool, GO
                 case 47:    //Tool::MirrorByAxis
                 case 48:    //Tool::Move
                 case static_cast<int>(::Tool::Scale):
+                case static_cast<int>(::Tool::Align):
                 {
                     QVector<quint32> list = qApp->getCurrentDocument()->getOpItems(recId, QStringLiteral("destination"));
                     for (qint32 j = 0; j < list.size(); ++j)
@@ -2372,6 +2382,42 @@ void VToolOptionsPropertyBrowser::changeDataToolScale(VPE::VProperty *property)
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::changeDataToolAlign(VPE::VProperty *property)
+{
+    SCASSERT(property != nullptr)
+
+    QVariant value = property->data(VPE::VProperty::DPC_Data, Qt::DisplayRole);
+    const QString id = propertyToId[property];
+
+    VToolAlign *tool = qgraphicsitem_cast<VToolAlign *>(currentItem);
+    SCASSERT(tool != nullptr)
+    switch (propertiesList().indexOf(id))
+    {
+        case 38: // AttrSuffix
+            setOperationSuffix<VToolAlign>(value.toString());
+            break;
+        case 5: // AttrAngle
+            tool->setFormulaAngle(value.value<VFormula>());
+            break;
+        case 67:
+            tool->setSourcePointId(value.toInt());
+            break;
+        case 68:
+            tool->setSourceDirectionId(value.toInt());
+            break;
+        case 69:
+            tool->setTargetPointId(value.toInt());
+            break;
+        case 70:
+            tool->setTargetDirectionId(value.toInt());
+            break;
+        default:
+            qWarning() << "Unknown property type. id = "<<id;
+            break;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void VToolOptionsPropertyBrowser::changeDataToolMove(VPE::VProperty *property)
 {
     SCASSERT(property != nullptr)
@@ -3139,6 +3185,28 @@ void VToolOptionsPropertyBrowser::showOptionsToolScale(QGraphicsItem *item)
     addPropertyLabel(tr("Geometry"), AttrName);
     addPropertyFormula(tr("Horizontal (X):"), tool->getFormulaXScale(), VAbstractPattern::AttrXScale);
     addPropertyFormula(tr("Vertical (Y):"), tool->getFormulaYScale(), VAbstractPattern::AttrYScale);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::showOptionsToolAlign(QGraphicsItem *item)
+{
+    VToolAlign *tool = qgraphicsitem_cast<VToolAlign *>(item);
+    tool->ShowVisualization(true);
+    formView->setTitle(tr("Align"));
+
+    addPropertyLabel(tr("Selection"), AttrName);
+    addObjectProperty(tool, tool->pointName(tool->getSourcePointId()), tr("Point to move (P):"),
+                      VToolAlign::AttrSourcePoint, GOType::Point);
+    addObjectProperty(tool, tool->pointName(tool->getSourceDirectionId()), tr("Direction in group (A):"),
+                      VToolAlign::AttrSourceDirection, GOType::Point);
+    addObjectProperty(tool, tool->pointName(tool->getTargetPointId()), tr("Target point (T):"),
+                      VToolAlign::AttrTargetPoint, GOType::Point);
+    addObjectProperty(tool, tool->pointName(tool->getTargetDirectionId()), tr("Target direction (B):"),
+                      VToolAlign::AttrTargetDirection, GOType::Point);
+    addPropertyOperationSuffix(tool, tr("Suffix:"));
+
+    addPropertyLabel(tr("Geometry"), AttrName);
+    addPropertyFormula(tr("Extra angle:"), tool->getFormulaAngle(), AttrAngle);
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -4231,6 +4299,27 @@ void VToolOptionsPropertyBrowser::updateOptionsToolScale()
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::updateOptionsToolAlign()
+{
+    VToolAlign *tool = qgraphicsitem_cast<VToolAlign *>(currentItem);
+    idToProperty[AttrSuffix]->setValue(tool->Suffix());
+
+    QVariant valueAngle;
+    valueAngle.setValue(tool->getFormulaAngle());
+    idToProperty[AttrAngle]->setValue(valueAngle);
+
+    const QMap<QString, quint32> points = getObjectList(tool, GOType::Point);
+    const QList<QPair<QString, quint32>> ids = {{VToolAlign::AttrSourcePoint, tool->getSourcePointId()},
+                                                {VToolAlign::AttrSourceDirection, tool->getSourceDirectionId()},
+                                                {VToolAlign::AttrTargetPoint, tool->getTargetPointId()},
+                                                {VToolAlign::AttrTargetDirection, tool->getTargetDirectionId()}};
+    for (const auto &pair : ids)
+    {
+        idToProperty[pair.first]->setValue(VPE::VObjectProperty::indexOfObject(points, tool->pointName(pair.second)));
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void VToolOptionsPropertyBrowser::updateOptionsToolMove()
 {
     VToolMove *tool = qgraphicsitem_cast<VToolMove *>(currentItem);
@@ -4406,6 +4495,10 @@ QStringList VToolOptionsPropertyBrowser::propertiesList() const
                                             << AttrAutoSmooth                     /* 63 */
                                             << AttrLengthMode                     /* 64 */
                                             << VAbstractPattern::AttrXScale       /* 65 */
-                                            << VAbstractPattern::AttrYScale;      /* 66 */
+                                            << VAbstractPattern::AttrYScale       /* 66 */
+                                            << VToolAlign::AttrSourcePoint        /* 67 */
+                                            << VToolAlign::AttrSourceDirection    /* 68 */
+                                            << VToolAlign::AttrTargetPoint        /* 69 */
+                                            << VToolAlign::AttrTargetDirection;   /* 70 */
     return attr;
 }

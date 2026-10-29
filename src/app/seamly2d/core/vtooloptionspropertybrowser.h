@@ -222,6 +222,7 @@ private:
     void changeDataToolCurveIntersectAxis(VPE::VProperty *property);
     void changeDataToolRotation(VPE::VProperty *property);
     void changeDataToolScale(VPE::VProperty *property);
+    void changeDataToolAlign(VPE::VProperty *property);
     void changeDataToolMove(VPE::VProperty *property);
     void changeDataToolMirrorByLine(VPE::VProperty *property);
     void changeDataToolMirrorByAxis(VPE::VProperty *property);
@@ -258,6 +259,7 @@ private:
     void showOptionsToolCurveIntersectAxis(QGraphicsItem *item);
     void showOptionsToolRotation(QGraphicsItem *item);
     void showOptionsToolScale(QGraphicsItem *item);
+    void showOptionsToolAlign(QGraphicsItem *item);
     void showOptionsToolMove(QGraphicsItem *item);
     void showOptionsToolMirrorByLine(QGraphicsItem *item);
     void showOptionsToolMirrorByAxis(QGraphicsItem *item);
@@ -294,6 +296,7 @@ private:
     void updateOptionsToolCurveIntersectAxis();
     void updateOptionsToolRotation();
     void updateOptionsToolScale();
+    void updateOptionsToolAlign();
     void updateOptionsToolMove();
     void updateOptionsToolMirrorByLine();
     void updateOptionsToolMirrorByAxis();

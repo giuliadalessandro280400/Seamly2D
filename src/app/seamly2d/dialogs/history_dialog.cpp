@@ -64,6 +64,7 @@
 #include "../vmisc/vtablesearch.h"
 #include "../vtools/tools/vabstracttool.h"
 #include "../vtools/tools/drawTools/operation/vabstractoperation.h"
+#include "../vtools/tools/drawTools/operation/vtoolalign.h"
 #include "../vtools/tools/drawTools/toolpoint/toolsinglepoint/toolcut/vtoolcutspline.h"
 #include "../vtools/tools/drawTools/toolpoint/toolsinglepoint/toolcut/vtoolcutsplinepath.h"
 #include "../vtools/tools/drawTools/toolpoint/toolsinglepoint/toolcut/vtoolcutarc.h"
@@ -350,7 +351,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 RowData HistoryDialog::record(const VToolRecord &tool)
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 55, "Not all tools were used in history.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were used in history.");
 
     RowData rowData;
     const quint32 &toolId = tool.getId();
@@ -659,6 +660,19 @@ RowData HistoryDialog::record(const VToolRecord &tool)
                                 .arg(getName(attrUInt(domElement, AttrCenter)))
                                 .arg(m_doc->GetParametrString(domElement, VAbstractPattern::AttrXScale, "1"))
                                 .arg(m_doc->GetParametrString(domElement, VAbstractPattern::AttrYScale, "1"), suffix);
+                break;
+            }
+
+            case Tool::Align:
+            {
+                const QString suffix = m_doc->GetParametrString(domElement, AttrSuffix, QString());
+                rowData.icon = ":/toolicon/32x32/align.png";
+                rowData.name = getDestinationNames(domElement, suffix);
+                rowData.tool = tr("Align %1 to %2, line %1_%3 along %2_%4. Suffix %5")
+                                .arg(getName(attrUInt(domElement, VToolAlign::AttrSourcePoint)))
+                                .arg(getName(attrUInt(domElement, VToolAlign::AttrTargetPoint)))
+                                .arg(getName(attrUInt(domElement, VToolAlign::AttrSourceDirection)))
+                                .arg(getName(attrUInt(domElement, VToolAlign::AttrTargetDirection)), suffix);
                 break;
             }
 
