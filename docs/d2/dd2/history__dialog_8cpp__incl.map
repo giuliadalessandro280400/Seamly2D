@@ -1,5 +1,5 @@
 <map id="src/app/seamly2d/dialogs/history_dialog.cpp" name="src/app/seamly2d/dialogs/history_dialog.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="2564,5,2752,45"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2687,5,2875,45"/>
 <area shape="rect" id="node2" href="$d7/d44/history__dialog_8h.html" title=" " alt="" coords="187,108,313,133"/>
 <area shape="rect" id="node6" title=" " alt="" coords="337,108,483,133"/>
 <area shape="rect" id="node7" title=" " alt="" coords="507,108,657,133"/>
@@ -13,22 +13,23 @@
 <area shape="rect" id="node15" title=" " alt="" coords="2233,108,2406,133"/>
 <area shape="rect" id="node16" title=" " alt="" coords="2431,108,2643,133"/>
 <area shape="rect" id="node17" title=" " alt="" coords="2667,101,2894,141"/>
-<area shape="rect" id="node18" title=" " alt="" coords="2919,93,3104,148"/>
-<area shape="rect" id="node19" title=" " alt="" coords="3129,93,3337,148"/>
-<area shape="rect" id="node20" title=" " alt="" coords="3361,93,3547,148"/>
-<area shape="rect" id="node21" href="$d4/d38/vpattern_8h.html" title=" " alt="" coords="3571,108,3702,133"/>
-<area shape="rect" id="node26" title=" " alt="" coords="3727,108,3832,133"/>
-<area shape="rect" id="node27" title=" " alt="" coords="3856,108,3951,133"/>
-<area shape="rect" id="node28" title=" " alt="" coords="3975,108,4080,133"/>
-<area shape="rect" id="node29" title=" " alt="" coords="4103,108,4178,133"/>
-<area shape="rect" id="node30" title=" " alt="" coords="4203,108,4329,133"/>
-<area shape="rect" id="node31" title=" " alt="" coords="4353,108,4429,133"/>
-<area shape="rect" id="node32" title=" " alt="" coords="4454,108,4545,133"/>
+<area shape="rect" id="node18" title=" " alt="" coords="2918,101,3097,141"/>
+<area shape="rect" id="node19" title=" " alt="" coords="3121,93,3307,148"/>
+<area shape="rect" id="node20" title=" " alt="" coords="3331,93,3539,148"/>
+<area shape="rect" id="node21" title=" " alt="" coords="3564,93,3749,148"/>
+<area shape="rect" id="node22" href="$d4/d38/vpattern_8h.html" title=" " alt="" coords="3774,108,3905,133"/>
+<area shape="rect" id="node27" title=" " alt="" coords="3929,108,4035,133"/>
+<area shape="rect" id="node28" title=" " alt="" coords="4059,108,4153,133"/>
+<area shape="rect" id="node29" title=" " alt="" coords="4177,108,4283,133"/>
+<area shape="rect" id="node30" title=" " alt="" coords="4306,108,4381,133"/>
+<area shape="rect" id="node31" title=" " alt="" coords="4405,108,4532,133"/>
+<area shape="rect" id="node32" title=" " alt="" coords="4556,108,4632,133"/>
+<area shape="rect" id="node33" title=" " alt="" coords="4657,108,4747,133"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,196,167,236"/>
 <area shape="rect" id="node4" title=" " alt="" coords="191,203,309,229"/>
 <area shape="rect" id="node5" title=" " alt="" coords="332,203,475,229"/>
-<area shape="rect" id="node22" title=" " alt="" coords="3222,203,3425,229"/>
-<area shape="rect" id="node23" title=" " alt="" coords="3449,203,3619,229"/>
-<area shape="rect" id="node24" title=" " alt="" coords="3643,203,3833,229"/>
-<area shape="rect" id="node25" title=" " alt="" coords="3857,203,4067,229"/>
+<area shape="rect" id="node23" title=" " alt="" coords="3425,203,3627,229"/>
+<area shape="rect" id="node24" title=" " alt="" coords="3652,203,3821,229"/>
+<area shape="rect" id="node25" title=" " alt="" coords="3846,203,4035,229"/>
+<area shape="rect" id="node26" title=" " alt="" coords="4059,203,4270,229"/>
 </map>

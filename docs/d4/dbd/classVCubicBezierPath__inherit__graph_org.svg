@@ -23,11 +23,11 @@
 <text text-anchor="start" x="28" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Rotate()</text>
 <text text-anchor="start" x="28" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Flip()</text>
 <text text-anchor="start" x="28" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Move()</text>
-<text text-anchor="start" x="28" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VCubicBezierPath()</text>
-<text text-anchor="start" x="28" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator=()</text>
-<text text-anchor="start" x="28" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Swap()</text>
-<text text-anchor="start" x="28" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator[]()</text>
-<text text-anchor="start" x="28" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 14 more...</text>
+<text text-anchor="start" x="28" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Scale()</text>
+<text text-anchor="start" x="28" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VCubicBezierPath()</text>
+<text text-anchor="start" x="28" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator=()</text>
+<text text-anchor="start" x="28" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Swap()</text>
+<text text-anchor="start" x="28" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 15 more...</text>
 <text text-anchor="start" x="28" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CountSubSpl()</text>
 <text text-anchor="start" x="28" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SubSplOffset()</text>
 <text text-anchor="start" x="28" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SubSplPointsCount()</text>

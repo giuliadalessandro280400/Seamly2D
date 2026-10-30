@@ -289,6 +289,8 @@ var def_8h =
       [ "AnchorPoint", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395af74e06a1915cb029355bd2ae65605c06", null ],
       [ "InsertNodes", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395aec7a544ff2c982a59c0e0b6d64cba991", null ],
       [ "BackgroundImage", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395a62d5e21ce71a8567d193a0496b75f9e3", null ],
+      [ "Scale", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395a85a7cd587d6142dbfc1a4de05af7b75d", null ],
+      [ "Align", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395ad12fbc9a2ba3b0b91a4190959b4c966b", null ],
       [ "LAST_ONE_DO_NOT_USE", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395ae154556eea64f68495301fc09a12122e", null ]
     ] ],
     [ "Unit", "d4/da4/def_8h.html#aa5a23406ae0e7d969b980e50c4e94889", [
@@ -351,6 +353,8 @@ var def_8h =
       [ "ToolMirrorByLine", "d4/da4/def_8h.html#a474a10f771dff4181411f5ff47029582a84efa0793b38bf98ca0558f3424d0cb5", null ],
       [ "ToolMirrorByAxis", "d4/da4/def_8h.html#a474a10f771dff4181411f5ff47029582ae35cc2e33be1a02f271069f5c5d5e7e3", null ],
       [ "ToolMove", "d4/da4/def_8h.html#a474a10f771dff4181411f5ff47029582aa489dca2acec830adc132e50a5aa473e", null ],
+      [ "ToolScale", "d4/da4/def_8h.html#a474a10f771dff4181411f5ff47029582a0d903745fab56ed741478b5bf9e3e8c5", null ],
+      [ "ToolAlign", "d4/da4/def_8h.html#a474a10f771dff4181411f5ff47029582a2b1e13189d7b3aea41a5a37a00339c2b", null ],
       [ "ToolEllipticalArc", "d4/da4/def_8h.html#a474a10f771dff4181411f5ff47029582a16e990a5747056316876d425c584396e", null ],
       [ "ToolPiece", "d4/da4/def_8h.html#a474a10f771dff4181411f5ff47029582a52d2862744b248a814fd1164760292e7", null ],
       [ "ToolInternalPath", "d4/da4/def_8h.html#a474a10f771dff4181411f5ff47029582a68a3701b1e981f3aca45827575770b33", null ],

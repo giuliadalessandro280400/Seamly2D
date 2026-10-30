@@ -17,6 +17,8 @@ var classVPointF =
     [ "operator=", "db/d57/classVPointF.html#a4a26d0faba5986d99cc4998807abc893", null ],
     [ "Rotate", "db/d57/classVPointF.html#a88edd1678d8a96491aa85dc23f1544ce", null ],
     [ "RotatePF", "db/d57/classVPointF.html#a644cebf76d83c3ce5eafb9fd31218bf1", null ],
+    [ "Scale", "db/d57/classVPointF.html#abcc81728867c2f1ddfb37a6aeec676ee", null ],
+    [ "ScalePF", "db/d57/classVPointF.html#a83ec538198abca3c304968f570d86fe6", null ],
     [ "setMx", "db/d57/classVPointF.html#a08baec5c736cf2da28890aa3cb385601", null ],
     [ "setMy", "db/d57/classVPointF.html#a3d440ff538f290fe5f5bc82555693559", null ],
     [ "setShowPointName", "db/d57/classVPointF.html#aa2124a8469c6a99052c267a1501f9912", null ],

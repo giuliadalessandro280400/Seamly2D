@@ -225,6 +225,8 @@ var classVAbstractPattern =
     [ "AttrNodeNotchSubType", "d8/dba/classVAbstractPattern.html#a8252c078a937585860a98efebf482759", null ],
     [ "AttrNodeNotchType", "d8/dba/classVAbstractPattern.html#a3d15aab568dda4e2706265ee5194ac20", null ],
     [ "AttrNodeNotchWidth", "d8/dba/classVAbstractPattern.html#af19d7128f2b5454a306ca18e3244d4a9", null ],
+    [ "AttrNodeOffsetX", "d8/dba/classVAbstractPattern.html#afaa246f1279e36ecb25be320fff9f776", null ],
+    [ "AttrNodeOffsetY", "d8/dba/classVAbstractPattern.html#ad2454c03306ca1a1b0a02c8150d9504b", null ],
     [ "AttrNodeReverse", "d8/dba/classVAbstractPattern.html#acab69134d17a9a94babe7aefc078b3be", null ],
     [ "AttrNodeShowNotch", "d8/dba/classVAbstractPattern.html#af6d4f4bc63329ac5cc5d15d876955b7a", null ],
     [ "AttrNodeShowSecondNotch", "d8/dba/classVAbstractPattern.html#a8edf536d8bb40884925958d68baff7dd", null ],

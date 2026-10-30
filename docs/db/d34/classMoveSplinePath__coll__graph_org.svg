@@ -96,7 +96,7 @@
 <text text-anchor="start" x="139.78" y="-1171.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagNotes</text>
 <text text-anchor="start" x="139.78" y="-1160.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagMeasurements</text>
 <text text-anchor="start" x="139.78" y="-1149.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagVariables</text>
-<text text-anchor="start" x="139.78" y="-1138.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 150 more...</text>
+<text text-anchor="start" x="139.78" y="-1138.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 152 more...</text>
 <text text-anchor="start" x="139.78" y="-1127.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_activeDraftBlock</text>
 <text text-anchor="start" x="139.78" y="-1116.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_DefaultLineColor</text>
 <text text-anchor="start" x="139.78" y="-1105.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_DefaultLineWeight</text>
@@ -346,10 +346,10 @@
 <text text-anchor="start" x="427.28" y="-288.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Rotate()</text>
 <text text-anchor="start" x="427.28" y="-277.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Flip()</text>
 <text text-anchor="start" x="427.28" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Move()</text>
-<text text-anchor="start" x="427.28" y="-255.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VSplinePath()</text>
-<text text-anchor="start" x="427.28" y="-244.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator[]()</text>
-<text text-anchor="start" x="427.28" y="-233.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator=()</text>
-<text text-anchor="start" x="427.28" y="-222.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 17 more...</text>
+<text text-anchor="start" x="427.28" y="-255.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Scale()</text>
+<text text-anchor="start" x="427.28" y="-244.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VSplinePath()</text>
+<text text-anchor="start" x="427.28" y="-233.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator[]()</text>
+<text text-anchor="start" x="427.28" y="-222.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 18 more...</text>
 </a>
 </g>
 </g>

@@ -23,11 +23,11 @@
 <text text-anchor="start" x="28.5" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Rotate()</text>
 <text text-anchor="start" x="28.5" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Flip()</text>
 <text text-anchor="start" x="28.5" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Move()</text>
-<text text-anchor="start" x="28.5" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VCubicBezier()</text>
-<text text-anchor="start" x="28.5" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator=()</text>
-<text text-anchor="start" x="28.5" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Swap()</text>
-<text text-anchor="start" x="28.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetP1()</text>
-<text text-anchor="start" x="28.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 13 more...</text>
+<text text-anchor="start" x="28.5" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Scale()</text>
+<text text-anchor="start" x="28.5" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VCubicBezier()</text>
+<text text-anchor="start" x="28.5" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator=()</text>
+<text text-anchor="start" x="28.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Swap()</text>
+<text text-anchor="start" x="28.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 14 more...</text>
 <text text-anchor="start" x="28.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00"># GetControlPoint1()</text>
 <text text-anchor="start" x="28.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00"># GetControlPoint2()</text>
 </a>

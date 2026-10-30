@@ -25,6 +25,7 @@ var classVSplinePath =
     [ "operator=", "d9/da4/classVSplinePath.html#a69b00929d898f542021b6cde5a702353", null ],
     [ "operator[]", "d9/da4/classVSplinePath.html#adb9527ef58431fb3bec5b396adc4e73b", null ],
     [ "Rotate", "d9/da4/classVSplinePath.html#a0af06850f179f1c76c331b5e9cc6b98e", null ],
+    [ "Scale", "d9/da4/classVSplinePath.html#a2c11a03175e42e824a83c13a62932944", null ],
     [ "Swap", "d9/da4/classVSplinePath.html#a9b0581d926b508be20f4bfcc45f04f51", null ],
     [ "UpdatePoint", "d9/da4/classVSplinePath.html#a5769fbc22b4dcf5edb705c6d8cbf644f", null ],
     [ "d", "d9/da4/classVSplinePath.html#aa9116e01a5ff9a4af92baa6d8ffebb51", null ]

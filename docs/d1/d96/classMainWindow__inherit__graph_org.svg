@@ -25,7 +25,7 @@
 <text text-anchor="start" x="8" y="-631.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; infoToolButton</text>
 <text text-anchor="start" x="8" y="-620.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; m_statusMessage</text>
 <text text-anchor="start" x="8" y="-609.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; isInitialized</text>
-<text text-anchor="start" x="8" y="-598.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 40 more...</text>
+<text text-anchor="start" x="8" y="-598.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 44 more...</text>
 <polyline fill="none" stroke="#666666" points="0,-591.5 188,-591.5 "/>
 <text text-anchor="start" x="8" y="-579.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ MainWindow()</text>
 <text text-anchor="start" x="8" y="-568.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~MainWindow()</text>
@@ -58,17 +58,17 @@
 <text text-anchor="start" x="8" y="-271.5" font-family="Helvetica,sans-Serif" font-size="10.00">ToCSV()</text>
 <text text-anchor="start" x="8" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00"># exportFinalMeasurementsTo</text>
 <text text-anchor="start" x="8" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSVData()</text>
-<text text-anchor="start" x="8" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; removeEmptyLinesText()</text>
-<text text-anchor="start" x="8" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; saveBackupFile()</text>
-<text text-anchor="start" x="8" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; SetDefaultHeight()</text>
-<text text-anchor="start" x="8" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; SetDefaultSize()</text>
-<text text-anchor="start" x="8" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initializeStatusToolBar()</text>
-<text text-anchor="start" x="8" y="-183.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initializeModesToolBar()</text>
-<text text-anchor="start" x="8" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initializeDraftToolBar()</text>
-<text text-anchor="start" x="8" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initializePointNameToolBar()</text>
-<text text-anchor="start" x="8" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initializeToolsToolBar()</text>
-<text text-anchor="start" x="8" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initializeToolBarVisibility()</text>
-<text text-anchor="start" x="8" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 91 more...</text>
+<text text-anchor="start" x="8" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; clearAllSizes()</text>
+<text text-anchor="start" x="8" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; captureSceneGeometry()</text>
+<text text-anchor="start" x="8" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; removeEmptyLinesText()</text>
+<text text-anchor="start" x="8" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; saveBackupFile()</text>
+<text text-anchor="start" x="8" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; SetDefaultHeight()</text>
+<text text-anchor="start" x="8" y="-183.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; SetDefaultSize()</text>
+<text text-anchor="start" x="8" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initializeStatusToolBar()</text>
+<text text-anchor="start" x="8" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initializeModesToolBar()</text>
+<text text-anchor="start" x="8" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initializeDraftToolBar()</text>
+<text text-anchor="start" x="8" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initializePointNameToolBar()</text>
+<text text-anchor="start" x="8" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 93 more...</text>
 <text text-anchor="start" x="8" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; zoomScaleChanged()</text>
 <text text-anchor="start" x="8" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; MouseMove()</text>
 <text text-anchor="start" x="8" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; Clear()</text>
@@ -79,7 +79,7 @@
 <text text-anchor="start" x="8" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; setGuiEnabled()</text>
 <text text-anchor="start" x="8" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; changeDraftBlockGlobally()</text>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initToolBarStyles()</text>
-<text text-anchor="start" x="8" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 77 more...</text>
+<text text-anchor="start" x="8" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 82 more...</text>
 </a>
 </g>
 </g>

@@ -19,6 +19,7 @@ var vundocommand_8h =
       [ "RotationMoveLabel", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6aafec0a707b911fa3d4a057b499b7856c", null ],
       [ "TogglePieceInLayout", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6aa02955249e3e5f23157c87c512064afc", null ],
       [ "TogglePieceLock", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6af1a2d0a05bec059120cdb120012986c4", null ],
-      [ "SetPieceColor", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6a1415ace152d3e2c8a0bb8864690337fe", null ]
+      [ "SetPieceColor", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6a1415ace152d3e2c8a0bb8864690337fe", null ],
+      [ "MovePieceNode", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6a833f36e94f72a7cb843b8e925fd457d7", null ]
     ] ]
 ];

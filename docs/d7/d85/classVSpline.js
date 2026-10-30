@@ -34,6 +34,7 @@ var classVSpline =
     [ "operator=", "d7/d85/classVSpline.html#a549938ad2736ad4d75b47460785837a0", null ],
     [ "ParamT", "d7/d85/classVSpline.html#a6688d7e49f9277039cfeed357a62268d", null ],
     [ "Rotate", "d7/d85/classVSpline.html#a1a8b8b00466efd22a7c3e4262c05a615", null ],
+    [ "Scale", "d7/d85/classVSpline.html#a3900a9f6fd9e7492cd2573ba7be1234e", null ],
     [ "SetC1Length", "d7/d85/classVSpline.html#a3d9ce27fa6952133b74c806bfb406ae3", null ],
     [ "SetC2Length", "d7/d85/classVSpline.html#a53a31cdec486b8094f9add548e08521d", null ],
     [ "SetEndAngle", "d7/d85/classVSpline.html#ae20ed844c9bf04c31b2177adf563ed98", null ],

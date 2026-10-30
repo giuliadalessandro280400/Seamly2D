@@ -325,7 +325,7 @@
 <text text-anchor="start" x="289" y="-2387.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagNotes</text>
 <text text-anchor="start" x="289" y="-2376.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagMeasurements</text>
 <text text-anchor="start" x="289" y="-2365.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagVariables</text>
-<text text-anchor="start" x="289" y="-2354.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 150 more...</text>
+<text text-anchor="start" x="289" y="-2354.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 152 more...</text>
 <text text-anchor="start" x="289" y="-2343.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_activeDraftBlock</text>
 <text text-anchor="start" x="289" y="-2332.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_DefaultLineColor</text>
 <text text-anchor="start" x="289" y="-2321.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_DefaultLineWeight</text>
@@ -555,11 +555,11 @@
 <text text-anchor="start" x="250.5" y="-728.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Rotate()</text>
 <text text-anchor="start" x="250.5" y="-717.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Flip()</text>
 <text text-anchor="start" x="250.5" y="-706.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Move()</text>
-<text text-anchor="start" x="250.5" y="-695.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VCubicBezierPath()</text>
-<text text-anchor="start" x="250.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator=()</text>
-<text text-anchor="start" x="250.5" y="-673.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Swap()</text>
-<text text-anchor="start" x="250.5" y="-662.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator[]()</text>
-<text text-anchor="start" x="250.5" y="-651.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 14 more...</text>
+<text text-anchor="start" x="250.5" y="-695.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Scale()</text>
+<text text-anchor="start" x="250.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VCubicBezierPath()</text>
+<text text-anchor="start" x="250.5" y="-673.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator=()</text>
+<text text-anchor="start" x="250.5" y="-662.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Swap()</text>
+<text text-anchor="start" x="250.5" y="-651.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 15 more...</text>
 <text text-anchor="start" x="250.5" y="-640.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ CountSubSpl()</text>
 <text text-anchor="start" x="250.5" y="-629.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SubSplOffset()</text>
 <text text-anchor="start" x="250.5" y="-618.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SubSplPointsCount()</text>

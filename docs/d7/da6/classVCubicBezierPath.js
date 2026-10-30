@@ -24,6 +24,7 @@ var classVCubicBezierPath =
     [ "operator=", "d7/da6/classVCubicBezierPath.html#a446b2d3ab60deea6c0f18eeb06f7822e", null ],
     [ "operator[]", "d7/da6/classVCubicBezierPath.html#aff7192b7d7c3edb6cf3206b907b659c8", null ],
     [ "Rotate", "d7/da6/classVCubicBezierPath.html#af2cb34bd83316401b69c4219d2c4e887", null ],
+    [ "Scale", "d7/da6/classVCubicBezierPath.html#af10f7ec26e9acf9f8e681c1f09c9d97c", null ],
     [ "SubSplOffset", "d7/da6/classVCubicBezierPath.html#aef7e8b13d8cded5fc951e8d37a28eb44", null ],
     [ "SubSplPointsCount", "d7/da6/classVCubicBezierPath.html#a246059819512d41f697189be2a81727d", null ],
     [ "Swap", "d7/da6/classVCubicBezierPath.html#af85b93c5b8ba9e04b189f9d89ba8feed", null ],

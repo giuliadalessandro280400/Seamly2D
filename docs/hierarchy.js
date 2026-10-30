@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "AlignTransform", "d6/d75/structAlignTransform.html", null ],
     [ "AttributeList", "d3/d8d/classAttributeList.html", [
       [ "VecAttrListImpl", "d8/ddc/classVecAttrListImpl.html", null ]
     ] ],
@@ -332,6 +333,7 @@ var hierarchy =
         [ "AddToGroupDialog", "d1/dde/classAddToGroupDialog.html", null ],
         [ "AnchorPointDialog", "d6/dfc/classAnchorPointDialog.html", null ],
         [ "BasePointDialog", "d7/d42/classBasePointDialog.html", null ],
+        [ "DialogAlign", "dd/dfe/classDialogAlign.html", null ],
         [ "DialogAlongLine", "dd/d63/classDialogAlongLine.html", null ],
         [ "DialogArc", "db/d4d/classDialogArc.html", null ],
         [ "DialogArcWithLength", "d3/d84/classDialogArcWithLength.html", null ],
@@ -356,6 +358,7 @@ var hierarchy =
         [ "DialogPointOfIntersectionArcs", "dd/d0c/classDialogPointOfIntersectionArcs.html", null ],
         [ "DialogPointOfIntersectionCurves", "da/d11/classDialogPointOfIntersectionCurves.html", null ],
         [ "DialogRotation", "d5/dc7/classDialogRotation.html", null ],
+        [ "DialogScale", "d6/d71/classDialogScale.html", null ],
         [ "DialogShoulderPoint", "d1/dd5/classDialogShoulderPoint.html", null ],
         [ "DialogSpline", "de/d10/classDialogSpline.html", null ],
         [ "DialogSplinePath", "df/d5e/classDialogSplinePath.html", null ],
@@ -473,8 +476,10 @@ var hierarchy =
           [ "VToolMirrorByAxis", "d1/d6f/classVToolMirrorByAxis.html", null ],
           [ "VToolMirrorByLine", "dc/d0a/classVToolMirrorByLine.html", null ]
         ] ],
+        [ "VToolAlign", "d0/dae/classVToolAlign.html", null ],
         [ "VToolMove", "d5/d6f/classVToolMove.html", null ],
-        [ "VToolRotation", "d2/d0f/classVToolRotation.html", null ]
+        [ "VToolRotation", "d2/d0f/classVToolRotation.html", null ],
+        [ "VToolScale", "d7/dd2/classVToolScale.html", null ]
       ] ],
       [ "VScaledLine", "dd/da2/classVScaledLine.html", [
         [ "VisLine", "de/d0e/classVisLine.html", [
@@ -484,10 +489,12 @@ var hierarchy =
           [ "IntersectCirclesVisual", "dd/d25/classIntersectCirclesVisual.html", null ],
           [ "PointIntersectXYVisual", "d3/d38/classPointIntersectXYVisual.html", null ],
           [ "VisOperation", "d7/dba/classVisOperation.html", [
+            [ "VisToolAlign", "d3/d74/classVisToolAlign.html", null ],
             [ "VisToolMirrorByAxis", "da/db3/classVisToolMirrorByAxis.html", null ],
             [ "VisToolMirrorByLine", "d3/d9c/classVisToolMirrorByLine.html", null ],
             [ "VisToolMove", "dd/d50/classVisToolMove.html", null ],
-            [ "VisToolRotation", "d6/d62/classVisToolRotation.html", null ]
+            [ "VisToolRotation", "d6/d62/classVisToolRotation.html", null ],
+            [ "VisToolScale", "d7/de6/classVisToolScale.html", null ]
           ] ],
           [ "VisToolAlongLine", "de/d5b/classVisToolAlongLine.html", null ],
           [ "VisToolBisector", "dd/d3b/classVisToolBisector.html", null ],
@@ -551,6 +558,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "QGraphicsRectItem", null, [
+      [ "PieceNodeHandle", "d2/d2d/classPieceNodeHandle.html", null ],
       [ "ResizeHandlesItem::HandleItem", "d0/dc5/classResizeHandlesItem_1_1HandleItem.html", null ],
       [ "SceneRect", "d3/db3/classSceneRect.html", [
         [ "VControlPointSpline", "dd/dcb/classVControlPointSpline.html", null ]
@@ -655,6 +663,7 @@ var hierarchy =
       [ "GraphicsViewZoom", "da/d19/classGraphicsViewZoom.html", null ],
       [ "ImageItem", "d6/da8/classImageItem.html", null ],
       [ "ImageTool", "df/d5b/classImageTool.html", null ],
+      [ "PieceNodeHandle", "d2/d2d/classPieceNodeHandle.html", null ],
       [ "ResizeHandlesItem", "d0/de9/classResizeHandlesItem.html", null ],
       [ "TST_FindPoint", "d6/d30/classTST__FindPoint.html", null ],
       [ "TST_Measurements", "da/d3b/classTST__Measurements.html", null ],
@@ -754,6 +763,7 @@ var hierarchy =
         ] ],
         [ "MoveGroupItem", "df/dca/classMoveGroupItem.html", null ],
         [ "MovePiece", "d9/da7/classMovePiece.html", null ],
+        [ "MovePieceNode", "d6/d62/classMovePieceNode.html", null ],
         [ "MoveSPoint", "da/df9/classMoveSPoint.html", null ],
         [ "MoveSpline", "de/db1/classMoveSpline.html", null ],
         [ "MoveSplinePath", "d9/de8/classMoveSplinePath.html", null ],

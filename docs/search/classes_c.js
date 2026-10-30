@@ -26,8 +26,9 @@ var searchData=
   ['movelabel_23',['MoveLabel',['../d7/ddb/classMoveLabel.html',1,'']]],
   ['moveoperationlabel_24',['MoveOperationLabel',['../d7/d7b/classMoveOperationLabel.html',1,'']]],
   ['movepiece_25',['MovePiece',['../d9/da7/classMovePiece.html',1,'']]],
-  ['movespline_26',['MoveSpline',['../de/db1/classMoveSpline.html',1,'']]],
-  ['movesplinepath_27',['MoveSplinePath',['../d9/de8/classMoveSplinePath.html',1,'']]],
-  ['movespoint_28',['MoveSPoint',['../da/df9/classMoveSPoint.html',1,'']]],
-  ['multisizeconverter_29',['MultiSizeConverter',['../d6/d91/classMultiSizeConverter.html',1,'']]]
+  ['movepiecenode_26',['MovePieceNode',['../d6/d62/classMovePieceNode.html',1,'']]],
+  ['movespline_27',['MoveSpline',['../de/db1/classMoveSpline.html',1,'']]],
+  ['movesplinepath_28',['MoveSplinePath',['../d9/de8/classMoveSplinePath.html',1,'']]],
+  ['movespoint_29',['MoveSPoint',['../da/df9/classMoveSPoint.html',1,'']]],
+  ['multisizeconverter_30',['MultiSizeConverter',['../d6/d91/classMultiSizeConverter.html',1,'']]]
 ];

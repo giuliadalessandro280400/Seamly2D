@@ -20,6 +20,7 @@ var classVCubicBezier =
     [ "Move", "d0/dab/classVCubicBezier.html#a9a6aad99c2d56d0f6c02f6238b557fe0", null ],
     [ "operator=", "d0/dab/classVCubicBezier.html#aae70f43f709d03c166d5a65d617073c8", null ],
     [ "Rotate", "d0/dab/classVCubicBezier.html#a85d09f2dca9ed958d0e92e2418b65b39", null ],
+    [ "Scale", "d0/dab/classVCubicBezier.html#a75678a5f7e13b076f9388873d8646eb2", null ],
     [ "SetP1", "d0/dab/classVCubicBezier.html#abf6c629e908f16256b721a43d9e8578c", null ],
     [ "SetP2", "d0/dab/classVCubicBezier.html#ad623512073c24c8c4804ee4cebfa64e4", null ],
     [ "SetP3", "d0/dab/classVCubicBezier.html#a2fb9eda07453f82de28ca6ae5781a32d", null ],

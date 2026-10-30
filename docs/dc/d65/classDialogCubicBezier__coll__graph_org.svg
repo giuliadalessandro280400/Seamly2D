@@ -330,7 +330,7 @@
 <text text-anchor="start" x="289" y="-2453.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagNotes</text>
 <text text-anchor="start" x="289" y="-2442.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagMeasurements</text>
 <text text-anchor="start" x="289" y="-2431.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagVariables</text>
-<text text-anchor="start" x="289" y="-2420.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 150 more...</text>
+<text text-anchor="start" x="289" y="-2420.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 152 more...</text>
 <text text-anchor="start" x="289" y="-2409.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_activeDraftBlock</text>
 <text text-anchor="start" x="289" y="-2398.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_DefaultLineColor</text>
 <text text-anchor="start" x="289" y="-2387.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_DefaultLineWeight</text>
@@ -560,11 +560,11 @@
 <text text-anchor="start" x="252.5" y="-789" font-family="Helvetica,sans-Serif" font-size="10.00">+ Rotate()</text>
 <text text-anchor="start" x="252.5" y="-778" font-family="Helvetica,sans-Serif" font-size="10.00">+ Flip()</text>
 <text text-anchor="start" x="252.5" y="-767" font-family="Helvetica,sans-Serif" font-size="10.00">+ Move()</text>
-<text text-anchor="start" x="252.5" y="-756" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VCubicBezier()</text>
-<text text-anchor="start" x="252.5" y="-745" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator=()</text>
-<text text-anchor="start" x="252.5" y="-734" font-family="Helvetica,sans-Serif" font-size="10.00">+ Swap()</text>
-<text text-anchor="start" x="252.5" y="-723" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetP1()</text>
-<text text-anchor="start" x="252.5" y="-712" font-family="Helvetica,sans-Serif" font-size="10.00">and 13 more...</text>
+<text text-anchor="start" x="252.5" y="-756" font-family="Helvetica,sans-Serif" font-size="10.00">+ Scale()</text>
+<text text-anchor="start" x="252.5" y="-745" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VCubicBezier()</text>
+<text text-anchor="start" x="252.5" y="-734" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator=()</text>
+<text text-anchor="start" x="252.5" y="-723" font-family="Helvetica,sans-Serif" font-size="10.00">+ Swap()</text>
+<text text-anchor="start" x="252.5" y="-712" font-family="Helvetica,sans-Serif" font-size="10.00">and 14 more...</text>
 <text text-anchor="start" x="252.5" y="-701" font-family="Helvetica,sans-Serif" font-size="10.00"># GetControlPoint1()</text>
 <text text-anchor="start" x="252.5" y="-690" font-family="Helvetica,sans-Serif" font-size="10.00"># GetControlPoint2()</text>
 </a>

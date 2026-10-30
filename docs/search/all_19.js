@@ -12,5 +12,5 @@ var searchData=
   ['ypos_9',['yPos',['../d3/df8/structDraftImage.html#a0a9132127972cfab6d9881e17100d04b',1,'DraftImage']]],
   ['yposchanged_10',['yPosChanged',['../d3/db4/classImageDialog.html#aeb489693a42c80fb23f5e564ace142d4',1,'ImageDialog']]],
   ['yscale_11',['yScale',['../d3/df8/structDraftImage.html#a170b321103fde66cb756faaac7729657',1,'DraftImage']]],
-  ['yscalechanged_12',['yScaleChanged',['../d3/db4/classImageDialog.html#aed62de26b43ed033d3f52008f8b2c1fc',1,'ImageDialog']]]
+  ['yscalechanged_12',['yScaleChanged',['../d3/db4/classImageDialog.html#aed62de26b43ed033d3f52008f8b2c1fc',1,'ImageDialog::yScaleChanged()'],['../d6/d71/classDialogScale.html#a96b3522698e46512721cbda7db814df9',1,'DialogScale::yScaleChanged()']]]
 ];

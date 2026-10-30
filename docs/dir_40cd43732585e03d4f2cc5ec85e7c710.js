@@ -27,6 +27,8 @@ var dir_40cd43732585e03d4f2cc5ec85e7c710 =
     [ "move_groupitem.h", "de/dde/move__groupitem_8h.html", "de/dde/move__groupitem_8h" ],
     [ "movepiece.cpp", "df/df0/movepiece_8cpp.html", null ],
     [ "movepiece.h", "d1/db1/movepiece_8h.html", "d1/db1/movepiece_8h" ],
+    [ "movepiecenode.cpp", "d6/dd4/movepiecenode_8cpp.html", "d6/dd4/movepiecenode_8cpp" ],
+    [ "movepiecenode.h", "df/dce/movepiecenode_8h.html", "df/dce/movepiecenode_8h" ],
     [ "movespline.cpp", "dc/dbd/movespline_8cpp.html", null ],
     [ "movespline.h", "d7/d5e/movespline_8h.html", "d7/d5e/movespline_8h" ],
     [ "movesplinepath.cpp", "dc/d3d/movesplinepath_8cpp.html", null ],

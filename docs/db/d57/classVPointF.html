@@ -154,6 +154,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abc43653b42695e82d69fa37bf9630c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf84b2a73939bc1f11e3b1532cb19eb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d57/classVPointF.html">VPointF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/classVPointF.html#adf84b2a73939bc1f11e3b1532cb19eb7">Move</a> (qreal length, qreal angle, const QString &amp;prefix=QString()) const</td></tr>
 <tr class="separator:adf84b2a73939bc1f11e3b1532cb19eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcc81728867c2f1ddfb37a6aeec676ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d57/classVPointF.html">VPointF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/classVPointF.html#abcc81728867c2f1ddfb37a6aeec676ee">Scale</a> (const QPointF &amp;originPoint, qreal sx, qreal sy, const QString &amp;prefix=QString()) const</td></tr>
+<tr class="memdesc:abcc81728867c2f1ddfb37a6aeec676ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale returns a copy of the point scaled relative to originPoint by sx horizontally and sy vertically.  <br /></td></tr>
+<tr class="separator:abcc81728867c2f1ddfb37a6aeec676ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a668b3ec84dc3bd4a2e09b423446e8586"><td class="memItemLeft" align="right" valign="top">qreal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/classVPointF.html#a668b3ec84dc3bd4a2e09b423446e8586">mx</a> () const</td></tr>
 <tr class="memdesc:a668b3ec84dc3bd4a2e09b423446e8586"><td class="mdescLeft">&#160;</td><td class="mdescRight">mx return offset name respect to x  <br /></td></tr>
 <tr class="separator:a668b3ec84dc3bd4a2e09b423446e8586"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,6 +244,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ae1761dc9edc264ed9bd6b024cce33f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a739fde1446a3f17655f6efb4192c7675"><td class="memItemLeft" align="right" valign="top">static QPointF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/classVPointF.html#a739fde1446a3f17655f6efb4192c7675">MovePF</a> (const QPointF &amp;originPoint, qreal length, qreal angle)</td></tr>
 <tr class="separator:a739fde1446a3f17655f6efb4192c7675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83ec538198abca3c304968f570d86fe6"><td class="memItemLeft" align="right" valign="top">static QPointF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/classVPointF.html#a83ec538198abca3c304968f570d86fe6">ScalePF</a> (const QPointF &amp;originPoint, const QPointF &amp;point, qreal sx, qreal sy)</td></tr>
+<tr class="separator:a83ec538198abca3c304968f570d86fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classVGObject"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classVGObject')"><img src="../../closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="../../d1/de7/classVGObject.html">VGObject</a></td></tr>
 <tr class="memitem:aab2d01aac093c13430d5119abbd52764 inherit pub_static_methods_classVGObject"><td class="memItemLeft" align="right" valign="top">static QLineF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/de7/classVGObject.html#aab2d01aac093c13430d5119abbd52764">BuildLine</a> (const QPointF &amp;p1, const qreal &amp;length, const qreal &amp;angle)</td></tr>
 <tr class="separator:aab2d01aac093c13430d5119abbd52764 inherit pub_static_methods_classVGObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -632,9 +637,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00259">259</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00155">Flip()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00164">Move()</a>, <a class="el" href="../../d0/d5d/vscenepoint_8cpp_source.html#l00123">VScenePoint::refreshPointGeometry()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00146">Rotate()</a>, and <a class="el" href="../../de/d21/vtooldoublepoint_8cpp_source.html#l00382">VToolDoublePoint::SaveOptions()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00155">Flip()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00164">Move()</a>, <a class="el" href="../../d0/d5d/vscenepoint_8cpp_source.html#l00123">VScenePoint::refreshPointGeometry()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00146">Rotate()</a>, <a class="el" href="../../de/d21/vtooldoublepoint_8cpp_source.html#l00382">VToolDoublePoint::SaveOptions()</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00297">Scale()</a>.</p>
 
 </div>
 </div>
@@ -744,9 +749,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00177">177</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00155">Flip()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00164">Move()</a>, <a class="el" href="../../d0/d5d/vscenepoint_8cpp_source.html#l00123">VScenePoint::refreshPointGeometry()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00146">Rotate()</a>, <a class="el" href="../../de/d21/vtooldoublepoint_8cpp_source.html#l00382">VToolDoublePoint::SaveOptions()</a>, <a class="el" href="../../db/dcd/vtoolcubicbezier_8cpp_source.html#l00084">setHandlesFromLengths()</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00197">setMx()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00155">Flip()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00164">Move()</a>, <a class="el" href="../../d0/d5d/vscenepoint_8cpp_source.html#l00123">VScenePoint::refreshPointGeometry()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00146">Rotate()</a>, <a class="el" href="../../de/d21/vtooldoublepoint_8cpp_source.html#l00382">VToolDoublePoint::SaveOptions()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00297">Scale()</a>, <a class="el" href="../../db/dcd/vtoolcubicbezier_8cpp_source.html#l00084">setHandlesFromLengths()</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00197">setMx()</a>.</p>
 
 </div>
 </div>
@@ -770,9 +775,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00187">187</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00155">Flip()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00164">Move()</a>, <a class="el" href="../../d0/d5d/vscenepoint_8cpp_source.html#l00123">VScenePoint::refreshPointGeometry()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00146">Rotate()</a>, <a class="el" href="../../de/d21/vtooldoublepoint_8cpp_source.html#l00382">VToolDoublePoint::SaveOptions()</a>, <a class="el" href="../../db/dcd/vtoolcubicbezier_8cpp_source.html#l00084">setHandlesFromLengths()</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00207">setMy()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00155">Flip()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00164">Move()</a>, <a class="el" href="../../d0/d5d/vscenepoint_8cpp_source.html#l00123">VScenePoint::refreshPointGeometry()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00146">Rotate()</a>, <a class="el" href="../../de/d21/vtooldoublepoint_8cpp_source.html#l00382">VToolDoublePoint::SaveOptions()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00297">Scale()</a>, <a class="el" href="../../db/dcd/vtoolcubicbezier_8cpp_source.html#l00084">setHandlesFromLengths()</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00207">setMy()</a>.</p>
 
 </div>
 </div>
@@ -830,7 +835,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00128">128</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>, and <a class="el" href="../../da/d37/vgobject_8cpp_source.html#l00109">VGObject::operator=()</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>, and <a class="el" href="../../da/d37/vgobject_8cpp_source.html#l00109">VGObject::operator=()</a>.</p>
 
 </div>
 </div>
@@ -920,6 +925,106 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="abcc81728867c2f1ddfb37a6aeec676ee" name="abcc81728867c2f1ddfb37a6aeec676ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcc81728867c2f1ddfb37a6aeec676ee">&#9670;&#160;</a></span>Scale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d57/classVPointF.html">VPointF</a> VPointF::Scale </td>
+          <td>(</td>
+          <td class="paramtype">const QPointF &amp;&#160;</td>
+          <td class="paramname"><em>originPoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>sx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>sy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>prefix</em> = <code>QString()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scale returns a copy of the point scaled relative to originPoint by sx horizontally and sy vertically. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00297">297</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00259">isShowPointName()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00177">mx()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00187">my()</a>, <a class="el" href="../../da/d37/vgobject_8cpp_source.html#l00148">VGObject::name()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00306">ScalePF()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00265">setShowPointName()</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00213">toQPointF()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d5/ded/varc_8cpp_source.html#l00494">VArc::Scale()</a>, <a class="el" href="../../d2/d26/vcubicbezier_8cpp_source.html#l00255">VCubicBezier::Scale()</a>, and <a class="el" href="../../d5/dd2/vspline_8cpp_source.html#l00592">VSpline::Scale()</a>.</p>
+
+</div>
+</div>
+<a id="a83ec538198abca3c304968f570d86fe6" name="a83ec538198abca3c304968f570d86fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83ec538198abca3c304968f570d86fe6">&#9670;&#160;</a></span>ScalePF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPointF VPointF::ScalePF </td>
+          <td>(</td>
+          <td class="paramtype">const QPointF &amp;&#160;</td>
+          <td class="paramname"><em>originPoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QPointF &amp;&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>sx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>sy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00306">306</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d6/ddd/vistoolscale_8cpp_source.html#l00063">VisToolScale::RefreshGeometry()</a>, <a class="el" href="../../d5/ded/varc_8cpp_source.html#l00494">VArc::Scale()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00297">Scale()</a>, and <a class="el" href="../../d5/dd2/vspline_8cpp_source.html#l00592">VSpline::Scale()</a>.</p>
+
+</div>
+</div>
 <a id="a08baec5c736cf2da28890aa3cb385601" name="a08baec5c736cf2da28890aa3cb385601"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a08baec5c736cf2da28890aa3cb385601">&#9670;&#160;</a></span>setMx()</h2>
 
@@ -946,7 +1051,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00197">197</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00177">mx()</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00177">mx()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d1/ddf/vtoolcutsplinepath_8cpp_source.html#l00160">VToolCutSplinePath::Create()</a>, and <a class="el" href="../../de/d21/vtooldoublepoint_8cpp_source.html#l00247">VToolDoublePoint::setPointNamePosition()</a>.</p>
 
@@ -978,7 +1083,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00207">207</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00187">my()</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00187">my()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d1/ddf/vtoolcutsplinepath_8cpp_source.html#l00160">VToolCutSplinePath::Create()</a>, and <a class="el" href="../../de/d21/vtooldoublepoint_8cpp_source.html#l00247">VToolDoublePoint::setPointNamePosition()</a>.</p>
 
@@ -1002,9 +1107,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00265">265</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d33/point__intersectxy__tool_8cpp_source.html#l00169">PointIntersectXYTool::Create()</a>, <a class="el" href="../../da/d99/vtoolcurveintersectaxis_8cpp_source.html#l00150">VToolCurveIntersectAxis::Create()</a>, <a class="el" href="../../db/d82/vtoollineintersectaxis_8cpp_source.html#l00140">VToolLineIntersectAxis::Create()</a>, <a class="el" href="../../d7/d91/vtoolendline_8cpp_source.html#l00177">VToolEndLine::Create()</a>, <a class="el" href="../../d1/d35/vtoolheight_8cpp_source.html#l00175">VToolHeight::Create()</a>, <a class="el" href="../../d8/d68/vtoolalongline_8cpp_source.html#l00314">VToolAlongLine::Create()</a>, <a class="el" href="../../da/dae/vtoolcutspline_8cpp_source.html#l00156">VToolCutSpline::Create()</a>, <a class="el" href="../../dc/db5/vtoolcutarc_8cpp_source.html#l00153">VToolCutArc::Create()</a>, <a class="el" href="../../d1/ddf/vtoolcutsplinepath_8cpp_source.html#l00160">VToolCutSplinePath::Create()</a>, <a class="el" href="../../d5/d77/vtoolpointfromarcandtangent_8cpp_source.html#l00132">VToolPointFromArcAndTangent::Create()</a>, <a class="el" href="../../de/d85/vtooltriangle_8cpp_source.html#l00170">VToolTriangle::Create()</a>, <a class="el" href="../../d0/dbe/intersect__circletangent__tool_8cpp_source.html#l00132">IntersectCircleTangentTool::Create()</a>, <a class="el" href="../../db/d41/intersect__circles__tool_8cpp_source.html#l00141">IntersectCirclesTool::Create()</a>, <a class="el" href="../../da/de1/vtoolpointofintersectioncurves_8cpp_source.html#l00129">VToolPointOfIntersectionCurves::Create()</a>, <a class="el" href="../../db/d8d/vtoollineintersect_8cpp_source.html#l00170">VToolLineIntersect::Create()</a>, <a class="el" href="../../d4/ddb/vtoolnormal_8cpp_source.html#l00180">VToolNormal::Create()</a>, <a class="el" href="../../d6/d07/vtoolbisector_8cpp_source.html#l00215">VToolBisector::Create()</a>, <a class="el" href="../../dd/dab/vtoolshoulderpoint_8cpp_source.html#l00227">VToolShoulderPoint::Create()</a>, <a class="el" href="../../d9/d3d/intersect__arc__line__tool_8cpp_source.html#l00226">IntersectArcLineTool::Create()</a>, <a class="el" href="../../d5/d59/vtooltruedarts_8cpp_source.html#l00171">VToolTrueDarts::Create()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00155">Flip()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00164">Move()</a>, <a class="el" href="../../d3/d49/vpattern_8cpp_source.html#l01750">VPattern::ParseNodePoint()</a>, <a class="el" href="../../d3/d49/vpattern_8cpp_source.html#l01398">VPattern::ParseToolBasePoint()</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00146">Rotate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d33/point__intersectxy__tool_8cpp_source.html#l00169">PointIntersectXYTool::Create()</a>, <a class="el" href="../../da/d99/vtoolcurveintersectaxis_8cpp_source.html#l00150">VToolCurveIntersectAxis::Create()</a>, <a class="el" href="../../db/d82/vtoollineintersectaxis_8cpp_source.html#l00140">VToolLineIntersectAxis::Create()</a>, <a class="el" href="../../d7/d91/vtoolendline_8cpp_source.html#l00177">VToolEndLine::Create()</a>, <a class="el" href="../../d1/d35/vtoolheight_8cpp_source.html#l00175">VToolHeight::Create()</a>, <a class="el" href="../../d8/d68/vtoolalongline_8cpp_source.html#l00314">VToolAlongLine::Create()</a>, <a class="el" href="../../da/dae/vtoolcutspline_8cpp_source.html#l00156">VToolCutSpline::Create()</a>, <a class="el" href="../../dc/db5/vtoolcutarc_8cpp_source.html#l00153">VToolCutArc::Create()</a>, <a class="el" href="../../d1/ddf/vtoolcutsplinepath_8cpp_source.html#l00160">VToolCutSplinePath::Create()</a>, <a class="el" href="../../d5/d77/vtoolpointfromarcandtangent_8cpp_source.html#l00132">VToolPointFromArcAndTangent::Create()</a>, <a class="el" href="../../de/d85/vtooltriangle_8cpp_source.html#l00170">VToolTriangle::Create()</a>, <a class="el" href="../../d0/dbe/intersect__circletangent__tool_8cpp_source.html#l00132">IntersectCircleTangentTool::Create()</a>, <a class="el" href="../../db/d41/intersect__circles__tool_8cpp_source.html#l00141">IntersectCirclesTool::Create()</a>, <a class="el" href="../../da/de1/vtoolpointofintersectioncurves_8cpp_source.html#l00129">VToolPointOfIntersectionCurves::Create()</a>, <a class="el" href="../../db/d8d/vtoollineintersect_8cpp_source.html#l00170">VToolLineIntersect::Create()</a>, <a class="el" href="../../d4/ddb/vtoolnormal_8cpp_source.html#l00180">VToolNormal::Create()</a>, <a class="el" href="../../d6/d07/vtoolbisector_8cpp_source.html#l00215">VToolBisector::Create()</a>, <a class="el" href="../../dd/dab/vtoolshoulderpoint_8cpp_source.html#l00227">VToolShoulderPoint::Create()</a>, <a class="el" href="../../d9/d3d/intersect__arc__line__tool_8cpp_source.html#l00226">IntersectArcLineTool::Create()</a>, <a class="el" href="../../d5/d59/vtooltruedarts_8cpp_source.html#l00171">VToolTrueDarts::Create()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00155">Flip()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00164">Move()</a>, <a class="el" href="../../d3/d49/vpattern_8cpp_source.html#l01751">VPattern::ParseNodePoint()</a>, <a class="el" href="../../d3/d49/vpattern_8cpp_source.html#l01399">VPattern::ParseToolBasePoint()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00146">Rotate()</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00297">Scale()</a>.</p>
 
 </div>
 </div>
@@ -1034,9 +1139,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00233">233</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00346">QT_WARNING_POP::BiasRotatePoint()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00246">VEllipticalArc::GetCenter()</a>, and <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00367">QT_WARNING_POP::UnionInitParameters()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02608">PatternPieceTool::applyNodeOffsets()</a>, <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00346">QT_WARNING_POP::BiasRotatePoint()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00246">VEllipticalArc::GetCenter()</a>, <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02478">anonymous_namespace{pattern_piece_tool.cpp}::moveCurveEnd()</a>, and <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00367">QT_WARNING_POP::UnionInitParameters()</a>.</p>
 
 </div>
 </div>
@@ -1066,9 +1171,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00253">253</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00346">QT_WARNING_POP::BiasRotatePoint()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00246">VEllipticalArc::GetCenter()</a>, and <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00367">QT_WARNING_POP::UnionInitParameters()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02608">PatternPieceTool::applyNodeOffsets()</a>, <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00346">QT_WARNING_POP::BiasRotatePoint()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00246">VEllipticalArc::GetCenter()</a>, <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02478">anonymous_namespace{pattern_piece_tool.cpp}::moveCurveEnd()</a>, and <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00367">QT_WARNING_POP::UnionInitParameters()</a>.</p>
 
 </div>
 </div>
@@ -1119,9 +1224,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00213">213</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/dd5/tst__vspline_8cpp_source.html#l00463">TST_VSpline::CompareSplines()</a>, <a class="el" href="../../db/d0a/vabstractcubicbezierpath_8cpp_source.html#l00190">VAbstractCubicBezierPath::CutSplinePath()</a>, <a class="el" href="../../d3/d2b/vtoolmove_8cpp_source.html#l00103">VToolMove::findRotationOrigin()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00155">Flip()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00246">VEllipticalArc::GetCenter()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00262">VEllipticalArc::getPoint()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00293">VEllipticalArc::getPoints()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00170">VEllipticalArc::Move()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00164">Move()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00146">Rotate()</a>, <a class="el" href="../../de/dd5/tst__vspline_8cpp_source.html#l00570">TST_VSpline::TestAutoSmoothLengthSolver()</a>, <a class="el" href="../../d0/d57/tst__vpointf_8cpp_source.html#l00095">TST_VPointF::TestFlip()</a>, <a class="el" href="../../de/dd5/tst__vspline_8cpp_source.html#l00385">TST_VSpline::TestLengthByPoint_data()</a>, and <a class="el" href="../../d2/dba/tst__vsplinepath_8cpp_source.html#l00126">TST_VSplinePath::TestRotation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/dd5/tst__vspline_8cpp_source.html#l00463">TST_VSpline::CompareSplines()</a>, <a class="el" href="../../db/d0a/vabstractcubicbezierpath_8cpp_source.html#l00190">VAbstractCubicBezierPath::CutSplinePath()</a>, <a class="el" href="../../d3/d2b/vtoolmove_8cpp_source.html#l00103">VToolMove::findRotationOrigin()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00155">Flip()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00246">VEllipticalArc::GetCenter()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00262">VEllipticalArc::getPoint()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00293">VEllipticalArc::getPoints()</a>, <a class="el" href="../../d6/dfb/vellipticalarc_8cpp_source.html#l00170">VEllipticalArc::Move()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00164">Move()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00146">Rotate()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00297">Scale()</a>, <a class="el" href="../../de/dd5/tst__vspline_8cpp_source.html#l00570">TST_VSpline::TestAutoSmoothLengthSolver()</a>, <a class="el" href="../../d0/d57/tst__vpointf_8cpp_source.html#l00095">TST_VPointF::TestFlip()</a>, <a class="el" href="../../de/dd5/tst__vspline_8cpp_source.html#l00385">TST_VSpline::TestLengthByPoint_data()</a>, and <a class="el" href="../../d2/dba/tst__vsplinepath_8cpp_source.html#l00126">TST_VSplinePath::TestRotation()</a>.</p>
 
 </div>
 </div>
@@ -1145,9 +1250,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00223">223</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00346">QT_WARNING_POP::BiasRotatePoint()</a>, <a class="el" href="../../d5/dd2/vspline_8cpp_source.html#l00540">VSpline::ParamT()</a>, <a class="el" href="../../dc/d83/tst__vellipticalarc_8cpp_source.html#l00302">TST_VEllipticalArc::TestGetPoints2()</a>, <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00367">QT_WARNING_POP::UnionInitParameters()</a>, and <a class="el" href="../../d1/d76/vspline__p_8h_source.html#l00148">VSplineData::VSplineData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00346">QT_WARNING_POP::BiasRotatePoint()</a>, <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02478">anonymous_namespace{pattern_piece_tool.cpp}::moveCurveEnd()</a>, <a class="el" href="../../d5/dd2/vspline_8cpp_source.html#l00540">VSpline::ParamT()</a>, <a class="el" href="../../dc/d83/tst__vellipticalarc_8cpp_source.html#l00302">TST_VEllipticalArc::TestGetPoints2()</a>, <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00367">QT_WARNING_POP::UnionInitParameters()</a>, and <a class="el" href="../../d1/d76/vspline__p_8h_source.html#l00148">VSplineData::VSplineData()</a>.</p>
 
 </div>
 </div>
@@ -1171,9 +1276,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00243">243</a> of file <a class="el" href="../../dd/da8/vpointf_8cpp_source.html">vpointf.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">d</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">d</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00346">QT_WARNING_POP::BiasRotatePoint()</a>, <a class="el" href="../../d5/dd2/vspline_8cpp_source.html#l00540">VSpline::ParamT()</a>, <a class="el" href="../../dc/d83/tst__vellipticalarc_8cpp_source.html#l00302">TST_VEllipticalArc::TestGetPoints2()</a>, <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00367">QT_WARNING_POP::UnionInitParameters()</a>, and <a class="el" href="../../d1/d76/vspline__p_8h_source.html#l00148">VSplineData::VSplineData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00346">QT_WARNING_POP::BiasRotatePoint()</a>, <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02478">anonymous_namespace{pattern_piece_tool.cpp}::moveCurveEnd()</a>, <a class="el" href="../../d5/dd2/vspline_8cpp_source.html#l00540">VSpline::ParamT()</a>, <a class="el" href="../../dc/d83/tst__vellipticalarc_8cpp_source.html#l00302">TST_VEllipticalArc::TestGetPoints2()</a>, <a class="el" href="../../d4/d9f/union__tool_8cpp_source.html#l00367">QT_WARNING_POP::UnionInitParameters()</a>, and <a class="el" href="../../d1/d76/vspline__p_8h_source.html#l00148">VSplineData::VSplineData()</a>.</p>
 
 </div>
 </div>
@@ -1198,7 +1303,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00115">115</a> of file <a class="el" href="../../d1/d48/vpointf_8h_source.html">vpointf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d48/vpointf_8h_source.html#l00117">117</a> of file <a class="el" href="../../d1/d48/vpointf_8h_source.html">vpointf.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00259">isShowPointName()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00177">mx()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00187">my()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00128">operator=()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00197">setMx()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00207">setMy()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00265">setShowPointName()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00233">setX()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00253">setY()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00213">toQPointF()</a>, <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00223">x()</a>, and <a class="el" href="../../dd/da8/vpointf_8cpp_source.html#l00243">y()</a>.</p>
 

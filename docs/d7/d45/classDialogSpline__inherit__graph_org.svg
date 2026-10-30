@@ -33,13 +33,13 @@
 <text text-anchor="start" x="8" y="-392.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~DialogSpline()</text>
 <text text-anchor="start" x="8" y="-381.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetSpline()</text>
 <text text-anchor="start" x="8" y="-370.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SetSpline()</text>
-<text text-anchor="start" x="8" y="-359.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetAutoSmooth()</text>
-<text text-anchor="start" x="8" y="-348.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SetAutoSmooth()</text>
-<text text-anchor="start" x="8" y="-337.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetLengthMode()</text>
-<text text-anchor="start" x="8" y="-326.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SetLengthMode()</text>
-<text text-anchor="start" x="8" y="-315.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetTargetLength()</text>
-<text text-anchor="start" x="8" y="-304.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SetTargetLength()</text>
-<text text-anchor="start" x="8" y="-293.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 6 more...</text>
+<text text-anchor="start" x="8" y="-359.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getProportionalHandles()</text>
+<text text-anchor="start" x="8" y="-348.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ setProportionalHandles()</text>
+<text text-anchor="start" x="8" y="-337.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetAutoSmooth()</text>
+<text text-anchor="start" x="8" y="-326.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SetAutoSmooth()</text>
+<text text-anchor="start" x="8" y="-315.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetLengthMode()</text>
+<text text-anchor="start" x="8" y="-304.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SetLengthMode()</text>
+<text text-anchor="start" x="8" y="-293.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 8 more...</text>
 <text text-anchor="start" x="8" y="-282.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ChosenObject()</text>
 <text text-anchor="start" x="8" y="-271.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ PointNameChanged()</text>
 <text text-anchor="start" x="8" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ShowDialog()</text>

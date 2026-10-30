@@ -23,6 +23,7 @@ var classVArc =
     [ "Move", "d2/d6d/classVArc.html#a9835d86f0c037a4858deb24ed6fecc6c", null ],
     [ "operator=", "d2/d6d/classVArc.html#ad12b106e209061539e9823f678dfd6a7", null ],
     [ "Rotate", "d2/d6d/classVArc.html#ac8076e5210623fd477aa6331f14bbe54", null ],
+    [ "Scale", "d2/d6d/classVArc.html#a6060c8ec4c50c1194508fc39a5c8cda2", null ],
     [ "SetFormulaRadius", "d2/d6d/classVArc.html#af9185e0ef19a3e218a85987c32392f00", null ],
     [ "Swap", "d2/d6d/classVArc.html#abd6dfa052e81c42a3fede02666bd196c", null ],
     [ "d", "d2/d6d/classVArc.html#af9719ed21fc5641b38afbe730f4a4554", null ]

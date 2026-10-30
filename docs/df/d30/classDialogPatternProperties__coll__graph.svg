@@ -156,7 +156,7 @@ var sectionId = 'dynsection-1';
 <text text-anchor="start" x="688.5" y="-552.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; ParsePieceDataTag()</text>
 <text text-anchor="start" x="688.5" y="-541.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; ParsePiecePatternInfo()</text>
 <text text-anchor="start" x="688.5" y="-530.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; ParsePieceGrainline()</text>
-<text text-anchor="start" x="688.5" y="-519.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 67 more...</text>
+<text text-anchor="start" x="688.5" y="-519.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 69 more...</text>
 </a>
 </g>
 </g>
@@ -184,7 +184,7 @@ var sectionId = 'dynsection-1';
 <text text-anchor="start" x="404" y="-1622.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagNotes</text>
 <text text-anchor="start" x="404" y="-1611.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagMeasurements</text>
 <text text-anchor="start" x="404" y="-1600.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagVariables</text>
-<text text-anchor="start" x="404" y="-1589.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 150 more...</text>
+<text text-anchor="start" x="404" y="-1589.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 152 more...</text>
 <text text-anchor="start" x="404" y="-1578.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_activeDraftBlock</text>
 <text text-anchor="start" x="404" y="-1567.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_DefaultLineColor</text>
 <text text-anchor="start" x="404" y="-1556.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_DefaultLineWeight</text>

@@ -33,6 +33,7 @@ var classVEllipticalArc =
     [ "normalizeAngle", "d0/d14/classVEllipticalArc.html#a243e8446ed0ed7bb3f81ab1469ca3f73", null ],
     [ "operator=", "d0/d14/classVEllipticalArc.html#a1f0138e0dcd228cfb91c194837eebd69", null ],
     [ "Rotate", "d0/d14/classVEllipticalArc.html#a15fe983c0c2be29b8818b4ef1397500e", null ],
+    [ "Scale", "d0/d14/classVEllipticalArc.html#a1184b5571ffec98a3f219fc7ba9ed8bb", null ],
     [ "SetFormulaRadius1", "d0/d14/classVEllipticalArc.html#a498c61cedd8b8f188a80b06ce330c0b2", null ],
     [ "SetFormulaRadius2", "d0/d14/classVEllipticalArc.html#aeae3d4b442690d8d9c3dbdba548f6e86", null ],
     [ "SetFormulaRotationAngle", "d0/d14/classVEllipticalArc.html#aaf1e2bf8e8c171307bf7ac4c57229cfb", null ],

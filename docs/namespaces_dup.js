@@ -17,6 +17,9 @@ var namespaces_dup =
     [ "anonymous_namespace{internal_path_dialog.cpp}", "df/de6/namespaceanonymous__namespace_02internal__path__dialog_8cpp_03.html", [
       [ "cutLinePath", "df/de6/namespaceanonymous__namespace_02internal__path__dialog_8cpp_03.html#a394f1f735699f1b1d0e822cf8d3af1d3", null ]
     ] ],
+    [ "anonymous_namespace{mainwindow.cpp}", "d5/d7e/namespaceanonymous__namespace_02mainwindow_8cpp_03.html", [
+      [ "AllSizesItemKey", "d5/d7e/namespaceanonymous__namespace_02mainwindow_8cpp_03.html#a7d8d4559a9d4050137cb42ad99324385", null ]
+    ] ],
     [ "anonymous_namespace{mainwindowsnogui.cpp}", "df/da0/namespaceanonymous__namespace_02mainwindowsnogui_8cpp_03.html", [
       [ "CreateLayoutPath", "df/da0/namespaceanonymous__namespace_02mainwindowsnogui_8cpp_03.html#adc02e3f28db0229af91f2077610c4b9d", null ],
       [ "RemoveLayoutPath", "df/da0/namespaceanonymous__namespace_02mainwindowsnogui_8cpp_03.html#aba458b4f78f014b23015631f3a439456", null ]
@@ -24,9 +27,20 @@ var namespaces_dup =
     [ "anonymous_namespace{measurements.cpp}", "dc/d48/namespaceanonymous__namespace_02measurements_8cpp_03.html", [
       [ "FileComment", "dc/d48/namespaceanonymous__namespace_02measurements_8cpp_03.html#a6cfc6f484e575ef4a1ed713c707803ef", null ]
     ] ],
+    [ "anonymous_namespace{movepiecenode.cpp}", "d1/d27/namespaceanonymous__namespace_02movepiecenode_8cpp_03.html", [
+      [ "findNode", "d1/d27/namespaceanonymous__namespace_02movepiecenode_8cpp_03.html#a6d61e2966735f645f13cdc5c4e9e4b7d", null ]
+    ] ],
     [ "anonymous_namespace{pattern_piece_dialog.cpp}", "d7/d49/namespaceanonymous__namespace_02pattern__piece__dialog_8cpp_03.html", [
       [ "enableDefaultButton", "d7/d49/namespaceanonymous__namespace_02pattern__piece__dialog_8cpp_03.html#af04aa336f20ec8424e3ff06065363df1", null ],
       [ "getFormulaFromUser", "d7/d49/namespaceanonymous__namespace_02pattern__piece__dialog_8cpp_03.html#a6e4259470f736c8f847d8d04b3fef36d", null ]
+    ] ],
+    [ "anonymous_namespace{pattern_piece_tool.cpp}", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html", [
+      [ "draftTraces", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a4173e9d51b993d81a4de95ea7d17abdd", null ],
+      [ "moveCurveEnd", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a9405dfbb26b4bb9df4789cea175211cd", null ],
+      [ "samePoint", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#ab8c271df874a646a8f2ed7f3c58dca94", null ]
+    ] ],
+    [ "anonymous_namespace{piece_node_handle.cpp}", "d7/d0c/namespaceanonymous__namespace_02piece__node__handle_8cpp_03.html", [
+      [ "handleSize", "d7/d0c/namespaceanonymous__namespace_02piece__node__handle_8cpp_03.html#a75ae4278e98b368b0c858ff5b941da4a", null ]
     ] ],
     [ "anonymous_namespace{preferencespatternpage.cpp}", "d1/dbe/namespaceanonymous__namespace_02preferencespatternpage_8cpp_03.html", [
       [ "initAllStringsComboBox", "d1/dbe/namespaceanonymous__namespace_02preferencespatternpage_8cpp_03.html#a97383a8b46e2afedbc957a5c56b7522f", null ]
@@ -291,6 +305,16 @@ var namespaces_dup =
       [ "PrepareLines", "db/dc8/namespaceanonymous__namespace_02vtextmanager_8cpp_03.html#a7788df6540976bcf089f73bb45e6859b", null ],
       [ "PreparePlaceholders", "db/dc8/namespaceanonymous__namespace_02vtextmanager_8cpp_03.html#a88d38d5a844b780e9d471ef2e836a2f6", null ],
       [ "ReplacePlaceholders", "db/dc8/namespaceanonymous__namespace_02vtextmanager_8cpp_03.html#a91aaaf6b1495aa6560f1cb8e37421b01", null ]
+    ] ],
+    [ "ProportionalHandles", "d9/df6/namespaceProportionalHandles.html", [
+      [ "attrRefChord", "d9/df6/namespaceProportionalHandles.html#afec0824ba61871333bbd27d28c8cc404", null ],
+      [ "attrRefChords", "d9/df6/namespaceProportionalHandles.html#a9903aa607e2a9f3877f15c24c4c734c2", null ],
+      [ "chord", "d9/df6/namespaceProportionalHandles.html#ad4794eec722b175abd9506548507d225", null ],
+      [ "factor", "d9/df6/namespaceProportionalHandles.html#a1b5f859412d669dfc9423792f21b7899", null ],
+      [ "formatList", "d9/df6/namespaceProportionalHandles.html#a0eca6ce99927701b3744c28c2a61e1db", null ],
+      [ "isNumber", "d9/df6/namespaceProportionalHandles.html#a7c5b5ba0a1dda67042ddf4fec3929621", null ],
+      [ "parseList", "d9/df6/namespaceProportionalHandles.html#acedf20682d4847a41337f329b554a250", null ],
+      [ "toStored", "d9/df6/namespaceProportionalHandles.html#a161dca6cbe06446fd26c211c1790e311", null ]
     ] ],
     [ "qmu", "da/d92/namespaceqmu.html", "da/d92/namespaceqmu" ],
     [ "QT_WARNING_POP", "dd/db0/namespaceQT__WARNING__POP.html", [

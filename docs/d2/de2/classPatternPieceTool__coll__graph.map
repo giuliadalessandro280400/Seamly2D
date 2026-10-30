@@ -1,5 +1,5 @@
 <map id="PatternPieceTool" name="PatternPieceTool">
-<area shape="rect" id="node1" title=" " alt="" coords="903,3448,1129,4831"/>
+<area shape="rect" id="node1" title=" " alt="" coords="903,3448,1129,4919"/>
 <area shape="rect" id="node2" href="$d4/d36/classVInteractiveTool.html" title=" " alt="" coords="518,2971,727,3136"/>
 <area shape="rect" id="node3" href="$d4/d36/classVAbstractTool.html" title="The VAbstractTool abstract class for all tools." alt="" coords="309,2024,512,2673"/>
 <area shape="rect" id="node4" href="$d5/d68/classVDataTool.html" title="The VDataTool class need for getting access to data container of tool." alt="" coords="139,1290,314,1485"/>

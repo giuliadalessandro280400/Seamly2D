@@ -2,8 +2,10 @@ var dir_93a7de65b6c5c2d2866ed2f7bf29219a =
 [
     [ "drawTools", "dir_9b6bd0170ff56259d331a59e6a9c04fc.html", "dir_9b6bd0170ff56259d331a59e6a9c04fc" ],
     [ "nodeDetails", "dir_0ca6ab6f29ec27907e8ee4f6aad54e41.html", "dir_0ca6ab6f29ec27907e8ee4f6aad54e41" ],
-    [ "pattern_piece_tool.cpp", "d8/dea/pattern__piece__tool_8cpp.html", null ],
+    [ "pattern_piece_tool.cpp", "d8/dea/pattern__piece__tool_8cpp.html", "d8/dea/pattern__piece__tool_8cpp" ],
     [ "pattern_piece_tool.h", "d1/d19/pattern__piece__tool_8h.html", "d1/d19/pattern__piece__tool_8h" ],
+    [ "piece_node_handle.cpp", "dd/d5e/piece__node__handle_8cpp.html", "dd/d5e/piece__node__handle_8cpp" ],
+    [ "piece_node_handle.h", "d4/db9/piece__node__handle_8h.html", "d4/db9/piece__node__handle_8h" ],
     [ "tools.h", "d5/da5/tools_8h.html", null ],
     [ "union_tool.cpp", "d4/d9f/union__tool_8cpp.html", "d4/d9f/union__tool_8cpp" ],
     [ "union_tool.h", "d4/d42/union__tool_8h.html", "d4/d42/union__tool_8h" ],

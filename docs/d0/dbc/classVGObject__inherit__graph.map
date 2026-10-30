@@ -1,7 +1,7 @@
 <map id="VGObject" name="VGObject">
 <area shape="rect" id="node1" title="The VGObject class keep information graphical objects." alt="" coords="341,5,535,523"/>
 <area shape="rect" id="node2" href="$dc/d55/classVAbstractCurve.html" title=" " alt="" coords="227,571,441,941"/>
-<area shape="rect" id="node13" href="$db/d57/classVPointF.html" title="The VPointF class keep data of point." alt="" coords="465,622,622,890"/>
+<area shape="rect" id="node13" href="$db/d57/classVPointF.html" title="The VPointF class keep data of point." alt="" coords="465,615,622,897"/>
 <area shape="rect" id="node3" href="$d9/d54/classVAbstractArc.html" title=" " alt="" coords="153,989,318,1257"/>
 <area shape="rect" id="node6" href="$dd/dc4/classVAbstractBezier.html" title=" " alt="" coords="353,1048,515,1199"/>
 <area shape="rect" id="node4" href="$d2/d6d/classVArc.html" title="VArc class for anticlockwise arc." alt="" coords="5,1371,135,1639"/>

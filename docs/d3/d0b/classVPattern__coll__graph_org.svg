@@ -41,7 +41,7 @@
 <text text-anchor="start" x="444.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; ParsePieceDataTag()</text>
 <text text-anchor="start" x="444.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; ParsePiecePatternInfo()</text>
 <text text-anchor="start" x="444.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; ParsePieceGrainline()</text>
-<text text-anchor="start" x="444.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 67 more...</text>
+<text text-anchor="start" x="444.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 69 more...</text>
 </a>
 </g>
 </g>
@@ -62,7 +62,7 @@
 <text text-anchor="start" x="217" y="-1110.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagNotes</text>
 <text text-anchor="start" x="217" y="-1099.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagMeasurements</text>
 <text text-anchor="start" x="217" y="-1088.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ TagVariables</text>
-<text text-anchor="start" x="217" y="-1077.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 150 more...</text>
+<text text-anchor="start" x="217" y="-1077.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 152 more...</text>
 <text text-anchor="start" x="217" y="-1066.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_activeDraftBlock</text>
 <text text-anchor="start" x="217" y="-1055.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_DefaultLineColor</text>
 <text text-anchor="start" x="217" y="-1044.5" font-family="Helvetica,sans-Serif" font-size="10.00"># m_DefaultLineWeight</text>

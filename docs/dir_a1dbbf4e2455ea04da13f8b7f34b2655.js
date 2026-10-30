@@ -1,5 +1,6 @@
 var dir_a1dbbf4e2455ea04da13f8b7f34b2655 =
 [
+    [ "proportionalhandles.h", "d1/df8/proportionalhandles_8h.html", "d1/df8/proportionalhandles_8h" ],
     [ "vabstractspline.cpp", "d1/d05/vabstractspline_8cpp.html", null ],
     [ "vabstractspline.h", "d9/dcd/vabstractspline_8h.html", "d9/dcd/vabstractspline_8h" ],
     [ "vtoolarc.cpp", "d2/d9b/vtoolarc_8cpp.html", null ],

@@ -70,10 +70,10 @@ var sectionId = 'dynsection-1';
 <text text-anchor="start" x="42" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Rotate()</text>
 <text text-anchor="start" x="42" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Flip()</text>
 <text text-anchor="start" x="42" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Move()</text>
-<text text-anchor="start" x="42" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VSplinePath()</text>
-<text text-anchor="start" x="42" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator[]()</text>
-<text text-anchor="start" x="42" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator=()</text>
-<text text-anchor="start" x="42" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 17 more...</text>
+<text text-anchor="start" x="42" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Scale()</text>
+<text text-anchor="start" x="42" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~VSplinePath()</text>
+<text text-anchor="start" x="42" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ operator[]()</text>
+<text text-anchor="start" x="42" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 18 more...</text>
 </a>
 </g>
 </g>
