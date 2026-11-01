@@ -204,6 +204,7 @@ var hierarchy =
       [ "SAX2XMLFilterImpl", "de/d91/classSAX2XMLFilterImpl.html", null ]
     ] ],
     [ "dx_data", "d8/db3/classdx__data.html", null ],
+    [ "PatternPieceTool::EditorDrag", "d5/dfd/structPatternPieceTool_1_1EditorDrag.html", null ],
     [ "EncodingValidator", "dd/d0c/classEncodingValidator.html", null ],
     [ "EndOfEntityException", "d4/d48/classEndOfEntityException.html", null ],
     [ "EntityResolver", "dc/db4/classEntityResolver.html", [
@@ -524,6 +525,7 @@ var hierarchy =
       [ "InternalPathTool", "d9/d3f/classInternalPathTool.html", null ],
       [ "NonScalingFillPathItem", "df/d63/classNonScalingFillPathItem.html", null ],
       [ "PatternPieceTool", "da/dfb/classPatternPieceTool.html", null ],
+      [ "PieceSegmentHandle", "d1/da2/classPieceSegmentHandle.html", null ],
       [ "VAbstractSpline", "d3/d64/classVAbstractSpline.html", [
         [ "VToolArc", "d4/dd5/classVToolArc.html", null ],
         [ "VToolArcWithLength", "d4/d2b/classVToolArcWithLength.html", null ],
@@ -625,6 +627,7 @@ var hierarchy =
     [ "QMap< QString, quint32 >", "d0/d4c/classQMap.html", null ],
     [ "QMap< QString, VPE::VAbstractPropertyFactory * >", "d0/d4c/classQMap.html", null ],
     [ "QMap< QString, VPE::VProperty * >", "d0/d4c/classQMap.html", null ],
+    [ "QMap< quint32, QPointF >", "d0/d4c/classQMap.html", null ],
     [ "QMap< quint32, quint32 >", "d0/d4c/classQMap.html", null ],
     [ "QMap< quint32, VAbstractSimple * >", "d0/d4c/classQMap.html", null ],
     [ "QMap< VPE::VProperty *, QString >", "d0/d4c/classQMap.html", null ],
@@ -664,6 +667,7 @@ var hierarchy =
       [ "ImageItem", "d6/da8/classImageItem.html", null ],
       [ "ImageTool", "df/d5b/classImageTool.html", null ],
       [ "PieceNodeHandle", "d2/d2d/classPieceNodeHandle.html", null ],
+      [ "PieceSegmentHandle", "d1/da2/classPieceSegmentHandle.html", null ],
       [ "ResizeHandlesItem", "d0/de9/classResizeHandlesItem.html", null ],
       [ "TST_FindPoint", "d6/d30/classTST__FindPoint.html", null ],
       [ "TST_Measurements", "da/d3b/classTST__Measurements.html", null ],
@@ -764,9 +768,11 @@ var hierarchy =
         [ "MoveGroupItem", "df/dca/classMoveGroupItem.html", null ],
         [ "MovePiece", "d9/da7/classMovePiece.html", null ],
         [ "MovePieceNode", "d6/d62/classMovePieceNode.html", null ],
+        [ "MovePieceNodes", "d2/d47/classMovePieceNodes.html", null ],
         [ "MoveSPoint", "da/df9/classMoveSPoint.html", null ],
         [ "MoveSpline", "de/db1/classMoveSpline.html", null ],
         [ "MoveSplinePath", "d9/de8/classMoveSplinePath.html", null ],
+        [ "PinPieceNode", "d6/d4c/classPinPieceNode.html", null ],
         [ "RemoveGroupItem", "d7/d18/classRemoveGroupItem.html", null ],
         [ "RenameDraftBlock", "dd/d20/classRenameDraftBlock.html", null ],
         [ "SavePieceOptions", "d9/d20/classSavePieceOptions.html", null ],

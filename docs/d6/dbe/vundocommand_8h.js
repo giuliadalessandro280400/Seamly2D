@@ -20,6 +20,7 @@ var vundocommand_8h =
       [ "TogglePieceInLayout", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6aa02955249e3e5f23157c87c512064afc", null ],
       [ "TogglePieceLock", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6af1a2d0a05bec059120cdb120012986c4", null ],
       [ "SetPieceColor", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6a1415ace152d3e2c8a0bb8864690337fe", null ],
-      [ "MovePieceNode", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6a833f36e94f72a7cb843b8e925fd457d7", null ]
+      [ "MovePieceNode", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6a833f36e94f72a7cb843b8e925fd457d7", null ],
+      [ "MovePieceNodes", "d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6ae40119003e060f5c9d256f31dcc40f6c", null ]
     ] ]
 ];

@@ -21,6 +21,7 @@ var classVPieceNodeData =
     [ "m_notchType", "d9/d93/classVPieceNodeData.html#aa37c0205e6746e6c190143b6c1087213", null ],
     [ "m_notchWidth", "d9/d93/classVPieceNodeData.html#adf13499da7c102bbda827badd5226564", null ],
     [ "m_offset", "d9/d93/classVPieceNodeData.html#ac7bf1939e396c675420e6743fac254ae", null ],
+    [ "m_pinned", "d9/d93/classVPieceNodeData.html#a544ddffd68da76e9902004c2a52181da", null ],
     [ "m_reverse", "d9/d93/classVPieceNodeData.html#afec71e3fdfad8dc77fbef2b44b79e500", null ],
     [ "m_showNotch", "d9/d93/classVPieceNodeData.html#abd48a5bfc9f9b50de7941931d5496864", null ],
     [ "m_showSeamlineNotch", "d9/d93/classVPieceNodeData.html#a2d4079210953112a90562187824a893b", null ],

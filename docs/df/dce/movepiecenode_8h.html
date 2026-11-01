@@ -103,7 +103,8 @@ $(document).ready(function(){initNavTree('df/dce/movepiecenode_8h.html','../../'
   <div class="headertitle"><div class="title">movepiecenode.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;QPointF&gt;</code><br />
+<div class="textblock"><code>#include &lt;QMap&gt;</code><br />
+<code>#include &lt;QPointF&gt;</code><br />
 <code>#include &lt;QtGlobal&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../d6/dbe/vundocommand_8h_source.html">vundocommand.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -125,6 +126,12 @@ This graph shows which files directly or indirectly include this file:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d62/classMovePieceNode.html">MovePieceNode</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d6/d62/classMovePieceNode.html" title="The MovePieceNode class changes the manual offset of one point of a pattern piece....">MovePieceNode</a> class changes the manual offset of one point of a pattern piece. The offset is stored on the &lt;node&gt; of the piece, in pattern units. Consecutive moves of the same point merge into one undo step.  <a href="../../d6/d62/classMovePieceNode.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d47/classMovePieceNodes.html">MovePieceNodes</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d2/d47/classMovePieceNodes.html" title="The MovePieceNodes class changes the offsets of several points of a piece at once (a point dragged wi...">MovePieceNodes</a> class changes the offsets of several points of a piece at once (a point dragged with the points that follow it up to the pins, or a dragged line). Moves with the same drag key merge into one undo step.  <a href="../../d2/d47/classMovePieceNodes.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d4c/classPinPieceNode.html">PinPieceNode</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d6/d4c/classPinPieceNode.html" title="The PinPieceNode class pins or unpins a point of a piece in the piece editor.">PinPieceNode</a> class pins or unpins a point of a piece in the piece editor.  <a href="../../d6/d4c/classPinPieceNode.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

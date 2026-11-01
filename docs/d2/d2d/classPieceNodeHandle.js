@@ -2,9 +2,13 @@ var classPieceNodeHandle =
 [
     [ "PieceNodeHandle", "d2/d2d/classPieceNodeHandle.html#ad0c61cdcb409fbe71a5db4f593869fd0", null ],
     [ "~PieceNodeHandle", "d2/d2d/classPieceNodeHandle.html#a833ae167b811aed24d06d5685d8856bc", null ],
+    [ "contextMenuEvent", "d2/d2d/classPieceNodeHandle.html#a84cfdd7688ba012bec671edca63bee1b", null ],
+    [ "dragFinished", "d2/d2d/classPieceNodeHandle.html#a69558bd993820d4e1bab8ebecb6976d7", null ],
+    [ "dragStarted", "d2/d2d/classPieceNodeHandle.html#a225857516905b2b0c04640b647ae83e1", null ],
     [ "hoverEnterEvent", "d2/d2d/classPieceNodeHandle.html#a2f4e64970f6c7935ec8640f160f8f588", null ],
     [ "hoverLeaveEvent", "d2/d2d/classPieceNodeHandle.html#a8700854da918adc7f1bf45f2632ceab5", null ],
     [ "isDragging", "d2/d2d/classPieceNodeHandle.html#ab166093e87f30e6de81175ca909b562e", null ],
+    [ "isPinned", "d2/d2d/classPieceNodeHandle.html#a98e5fe7abd91d6ba631f0b377924236c", null ],
     [ "itemChange", "d2/d2d/classPieceNodeHandle.html#a324bed9f0aa565f8de4447e9094ee409", null ],
     [ "mouseDoubleClickEvent", "d2/d2d/classPieceNodeHandle.html#a23d520ec1e17afc3142ae1696b00324e", null ],
     [ "mouseMoveEvent", "d2/d2d/classPieceNodeHandle.html#abd896d8551baad7e6a840b2bf2553ed1", null ],
@@ -12,11 +16,14 @@ var classPieceNodeHandle =
     [ "mouseReleaseEvent", "d2/d2d/classPieceNodeHandle.html#aa65d4d2816f10ed768bededcfbfef6af", null ],
     [ "moved", "d2/d2d/classPieceNodeHandle.html#a27f507f0d751dbd8d53b447caf1f4c79", null ],
     [ "nodeId", "d2/d2d/classPieceNodeHandle.html#a74ff0941b30dfe7998d72d886a0a207f", null ],
+    [ "pinToggled", "d2/d2d/classPieceNodeHandle.html#a29b3540678de883cf127e996473e28f6", null ],
     [ "resetRequested", "d2/d2d/classPieceNodeHandle.html#a2818e7bbc0da20a597ce221cb19df279", null ],
     [ "setModified", "d2/d2d/classPieceNodeHandle.html#a1fe331f90b998d0e1835f14b5a95fc9f", null ],
+    [ "setPinned", "d2/d2d/classPieceNodeHandle.html#a82bc5598850cb0b0af0f82e7bb3f0e03", null ],
     [ "updateLook", "d2/d2d/classPieceNodeHandle.html#a92aee4f0fcbdf60bcbfc3768108ea758", null ],
     [ "m_dragging", "d2/d2d/classPieceNodeHandle.html#aa2eb4bfa85b6b3acb785ec0a4f73afd6", null ],
     [ "m_grabOffset", "d2/d2d/classPieceNodeHandle.html#aeb9eb2c3ebb6ceba77a2164a4191f719", null ],
     [ "m_modified", "d2/d2d/classPieceNodeHandle.html#a0e77aad664f918cb62c7214f6da364d7", null ],
-    [ "m_nodeId", "d2/d2d/classPieceNodeHandle.html#aafb4b5147ab382f835731d49ce470e02", null ]
+    [ "m_nodeId", "d2/d2d/classPieceNodeHandle.html#aafb4b5147ab382f835731d49ce470e02", null ],
+    [ "m_pinned", "d2/d2d/classPieceNodeHandle.html#ab5f04d0b36e8dc67eab9aeb820e40489", null ]
 ];
