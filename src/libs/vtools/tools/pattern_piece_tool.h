@@ -50,6 +50,8 @@
 #ifndef PATTERNPIECE_TOOL_H
 #define PATTERNPIECE_TOOL_H
 
+#include <QColor>
+#include <QTransform>
 #include <QtGlobal>
 #include <qcompilerdetection.h>
 #include <QObject>
@@ -113,6 +115,20 @@ public:
     static void addGrainline(VAbstractPattern *doc, QDomElement &domElement, const VPiece &piece);
 
     void                 updatePiece(const VPiece &piece);
+
+    /// @brief a point of the contour for the seam check (piece coordinates)
+    struct ContourMark
+    {
+        QPointF position;
+        QString name;
+        bool    notch {false};
+    };
+    QVector<QPointF>     editorContour() const;
+    QVector<ContourMark> editorMarks() const;
+    void                 setCheckPlacement(const QTransform &placement, const QColor &color);
+    void                 clearCheckPlacement();
+    bool                 isInCheck() const { return m_checkColor.isValid(); }
+    void                 startSeamCheck();
     void                 RefreshGeometry();
 
     virtual int          type() const override {return Type;}
@@ -210,6 +226,7 @@ private:
         QVector<bool>    pinned;
     };
     EditorDrag              m_drag;
+    QColor                  m_checkColor;   /// @brief color while the piece is laid on another one (seam check)
 
                            PatternPieceTool(VAbstractPattern *doc, VContainer *data, const quint32 &id,
                                               const Source &typeCreation, VMainGraphicsScene *scene,

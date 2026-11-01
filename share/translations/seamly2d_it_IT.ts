@@ -8508,6 +8508,10 @@ Premere Invio per aggiungerlo temporaneamente all&apos;elenco.</translation>
         <source>reset piece to draft shape</source>
         <translation>ripristina il pezzo alla forma della bozza</translation>
     </message>
+    <message>
+        <source>Check Seam on Another Piece...</source>
+        <translation>Controlla cucitura su un altro pezzo...</translation>
+    </message>
 </context>
 <context>
     <name>PenToolBar</name>
@@ -15982,6 +15986,73 @@ di controllo</translation>
     <message>
         <source>Drag to move this line of the piece (the draft does not change).</source>
         <translation>Trascina per spostare questa linea del pezzo (la bozza non cambia).</translation>
+    </message>
+</context>
+<context>
+    <name>SeamCheck</name>
+    <message>
+        <source>Base</source>
+        <translation>Base</translation>
+    </message>
+    <message>
+        <source>Checked</source>
+        <translation>Controllato</translation>
+    </message>
+    <message>
+        <source>Click the base piece, the one to check against.</source>
+        <translation>Clicca il pezzo base, quello su cui controllare.</translation>
+    </message>
+    <message>
+        <source>Click the point of the base piece where it starts.</source>
+        <translation>Clicca il punto del pezzo base da cui parte.</translation>
+    </message>
+    <message>
+        <source>Click the start point on the piece to check (colored).</source>
+        <translation>Clicca il punto di partenza sul pezzo da controllare (colorato).</translation>
+    </message>
+    <message>
+        <source>Difference at the last point reached:</source>
+        <translation>Differenza all'ultimo punto raggiunto:</translation>
+    </message>
+    <message>
+        <source>Difference</source>
+        <translation>Differenza</translation>
+    </message>
+    <message>
+        <source>Flip (F)</source>
+        <translation>Capovolgi (F)</translation>
+    </message>
+    <message>
+        <source>Move the mouse along the base piece: the colored piece walks on it. Space: other side. F: flip. Click or Enter: stop and correct the points.</source>
+        <translation>Muovi il mouse lungo il pezzo base: il pezzo colorato ci cammina sopra. Spazio: l'altro lato. F: capovolgi. Clic o Invio: ferma e correggi i punti.</translation>
+    </message>
+    <message>
+        <source>Other Side (Space)</source>
+        <translation>Altro lato (Spazio)</translation>
+    </message>
+    <message>
+        <source>Seam Check</source>
+        <translation>Controllo cucitura</translation>
+    </message>
+    <message>
+        <source>Separate (Esc)</source>
+        <translation>Separa (Esc)</translation>
+    </message>
+    <message>
+        <source>Stop (Enter)</source>
+        <translation>Ferma (Invio)</translation>
+    </message>
+    <message>
+        <source>Stopped. Drag the points of the colored piece to correct it, the lengths update. Enter: walk again. Separate: put it back.</source>
+        <translation>Fermo. Trascina i punti del pezzo colorato per correggerlo, le lunghezze si aggiornano. Invio: cammina di nuovo. Separa: rimettilo al suo posto.</translation>
+    </message>
+    <message>
+        <source>Walk (Enter)</source>
+        <translation>Cammina (Invio)</translation>
+    </message>
+    <message>
+        <source>Walked:</source>
+        <translation>Percorso:</translation>
     </message>
 </context>
 </TS>

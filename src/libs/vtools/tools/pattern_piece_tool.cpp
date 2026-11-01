@@ -93,6 +93,7 @@
 #include <QMessageBox>
 #include <QPainterPathStroker>
 #include "piece_node_handle.h"
+#include "seam_check.h"
 #include "../undocommands/movepiecenode.h"
 #include "../vgeometry/vspline.h"
 #include "../vgeometry/vsplinepath.h"
@@ -911,6 +912,10 @@ void PatternPieceTool::paint(QPainter *painter, const QStyleOptionGraphicsItem *
         brush.setStyle(static_cast<Qt::BrushStyle>(index));
         brush.setTransform(brush.transform().scale(150.0, 150.0));
         brush.setTransform(painter->combinedTransform().inverted());
+        if (m_checkColor.isValid())
+        {
+            brush = QBrush(m_checkColor); // seam check: the piece laid on another one has its own color
+        }
         this->setBrush(brush);
     }
 
@@ -1238,6 +1243,9 @@ void PatternPieceTool::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
     QAction *resetShape = menu.addAction(tr("Reset to Draft Shape"));
     resetShape->setEnabled(lock && hasOffsets);
 
+    QAction *seamCheck = menu.addAction(tr("Check Seam on Another Piece..."));
+    seamCheck->setEnabled(not isInCheck());
+
     QAction *selectedAction = menu.exec(event->screenPos());
     if (selectedAction == editProperties)
     {
@@ -1290,6 +1298,10 @@ void PatternPieceTool::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
     else if (selectedAction == resetShape)
     {
         resetAllNodeOffsets();
+    }
+    else if (selectedAction == seamCheck)
+    {
+        startSeamCheck();
     }
     else if (selectedAction == deletePiece)
     {
@@ -1573,6 +1585,10 @@ void PatternPieceTool::RefreshGeometry()
     //set pattern piece color & brush style
     int index = fills().indexOf(piece.getFill());
     QBrush newBrush = QBrush(adaptColor(QColor(pieceColor)), static_cast<Qt::BrushStyle>(index));
+    if (m_checkColor.isValid())
+    {
+        newBrush = QBrush(m_checkColor); // seam check: the piece laid on another one has its own color
+    }
     this->setBrush(newBrush);
 
     QPainterPath path = piece.mainPath(this->getData());
@@ -2988,4 +3004,68 @@ void PatternPieceTool::resetAllNodeOffsets()
     cmd->setText(tr("reset piece to draft shape"));
     connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
     qApp->getUndoStack()->push(cmd);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+// Seam check
+//---------------------------------------------------------------------------------------------------------------------
+QVector<QPointF> PatternPieceTool::editorContour() const
+{
+    return VAbstractTool::data.GetPiece(m_id).mainPathPoints(this->getData());
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+QVector<PatternPieceTool::ContourMark> PatternPieceTool::editorMarks() const
+{
+    QVector<ContourMark> marks;
+    const VPiecePath path = VAbstractTool::data.GetPiece(m_id).GetPath();
+    for (int i = 0; i < path.nodeCount(); ++i)
+    {
+        const VPieceNode &node = path.at(i);
+        if (node.GetTypeTool() == Tool::NodePoint && not node.isExcluded())
+        {
+            const QSharedPointer<VPointF> point = VAbstractTool::data.GeometricObject<VPointF>(node.GetId());
+            ContourMark mark;
+            mark.position = static_cast<QPointF>(*point);
+            mark.name = point->name();
+            mark.notch = node.isNotch();
+            marks.append(mark);
+        }
+    }
+    return marks;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief setCheckPlacement lays the piece on another one for the seam check. Only the view changes: the position
+ * saved in the file stays the same, so Separate puts the piece back.
+ */
+void PatternPieceTool::setCheckPlacement(const QTransform &placement, const QColor &color)
+{
+    m_checkColor = color;
+    // scene = transform(local) + pos  =>  transform = placement - pos
+    setTransform(placement * QTransform::fromTranslate(-pos().x(), -pos().y()));
+    setZValue(50);
+    QColor fill = color;
+    setBrush(QBrush(fill));
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::clearCheckPlacement()
+{
+    m_checkColor = QColor();
+    setTransform(QTransform());
+    setZValue(0);
+    RefreshGeometry();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::startSeamCheck()
+{
+    auto *scene = qobject_cast<VMainGraphicsScene *>(this->scene());
+    if (scene == nullptr)
+    {
+        return;
+    }
+    new SeamCheck(this, scene, doc); // deletes itself on Separate
 }
