@@ -30,6 +30,10 @@
 #include <QCursor>
 #include <QGraphicsSceneMouseEvent>
 #include <QPen>
+#include <QMenu>
+#include <QPainterPathStroker>
+#include <QGraphicsScene>
+#include <QGraphicsView>
 
 namespace
 {
@@ -43,6 +47,7 @@ PieceNodeHandle::PieceNodeHandle(quint32 nodeId, QGraphicsItem *parent)
     , m_nodeId(nodeId)
     , m_dragging(false)
     , m_modified(false)
+    , m_pinned(false)
     , m_grabOffset()
 {
     // Same mechanism Seamly uses for the handles of curves: Qt moves the item, we follow its position.
@@ -66,8 +71,26 @@ void PieceNodeHandle::setModified(bool modified)
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void PieceNodeHandle::setPinned(bool pinned)
+{
+    m_pinned = pinned;
+    setCursor(pinned ? Qt::ForbiddenCursor : Qt::SizeAllCursor);
+    updateLook(false);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void PieceNodeHandle::updateLook(bool hover)
 {
+    if (m_pinned)
+    {
+        // A pin: green, filled, it does not move
+        QPen pen(QColor(20, 150, 60));
+        pen.setCosmetic(true);
+        pen.setWidthF(2);
+        setPen(pen);
+        setBrush(QColor(20, 150, 60));
+        return;
+    }
     QPen pen(m_modified ? QColor(200, 40, 40) : QColor(30, 90, 200));
     pen.setCosmetic(true);
     pen.setWidthF(2);
@@ -78,7 +101,7 @@ void PieceNodeHandle::updateLook(bool hover)
 //---------------------------------------------------------------------------------------------------------------------
 QVariant PieceNodeHandle::itemChange(GraphicsItemChange change, const QVariant &value)
 {
-    if (change == ItemPositionHasChanged && m_dragging)
+    if (change == ItemPositionHasChanged && m_dragging && not m_pinned)
     {
         // The piece recalculates while we move: avoid re-entering while it does.
         static bool changeFinished = true;
@@ -95,12 +118,18 @@ QVariant PieceNodeHandle::itemChange(GraphicsItemChange change, const QVariant &
 //---------------------------------------------------------------------------------------------------------------------
 void PieceNodeHandle::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+    if (m_pinned)
+    {
+        event->accept(); // a pinned point does not move
+        return;
+    }
     if (event->button() == Qt::LeftButton && event->type() != QEvent::GraphicsSceneMouseDoubleClick)
     {
         m_dragging = true;
         m_grabOffset = pos() - parentItem()->mapFromScene(event->scenePos());
         updateLook(true);
         event->accept();
+        emit dragStarted(m_nodeId);
     }
     QGraphicsRectItem::mousePressEvent(event);
 }
@@ -123,13 +152,42 @@ void PieceNodeHandle::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 void PieceNodeHandle::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     QGraphicsRectItem::mouseReleaseEvent(event);
+    const bool wasDragging = m_dragging;
     m_dragging = false;
     updateLook(isUnderMouse());
+    if (wasDragging)
+    {
+        emit dragFinished(m_nodeId);
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceNodeHandle::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
+{
+    QMenu menu;
+    QAction *pin = menu.addAction(m_pinned ? tr("Unpin Point") : tr("Pin Point"));
+    QAction *reset = menu.addAction(tr("Put Back Where the Draft Has It"));
+    reset->setEnabled(m_modified);
+    QAction *chosen = menu.exec(event->screenPos());
+    if (chosen == pin)
+    {
+        emit pinToggled(m_nodeId);
+    }
+    else if (chosen == reset)
+    {
+        emit resetRequested(m_nodeId);
+    }
+    event->accept();
 }
 
 //---------------------------------------------------------------------------------------------------------------------
 void PieceNodeHandle::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
+    if (m_pinned)
+    {
+        event->accept();
+        return;
+    }
     m_dragging = false;
     emit resetRequested(m_nodeId);
     event->accept();
@@ -147,4 +205,112 @@ void PieceNodeHandle::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     updateLook(false);
     QGraphicsRectItem::hoverLeaveEvent(event);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+// PieceSegmentHandle
+//---------------------------------------------------------------------------------------------------------------------
+PieceSegmentHandle::PieceSegmentHandle(quint32 firstNodeId, quint32 secondNodeId, QGraphicsItem *parent)
+    : QObject()
+    , QGraphicsPathItem(parent)
+    , m_firstNodeId(firstNodeId)
+    , m_secondNodeId(secondNodeId)
+    , m_dragging(false)
+    , m_startScenePos()
+{
+    setFlag(QGraphicsItem::ItemIsMovable, true);
+    setAcceptHoverEvents(true);
+    setAcceptedMouseButtons(Qt::LeftButton);
+    setCursor(Qt::SizeAllCursor);
+    setZValue(900); // under the point handles, over the piece
+    setToolTip(tr("Drag to move this line of the piece (the draft does not change)."));
+    setBrush(Qt::NoBrush);
+    updateLook(false);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceSegmentHandle::setSegment(const QPainterPath &path)
+{
+    prepareGeometryChange();
+    setPath(path);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+QPainterPath PieceSegmentHandle::shape() const
+{
+    // Easy to grab: a band about 10 pixels wide on screen
+    qreal scale = 1;
+    if (scene() != nullptr && not scene()->views().isEmpty())
+    {
+        scale = scene()->views().first()->transform().m11();
+    }
+    QPainterPathStroker stroker;
+    stroker.setWidth(10.0 / qMax(scale, 0.0001));
+    return stroker.createStroke(path());
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceSegmentHandle::updateLook(bool hover)
+{
+    QPen pen(hover || m_dragging ? QColor(30, 90, 200, 160) : QColor(0, 0, 0, 0));
+    pen.setCosmetic(true);
+    pen.setWidthF(4);
+    setPen(pen);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceSegmentHandle::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton && event->type() != QEvent::GraphicsSceneMouseDoubleClick)
+    {
+        m_dragging = true;
+        m_startScenePos = event->scenePos();
+        updateLook(true);
+        event->accept();
+        emit dragStarted(m_firstNodeId, m_secondNodeId);
+    }
+    QGraphicsPathItem::mousePressEvent(event);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceSegmentHandle::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+    if (not m_dragging)
+    {
+        QGraphicsPathItem::mouseMoveEvent(event);
+        return;
+    }
+    const QPointF delta = parentItem()->mapFromScene(event->scenePos())
+                          - parentItem()->mapFromScene(m_startScenePos);
+    setPos(delta);
+    emit moved(m_firstNodeId, m_secondNodeId, delta);
+    event->accept();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceSegmentHandle::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+    QGraphicsPathItem::mouseReleaseEvent(event);
+    const bool wasDragging = m_dragging;
+    m_dragging = false;
+    setPos(QPointF());
+    updateLook(isUnderMouse());
+    if (wasDragging)
+    {
+        emit dragFinished();
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceSegmentHandle::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+{
+    updateLook(true);
+    QGraphicsPathItem::hoverEnterEvent(event);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceSegmentHandle::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+{
+    updateLook(false);
+    QGraphicsPathItem::hoverLeaveEvent(event);
 }

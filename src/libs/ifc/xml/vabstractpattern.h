@@ -380,6 +380,7 @@ public:
     static const QString AttrNodeExcluded;
     static const QString AttrNodeOffsetX;
     static const QString AttrNodeOffsetY;
+    static const QString AttrNodePinned;
     static const QString AttrNodeIsNotch;
     static const QString AttrNodeNotchType;
     static const QString AttrNodeNotchSubType;

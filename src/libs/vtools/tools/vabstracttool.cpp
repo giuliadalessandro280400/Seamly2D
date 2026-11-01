@@ -645,6 +645,11 @@ QDomElement VAbstractTool::AddSANode(VAbstractPattern *doc, const QString &tagNa
             doc->SetAttribute(nod, VAbstractPattern::AttrNodeOffsetX, node.getOffset().x());
             doc->SetAttribute(nod, VAbstractPattern::AttrNodeOffsetY, node.getOffset().y());
         }
+
+        if (node.isPinned())
+        {
+            doc->SetAttribute(nod, VAbstractPattern::AttrNodePinned, true);
+        }
     }
 
     {

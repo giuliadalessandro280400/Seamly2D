@@ -140,6 +140,9 @@ public:
     QPointF             getOffset() const;
     void                setOffset(const QPointF &offset);
     bool                hasOffset() const;
+
+    bool                isPinned() const;
+    void                setPinned(bool pinned);
     void                setNotchCount(int notchCount);
 
 private:

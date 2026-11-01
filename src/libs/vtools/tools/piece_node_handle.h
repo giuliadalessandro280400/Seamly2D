@@ -27,6 +27,7 @@
 #ifndef PIECE_NODE_HANDLE_H
 #define PIECE_NODE_HANDLE_H
 
+#include <QGraphicsPathItem>
 #include <QGraphicsRectItem>
 #include <QObject>
 #include <QPointF>
@@ -46,10 +47,15 @@ public:
     quint32      nodeId() const { return m_nodeId; }
     bool         isDragging() const { return m_dragging; }
     void         setModified(bool modified);
+    void         setPinned(bool pinned);
+    bool         isPinned() const { return m_pinned; }
 
 signals:
+    void         dragStarted(quint32 nodeId);
     void         moved(quint32 nodeId, const QPointF &position);  // position in parent (piece) coordinates
+    void         dragFinished(quint32 nodeId);
     void         resetRequested(quint32 nodeId);
+    void         pinToggled(quint32 nodeId);
 
 protected:
     virtual QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
@@ -57,6 +63,7 @@ protected:
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
+    virtual void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
     virtual void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
     virtual void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
 
@@ -65,7 +72,48 @@ private:
     quint32 m_nodeId;
     bool    m_dragging;
     bool    m_modified;
+    bool    m_pinned;
     QPointF m_grabOffset;
+
+    void    updateLook(bool hover);
+};
+
+/**
+ * @brief The PieceSegmentHandle class lets the user drag a line of the contour of a selected piece: both end points
+ * move together (and the contour follows up to the pins).
+ */
+class PieceSegmentHandle : public QObject, public QGraphicsPathItem
+{
+    Q_OBJECT
+public:
+    PieceSegmentHandle(quint32 firstNodeId, quint32 secondNodeId, QGraphicsItem *parent);
+    virtual ~PieceSegmentHandle() = default;
+
+    quint32      firstNodeId() const { return m_firstNodeId; }
+    quint32      secondNodeId() const { return m_secondNodeId; }
+    bool         isDragging() const { return m_dragging; }
+    void         setSegment(const QPainterPath &path);
+
+    virtual QPainterPath shape() const override;
+
+signals:
+    void         dragStarted(quint32 firstNodeId, quint32 secondNodeId);
+    void         moved(quint32 firstNodeId, quint32 secondNodeId, const QPointF &delta); // in piece coordinates
+    void         dragFinished();
+
+protected:
+    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    virtual void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
+    virtual void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
+
+private:
+    Q_DISABLE_COPY(PieceSegmentHandle)
+    quint32 m_firstNodeId;
+    quint32 m_secondNodeId;
+    bool    m_dragging;
+    QPointF m_startScenePos;
 
     void    updateLook(bool hover);
 };

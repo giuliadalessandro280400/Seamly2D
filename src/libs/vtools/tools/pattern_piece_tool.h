@@ -159,8 +159,12 @@ private slots:
     void                 notchChanged(quint32 id, NotchData notchData);
     void                 nodeExcluded(quint32 id);
     void                 nodeDeleted(quint32 id);
+    void                 nodeDragStarted(quint32 nodeId);
     void                 nodeHandleMoved(quint32 nodeId, const QPointF &position);
     void                 nodeHandleReset(quint32 nodeId);
+    void                 nodePinToggled(quint32 nodeId);
+    void                 segmentDragStarted(quint32 firstNodeId, quint32 secondNodeId);
+    void                 segmentMoved(quint32 firstNodeId, quint32 secondNodeId, const QPointF &delta);
 
 protected:
     virtual void         AddToFile () override;
@@ -194,6 +198,18 @@ private:
     QGraphicsPathItem      *m_notches;
     QGraphicsPathItem      *m_draftTrace;   /// @brief outline of the piece as the draft has it (piece editor)
     QVector<class PieceNodeHandle *> m_nodeHandles; /// @brief draggable points of the piece editor
+    QVector<class PieceSegmentHandle *> m_segmentHandles; /// @brief draggable lines of the piece editor
+
+    /// @brief state of the current drag in the piece editor
+    struct EditorDrag
+    {
+        int              key {0};
+        QVector<quint32> order;       // point nodes along the contour
+        QVector<QPointF> positions;   // their positions when the drag started (pixels)
+        QVector<QPointF> offsets;     // their offsets when the drag started (pattern units)
+        QVector<bool>    pinned;
+    };
+    EditorDrag              m_drag;
 
                            PatternPieceTool(VAbstractPattern *doc, VContainer *data, const quint32 &id,
                                               const Source &typeCreation, VMainGraphicsScene *scene,
@@ -202,6 +218,9 @@ private:
     void                  updateExcludeState();
     void                  updateNodeHandles();
     static void           applyNodeOffsets(quint32 pieceId, const VPiece &piece, VContainer *data);
+    void                  startEditorDrag();
+    QVector<qreal>        dragWeights(int first, int last) const;
+    void                  applyEditorDrag(int first, int last, const QPointF &delta);
     void                  updateInternalPaths();
 
     VPieceItem::MoveTypes findLabelGeometry(const VPatternLabelData &labelData, qreal &rotationAngle, qreal &labelWidth,

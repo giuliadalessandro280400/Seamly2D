@@ -649,6 +649,7 @@
                                     <xs:attribute name="notchCount" type="xs:unsignedInt"/>
                                     <xs:attribute name="dx" type="xs:double"/>
                                     <xs:attribute name="dy" type="xs:double"/>
+                                    <xs:attribute name="pinned" type="xs:boolean"/>
                                   </xs:complexType>
                                 </xs:element>
                               </xs:sequence>

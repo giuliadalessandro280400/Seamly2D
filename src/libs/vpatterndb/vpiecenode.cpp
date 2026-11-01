@@ -443,3 +443,22 @@ bool VPieceNode::hasOffset() const
 {
     return not qFuzzyIsNull(d->m_offset.x()) || not qFuzzyIsNull(d->m_offset.y());
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief isPinned true if the point is pinned in the piece editor: it stays in place while the points around it are
+ * moved.
+ */
+bool VPieceNode::isPinned() const
+{
+    return d->m_pinned;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VPieceNode::setPinned(bool pinned)
+{
+    if (d->m_typeTool == Tool::NodePoint)
+    {
+        d->m_pinned = pinned;
+    }
+}

@@ -87,6 +87,7 @@ public:
         , m_notchAngle(.000)
         , m_notchCount(1)
         , m_offset()
+        , m_pinned(false)
     {}
 
     VPieceNodeData(quint32 id, Tool typeTool, bool reverse)
@@ -108,6 +109,7 @@ public:
         , m_notchAngle(.000)
         , m_notchCount(1)
         , m_offset()
+        , m_pinned(false)
     {
         if (m_typeTool == Tool::NodePoint)
         {
@@ -135,6 +137,7 @@ public:
         , m_notchAngle(node.m_notchAngle)
         , m_notchCount(node.m_notchCount)
         , m_offset(node.m_offset)
+        , m_pinned(node.m_pinned)
     {}
 
     ~VPieceNodeData() Q_DECL_EQ_DEFAULT;
@@ -165,6 +168,7 @@ public:
     qreal          m_notchWidth;
     qreal          m_notchAngle;
     int            m_notchCount;
+    bool           m_pinned;          //! @brief pinned points do not move in the piece editor.
     QPointF        m_offset;          //! @brief manual displacement of a point in the piece editor (pattern units).
 
 private:
@@ -191,7 +195,8 @@ QDataStream &operator<<(QDataStream &out, const VPieceNodeData &p)
         << p.m_notchWidth
         << p.m_notchAngle
         << p.m_notchCount
-        << p.m_offset;
+        << p.m_offset
+        << p.m_pinned;
     return out;
 }
 
@@ -219,7 +224,8 @@ QDataStream &operator>>(QDataStream &in, VPieceNodeData &p)
        >> p.m_notchWidth
        >> p.m_notchAngle
        >> p.m_notchCount
-       >> p.m_offset;
+       >> p.m_offset
+       >> p.m_pinned;
 
     p.m_typeTool     = static_cast<Tool>(typeTool);
     p.m_angleType    = static_cast<PieceNodeAngle>(angleType);

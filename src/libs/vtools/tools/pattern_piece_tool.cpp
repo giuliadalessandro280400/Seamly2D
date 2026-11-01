@@ -2664,8 +2664,8 @@ void PatternPieceTool::applyNodeOffsets(quint32 pieceId, const VPiece &piece, VC
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief updateNodeHandles shows a draggable square on every point of the selected piece and the draft trace under a
- * modified piece.
+ * @brief updateNodeHandles shows draggable squares on the points and draggable lines on the contour of the selected
+ * piece, and the draft trace under a modified piece.
  */
 void PatternPieceTool::updateNodeHandles()
 {
@@ -2677,6 +2677,7 @@ void PatternPieceTool::updateNodeHandles()
 
     QVector<quint32> nodeIds;
     QVector<bool> modified;
+    QVector<bool> pinned;
     for (int i = 0; i < path.nodeCount(); ++i)
     {
         const VPieceNode &node = path.at(i);
@@ -2692,7 +2693,18 @@ void PatternPieceTool::updateNodeHandles()
         {
             nodeIds.append(node.GetId());
             modified.append(node.hasOffset());
+            pinned.append(node.isPinned());
         }
+    }
+
+    bool dragging = false;
+    for (auto *handle : qAsConst(m_nodeHandles))
+    {
+        dragging = dragging || handle->isDragging();
+    }
+    for (auto *handle : qAsConst(m_segmentHandles))
+    {
+        dragging = dragging || handle->isDragging();
     }
 
     // Recreate the handles only when the points of the piece changed (never during a drag)
@@ -2701,51 +2713,249 @@ void PatternPieceTool::updateNodeHandles()
     {
         sameNodes = m_nodeHandles.at(i)->nodeId() == nodeIds.at(i);
     }
-    if (not sameNodes)
+    if (not sameNodes && not dragging)
     {
         qDeleteAll(m_nodeHandles);
         m_nodeHandles.clear();
+        qDeleteAll(m_segmentHandles);
+        m_segmentHandles.clear();
         for (const quint32 nodeId : nodeIds)
         {
             auto *handle = new PieceNodeHandle(nodeId, this);
-            connect(handle, &PieceNodeHandle::moved, this, &PatternPieceTool::nodeHandleMoved);
+            connect(handle, &PieceNodeHandle::dragStarted,    this, &PatternPieceTool::nodeDragStarted);
+            connect(handle, &PieceNodeHandle::moved,          this, &PatternPieceTool::nodeHandleMoved);
             connect(handle, &PieceNodeHandle::resetRequested, this, &PatternPieceTool::nodeHandleReset);
+            connect(handle, &PieceNodeHandle::pinToggled,     this, &PatternPieceTool::nodePinToggled);
             m_nodeHandles.append(handle);
         }
+        for (int i = 0; nodeIds.size() > 1 && i < nodeIds.size(); ++i)
+        {
+            auto *segment = new PieceSegmentHandle(nodeIds.at(i), nodeIds.at((i + 1) % nodeIds.size()), this);
+            connect(segment, &PieceSegmentHandle::dragStarted, this, &PatternPieceTool::segmentDragStarted);
+            connect(segment, &PieceSegmentHandle::moved,       this, &PatternPieceTool::segmentMoved);
+            connect(segment, &PieceSegmentHandle::dragFinished, this, [this]() { updateNodeHandles(); });
+            m_segmentHandles.append(segment);
+        }
+    }
+    if (not sameNodes && dragging)
+    {
+        return;
     }
 
     const bool show = isSelected() && not piece.isLocked();
+    QVector<QPointF> nodePositions;
     for (int i = 0; i < m_nodeHandles.size(); ++i)
     {
         PieceNodeHandle *handle = m_nodeHandles.at(i);
         handle->setModified(modified.at(i));
+        handle->setPinned(pinned.at(i));
+        const QPointF position = static_cast<QPointF>(*VAbstractTool::data.GeometricObject<VPointF>(handle->nodeId()));
+        nodePositions.append(position);
         if (not handle->isDragging())
         {
-            handle->setPos(static_cast<QPointF>(*VAbstractTool::data.GeometricObject<VPointF>(handle->nodeId())));
+            handle->setPos(position);
         }
         handle->setVisible(show);
     }
+
+    // Lines of the contour between consecutive points, taken from the outline of the piece
+    const QVector<QPointF> outline = piece.mainPathPoints(this->getData());
+    auto nearestIndex = [&outline](const QPointF &p)
+    {
+        int best = -1;
+        qreal bestDistance = 0;
+        for (int k = 0; k < outline.size(); ++k)
+        {
+            const qreal distance = QLineF(outline.at(k), p).length();
+            if (best < 0 || distance < bestDistance)
+            {
+                best = k;
+                bestDistance = distance;
+            }
+        }
+        return best;
+    };
+    for (int i = 0; i < m_segmentHandles.size(); ++i)
+    {
+        PieceSegmentHandle *segment = m_segmentHandles.at(i);
+        if (not segment->isDragging() && not outline.isEmpty())
+        {
+            const int a = nearestIndex(nodePositions.at(i));
+            const int b = nearestIndex(nodePositions.at((i + 1) % nodePositions.size()));
+            QPainterPath line;
+            line.moveTo(nodePositions.at(i));
+            for (int k = a; outline.size() > 0 && k != b; k = (k + 1) % outline.size())
+            {
+                line.lineTo(outline.at(k));
+            }
+            line.lineTo(nodePositions.at((i + 1) % nodePositions.size()));
+            segment->setSegment(line);
+            segment->setPos(QPointF());
+        }
+        segment->setVisible(show);
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief startEditorDrag remembers the points of the piece when a drag starts.
+ */
+void PatternPieceTool::startEditorDrag()
+{
+    const VPiecePath path = VAbstractTool::data.GetPiece(m_id).GetPath();
+    m_drag.key++;
+    m_drag.order.clear();
+    m_drag.positions.clear();
+    m_drag.offsets.clear();
+    m_drag.pinned.clear();
+    for (int i = 0; i < path.nodeCount(); ++i)
+    {
+        const VPieceNode &node = path.at(i);
+        if (node.GetTypeTool() == Tool::NodePoint && not node.isExcluded())
+        {
+            m_drag.order.append(node.GetId());
+            m_drag.positions.append(static_cast<QPointF>(*VAbstractTool::data.GeometricObject<VPointF>(node.GetId())));
+            m_drag.offsets.append(node.getOffset());
+            m_drag.pinned.append(node.isPinned());
+        }
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief dragWeights tells how much every point follows a drag of the points first..last (along the contour).
+ *
+ * The dragged points move fully. Without pins nothing else moves. With pins, the points between the dragged ones and
+ * the nearest pin on each side follow gradually: almost fully near the dragged point, almost nothing near the pin.
+ */
+QVector<qreal> PatternPieceTool::dragWeights(int first, int last) const
+{
+    const int count = m_drag.order.size();
+    QVector<qreal> weights(count, 0.0);
+    if (count == 0)
+    {
+        return weights;
+    }
+
+    // Dragged points (a pinned one stays)
+    for (int k = first; ; k = (k + 1) % count)
+    {
+        weights[k] = m_drag.pinned.at(k) ? 0.0 : 1.0;
+        if (k == last)
+        {
+            break;
+        }
+    }
+
+    if (not m_drag.pinned.contains(true))
+    {
+        return weights;
+    }
+
+    // Walk from an end of the dragged points to the next pin and spread the movement along the way
+    auto spread = [&](int from, int step)
+    {
+        QVector<int> indexes;
+        QVector<qreal> distances;
+        qreal length = 0;
+        int previous = from;
+        for (int n = 1; n < count; ++n)
+        {
+            const int k = ((from + step * n) % count + count) % count;
+            length += QLineF(m_drag.positions.at(previous), m_drag.positions.at(k)).length();
+            if (m_drag.pinned.at(k) || weights.at(k) > 0)
+            {
+                break; // reached a pin (or the other dragged points)
+            }
+            indexes.append(k);
+            distances.append(length);
+            previous = k;
+        }
+        if (length <= 0)
+        {
+            return;
+        }
+        for (int i = 0; i < indexes.size(); ++i)
+        {
+            weights[indexes.at(i)] = qMax(weights.at(indexes.at(i)), 1.0 - distances.at(i) / length);
+        }
+    };
+    spread(first, -1);
+    spread(last, +1);
+    return weights;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::applyEditorDrag(int first, int last, const QPointF &delta)
+{
+    const QVector<qreal> weights = dragWeights(first, last);
+    QMap<quint32, QPointF> offsets;
+    for (int k = 0; k < m_drag.order.size(); ++k)
+    {
+        if (weights.at(k) > 0)
+        {
+            const QPointF move = delta * weights.at(k);
+            offsets.insert(m_drag.order.at(k), m_drag.offsets.at(k) + QPointF(qApp->fromPixel(move.x()),
+                                                                             qApp->fromPixel(move.y())));
+        }
+    }
+    if (offsets.isEmpty())
+    {
+        return;
+    }
+    auto *cmd = new MovePieceNodes(doc, m_id, offsets, m_drag.key);
+    connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
+    qApp->getUndoStack()->push(cmd);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::nodeDragStarted(quint32 nodeId)
+{
+    Q_UNUSED(nodeId)
+    startEditorDrag();
 }
 
 //---------------------------------------------------------------------------------------------------------------------
 void PatternPieceTool::nodeHandleMoved(quint32 nodeId, const QPointF &position)
 {
-    const VPiece piece = VAbstractTool::data.GetPiece(m_id);
-    const VPiecePath path = piece.GetPath();
+    const int index = m_drag.order.indexOf(nodeId);
+    if (index < 0)
+    {
+        return;
+    }
+    applyEditorDrag(index, index, position - m_drag.positions.at(index));
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::segmentDragStarted(quint32 firstNodeId, quint32 secondNodeId)
+{
+    Q_UNUSED(firstNodeId)
+    Q_UNUSED(secondNodeId)
+    startEditorDrag();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::segmentMoved(quint32 firstNodeId, quint32 secondNodeId, const QPointF &delta)
+{
+    const int first = m_drag.order.indexOf(firstNodeId);
+    const int last = m_drag.order.indexOf(secondNodeId);
+    if (first < 0 || last < 0)
+    {
+        return;
+    }
+    applyEditorDrag(first, last, delta);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::nodePinToggled(quint32 nodeId)
+{
+    const VPiecePath path = VAbstractTool::data.GetPiece(m_id).GetPath();
     const int index = path.indexOfNode(nodeId);
     if (index < 0)
     {
         return;
     }
-
-    // Draft position = current position - current offset
-    const QPointF current = static_cast<QPointF>(*VAbstractTool::data.GeometricObject<VPointF>(nodeId));
-    const QPointF oldOffset = path.at(index).getOffset();
-    const QPointF draftPosition(current.x() - qApp->toPixel(oldOffset.x()), current.y() - qApp->toPixel(oldOffset.y()));
-    const QPointF newOffset(qApp->fromPixel(position.x() - draftPosition.x()),
-                            qApp->fromPixel(position.y() - draftPosition.y()));
-
-    auto *cmd = new MovePieceNode(doc, m_id, nodeId, newOffset);
+    auto *cmd = new PinPieceNode(doc, m_id, nodeId, not path.at(index).isPinned());
     connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
     qApp->getUndoStack()->push(cmd);
 }
@@ -2762,15 +2972,20 @@ void PatternPieceTool::nodeHandleReset(quint32 nodeId)
 void PatternPieceTool::resetAllNodeOffsets()
 {
     const VPiecePath path = VAbstractTool::data.GetPiece(m_id).GetPath();
-    qApp->getUndoStack()->beginMacro(tr("reset piece to draft shape"));
+    QMap<quint32, QPointF> offsets;
     for (int i = 0; i < path.nodeCount(); ++i)
     {
         if (path.at(i).hasOffset())
         {
-            auto *cmd = new MovePieceNode(doc, m_id, path.at(i).GetId(), QPointF());
-            connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
-            qApp->getUndoStack()->push(cmd);
+            offsets.insert(path.at(i).GetId(), QPointF());
         }
     }
-    qApp->getUndoStack()->endMacro();
+    if (offsets.isEmpty())
+    {
+        return;
+    }
+    auto *cmd = new MovePieceNodes(doc, m_id, offsets, -(++m_drag.key));
+    cmd->setText(tr("reset piece to draft shape"));
+    connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
+    qApp->getUndoStack()->push(cmd);
 }

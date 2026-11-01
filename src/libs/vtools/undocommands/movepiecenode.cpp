@@ -36,6 +36,11 @@
 
 namespace
 {
+QDomElement findNode(VAbstractPattern *doc, quint32 pieceId, quint32 nodeId);
+}
+
+namespace
+{
 QDomElement findNode(VAbstractPattern *doc, quint32 pieceId, quint32 nodeId)
 {
     const QDomElement piece = doc->elementById(pieceId, VAbstractPattern::TagPiece);
@@ -139,4 +144,110 @@ bool MovePieceNode::mergeWith(const QUndoCommand *command)
 int MovePieceNode::id() const
 {
     return static_cast<int>(UndoCommand::MovePieceNode);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+MovePieceNodes::MovePieceNodes(VAbstractPattern *doc, quint32 pieceId, const QMap<quint32, QPointF> &newOffsets,
+                               int dragKey, QUndoCommand *parent)
+    : VUndoCommand(QDomElement(), doc, parent)
+    , m_pieceId(pieceId)
+    , m_dragKey(dragKey)
+    , m_oldOffsets()
+    , m_newOffsets(newOffsets)
+{
+    setText(QObject::tr("move piece points"));
+    nodeId = pieceId;
+    for (auto i = newOffsets.cbegin(); i != newOffsets.cend(); ++i)
+    {
+        m_oldOffsets.insert(i.key(), MovePieceNode::readOffset(doc, pieceId, i.key()));
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void MovePieceNodes::apply(const QMap<quint32, QPointF> &offsets)
+{
+    for (auto i = offsets.cbegin(); i != offsets.cend(); ++i)
+    {
+        MovePieceNode::writeOffset(doc, m_pieceId, i.key(), i.value());
+    }
+    emit NeedLiteParsing(Document::LiteParse);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void MovePieceNodes::undo()
+{
+    apply(m_oldOffsets);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void MovePieceNodes::redo()
+{
+    apply(m_newOffsets);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+bool MovePieceNodes::mergeWith(const QUndoCommand *command)
+{
+    const MovePieceNodes *other = static_cast<const MovePieceNodes *>(command);
+    SCASSERT(other != nullptr)
+    if (other->m_pieceId != m_pieceId || other->m_dragKey != m_dragKey)
+    {
+        return false;
+    }
+    for (auto i = other->m_newOffsets.cbegin(); i != other->m_newOffsets.cend(); ++i)
+    {
+        if (not m_oldOffsets.contains(i.key()))
+        {
+            m_oldOffsets.insert(i.key(), other->m_oldOffsets.value(i.key()));
+        }
+        m_newOffsets.insert(i.key(), i.value());
+    }
+    return true;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+int MovePieceNodes::id() const
+{
+    return static_cast<int>(UndoCommand::MovePieceNodes);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+PinPieceNode::PinPieceNode(VAbstractPattern *doc, quint32 pieceId, quint32 nodeId, bool pinned, QUndoCommand *parent)
+    : VUndoCommand(QDomElement(), doc, parent)
+    , m_pieceId(pieceId)
+    , m_pinned(pinned)
+{
+    setText(pinned ? QObject::tr("pin piece point") : QObject::tr("unpin piece point"));
+    this->nodeId = nodeId;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PinPieceNode::apply(bool pinned)
+{
+    QDomElement node = findNode(doc, m_pieceId, nodeId);
+    if (node.isNull())
+    {
+        return;
+    }
+    if (pinned)
+    {
+        doc->SetAttribute(node, VAbstractPattern::AttrNodePinned, true);
+    }
+    else
+    {
+        node.removeAttribute(VAbstractPattern::AttrNodePinned);
+    }
+    emit NeedLiteParsing(Document::LiteParse);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PinPieceNode::undo()
+{
+    apply(not m_pinned);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PinPieceNode::redo()
+{
+    apply(m_pinned);
 }

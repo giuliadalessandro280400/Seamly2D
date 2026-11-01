@@ -15964,5 +15964,24 @@ di controllo</translation>
         <source>Drag to move this point of the piece (the draft does not change). Double click to put it back.</source>
         <translation>Trascina per spostare questo punto del pezzo (la bozza non cambia). Doppio clic per rimetterlo a posto.</translation>
     </message>
+    <message>
+        <source>Unpin Point</source>
+        <translation>Togli spillo</translation>
+    </message>
+    <message>
+        <source>Pin Point</source>
+        <translation>Spilla punto</translation>
+    </message>
+    <message>
+        <source>Put Back Where the Draft Has It</source>
+        <translation>Rimetti dove lo ha la bozza</translation>
+    </message>
+</context>
+<context>
+    <name>PieceSegmentHandle</name>
+    <message>
+        <source>Drag to move this line of the piece (the draft does not change).</source>
+        <translation>Trascina per spostare questa linea del pezzo (la bozza non cambia).</translation>
+    </message>
 </context>
 </TS>

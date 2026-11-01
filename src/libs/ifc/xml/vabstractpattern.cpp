@@ -168,6 +168,7 @@ const QString VAbstractPattern::AttrNodeReverse         = QStringLiteral("revers
 const QString VAbstractPattern::AttrNodeExcluded        = QStringLiteral("excluded");
 const QString VAbstractPattern::AttrNodeOffsetX         = QStringLiteral("dx");
 const QString VAbstractPattern::AttrNodeOffsetY         = QStringLiteral("dy");
+const QString VAbstractPattern::AttrNodePinned          = QStringLiteral("pinned");
 const QString VAbstractPattern::AttrNodeIsNotch         = QStringLiteral("notch");
 const QString VAbstractPattern::AttrNodeNotchType       = QStringLiteral("notchType");
 const QString VAbstractPattern::AttrNodeNotchSubType    = QStringLiteral("notchSubtype");
@@ -855,6 +856,7 @@ VPieceNode VAbstractPattern::ParseSANode(const QDomElement &domElement)
     node.setNotchCount(notchCount);
     node.setOffset(QPointF(VDomDocument::GetParametrDouble(domElement, VAbstractPattern::AttrNodeOffsetX, "0"),
                            VDomDocument::GetParametrDouble(domElement, VAbstractPattern::AttrNodeOffsetY, "0")));
+    node.setPinned(VDomDocument::getParameterBool(domElement, VAbstractPattern::AttrNodePinned, falseStr));
     return node;
 }
 

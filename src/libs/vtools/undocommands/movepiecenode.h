@@ -28,6 +28,7 @@
 #ifndef MOVEPIECENODE_H
 #define MOVEPIECENODE_H
 
+#include <QMap>
 #include <QPointF>
 #include <QtGlobal>
 
@@ -60,6 +61,54 @@ private:
     quint32 m_pieceId;
     QPointF m_oldOffset;
     QPointF m_newOffset;
+};
+
+/**
+ * @brief The MovePieceNodes class changes the offsets of several points of a piece at once (a point dragged with the
+ * points that follow it up to the pins, or a dragged line). Moves with the same drag key merge into one undo step.
+ */
+class MovePieceNodes : public VUndoCommand
+{
+    Q_OBJECT
+public:
+    MovePieceNodes(VAbstractPattern *doc, quint32 pieceId, const QMap<quint32, QPointF> &newOffsets, int dragKey,
+                   QUndoCommand *parent = nullptr);
+    virtual ~MovePieceNodes() = default;
+
+    virtual void undo() override;
+    virtual void redo() override;
+    virtual bool mergeWith(const QUndoCommand *command) override;
+    virtual int  id() const override;
+
+private:
+    Q_DISABLE_COPY(MovePieceNodes)
+    quint32                 m_pieceId;
+    int                     m_dragKey;
+    QMap<quint32, QPointF>  m_oldOffsets;
+    QMap<quint32, QPointF>  m_newOffsets;
+
+    void apply(const QMap<quint32, QPointF> &offsets);
+};
+
+/**
+ * @brief The PinPieceNode class pins or unpins a point of a piece in the piece editor.
+ */
+class PinPieceNode : public VUndoCommand
+{
+    Q_OBJECT
+public:
+    PinPieceNode(VAbstractPattern *doc, quint32 pieceId, quint32 nodeId, bool pinned, QUndoCommand *parent = nullptr);
+    virtual ~PinPieceNode() = default;
+
+    virtual void undo() override;
+    virtual void redo() override;
+
+private:
+    Q_DISABLE_COPY(PinPieceNode)
+    quint32 m_pieceId;
+    bool    m_pinned;
+
+    void apply(bool pinned);
 };
 
 #endif // MOVEPIECENODE_H
