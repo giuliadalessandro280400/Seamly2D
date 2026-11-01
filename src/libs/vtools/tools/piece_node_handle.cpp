@@ -33,7 +33,7 @@
 
 namespace
 {
-const qreal handleSize = 9; // pixels on screen
+const qreal handleSize = 12; // pixels on screen
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -45,6 +45,9 @@ PieceNodeHandle::PieceNodeHandle(quint32 nodeId, QGraphicsItem *parent)
     , m_modified(false)
     , m_grabOffset()
 {
+    // Same mechanism Seamly uses for the handles of curves: Qt moves the item, we follow its position.
+    setFlag(QGraphicsItem::ItemIsMovable, true);
+    setFlag(QGraphicsItem::ItemSendsGeometryChanges, true);
     setFlag(QGraphicsItem::ItemIgnoresTransformations, true); // same size at every zoom
     setAcceptHoverEvents(true);
     setAcceptedMouseButtons(Qt::LeftButton);
@@ -67,23 +70,39 @@ void PieceNodeHandle::updateLook(bool hover)
 {
     QPen pen(m_modified ? QColor(200, 40, 40) : QColor(30, 90, 200));
     pen.setCosmetic(true);
-    pen.setWidthF(1.5);
+    pen.setWidthF(2);
     setPen(pen);
     setBrush(hover || m_dragging ? pen.color() : QColor(Qt::white));
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+QVariant PieceNodeHandle::itemChange(GraphicsItemChange change, const QVariant &value)
+{
+    if (change == ItemPositionHasChanged && m_dragging)
+    {
+        // The piece recalculates while we move: avoid re-entering while it does.
+        static bool changeFinished = true;
+        if (changeFinished)
+        {
+            changeFinished = false;
+            emit moved(m_nodeId, value.toPointF());
+            changeFinished = true;
+        }
+    }
+    return QGraphicsRectItem::itemChange(change, value);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void PieceNodeHandle::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (event->button() != Qt::LeftButton)
+    if (event->button() == Qt::LeftButton && event->type() != QEvent::GraphicsSceneMouseDoubleClick)
     {
-        event->ignore();
-        return;
+        m_dragging = true;
+        m_grabOffset = pos() - parentItem()->mapFromScene(event->scenePos());
+        updateLook(true);
+        event->accept();
     }
-    m_dragging = true;
-    m_grabOffset = pos() - parentItem()->mapFromScene(event->scenePos());
-    updateLook(true);
-    event->accept();
+    QGraphicsRectItem::mousePressEvent(event);
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -91,20 +110,21 @@ void PieceNodeHandle::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     if (not m_dragging)
     {
+        QGraphicsRectItem::mouseMoveEvent(event);
         return;
     }
-    const QPointF position = parentItem()->mapFromScene(event->scenePos()) + m_grabOffset;
-    setPos(position);
-    emit moved(m_nodeId, position);
+    // Follow the cursor in piece coordinates. The default movement of Qt does not work well with items that ignore
+    // the zoom, so the position is computed here; itemChange() reports it.
+    setPos(parentItem()->mapFromScene(event->scenePos()) + m_grabOffset);
     event->accept();
 }
 
 //---------------------------------------------------------------------------------------------------------------------
 void PieceNodeHandle::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
+    QGraphicsRectItem::mouseReleaseEvent(event);
     m_dragging = false;
     updateLook(isUnderMouse());
-    event->accept();
 }
 
 //---------------------------------------------------------------------------------------------------------------------

@@ -52,6 +52,7 @@ signals:
     void         resetRequested(quint32 nodeId);
 
 protected:
+    virtual QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
