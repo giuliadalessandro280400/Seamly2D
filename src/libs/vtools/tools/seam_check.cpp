@@ -47,6 +47,10 @@
 #include <QUndoStack>
 #include <QtMath>
 
+#include <algorithm>
+#include <cmath>
+#include <limits>
+
 SeamCheck *SeamCheck::s_active = nullptr;
 
 namespace
@@ -109,7 +113,7 @@ QPointF pointAt(const QVector<QPointF> &points, const QVector<qreal> &lengths, q
 qreal project(const QVector<QPointF> &points, const QVector<qreal> &lengths, const QPointF &p)
 {
     qreal best = 0;
-    qreal bestDistance = std::numeric_limits<qreal>::max();
+    qreal bestDistance = (std::numeric_limits<qreal>::max)();
     for (int i = 0; i < points.size(); ++i)
     {
         const QPointF &a = points.at(i);
@@ -534,7 +538,7 @@ void SeamCheck::updateReadout()
 
     auto label = [](const Met &m)
     {
-        return (m.notch ? QStringLiteral("◆ ") : QString()) + m.name.toHtmlEscaped();
+        return (m.notch ? (QString(QChar(0x25C6)) + QLatin1Char(' ')) : QString()) + m.name.toHtmlEscaped();
     };
 
     QString html = QStringLiteral("<p><b>%1</b> %2 mm</p>").arg(tr("Walked:"), mm(m_walked));
