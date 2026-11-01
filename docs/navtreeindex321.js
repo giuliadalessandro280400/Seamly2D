@@ -1,5 +1,6 @@
 var NAVTREEINDEX321 =
 {
+"df/df3/vwidgets_2calculator_2calculator_8cpp.html":[4,0,0,1,14,0,2],
 "df/df3/vwidgets_2calculator_2calculator_8cpp_source.html":[4,0,0,1,14,0,2],
 "df/df5/vtextgraphicsitem_8cpp.html":[4,0,0,1,14,65],
 "df/df5/vtextgraphicsitem_8cpp.html#a2b7a81c694e0d00a7b1ad2f7a4de1f32":[4,0,0,1,14,65,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX321 =
 "df/dfe/classDOMAttrMapImpl.html":[3,0,145],
 "df/dfe/classDOMAttrMapImpl.html#a05342f9cc75501041b54e5d59792bfab":[3,0,145,44],
 "df/dfe/classDOMAttrMapImpl.html#a05342f9cc75501041b54e5d59792bfab":[3,0,145,47],
-"df/dfe/classDOMAttrMapImpl.html#a05342f9cc75501041b54e5d59792bfab":[3,0,145,46],
-"df/dfe/classDOMAttrMapImpl.html#a05342f9cc75501041b54e5d59792bfab":[3,0,145,45]
+"df/dfe/classDOMAttrMapImpl.html#a05342f9cc75501041b54e5d59792bfab":[3,0,145,46]
 };

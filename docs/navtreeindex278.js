@@ -1,5 +1,6 @@
 var NAVTREEINDEX278 =
 {
+"de/d04/classVToolTrueDarts.html#a099f0f96b52c98c9c1a49ecddbac1922":[3,0,785,15],
 "de/d04/classVToolTrueDarts.html#a10f1ba4bc2fce41303f1ad6e04694a67":[3,0,785,27],
 "de/d04/classVToolTrueDarts.html#a1c09e468eedb0458096bad7624064222":[3,0,785,13],
 "de/d04/classVToolTrueDarts.html#a25f0a12b94949f1b46f9e919c9ed8c5f":[3,0,785,28],
@@ -248,6 +249,5 @@ var NAVTREEINDEX278 =
 "de/d0f/classVCommonSettings.html#a4b7440828add12663878c42723443bb3":[3,0,601,7],
 "de/d0f/classVCommonSettings.html#a4c45d4d9cd00a1e50555d69eda85b74e":[3,0,601,147],
 "de/d0f/classVCommonSettings.html#a4ce365711b7ff0bfb4505a9220992544":[3,0,601,40],
-"de/d0f/classVCommonSettings.html#a4cfb6e7555037268c0f8c7d2c7555ca2":[3,0,601,119],
-"de/d0f/classVCommonSettings.html#a4e24793f87dbf7e862d5cee2c84dd58e":[3,0,601,130]
+"de/d0f/classVCommonSettings.html#a4cfb6e7555037268c0f8c7d2c7555ca2":[3,0,601,119]
 };

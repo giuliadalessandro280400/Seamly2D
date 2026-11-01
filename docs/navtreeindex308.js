@@ -1,5 +1,6 @@
 var NAVTREEINDEX308 =
 {
+"de/df5/msvc_2include_2xercesc_2util_2XMLAbstractDoubleFloat_8hpp.html":[4,0,0,1,15,2,0,0,6,88],
 "de/df5/msvc_2include_2xercesc_2util_2XMLAbstractDoubleFloat_8hpp_source.html":[4,0,0,1,15,2,0,0,6,88],
 "de/df7/msvc-arm64_2include_2xercesc_2dom_2DOMImplementationRegistry_8hpp.html":[4,0,0,1,15,3,0,0,0,21],
 "de/df7/msvc-arm64_2include_2xercesc_2dom_2DOMImplementationRegistry_8hpp_source.html":[4,0,0,1,15,3,0,0,0,21],
@@ -248,6 +249,5 @@ var NAVTREEINDEX308 =
 "df/d1f/classXMLAttDef.html#a25a316af0e9f8a1293d2042dc484f8f3":[3,0,818,15],
 "df/d1f/classXMLAttDef.html#a25a316af0e9f8a1293d2042dc484f8f3":[3,0,818,19],
 "df/d1f/classXMLAttDef.html#a25a316af0e9f8a1293d2042dc484f8f3":[3,0,818,23],
-"df/d1f/classXMLAttDef.html#a25a316af0e9f8a1293d2042dc484f8f3":[3,0,818,27],
-"df/d1f/classXMLAttDef.html#a271c72d61f2ec1a0aaf7cda198e76bb2":[3,0,818,114]
+"df/d1f/classXMLAttDef.html#a25a316af0e9f8a1293d2042dc484f8f3":[3,0,818,27]
 };

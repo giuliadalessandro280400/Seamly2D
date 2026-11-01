@@ -1,5 +1,6 @@
 var NAVTREEINDEX320 =
 {
+"df/de5/classBinOutputStream.html#a1e5c9340a066133eeaa3786914572723":[3,0,44,15],
 "df/de5/classBinOutputStream.html#a1e5c9340a066133eeaa3786914572723":[3,0,44,14],
 "df/de5/classBinOutputStream.html#a1e5c9340a066133eeaa3786914572723":[3,0,44,13],
 "df/de5/classBinOutputStream.html#a1e5c9340a066133eeaa3786914572723":[3,0,44,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX320 =
 "df/df2/mingw_2include_2xercesc_2dom_2DOMImplementationLS_8hpp.html":[4,0,0,1,15,1,0,0,0,20],
 "df/df2/mingw_2include_2xercesc_2dom_2DOMImplementationLS_8hpp_source.html":[4,0,0,1,15,1,0,0,0,20],
 "df/df2/msvc-arm64_2include_2xercesc_2util_2XMLDateTime_8hpp.html":[4,0,0,1,15,3,0,0,6,94],
-"df/df2/msvc-arm64_2include_2xercesc_2util_2XMLDateTime_8hpp_source.html":[4,0,0,1,15,3,0,0,6,94],
-"df/df3/vwidgets_2calculator_2calculator_8cpp.html":[4,0,0,1,14,0,2]
+"df/df2/msvc-arm64_2include_2xercesc_2util_2XMLDateTime_8hpp_source.html":[4,0,0,1,15,3,0,0,6,94]
 };

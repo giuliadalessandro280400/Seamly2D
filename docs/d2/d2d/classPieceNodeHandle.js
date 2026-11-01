@@ -5,6 +5,7 @@ var classPieceNodeHandle =
     [ "hoverEnterEvent", "d2/d2d/classPieceNodeHandle.html#a2f4e64970f6c7935ec8640f160f8f588", null ],
     [ "hoverLeaveEvent", "d2/d2d/classPieceNodeHandle.html#a8700854da918adc7f1bf45f2632ceab5", null ],
     [ "isDragging", "d2/d2d/classPieceNodeHandle.html#ab166093e87f30e6de81175ca909b562e", null ],
+    [ "itemChange", "d2/d2d/classPieceNodeHandle.html#a324bed9f0aa565f8de4447e9094ee409", null ],
     [ "mouseDoubleClickEvent", "d2/d2d/classPieceNodeHandle.html#a23d520ec1e17afc3142ae1696b00324e", null ],
     [ "mouseMoveEvent", "d2/d2d/classPieceNodeHandle.html#abd896d8551baad7e6a840b2bf2553ed1", null ],
     [ "mousePressEvent", "d2/d2d/classPieceNodeHandle.html#a99803dd496f56cd74b06b694e001e2b8", null ],

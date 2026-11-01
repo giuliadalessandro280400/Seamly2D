@@ -1,5 +1,6 @@
 var NAVTREEINDEX312 =
 {
+"df/d41/classDOMRangeException.html#aa5eb4985a57cab3ca0ca440eb3693c07":[3,0,220,22],
 "df/d41/classDOMRangeException.html#aa5eb4985a57cab3ca0ca440eb3693c07":[3,0,220,20],
 "df/d41/classDOMRangeException.html#acd56dbb0f377992b4456e92c656c472c":[3,0,220,17],
 "df/d41/classDOMRangeException.html#acd56dbb0f377992b4456e92c656c472c":[3,0,220,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX312 =
 "df/d55/classXMLRecognizer.html":[3,0,875],
 "df/d55/classXMLRecognizer.html#a23b33c240f64a0de73411962a87d9f09":[3,0,875,30],
 "df/d55/classXMLRecognizer.html#a23b33c240f64a0de73411962a87d9f09":[3,0,875,29],
-"df/d55/classXMLRecognizer.html#a23b33c240f64a0de73411962a87d9f09":[3,0,875,28],
-"df/d55/classXMLRecognizer.html#a23b33c240f64a0de73411962a87d9f09":[3,0,875,31]
+"df/d55/classXMLRecognizer.html#a23b33c240f64a0de73411962a87d9f09":[3,0,875,28]
 };

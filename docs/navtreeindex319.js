@@ -1,5 +1,6 @@
 var NAVTREEINDEX319 =
 {
+"df/dcb/mingw_2include_2xercesc_2util_2XercesDefs_8hpp.html#aecb4c35c9cbc9cd8178b93a5b522c22b":[4,0,0,1,15,1,0,0,6,83,1],
 "df/dcb/mingw_2include_2xercesc_2util_2XercesDefs_8hpp.html#af03d5cb905763ef7a7bd22ab82718285":[4,0,0,1,15,1,0,0,6,83,7],
 "df/dcb/mingw_2include_2xercesc_2util_2XercesDefs_8hpp.html#af397ef70ce4da88df18bef06e5d27984":[4,0,0,1,15,1,0,0,6,83,16],
 "df/dcb/mingw_2include_2xercesc_2util_2XercesDefs_8hpp_source.html":[4,0,0,1,15,1,0,0,6,83],
@@ -248,6 +249,5 @@ var NAVTREEINDEX319 =
 "df/de1/classVPiecePath.html#af9920700731879dc087d68611edaf6de":[3,0,725,11],
 "df/de1/msvc_2include_2xercesc_2dom_2impl_2DOMTextImpl_8hpp.html":[4,0,0,1,15,2,0,0,0,0,40],
 "df/de1/msvc_2include_2xercesc_2dom_2impl_2DOMTextImpl_8hpp_source.html":[4,0,0,1,15,2,0,0,0,0,40],
-"df/de5/classBinOutputStream.html":[3,0,44],
-"df/de5/classBinOutputStream.html#a1e5c9340a066133eeaa3786914572723":[3,0,44,15]
+"df/de5/classBinOutputStream.html":[3,0,44]
 };

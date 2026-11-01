@@ -1,5 +1,6 @@
 var NAVTREEINDEX270 =
 {
+"dd/d52/classXSAttributeDeclaration.html#a3f0a67340902cd849aba117a7bebf7ca":[3,0,905,1],
 "dd/d52/classXSAttributeDeclaration.html#a3f0a67340902cd849aba117a7bebf7ca":[3,0,905,7],
 "dd/d52/classXSAttributeDeclaration.html#a3f0a67340902cd849aba117a7bebf7ca":[3,0,905,10],
 "dd/d52/classXSAttributeDeclaration.html#a44c52c653e248a3e8883d0d43f8f2093":[3,0,905,64],
@@ -248,6 +249,5 @@ var NAVTREEINDEX270 =
 "dd/d74/msvc_2include_2xercesc_2validators_2schema_2identity_2IC__Selector_8hpp_source.html":[4,0,0,1,15,2,0,0,7,3,0,5],
 "dd/d78/dxiface_8h.html":[4,0,0,1,4,3],
 "dd/d78/dxiface_8h_source.html":[4,0,0,1,4,3],
-"dd/d79/macx_2include_2xercesc_2dom_2DOMImplementationRegistry_8hpp.html":[4,0,0,1,15,0,0,0,0,21],
-"dd/d79/macx_2include_2xercesc_2dom_2DOMImplementationRegistry_8hpp_source.html":[4,0,0,1,15,0,0,0,0,21]
+"dd/d79/macx_2include_2xercesc_2dom_2DOMImplementationRegistry_8hpp.html":[4,0,0,1,15,0,0,0,0,21]
 };

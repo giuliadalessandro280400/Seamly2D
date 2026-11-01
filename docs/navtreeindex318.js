@@ -1,5 +1,6 @@
 var NAVTREEINDEX318 =
 {
+"df/db4/classXTemplateSerializer.html#a67847b7a37ff0c016878eaf08bd24f4d":[3,0,935,186],
 "df/db4/classXTemplateSerializer.html#a67847b7a37ff0c016878eaf08bd24f4d":[3,0,935,185],
 "df/db4/classXTemplateSerializer.html#a67847b7a37ff0c016878eaf08bd24f4d":[3,0,935,184],
 "df/db4/classXTemplateSerializer.html#a693ebcdb175ac0eb6e386e3872ed5e36":[3,0,935,138],
@@ -248,6 +249,5 @@ var NAVTREEINDEX318 =
 "df/dcb/mingw_2include_2xercesc_2util_2XercesDefs_8hpp.html#a97a524372e218133a8eb0aca39b4bd21":[4,0,0,1,15,1,0,0,6,83,15],
 "df/dcb/mingw_2include_2xercesc_2util_2XercesDefs_8hpp.html#abd629045b43a73a90fe324a3ea8d0a35":[4,0,0,1,15,1,0,0,6,83,10],
 "df/dcb/mingw_2include_2xercesc_2util_2XercesDefs_8hpp.html#ace999df709bfd2e9d55fb8637473f25c":[4,0,0,1,15,1,0,0,6,83,17],
-"df/dcb/mingw_2include_2xercesc_2util_2XercesDefs_8hpp.html#adcabebc9d3709669277593adb898a9c4":[4,0,0,1,15,1,0,0,6,83,9],
-"df/dcb/mingw_2include_2xercesc_2util_2XercesDefs_8hpp.html#aecb4c35c9cbc9cd8178b93a5b522c22b":[4,0,0,1,15,1,0,0,6,83,1]
+"df/dcb/mingw_2include_2xercesc_2util_2XercesDefs_8hpp.html#adcabebc9d3709669277593adb898a9c4":[4,0,0,1,15,1,0,0,6,83,9]
 };

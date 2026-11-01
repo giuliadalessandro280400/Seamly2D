@@ -1,5 +1,6 @@
 var NAVTREEINDEX221 =
 {
+"db/dcf/classDialogEllipticalArc.html#a337538e04a17276a393c0c746653b5c1":[3,0,113,54],
 "db/dcf/classDialogEllipticalArc.html#a33e57b05c059d00e2036a55b68d7de68":[3,0,113,0],
 "db/dcf/classDialogEllipticalArc.html#a360f1d54b25c9e0cf29727d0841d343b":[3,0,113,35],
 "db/dcf/classDialogEllipticalArc.html#a365ed1814840cd71f65227eb10fac52f":[3,0,113,14],
@@ -248,6 +249,5 @@ var NAVTREEINDEX221 =
 "db/de1/tst__vtranslatevars_8h.html":[4,0,0,2,2,48],
 "db/de1/tst__vtranslatevars_8h_source.html":[4,0,0,2,2,48],
 "db/de3/mingw_2include_2xercesc_2dom_2DOMConfiguration_8hpp.html":[4,0,0,1,15,1,0,0,0,6],
-"db/de3/mingw_2include_2xercesc_2dom_2DOMConfiguration_8hpp_source.html":[4,0,0,1,15,1,0,0,0,6],
-"db/de3/msvc_2include_2xercesc_2util_2XMLChTranscoder_8hpp.html":[4,0,0,1,15,2,0,0,6,93]
+"db/de3/mingw_2include_2xercesc_2dom_2DOMConfiguration_8hpp_source.html":[4,0,0,1,15,1,0,0,0,6]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX317 =
 {
+"df/d9a/classDialogBisector.html#a5033f7ce72eeacf72efb0c047198c1d5":[3,0,105,8],
 "df/d9a/classDialogBisector.html#a59bec4a33a4a0a0c046b550fd21dff10":[3,0,105,19],
 "df/d9a/classDialogBisector.html#a5eecdfe8e0d764ae52a529ff622ef7c4":[3,0,105,0],
 "df/d9a/classDialogBisector.html#a606c0afab67eebcbd39953a29cd5c1d3":[3,0,105,14],
@@ -248,6 +249,5 @@ var NAVTREEINDEX317 =
 "df/db4/classXTemplateSerializer.html#a6727b12207c793a4c8f92c5ef583897e":[3,0,935,5],
 "df/db4/classXTemplateSerializer.html#a6727b12207c793a4c8f92c5ef583897e":[3,0,935,8],
 "df/db4/classXTemplateSerializer.html#a6727b12207c793a4c8f92c5ef583897e":[3,0,935,11],
-"df/db4/classXTemplateSerializer.html#a67847b7a37ff0c016878eaf08bd24f4d":[3,0,935,187],
-"df/db4/classXTemplateSerializer.html#a67847b7a37ff0c016878eaf08bd24f4d":[3,0,935,186]
+"df/db4/classXTemplateSerializer.html#a67847b7a37ff0c016878eaf08bd24f4d":[3,0,935,187]
 };

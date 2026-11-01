@@ -1,5 +1,6 @@
 var NAVTREEINDEX277 =
 {
+"dd/dfe/classDialogAlign.html#a9c3bc2c064226b3595baf243589c8a35":[3,0,101,20],
 "dd/dfe/classDialogAlign.html#a9d7ff46cf8a34d64f89ef444aad0a456":[3,0,101,27],
 "dd/dfe/classDialogAlign.html#aa2afa59a465f563c21f92857cf986195":[3,0,101,30],
 "dd/dfe/classDialogAlign.html#aaefeef8157e6319ffaada5fe7b55bdc5":[3,0,101,23],
@@ -248,6 +249,5 @@ var NAVTREEINDEX277 =
 "de/d03/msvc_2include_2xercesc_2util_2XMLUniDefs_8hpp.html#afac598d87ddc6dfd09716761eddcaa17":[4,0,0,1,15,2,0,0,6,117,3],
 "de/d03/msvc_2include_2xercesc_2util_2XMLUniDefs_8hpp.html#aff94d3618f2a0c9ee96a31d6009c96cc":[4,0,0,1,15,2,0,0,6,117,75],
 "de/d03/msvc_2include_2xercesc_2util_2XMLUniDefs_8hpp_source.html":[4,0,0,1,15,2,0,0,6,117],
-"de/d04/classVToolTrueDarts.html":[3,0,785],
-"de/d04/classVToolTrueDarts.html#a099f0f96b52c98c9c1a49ecddbac1922":[3,0,785,15]
+"de/d04/classVToolTrueDarts.html":[3,0,785]
 };
