@@ -10,6 +10,7 @@ var searchData=
   ['source_7',['Source',['../d4/da4/def_8h.html#abb74e322e1c4daef3e3ff32f5f7be820',1,'def.h']]],
   ['sources_8',['Sources',['../d0/dac/classXMLReader.html#aa4d78d1be0836774f64f0678657f8c87',1,'XMLReader::Sources()'],['../d0/dac/classXMLReader.html#aa4d78d1be0836774f64f0678657f8c87',1,'XMLReader::Sources()'],['../d0/dac/classXMLReader.html#aa4d78d1be0836774f64f0678657f8c87',1,'XMLReader::Sources()'],['../d0/dac/classXMLReader.html#aa4d78d1be0836774f64f0678657f8c87',1,'XMLReader::Sources()']]],
   ['splinepointposition_9',['SplinePointPosition',['../d5/d9d/vgeometrydef_8h.html#aea380938ffc14e1e5baefe358e7f1d8f',1,'vgeometrydef.h']]],
-  ['state_10',['State',['../df/d51/qmudef_8cpp.html#a5d74787dedbc4e11c1ab15bf487e61f8',1,'qmudef.cpp']]],
-  ['status_11',['Status',['../de/dcf/classXSValue.html#a51d52439745495eca3b06dc46c355791',1,'XSValue::Status()'],['../de/dcf/classXSValue.html#a51d52439745495eca3b06dc46c355791',1,'XSValue::Status()'],['../de/dcf/classXSValue.html#a51d52439745495eca3b06dc46c355791',1,'XSValue::Status()'],['../de/dcf/classXSValue.html#a51d52439745495eca3b06dc46c355791',1,'XSValue::Status()']]]
+  ['stage_10',['Stage',['../d1/d4a/classSeamCheck.html#a80294bbc02ea44e077de65e0ce7fad1f',1,'SeamCheck']]],
+  ['state_11',['State',['../df/d51/qmudef_8cpp.html#a5d74787dedbc4e11c1ab15bf487e61f8',1,'qmudef.cpp']]],
+  ['status_12',['Status',['../de/dcf/classXSValue.html#a51d52439745495eca3b06dc46c355791',1,'XSValue::Status()'],['../de/dcf/classXSValue.html#a51d52439745495eca3b06dc46c355791',1,'XSValue::Status()'],['../de/dcf/classXSValue.html#a51d52439745495eca3b06dc46c355791',1,'XSValue::Status()'],['../de/dcf/classXSValue.html#a51d52439745495eca3b06dc46c355791',1,'XSValue::Status()']]]
 ];

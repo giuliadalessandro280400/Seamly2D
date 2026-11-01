@@ -549,6 +549,7 @@ var annotated_dup =
     [ "SchemaInfo", "d5/d56/classSchemaInfo.html", "d5/d56/classSchemaInfo" ],
     [ "SchemaSymbols", "d3/d5c/classSchemaSymbols.html", "d3/d5c/classSchemaSymbols" ],
     [ "SchemaValidator", "d3/d20/classSchemaValidator.html", "d3/d20/classSchemaValidator" ],
+    [ "SeamCheck", "d1/d4a/classSeamCheck.html", "d1/d4a/classSeamCheck" ],
     [ "SeamlyMePreferencesConfigurationPage", "df/de0/classSeamlyMePreferencesConfigurationPage.html", "df/de0/classSeamlyMePreferencesConfigurationPage" ],
     [ "SeamlyMePreferencesPathPage", "d7/d92/classSeamlyMePreferencesPathPage.html", "d7/d92/classSeamlyMePreferencesPathPage" ],
     [ "SeamlyMeWelcomeDialog", "d5/d64/classSeamlyMeWelcomeDialog.html", "d5/d64/classSeamlyMeWelcomeDialog" ],

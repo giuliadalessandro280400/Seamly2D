@@ -347,9 +347,9 @@ var sectionId = 'dynsection-1';
 <path fill="none" stroke="#63b8ff" d="M4239.28,-425.47C4112.39,-412.86 3835.7,-385.36 3716.96,-373.56"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="4238.96,-428.95 4249.26,-426.46 4239.65,-421.99 4238.96,-428.95"/>
 </g>
-<!-- Node175 -->
+<!-- Node176 -->
 <g id="node49" class="node">
-<title>Node175</title>
+<title>Node176</title>
 <g id="a_node49"><a xlink:href="../../d0/d02/vdatatool_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="5470.5,-382 5359.5,-382 5359.5,-352 5470.5,-352 5470.5,-382"/>
 <text text-anchor="start" x="5367.5" y="-370" font-family="Helvetica,sans-Serif" font-size="10.00">src/libs/vtools/tools</text>
@@ -357,15 +357,15 @@ var sectionId = 'dynsection-1';
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node175 -->
+<!-- Node1&#45;&gt;Node176 -->
 <g id="edge111" class="edge">
-<title>Node1&#45;&gt;Node175</title>
+<title>Node1&#45;&gt;Node176</title>
 <path fill="none" stroke="#63b8ff" d="M4371.24,-432.24C4536.35,-432.08 4979.2,-427.12 5345,-382 5349.67,-381.42 5354.5,-380.71 5359.34,-379.91"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="4370.77,-428.74 4360.77,-432.24 4370.78,-435.74 4370.77,-428.74"/>
 </g>
-<!-- Node170 -->
+<!-- Node171 -->
 <g id="node50" class="node">
-<title>Node170</title>
+<title>Node171</title>
 <g id="a_node50"><a xlink:href="../../da/d5c/deletepiece_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="5653.5,-382 5488.5,-382 5488.5,-352 5653.5,-352 5653.5,-382"/>
 <text text-anchor="start" x="5496.5" y="-370" font-family="Helvetica,sans-Serif" font-size="10.00">src/libs/vtools/undocommands</text>
@@ -373,9 +373,9 @@ var sectionId = 'dynsection-1';
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node170 -->
+<!-- Node1&#45;&gt;Node171 -->
 <g id="edge112" class="edge">
-<title>Node1&#45;&gt;Node170</title>
+<title>Node1&#45;&gt;Node171</title>
 <path fill="none" stroke="#63b8ff" d="M4370.53,-431.74C4549.01,-430.48 5058.65,-423.25 5480,-382 5482.7,-381.74 5485.45,-381.44 5488.22,-381.13"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="4370.49,-428.24 4360.51,-431.81 4370.53,-435.24 4370.49,-428.24"/>
 </g>

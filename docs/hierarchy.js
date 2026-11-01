@@ -15,6 +15,7 @@ var hierarchy =
       [ "DefaultHandler", "d2/d4a/classDefaultHandler.html", null ],
       [ "SAX2XMLFilterImpl", "de/d91/classSAX2XMLFilterImpl.html", null ]
     ] ],
+    [ "PatternPieceTool::ContourMark", "d3/db1/structPatternPieceTool_1_1ContourMark.html", null ],
     [ "CustomSARecord", "dc/d74/structCustomSARecord.html", null ],
     [ "DeclHandler", "db/d62/classDeclHandler.html", [
       [ "DefaultHandler", "d2/d4a/classDefaultHandler.html", null ]
@@ -669,6 +670,7 @@ var hierarchy =
       [ "PieceNodeHandle", "d2/d2d/classPieceNodeHandle.html", null ],
       [ "PieceSegmentHandle", "d1/da2/classPieceSegmentHandle.html", null ],
       [ "ResizeHandlesItem", "d0/de9/classResizeHandlesItem.html", null ],
+      [ "SeamCheck", "d1/d4a/classSeamCheck.html", null ],
       [ "TST_FindPoint", "d6/d30/classTST__FindPoint.html", null ],
       [ "TST_Measurements", "da/d3b/classTST__Measurements.html", null ],
       [ "TST_Misc", "d5/d79/classTST__Misc.html", null ],
@@ -1069,6 +1071,7 @@ var hierarchy =
     [ "VTranslateMeasurements", "d3/d44/classVTranslateMeasurements.html", [
       [ "VTranslateVars", "dc/dbc/classVTranslateVars.html", null ]
     ] ],
+    [ "SeamCheck::WalkMark", "dd/d1b/structSeamCheck_1_1WalkMark.html", null ],
     [ "XercesElementWildcard", "da/d0e/classXercesElementWildcard.html", null ],
     [ "XercesNamespaceResolver", "d9/d02/classXercesNamespaceResolver.html", [
       [ "NamespaceScope", "da/dd7/classNamespaceScope.html", null ]

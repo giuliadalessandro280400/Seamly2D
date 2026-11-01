@@ -1,0 +1,12 @@
+<map id="SeamCheck" name="SeamCheck">
+<area shape="rect" id="node1" title="The SeamCheck class walks a piece along another one, like sliding one paper pattern on the other." alt="" coords="319,2009,473,2556"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,417,80,494"/>
+<area shape="rect" id="node5" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="263,828,529,1947"/>
+<area shape="rect" id="node3" href="$d7/df5/classVMainGraphicsScene.html" title="The VMainGraphicsScene class main scene." alt="" coords="701,1114,918,1661"/>
+<area shape="rect" id="node4" title=" " alt="" coords="837,417,965,494"/>
+<area shape="rect" id="node6" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="105,145,314,765"/>
+<area shape="rect" id="node7" title=" " alt="" coords="37,5,168,83"/>
+<area shape="rect" id="node8" href="$da/da1/classQHash.html" title=" " alt="" coords="193,5,439,83"/>
+<area shape="rect" id="node9" href="$d0/d4c/classQMap.html" title=" " alt="" coords="339,417,560,494"/>
+<area shape="rect" id="node10" href="$da/da1/classQHash.html" title=" " alt="" coords="584,417,813,494"/>
+</map>

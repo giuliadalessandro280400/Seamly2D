@@ -49,6 +49,16 @@ var namespaces_dup =
       [ "childElements", "dd/da8/namespaceanonymous__namespace_02savetooloptions_8cpp_03.html#a90bc00f8429f2767711cee83fd7c5b09", null ],
       [ "referencesChanged", "dd/da8/namespaceanonymous__namespace_02savetooloptions_8cpp_03.html#a37fef8eec386cdf9b1548406ee1b6175", null ]
     ] ],
+    [ "anonymous_namespace{seam_check.cpp}", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html", [
+      [ "cumulativeLengths", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html#acfe20371efd16b5870d58264b098c42e", null ],
+      [ "mirrored", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html#a867e25d5d281aba0e208a4333b9c08d6", null ],
+      [ "mm", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html#a3e082e50faa0327ba26191bd1655d160", null ],
+      [ "palette", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html#aeb577e76cd471e96a59dfbd190096952", null ],
+      [ "pointAt", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html#ab2259e104bef36279edffeaf3abaf7d2", null ],
+      [ "project", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html#ac965508e888ffb2be6a558e1fb5992f8", null ],
+      [ "signedArea", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html#a21eee88099eca9888d6d70d89821dbd6", null ],
+      [ "wrap", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html#a7f0b240322558bdd3ca3db9237179a5f", null ]
+    ] ],
     [ "anonymous_namespace{tst_vtoolmove.cpp}", "d7/d5d/namespaceanonymous__namespace_02tst__vtoolmove_8cpp_03.html", [
       [ "moveAngle", "d7/d5d/namespaceanonymous__namespace_02tst__vtoolmove_8cpp_03.html#a2513e9612873952810698e97da058004", null ],
       [ "moveLength", "d7/d5d/namespaceanonymous__namespace_02tst__vtoolmove_8cpp_03.html#a3b179851d0f03fa190ba08ac0d583839", null ],
