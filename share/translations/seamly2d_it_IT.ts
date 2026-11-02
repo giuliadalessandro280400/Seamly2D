@@ -7199,6 +7199,18 @@ Premere Invio per aggiungerlo temporaneamente all&apos;elenco.</translation>
         <source>Align Selected Objects to a Point and a Line (A, G)</source>
         <translation>Allinea gli oggetti selezionati a un punto e a una linea (A, G)</translation>
     </message>
+    <message>
+        <source>Check Seam: walk the selected piece along another one</source>
+        <translation>Controllo cucitura: fai camminare il pezzo selezionato su un altro pezzo</translation>
+    </message>
+    <message>
+        <source>Check Seam</source>
+        <translation>Controllo cucitura</translation>
+    </message>
+    <message>
+        <source>First click the piece you want to check, then press this button again.</source>
+        <translation>Prima clicca il pezzo che vuoi controllare, poi premi di nuovo questo pulsante.</translation>
+    </message>
 </context>
 <context>
     <name>MainWindowsNoGUI</name>

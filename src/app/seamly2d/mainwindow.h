@@ -194,6 +194,7 @@ private slots:
 #endif
     void exportLayoutAs();
     void exportPiecesAs();
+    void startSeamCheck();
     void exportDraftBlocksAs();
 
     void handleArrowTool(bool checked);

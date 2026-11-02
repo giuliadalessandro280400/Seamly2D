@@ -3202,6 +3202,7 @@ void MainWindow::initializeToolButtons()
     connect(ui->midpoint_ToolButton,       &QToolButton::clicked, this, &MainWindow::handleMidpointTool);
     connect(ui->exportLayout_ToolButton,   &QToolButton::clicked, this, &MainWindow::exportLayoutAs);
     connect(ui->exportPiecesAs_ToolButton, &QToolButton::clicked, this, &MainWindow::exportPiecesAs);
+    connect(ui->seamCheck_ToolButton,      &QToolButton::clicked, this, &MainWindow::startSeamCheck);
     connect(ui->ellipticalArc_ToolButton,  &QToolButton::clicked, this, &MainWindow::handleEllipticalArcTool);
     connect(ui->anchorPoint_ToolButton,    &QToolButton::clicked, this, &MainWindow::handleAnchorPointTool);
     connect(ui->importImage_ToolButton,    &QToolButton::clicked, this, &MainWindow::handleImageTool);
@@ -5687,6 +5688,7 @@ void MainWindow::setToolsEnabled(bool enable)
     //Details
     ui->unitePieces_ToolButton->setEnabled(pieceTools);
     ui->exportPiecesAs_ToolButton->setEnabled(pieceTools);
+    ui->seamCheck_ToolButton->setEnabled(pieceTools);
 
     //Layout
     ui->layoutSettings_ToolButton->setEnabled(layoutTools);
@@ -8665,11 +8667,11 @@ void MainWindow::updateWindowTitle()
 
     if (!patternReadOnly && isFileWritable)
     {
-        setWindowTitle(VER_INTERNALNAME_STR + QString(" - ") + GetPatternFileName() + GetMeasurementFileName());
+        setWindowTitle(VER_INTERNALNAME_STR + QString(" (mod Giulia) - ") + GetPatternFileName() + GetMeasurementFileName());
     }
     else
     {
-        setWindowTitle(VER_INTERNALNAME_STR + QString(" - ") + GetPatternFileName() +
+        setWindowTitle(VER_INTERNALNAME_STR + QString(" (mod Giulia) - ") + GetPatternFileName() +
                        GetMeasurementFileName() + QString(" - ") + tr("read only"));
     }
     setWindowFilePath(qApp->getFilePath());
@@ -9140,4 +9142,33 @@ void MainWindow::selectPieceTool() const
     emit ItemsSelection(SelectionType::ByMouseRelease);
 
     ui->view->allowRubberBand(false);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief startSeamCheck starts the seam check on the selected piece (the one to check).
+ */
+void MainWindow::startSeamCheck()
+{
+    if (pieceScene == nullptr)
+    {
+        return;
+    }
+    for (QGraphicsItem *item : pieceScene->selectedItems())
+    {
+        for (QGraphicsItem *current = item; current != nullptr; current = current->parentItem())
+        {
+            if (current->type() == PatternPieceTool::Type)
+            {
+                auto *piece = static_cast<PatternPieceTool *>(current);
+                if (not piece->isInCheck())
+                {
+                    piece->startSeamCheck();
+                }
+                return;
+            }
+        }
+    }
+    QMessageBox::information(this, tr("Check Seam"),
+                             tr("First click the piece you want to check, then press this button again."));
 }

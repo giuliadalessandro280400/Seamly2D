@@ -2441,7 +2441,7 @@
               <x>0</x>
               <y>0</y>
               <width>120</width>
-              <height>82</height>
+              <height>130</height>
              </rect>
             </property>
             <property name="toolTip">
@@ -2519,6 +2519,35 @@
              </property>
              <property name="checkable">
               <bool>true</bool>
+             </property>
+            </widget>
+            <widget class="QToolButton" name="seamCheck_ToolButton">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>58</y>
+               <width>39</width>
+               <height>38</height>
+              </rect>
+             </property>
+             <property name="toolTip">
+              <string>Check Seam: walk the selected piece along another one</string>
+             </property>
+             <property name="text">
+              <string notr="true">...</string>
+             </property>
+             <property name="icon">
+              <iconset resource="share/resources/toolicon.qrc">
+               <normaloff>:/toolicon/32x32/seam_check.png</normaloff>:/toolicon/32x32/seam_check.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>32</width>
+               <height>32</height>
+              </size>
              </property>
             </widget>
            </widget>
