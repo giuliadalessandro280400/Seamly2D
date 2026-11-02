@@ -22,6 +22,7 @@ HEADERS += \
     $$PWD/drawTools/toolcurve/vtoolspline.h \
     $$PWD/drawTools/toolcurve/proportionalhandles.h \
     $$PWD/piece_node_handle.h \
+    $$PWD/piece_curve_edit.h \
     $$PWD/seam_check.h \
     $$PWD/drawTools/toolpoint/toolsinglepoint/toollinepoint/vtoolshoulderpoint.h \
     $$PWD/drawTools/toolpoint/toolsinglepoint/vtoolsinglepoint.h \
@@ -124,6 +125,7 @@ SOURCES += \
     $$PWD/drawTools/operation/vtoolscale.cpp \
     $$PWD/drawTools/operation/vtoolalign.cpp \
     $$PWD/piece_node_handle.cpp \
+    $$PWD/piece_curve_edit.cpp \
     $$PWD/seam_check.cpp \
     $$PWD/drawTools/operation/vabstractoperation.cpp \
     $$PWD/drawTools/operation/vtoolmove.cpp \

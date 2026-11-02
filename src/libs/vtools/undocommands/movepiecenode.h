@@ -111,4 +111,32 @@ private:
     void apply(bool pinned);
 };
 
+/**
+ * @brief The SetPieceNodeAttribute class sets (or removes, with an empty value) one attribute of a node of a piece:
+ * used by the piece editor for the edits of the curves. Changes with the same merge key (a drag) merge into one step.
+ */
+class SetPieceNodeAttribute : public VUndoCommand
+{
+    Q_OBJECT
+public:
+    SetPieceNodeAttribute(VAbstractPattern *doc, quint32 pieceId, quint32 nodeId, const QString &attribute,
+                          const QString &value, int mergeKey = 0, QUndoCommand *parent = nullptr);
+    virtual ~SetPieceNodeAttribute() = default;
+
+    virtual void undo() override;
+    virtual void redo() override;
+    virtual bool mergeWith(const QUndoCommand *command) override;
+    virtual int  id() const override;
+
+private:
+    Q_DISABLE_COPY(SetPieceNodeAttribute)
+    quint32 m_pieceId;
+    QString m_attribute;
+    QString m_oldValue;
+    QString m_newValue;
+    int     m_mergeKey;
+
+    void apply(const QString &value);
+};
+
 #endif // MOVEPIECENODE_H

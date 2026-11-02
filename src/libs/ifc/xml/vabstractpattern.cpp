@@ -169,6 +169,14 @@ const QString VAbstractPattern::AttrNodeExcluded        = QStringLiteral("exclud
 const QString VAbstractPattern::AttrNodeOffsetX         = QStringLiteral("dx");
 const QString VAbstractPattern::AttrNodeOffsetY         = QStringLiteral("dy");
 const QString VAbstractPattern::AttrNodePinned          = QStringLiteral("pinned");
+
+//---------------------------------------------------------------------------------------------------------------------
+const QStringList &VAbstractPattern::pieceEditorNodeAttributes()
+{
+    static const QStringList names {QStringLiteral("bend"), QStringLiteral("simplify"), QStringLiteral("curveOffsets"),
+                                    QStringLiteral("curvePins")};
+    return names;
+}
 const QString VAbstractPattern::AttrNodeIsNotch         = QStringLiteral("notch");
 const QString VAbstractPattern::AttrNodeNotchType       = QStringLiteral("notchType");
 const QString VAbstractPattern::AttrNodeNotchSubType    = QStringLiteral("notchSubtype");
@@ -857,6 +865,16 @@ VPieceNode VAbstractPattern::ParseSANode(const QDomElement &domElement)
     node.setOffset(QPointF(VDomDocument::GetParametrDouble(domElement, VAbstractPattern::AttrNodeOffsetX, "0"),
                            VDomDocument::GetParametrDouble(domElement, VAbstractPattern::AttrNodeOffsetY, "0")));
     node.setPinned(VDomDocument::getParameterBool(domElement, VAbstractPattern::AttrNodePinned, falseStr));
+
+    QMap<QString, QString> editorAttributes;
+    for (const QString &name : pieceEditorNodeAttributes())
+    {
+        if (domElement.hasAttribute(name))
+        {
+            editorAttributes.insert(name, domElement.attribute(name));
+        }
+    }
+    node.setEditorAttributes(editorAttributes);
     return node;
 }
 

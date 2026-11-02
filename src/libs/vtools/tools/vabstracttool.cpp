@@ -653,6 +653,15 @@ QDomElement VAbstractTool::AddSANode(VAbstractPattern *doc, const QString &tagNa
     }
 
     {
+        // Other edits of the piece editor (curves)
+        const QMap<QString, QString> editorAttributes = node.editorAttributes();
+        for (auto i = editorAttributes.cbegin(); i != editorAttributes.cend(); ++i)
+        {
+            nod.setAttribute(i.key(), i.value());
+        }
+    }
+
+    {
         const bool excluded = node.isExcluded();
         if (excluded)
         {

@@ -381,6 +381,8 @@ public:
     static const QString AttrNodeOffsetX;
     static const QString AttrNodeOffsetY;
     static const QString AttrNodePinned;
+    /** @brief attributes of piece nodes written by the piece editor for curves, kept as they are. */
+    static const QStringList &pieceEditorNodeAttributes();
     static const QString AttrNodeIsNotch;
     static const QString AttrNodeNotchType;
     static const QString AttrNodeNotchSubType;

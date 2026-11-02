@@ -462,3 +462,15 @@ void VPieceNode::setPinned(bool pinned)
         d->m_pinned = pinned;
     }
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+QMap<QString, QString> VPieceNode::editorAttributes() const
+{
+    return d->m_editorAttributes;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VPieceNode::setEditorAttributes(const QMap<QString, QString> &attributes)
+{
+    d->m_editorAttributes = attributes;
+}

@@ -60,8 +60,8 @@ PieceNodeHandle::PieceNodeHandle(quint32 nodeId, QGraphicsItem *parent)
     setCursor(Qt::SizeAllCursor);
     setZValue(1000); // above the point marks of the piece (z 100)
     setData(EditorHandleDataKey, true);
-    setToolTip(tr("Drag to move this point of the piece (the draft does not change). "
-                  "Right click to pin it or put it back."));
+    setToolTip(tr("Drag to move this point of the piece (the draft does not change); the curves keep their shape. "
+                  "Hold Alt to move only the ends of the curves. Right click to pin it or put it back."));
     updateLook(false);
 }
 
@@ -78,6 +78,17 @@ void PieceNodeHandle::setPinned(bool pinned)
     m_pinned = pinned;
     setCursor(pinned ? Qt::ForbiddenCursor : Qt::SizeAllCursor);
     updateLook(false);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceNodeHandle::setInnerCurvePoint()
+{
+    const qreal size = 9;
+    setRect(-size / 2, -size / 2, size, size);
+    setRotation(45);
+    setZValue(950); // under the points of the piece, over its lines
+    setToolTip(tr("Inner point of the curve: drag to move it. Right click to pin it (it holds the curve when "
+                  "the ends move) or to put it back."));
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -128,6 +139,7 @@ void PieceNodeHandle::mousePressEvent(QGraphicsSceneMouseEvent *event)
     if (event->button() == Qt::LeftButton)
     {
         m_dragging = true;
+        m_altDrag = event->modifiers().testFlag(Qt::AltModifier);
         m_grabOffset = pos() - parentItem()->mapFromScene(event->scenePos());
         updateLook(true);
         event->accept();
@@ -221,7 +233,8 @@ PieceSegmentHandle::PieceSegmentHandle(quint32 firstNodeId, quint32 secondNodeId
     setCursor(Qt::SizeAllCursor);
     setZValue(900); // under the point handles, over the piece
     setData(EditorHandleDataKey, true);
-    setToolTip(tr("Drag to move this line of the piece (the draft does not change)."));
+    setToolTip(tr("Drag to move this line of the piece (the draft does not change). "
+                  "Right click to simplify a curve."));
     setBrush(Qt::NoBrush);
     updateLook(false);
 }
@@ -298,6 +311,18 @@ void PieceSegmentHandle::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     {
         emit dragFinished();
     }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceSegmentHandle::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
+{
+    QMenu menu;
+    QAction *simplify = menu.addAction(tr("Simplify Curve..."));
+    if (menu.exec(event->screenPos()) == simplify)
+    {
+        emit simplifyRequested(m_firstNodeId, m_secondNodeId);
+    }
+    event->accept();
 }
 
 //---------------------------------------------------------------------------------------------------------------------

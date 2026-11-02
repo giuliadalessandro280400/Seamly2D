@@ -49,6 +49,10 @@ public:
     void         setModified(bool modified);
     void         setPinned(bool pinned);
     bool         isPinned() const { return m_pinned; }
+    /** @brief makes it a small diamond on an inner point of a curve */
+    void         setInnerCurvePoint();
+    /** @brief true if Alt was held when the drag started: only the end of the curves moves (bend) */
+    bool         altDrag() const { return m_altDrag; }
 
 signals:
     void         dragStarted(quint32 nodeId);
@@ -73,6 +77,7 @@ private:
     bool    m_dragging;
     bool    m_modified;
     bool    m_pinned;
+    bool    m_altDrag {false};
     QPointF m_grabOffset;
 
     void    updateLook(bool hover);
@@ -100,9 +105,11 @@ signals:
     void         dragStarted(quint32 firstNodeId, quint32 secondNodeId);
     void         moved(quint32 firstNodeId, quint32 secondNodeId, const QPointF &delta); // in piece coordinates
     void         dragFinished();
+    void         simplifyRequested(quint32 firstNodeId, quint32 secondNodeId);
 
 protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    virtual void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;

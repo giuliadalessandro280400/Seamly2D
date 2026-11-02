@@ -53,6 +53,8 @@
 #define VPIECENODE_P_H
 
 #include <QSharedData>
+#include <QMap>
+#include <QString>
 #include <QDataStream>
 #include <QPointF>
 #include "../ifc/ifcdef.h"
@@ -138,6 +140,7 @@ public:
         , m_notchCount(node.m_notchCount)
         , m_offset(node.m_offset)
         , m_pinned(node.m_pinned)
+        , m_editorAttributes(node.m_editorAttributes)
     {}
 
     ~VPieceNodeData() Q_DECL_EQ_DEFAULT;
@@ -170,6 +173,7 @@ public:
     int            m_notchCount;
     bool           m_pinned;          //! @brief pinned points do not move in the piece editor.
     QPointF        m_offset;          //! @brief manual displacement of a point in the piece editor (pattern units).
+    QMap<QString, QString> m_editorAttributes; //! @brief other edits of the piece editor (curves), as attributes.
 
 private:
     VPieceNodeData &operator=(const VPieceNodeData &) Q_DECL_EQ_DELETE;
@@ -196,7 +200,8 @@ QDataStream &operator<<(QDataStream &out, const VPieceNodeData &p)
         << p.m_notchAngle
         << p.m_notchCount
         << p.m_offset
-        << p.m_pinned;
+        << p.m_pinned
+        << p.m_editorAttributes;
     return out;
 }
 
@@ -225,7 +230,8 @@ QDataStream &operator>>(QDataStream &in, VPieceNodeData &p)
        >> p.m_notchAngle
        >> p.m_notchCount
        >> p.m_offset
-       >> p.m_pinned;
+       >> p.m_pinned
+       >> p.m_editorAttributes;
 
     p.m_typeTool     = static_cast<Tool>(typeTool);
     p.m_angleType    = static_cast<PieceNodeAngle>(angleType);

@@ -251,3 +251,70 @@ void PinPieceNode::redo()
 {
     apply(m_pinned);
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+SetPieceNodeAttribute::SetPieceNodeAttribute(VAbstractPattern *doc, quint32 pieceId, quint32 nodeId,
+                                             const QString &attribute, const QString &value, int mergeKey,
+                                             QUndoCommand *parent)
+    : VUndoCommand(QDomElement(), doc, parent)
+    , m_pieceId(pieceId)
+    , m_attribute(attribute)
+    , m_oldValue(findNode(doc, pieceId, nodeId).attribute(attribute))
+    , m_newValue(value)
+    , m_mergeKey(mergeKey)
+{
+    setText(QObject::tr("edit piece curve"));
+    this->nodeId = nodeId;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void SetPieceNodeAttribute::apply(const QString &value)
+{
+    QDomElement node = findNode(doc, m_pieceId, nodeId);
+    if (node.isNull())
+    {
+        qCDebug(vUndo, "Can't find node %u of piece %u.", nodeId, m_pieceId);
+        return;
+    }
+    if (value.isEmpty())
+    {
+        node.removeAttribute(m_attribute);
+    }
+    else
+    {
+        node.setAttribute(m_attribute, value);
+    }
+    emit NeedLiteParsing(Document::LiteParse);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void SetPieceNodeAttribute::undo()
+{
+    apply(m_oldValue);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void SetPieceNodeAttribute::redo()
+{
+    apply(m_newValue);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+bool SetPieceNodeAttribute::mergeWith(const QUndoCommand *command)
+{
+    const SetPieceNodeAttribute *other = static_cast<const SetPieceNodeAttribute *>(command);
+    SCASSERT(other != nullptr)
+    if (m_mergeKey == 0 || other->m_mergeKey != m_mergeKey || other->m_pieceId != m_pieceId
+        || other->nodeId != nodeId || other->m_attribute != m_attribute)
+    {
+        return false;
+    }
+    m_newValue = other->m_newValue;
+    return true;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+int SetPieceNodeAttribute::id() const
+{
+    return static_cast<int>(UndoCommand::SetPieceNodeAttribute);
+}

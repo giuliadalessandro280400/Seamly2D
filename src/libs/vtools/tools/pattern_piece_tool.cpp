@@ -95,6 +95,17 @@
 #include <QPainterPathStroker>
 #include "piece_node_handle.h"
 #include "seam_check.h"
+#include "piece_curve_edit.h"
+#include <algorithm>
+#include "../ifc/exception/vexceptionbadid.h"
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QLabel>
+#include <QFormLayout>
+#include <QDoubleSpinBox>
+#include <QDialogButtonBox>
+#include <QDialog>
+#include "../vgeometry/vsplinepoint.h"
 #include "../undocommands/movepiecenode.h"
 #include "../vgeometry/vspline.h"
 #include "../vgeometry/vsplinepath.h"
@@ -1245,7 +1256,8 @@ void PatternPieceTool::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
     bool hasOffsets = false;
     for (int i = 0; i < piece.GetPath().nodeCount(); ++i)
     {
-        hasOffsets = hasOffsets || piece.GetPath().at(i).hasOffset();
+        hasOffsets = hasOffsets || piece.GetPath().at(i).hasOffset()
+                     || not piece.GetPath().at(i).editorAttributes().isEmpty();
     }
     QAction *resetShape = menu.addAction(tr("Reset to Draft Shape"));
     resetShape->setEnabled(lock && hasOffsets);
@@ -2759,6 +2771,160 @@ void followBothEnds(VContainer *data, quint32 curveId, const QPointF &a0, const 
             break;
     }
 }
+//---------------------------------------------------------------------------------------------------------------------
+void copyCurveProperties(VAbstractCurve &target, const VAbstractCurve &source)
+{
+    target.setName(source.name());
+    target.setLineColor(source.getLineColor());
+    target.SetPenStyle(source.GetPenStyle());
+    target.setLineWeight(source.getLineWeight());
+    target.SetDuplicate(source.GetDuplicate());
+    target.setIdObject(source.getIdObject());
+    target.setMode(source.getMode());
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief applyCurveEdits simplifies the curve copy and moves its inner points, before its ends follow the points.
+ */
+void applyCurveEdits(VContainer *data, quint32 curveId, const PieceCurveEdit::CurveEdit &edit)
+{
+    if (edit.simplified)
+    {
+        const QSharedPointer<VAbstractCurve> curve = data->GeometricObject<VAbstractCurve>(curveId);
+        VSplinePath fitted = PieceCurveEdit::fitCurve(curve->getPoints(), edit.splits);
+        copyCurveProperties(fitted, *curve);
+        data->UpdateGObject(curveId, new VSplinePath(fitted));
+    }
+
+    if (not edit.offsets.isEmpty()
+        && static_cast<GOType>(data->GetGObject(curveId)->getType()) == GOType::SplinePath)
+    {
+        const QSharedPointer<VSplinePath> path = data->GeometricObject<VSplinePath>(curveId);
+        VSplinePath moved = *path;
+        for (auto i = edit.offsets.cbegin(); i != edit.offsets.cend(); ++i)
+        {
+            if (i.key() <= 0 || i.key() >= moved.CountPoints() - 1)
+            {
+                continue; // only inner points; the ends belong to the points of the piece
+            }
+            VSplinePoint point = moved.at(i.key());
+            VPointF p = point.P();
+            p.setX(p.x() + qApp->toPixel(i.value().x()));
+            p.setY(p.y() + qApp->toPixel(i.value().y()));
+            point.SetP(p); // the handles go with the point
+            moved[i.key()] = point;
+        }
+        data->UpdateGObject(curveId, new VSplinePath(moved));
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief followWithPins the curve follows its ends keeping its shape; pinned inner points stay where they are and the
+ * curve changes only between a pin and a moved end.
+ */
+void followWithPins(VContainer *data, quint32 curveId, const QPointF &a0, const QPointF &a1, const QPointF &b0,
+                    const QPointF &b1, const QVector<int> &pins)
+{
+    if (pins.isEmpty() || static_cast<GOType>(data->GetGObject(curveId)->getType()) != GOType::SplinePath)
+    {
+        followBothEnds(data, curveId, a0, a1, b0, b1);
+        return;
+    }
+
+    const QSharedPointer<VSplinePath> path = data->GeometricObject<VSplinePath>(curveId);
+    VSplinePath moved = *path;
+    const int last = moved.CountPoints() - 1;
+    QVector<int> anchors {0};
+    for (const int pin : pins)
+    {
+        if (pin > 0 && pin < last && not anchors.contains(pin))
+        {
+            anchors.append(pin);
+        }
+    }
+    anchors.append(last);
+    std::sort(anchors.begin(), anchors.end());
+
+    const auto displacement = [&](int index)
+    {
+        if (index == 0)
+        {
+            return a1 - a0;
+        }
+        if (index == last)
+        {
+            return b1 - b0;
+        }
+        return QPointF(); // a pin
+    };
+
+    const QVector<VSplinePoint> original = moved.GetSplinePath();
+    for (int k = 0; k + 1 < anchors.size(); ++k)
+    {
+        const int from = anchors.at(k);
+        const int to = anchors.at(k + 1);
+        const QPointF p0 = static_cast<QPointF>(original.at(from).P());
+        const QPointF p1 = static_cast<QPointF>(original.at(to).P());
+        const QPointF q0 = p0 + displacement(from);
+        const QPointF q1 = p1 + displacement(to);
+        if (q0 == p0 && q1 == p1)
+        {
+            continue;
+        }
+
+        // similarity p0 -> q0, p1 -> q1
+        const QPointF d0 = p1 - p0;
+        const QPointF d1 = q1 - q0;
+        const qreal len2 = d0.x() * d0.x() + d0.y() * d0.y();
+        qreal kx = 1, ky = 0;
+        if (len2 > 1e-9)
+        {
+            kx = (d1.x() * d0.x() + d1.y() * d0.y()) / len2;
+            ky = (d1.y() * d0.x() - d1.x() * d0.y()) / len2;
+        }
+        const qreal scale = qSqrt(kx * kx + ky * ky);
+        const qreal turn = -qRadiansToDegrees(qAtan2(ky, kx));
+        const auto map = [&](const QPointF &z)
+        {
+            const QPointF r = z - p0;
+            return q0 + QPointF(r.x() * kx - r.y() * ky, r.x() * ky + r.y() * kx);
+        };
+
+        for (int m = from; m <= to; ++m)
+        {
+            const bool isPin = (m == from && from != 0) || (m == to && to != last);
+            VSplinePoint point = (m == from || m == to) ? moved.at(m) : original.at(m);
+            if (isPin)
+            {
+                continue; // a pin keeps its place and its handles: the curve stays smooth through it
+            }
+            VPointF p = point.P();
+            const QPointF q = map(static_cast<QPointF>(original.at(m).P()));
+            p.setX(q.x());
+            p.setY(q.y());
+            point.SetP(p);
+            // the handle towards this part of the curve turns and stretches with it
+            if (m > from || m == 0)
+            {
+                const qreal angle2 = original.at(m).Angle2() + turn;
+                const qreal length2 = original.at(m).Length2() * scale;
+                point.SetAngle2(angle2, QString::number(angle2));
+                point.SetLength2(length2, QString::number(qApp->fromPixel(length2)));
+            }
+            if (m < to || m == last)
+            {
+                const qreal angle1 = original.at(m).Angle1() + turn;
+                const qreal length1 = original.at(m).Length1() * scale;
+                point.SetAngle1(angle1, QString::number(angle1));
+                point.SetLength1(length1, QString::number(qApp->fromPixel(length1)));
+            }
+            moved[m] = point;
+        }
+    }
+    data->UpdateGObject(curveId, new VSplinePath(moved));
+}
 } // namespace
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -2771,19 +2937,24 @@ void followBothEnds(VContainer *data, quint32 curveId, const QPointF &a0, const 
 void PatternPieceTool::applyNodeOffsets(quint32 pieceId, const VPiece &piece, VContainer *data)
 {
     const VPiecePath path = piece.GetPath();
-    bool hasOffsets = false;
-    for (int i = 0; i < path.nodeCount(); ++i)
+    const int count = path.nodeCount();
+
+    bool hasEdits = false;
+    for (int i = 0; i < count && not hasEdits; ++i)
     {
-        hasOffsets = hasOffsets || (path.at(i).GetTypeTool() == Tool::NodePoint && path.at(i).hasOffset());
+        const VPieceNode &node = path.at(i);
+        hasEdits = (node.GetTypeTool() == Tool::NodePoint && node.hasOffset())
+                   || (node.GetTypeTool() != Tool::NodePoint
+                       && not PieceCurveEdit::readCurveEdit(node.editorAttributes()).isEmpty());
     }
 
-    if (not hasOffsets)
+    if (not hasEdits)
     {
         draftTraces().remove(pieceId);
         return;
     }
 
-    // Trace of the draft shape, before moving anything
+    // Trace of the draft shape, before changing anything
     {
         QPainterPath trace;
         const QVector<QPointF> points = piece.mainPathPoints(data);
@@ -2795,9 +2966,23 @@ void PatternPieceTool::applyNodeOffsets(quint32 pieceId, const VPiece &piece, VC
         draftTraces().insert(pieceId, trace);
     }
 
-    // Move the points, remembering where each one was
-    QVector<QPair<QPointF, QPointF>> displaced; // original position, displacement
-    const int count = path.nodeCount();
+    // 1. Curves: simplified, inner points moved
+    for (int i = 0; i < count; ++i)
+    {
+        const VPieceNode &node = path.at(i);
+        if (node.GetTypeTool() != Tool::NodePoint)
+        {
+            const PieceCurveEdit::CurveEdit edit = PieceCurveEdit::readCurveEdit(node.editorAttributes());
+            if (not edit.isEmpty())
+            {
+                applyCurveEdits(data, node.GetId(), edit);
+            }
+        }
+    }
+
+    // 2. Points, remembering where each one was
+    struct Displaced { QPointF original; QPointF delta; bool bend; };
+    QVector<Displaced> displaced;
     for (int i = 0; i < count; ++i)
     {
         const VPieceNode &node = path.at(i);
@@ -2814,24 +2999,25 @@ void PatternPieceTool::applyNodeOffsets(quint32 pieceId, const VPiece &piece, VC
         moved.setX(original.x() + delta.x());
         moved.setY(original.y() + delta.y());
         data->UpdateGObject(node.GetId(), new VPointF(moved));
-        displaced.append(qMakePair(original, delta));
+        displaced.append({original, delta, PieceCurveEdit::readBend(node.editorAttributes())});
     }
 
-    const auto displacementAt = [&displaced](const QPointF &p, QPointF &delta)
+    const auto displacementAt = [&displaced](const QPointF &p, QPointF &delta, bool &bend)
     {
-        for (const auto &d : displaced)
+        for (const Displaced &d : displaced)
         {
-            if (samePoint(d.first, p))
+            if (samePoint(d.original, p))
             {
-                delta = d.second;
+                delta = d.delta;
+                bend = d.bend;
                 return true;
             }
         }
         return false;
     };
 
-    // The curves follow their ends: one end moved -> that end moves with its handle (the rest stays);
-    // both ends moved (a dragged line) -> the whole curve goes with them and keeps its shape.
+    // 3. The curves follow their ends and keep their shape (pinned inner points hold them). A point moved with Alt
+    // ("bend") only moves the end of the curve with its handle, the rest of the curve stays.
     for (int i = 0; i < count; ++i)
     {
         const VPieceNode &curveNode = path.at(i);
@@ -2845,17 +3031,23 @@ void PatternPieceTool::applyNodeOffsets(quint32 pieceId, const VPiece &piece, VC
             continue; // arcs keep their shape
         }
         QPointF firstDelta, lastDelta;
-        const bool firstMoved = displacementAt(first, firstDelta);
-        const bool lastMoved = displacementAt(last, lastDelta);
-        if (firstMoved && lastMoved)
+        bool firstBend = false, lastBend = false;
+        const bool firstMoved = displacementAt(first, firstDelta, firstBend);
+        const bool lastMoved = displacementAt(last, lastDelta, lastBend);
+        const bool firstFollows = firstMoved && not firstBend;
+        const bool lastFollows = lastMoved && not lastBend;
+
+        if (firstFollows || lastFollows)
         {
-            followBothEnds(data, curveNode.GetId(), first, first + firstDelta, last, last + lastDelta);
+            const PieceCurveEdit::CurveEdit edit = PieceCurveEdit::readCurveEdit(curveNode.editorAttributes());
+            followWithPins(data, curveNode.GetId(), first, first + (firstFollows ? firstDelta : QPointF()),
+                           last, last + (lastFollows ? lastDelta : QPointF()), edit.pins);
         }
-        else if (firstMoved)
+        if (firstMoved && firstBend)
         {
             moveCurveEnd(data, curveNode.GetId(), first, firstDelta);
         }
-        else if (lastMoved)
+        if (lastMoved && lastBend)
         {
             moveCurveEnd(data, curveNode.GetId(), last, lastDelta);
         }
@@ -2934,6 +3126,7 @@ void PatternPieceTool::updateNodeHandles()
             connect(segment, &PieceSegmentHandle::dragStarted, this, &PatternPieceTool::segmentDragStarted);
             connect(segment, &PieceSegmentHandle::moved,       this, &PatternPieceTool::segmentMoved);
             connect(segment, &PieceSegmentHandle::dragFinished, this, [this]() { updateNodeHandles(); });
+            connect(segment, &PieceSegmentHandle::simplifyRequested, this, &PatternPieceTool::simplifyCurve);
             m_segmentHandles.append(segment);
         }
     }
@@ -2993,6 +3186,70 @@ void PatternPieceTool::updateNodeHandles()
             segment->setPos(QPointF());
         }
         segment->setVisible(show);
+    }
+
+    // Inner points of the curves (only curves made of several points have them)
+    QVector<QPair<quint32, int>> refs;
+    QVector<QPointF> refPositions;
+    QVector<bool> refModified;
+    QVector<bool> refPinned;
+    for (int i = 0; i < path.nodeCount(); ++i)
+    {
+        const VPieceNode &node = path.at(i);
+        if (node.GetTypeTool() == Tool::NodePoint || node.isExcluded())
+        {
+            continue;
+        }
+        const QSharedPointer<VGObject> obj = VAbstractTool::data.GetGObject(node.GetId());
+        if (static_cast<GOType>(obj->getType()) != GOType::SplinePath)
+        {
+            continue;
+        }
+        const QSharedPointer<VSplinePath> curve = VAbstractTool::data.GeometricObject<VSplinePath>(node.GetId());
+        const PieceCurveEdit::CurveEdit edit = PieceCurveEdit::readCurveEdit(node.editorAttributes());
+        for (int k = 1; k < curve->CountPoints() - 1; ++k)
+        {
+            refs.append(qMakePair(node.GetId(), k));
+            refPositions.append(static_cast<QPointF>(curve->at(k).P()));
+            refModified.append(edit.offsets.contains(k));
+            refPinned.append(edit.pins.contains(k));
+        }
+    }
+
+    bool curveDragging = false;
+    for (auto *handle : qAsConst(m_curveHandles))
+    {
+        curveDragging = curveDragging || handle->isDragging();
+    }
+    if (refs != m_curveHandleRefs && not curveDragging)
+    {
+        qDeleteAll(m_curveHandles);
+        m_curveHandles.clear();
+        m_curveHandleRefs = refs;
+        for (int k = 0; k < refs.size(); ++k)
+        {
+            auto *handle = new PieceNodeHandle(static_cast<quint32>(k), this);
+            handle->setInnerCurvePoint();
+            connect(handle, &PieceNodeHandle::dragStarted,    this, &PatternPieceTool::curvePointDragStarted);
+            connect(handle, &PieceNodeHandle::moved,          this, &PatternPieceTool::curvePointMoved);
+            connect(handle, &PieceNodeHandle::resetRequested, this, &PatternPieceTool::curvePointReset);
+            connect(handle, &PieceNodeHandle::pinToggled,     this, &PatternPieceTool::curvePointPinToggled);
+            m_curveHandles.append(handle);
+        }
+    }
+    if (refs == m_curveHandleRefs)
+    {
+        for (int k = 0; k < m_curveHandles.size(); ++k)
+        {
+            PieceNodeHandle *handle = m_curveHandles.at(k);
+            handle->setModified(refModified.at(k));
+            handle->setPinned(refPinned.at(k));
+            if (not handle->isDragging())
+            {
+                handle->setPos(refPositions.at(k));
+            }
+            handle->setVisible(show);
+        }
     }
 }
 
@@ -3112,6 +3369,7 @@ void PatternPieceTool::applyEditorDrag(int first, int last, const QPointF &delta
 void PatternPieceTool::nodeDragStarted(quint32 nodeId)
 {
     Q_UNUSED(nodeId)
+    m_bendChecked = false;
     startEditorDrag();
 }
 
@@ -3122,6 +3380,23 @@ void PatternPieceTool::nodeHandleMoved(quint32 nodeId, const QPointF &position)
     if (index < 0)
     {
         return;
+    }
+    if (not m_bendChecked)
+    {
+        // Alt held: the curves next to this point only move their end (stored, so it stays like this)
+        m_bendChecked = true;
+        bool alt = false;
+        for (auto *handle : qAsConst(m_nodeHandles))
+        {
+            if (handle->nodeId() == nodeId)
+            {
+                alt = handle->altDrag();
+            }
+        }
+        if (alt != PieceCurveEdit::readBend(nodeEditorAttributes(nodeId)))
+        {
+            pushNodeAttribute(nodeId, PieceCurveEdit::AttrBend, alt ? QStringLiteral("true") : QString());
+        }
     }
     applyEditorDrag(index, index, position - m_drag.positions.at(index));
 }
@@ -3180,14 +3455,128 @@ void PatternPieceTool::resetAllNodeOffsets()
             offsets.insert(path.at(i).GetId(), QPointF());
         }
     }
-    if (offsets.isEmpty())
+    QVector<QPair<quint32, QString>> attributes; // edits of the curves and bend flags to remove
+    for (int i = 0; i < path.nodeCount(); ++i)
+    {
+        const QMap<QString, QString> editorAttributes = path.at(i).editorAttributes();
+        for (auto a = editorAttributes.cbegin(); a != editorAttributes.cend(); ++a)
+        {
+            attributes.append(qMakePair(path.at(i).GetId(), a.key()));
+        }
+    }
+    if (offsets.isEmpty() && attributes.isEmpty())
     {
         return;
     }
-    auto *cmd = new MovePieceNodes(doc, m_id, offsets, -(++m_drag.key));
-    cmd->setText(tr("reset piece to draft shape"));
+    qApp->getUndoStack()->beginMacro(tr("reset piece to draft shape"));
+    for (const auto &attribute : attributes)
+    {
+        pushNodeAttribute(attribute.first, attribute.second, QString());
+    }
+    if (not offsets.isEmpty())
+    {
+        auto *cmd = new MovePieceNodes(doc, m_id, offsets, -(++m_drag.key));
+        cmd->setText(tr("reset piece to draft shape"));
+        connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
+        qApp->getUndoStack()->push(cmd);
+    }
+    qApp->getUndoStack()->endMacro();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+QMap<QString, QString> PatternPieceTool::nodeEditorAttributes(quint32 nodeId) const
+{
+    const VPiecePath path = VAbstractTool::data.GetPiece(m_id).GetPath();
+    for (int i = 0; i < path.nodeCount(); ++i)
+    {
+        if (path.at(i).GetId() == nodeId)
+        {
+            return path.at(i).editorAttributes();
+        }
+    }
+    return QMap<QString, QString>();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::pushNodeAttribute(quint32 nodeId, const QString &attribute, const QString &value, int mergeKey)
+{
+    auto *cmd = new SetPieceNodeAttribute(doc, m_id, nodeId, attribute, value, mergeKey);
     connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
     qApp->getUndoStack()->push(cmd);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+// Inner points of the curves
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::curvePointDragStarted(quint32 key)
+{
+    const int k = static_cast<int>(key);
+    if (k < 0 || k >= m_curveHandleRefs.size())
+    {
+        return;
+    }
+    m_curveDrag.curveId = m_curveHandleRefs.at(k).first;
+    m_curveDrag.index = m_curveHandleRefs.at(k).second;
+    m_curveDrag.startOffset = PieceCurveEdit::readCurveEdit(nodeEditorAttributes(m_curveDrag.curveId))
+                                  .offsets.value(m_curveDrag.index);
+    m_curveDrag.startPosition = m_curveHandles.at(k)->pos();
+    m_curveDrag.key = ++m_drag.key;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::curvePointMoved(quint32 key, const QPointF &position)
+{
+    const int k = static_cast<int>(key);
+    if (k < 0 || k >= m_curveHandleRefs.size() || m_curveHandleRefs.at(k).first != m_curveDrag.curveId
+        || m_curveHandleRefs.at(k).second != m_curveDrag.index)
+    {
+        return;
+    }
+    const QPointF delta = position - m_curveDrag.startPosition;
+    PieceCurveEdit::CurveEdit edit = PieceCurveEdit::readCurveEdit(nodeEditorAttributes(m_curveDrag.curveId));
+    edit.offsets.insert(m_curveDrag.index, m_curveDrag.startOffset + QPointF(qApp->fromPixel(delta.x()),
+                                                                             qApp->fromPixel(delta.y())));
+    pushNodeAttribute(m_curveDrag.curveId, PieceCurveEdit::AttrCurveOffsets,
+                      PieceCurveEdit::formatOffsets(edit.offsets), m_curveDrag.key);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::curvePointPinToggled(quint32 key)
+{
+    const int k = static_cast<int>(key);
+    if (k < 0 || k >= m_curveHandleRefs.size())
+    {
+        return;
+    }
+    const quint32 curveId = m_curveHandleRefs.at(k).first;
+    const int index = m_curveHandleRefs.at(k).second;
+    PieceCurveEdit::CurveEdit edit = PieceCurveEdit::readCurveEdit(nodeEditorAttributes(curveId));
+    if (edit.pins.contains(index))
+    {
+        edit.pins.removeAll(index);
+    }
+    else
+    {
+        edit.pins.append(index);
+        std::sort(edit.pins.begin(), edit.pins.end());
+    }
+    pushNodeAttribute(curveId, PieceCurveEdit::AttrCurvePins, PieceCurveEdit::formatPins(edit.pins));
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::curvePointReset(quint32 key)
+{
+    const int k = static_cast<int>(key);
+    if (k < 0 || k >= m_curveHandleRefs.size())
+    {
+        return;
+    }
+    const quint32 curveId = m_curveHandleRefs.at(k).first;
+    PieceCurveEdit::CurveEdit edit = PieceCurveEdit::readCurveEdit(nodeEditorAttributes(curveId));
+    if (edit.offsets.remove(m_curveHandleRefs.at(k).second) > 0)
+    {
+        pushNodeAttribute(curveId, PieceCurveEdit::AttrCurveOffsets, PieceCurveEdit::formatOffsets(edit.offsets));
+    }
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -3252,4 +3641,187 @@ void PatternPieceTool::startSeamCheck()
         return;
     }
     new SeamCheck(this, scene, doc); // deletes itself on Separate
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief simplifyCurve replaces the curve between two points of the piece by a smooth curve with fewer points, like
+ * "Simplify" in Illustrator. The draft does not change. Only where the new points go is stored (as fractions of the
+ * length), so the curve of every size is simplified the same way and keeps following the grading.
+ */
+void PatternPieceTool::simplifyCurve(quint32 firstNodeId, quint32 secondNodeId)
+{
+    const VPiecePath path = VAbstractTool::data.GetPiece(m_id).GetPath();
+    const int count = path.nodeCount();
+    int first = -1;
+    for (int i = 0; i < count; ++i)
+    {
+        if (path.at(i).GetId() == firstNodeId && path.at(i).GetTypeTool() == Tool::NodePoint)
+        {
+            first = i;
+        }
+    }
+    QVector<quint32> curves;
+    for (int k = 1; first >= 0 && k < count; ++k)
+    {
+        const VPieceNode &node = path.at((first + k) % count);
+        if (node.GetId() == secondNodeId && node.GetTypeTool() == Tool::NodePoint)
+        {
+            break;
+        }
+        if (node.GetTypeTool() != Tool::NodePoint && not node.isExcluded())
+        {
+            curves.append(node.GetId());
+        }
+    }
+
+    QWidget *parentWidget = qApp->getMainWindow();
+    if (curves.size() != 1)
+    {
+        QMessageBox::information(parentWidget, tr("Simplify Curve"),
+                                 curves.isEmpty() ? tr("This line is straight: there is nothing to simplify.")
+                                                  : tr("There are several curves between these two points. "
+                                                       "Simplify works on one curve at a time."));
+        return;
+    }
+    const quint32 curveId = curves.first();
+
+    // The curve as the draft has it: this is what gets simplified, in every size
+    const QSharedPointer<VAbstractCurve> copy = VAbstractTool::data.GeometricObject<VAbstractCurve>(curveId);
+    QSharedPointer<VAbstractCurve> source = copy;
+    try
+    {
+        source = VAbstractTool::data.GeometricObject<VAbstractCurve>(copy->getIdObject());
+    }
+    catch (const VExceptionBadId &)
+    {
+        // keep the copy
+    }
+    const QVector<QPointF> sourcePoints = source->getPoints();
+    if (sourcePoints.size() < 3)
+    {
+        return;
+    }
+
+    int originalPoints = 2;
+    if (static_cast<GOType>(source->getType()) == GOType::SplinePath)
+    {
+        originalPoints = qSharedPointerDynamicCast<VSplinePath>(source)->CountPoints();
+    }
+    else if (static_cast<GOType>(source->getType()) == GOType::CubicBezierPath)
+    {
+        originalPoints = qSharedPointerDynamicCast<VAbstractCubicBezierPath>(source)->CountSubSpl() + 1;
+    }
+
+    // Preview: the simplified curve laid where the curve of the piece is now
+    const QVector<QPointF> nowPoints = copy->getPoints();
+    const QPointF a0 = sourcePoints.first(), b0 = sourcePoints.last();
+    const QPointF a1 = nowPoints.isEmpty() ? a0 : nowPoints.first();
+    const QPointF b1 = nowPoints.isEmpty() ? b0 : nowPoints.last();
+    const auto toPiece = [=](const QPointF &z)
+    {
+        const QPointF d0 = b0 - a0, d1 = b1 - a1;
+        const qreal len2 = d0.x() * d0.x() + d0.y() * d0.y();
+        qreal kx = 1, ky = 0;
+        if (len2 > 1e-9)
+        {
+            kx = (d1.x() * d0.x() + d1.y() * d0.y()) / len2;
+            ky = (d1.y() * d0.x() - d1.x() * d0.y()) / len2;
+        }
+        const QPointF r = z - a0;
+        return a1 + QPointF(r.x() * kx - r.y() * ky, r.x() * ky + r.y() * kx);
+    };
+
+    auto *preview = new QGraphicsPathItem(this);
+    QPen pen(QColor(220, 40, 40));
+    pen.setCosmetic(true);
+    pen.setWidthF(2);
+    pen.setStyle(Qt::DashLine);
+    preview->setPen(pen);
+    preview->setZValue(1100);
+
+    const PieceCurveEdit::CurveEdit current = PieceCurveEdit::readCurveEdit(nodeEditorAttributes(curveId));
+
+    QDialog dialog(parentWidget);
+    dialog.setWindowTitle(tr("Simplify Curve"));
+    auto *layout = new QVBoxLayout(&dialog);
+    auto *explanation = new QLabel(tr("Fewer points, smoother curve. The tolerance is how far the new curve may move "
+                                      "away from the curve of the draft. The draft does not change, and every size "
+                                      "is simplified the same way."), &dialog);
+    explanation->setWordWrap(true);
+    layout->addWidget(explanation);
+    auto *form = new QFormLayout();
+    auto *tolerance = new QDoubleSpinBox(&dialog);
+    tolerance->setRange(0.1, 20);
+    tolerance->setSingleStep(0.1);
+    tolerance->setDecimals(1);
+    tolerance->setSuffix(QStringLiteral(" mm"));
+    tolerance->setValue(1.0);
+    form->addRow(tr("Tolerance:"), tolerance);
+    auto *result = new QLabel(&dialog);
+    form->addRow(tr("Points:"), result);
+    layout->addLayout(form);
+    if (not current.offsets.isEmpty() || not current.pins.isEmpty())
+    {
+        auto *warning = new QLabel(tr("The inner points you moved or pinned on this curve will be reset."), &dialog);
+        warning->setWordWrap(true);
+        layout->addWidget(warning);
+    }
+    auto *buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+    QPushButton *removeButton = nullptr;
+    if (current.simplified)
+    {
+        removeButton = buttons->addButton(tr("Back to the Draft Curve"), QDialogButtonBox::ResetRole);
+    }
+    layout->addWidget(buttons);
+
+    QVector<qreal> splits;
+    const auto update = [&]()
+    {
+        splits = PieceCurveEdit::computeSplits(sourcePoints, ToPixel(tolerance->value(), Unit::Mm));
+        const VSplinePath fitted = PieceCurveEdit::fitCurve(sourcePoints, splits);
+        QPainterPath line;
+        const QVector<QPointF> points = fitted.getPoints();
+        for (int i = 0; i < points.size(); ++i)
+        {
+            const QPointF p = toPiece(points.at(i));
+            i == 0 ? line.moveTo(p) : line.lineTo(p);
+        }
+        preview->setPath(line);
+        QString text = tr("%1 (the draft curve has %2)").arg(splits.size() + 2).arg(originalPoints);
+        if (splits.size() + 2 >= originalPoints)
+        {
+            text += QLatin1Char('\n') + tr("This curve already has few points: simplifying it will not make it lighter.");
+        }
+        result->setText(text);
+    };
+    connect(tolerance, QOverload<double>::of(&QDoubleSpinBox::valueChanged), &dialog, update);
+    connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+    connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+    bool remove = false;
+    if (removeButton != nullptr)
+    {
+        connect(removeButton, &QPushButton::clicked, &dialog, [&]() { remove = true; dialog.accept(); });
+    }
+    update();
+
+    const int answer = dialog.exec();
+    delete preview;
+    if (answer != QDialog::Accepted)
+    {
+        return;
+    }
+
+    qApp->getUndoStack()->beginMacro(tr("simplify curve"));
+    pushNodeAttribute(curveId, PieceCurveEdit::AttrSimplify,
+                      remove ? QString() : PieceCurveEdit::formatSplits(true, splits));
+    if (not current.offsets.isEmpty())
+    {
+        pushNodeAttribute(curveId, PieceCurveEdit::AttrCurveOffsets, QString());
+    }
+    if (not current.pins.isEmpty())
+    {
+        pushNodeAttribute(curveId, PieceCurveEdit::AttrCurvePins, QString());
+    }
+    qApp->getUndoStack()->endMacro();
 }

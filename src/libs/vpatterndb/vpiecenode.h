@@ -55,6 +55,7 @@
 #include <QSharedDataPointer>
 #include <QMetaType>
 #include <QPointF>
+#include <QMap>
 
 #include "../vmisc/def.h"
 
@@ -143,6 +144,10 @@ public:
 
     bool                isPinned() const;
     void                setPinned(bool pinned);
+
+    /** @brief edits of the piece editor on curves (simplify, inner points, pins) and "bend" on points. */
+    QMap<QString, QString> editorAttributes() const;
+    void                setEditorAttributes(const QMap<QString, QString> &attributes);
     void                setNotchCount(int notchCount);
 
 private:

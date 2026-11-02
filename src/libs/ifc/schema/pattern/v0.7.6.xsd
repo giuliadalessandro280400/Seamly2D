@@ -650,6 +650,10 @@
                                     <xs:attribute name="dx" type="xs:double"/>
                                     <xs:attribute name="dy" type="xs:double"/>
                                     <xs:attribute name="pinned" type="xs:boolean"/>
+                                    <xs:attribute name="bend" type="xs:boolean"/>
+                                    <xs:attribute name="simplify" type="xs:string"/>
+                                    <xs:attribute name="curveOffsets" type="xs:string"/>
+                                    <xs:attribute name="curvePins" type="xs:string"/>
                                   </xs:complexType>
                                 </xs:element>
                               </xs:sequence>

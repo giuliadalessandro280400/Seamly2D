@@ -8524,6 +8524,50 @@ Premere Invio per aggiungerlo temporaneamente all&apos;elenco.</translation>
         <source>Check Seam on Another Piece...</source>
         <translation>Controlla cucitura su un altro pezzo...</translation>
     </message>
+    <message>
+        <source>Simplify Curve</source>
+        <translation>Semplifica curva</translation>
+    </message>
+    <message>
+        <source>This line is straight: there is nothing to simplify.</source>
+        <translation>Questa linea è dritta: non c'è niente da semplificare.</translation>
+    </message>
+    <message>
+        <source>There are several curves between these two points. Simplify works on one curve at a time.</source>
+        <translation>Tra questi due punti ci sono più curve. Semplifica lavora su una curva alla volta.</translation>
+    </message>
+    <message>
+        <source>Fewer points, smoother curve. The tolerance is how far the new curve may move away from the curve of the draft. The draft does not change, and every size is simplified the same way.</source>
+        <translation>Meno punti, curva più liscia. La tolleranza è quanto la nuova curva può allontanarsi da quella della bozza. La bozza non cambia, e tutte le taglie vengono semplificate allo stesso modo.</translation>
+    </message>
+    <message>
+        <source>Tolerance:</source>
+        <translation>Tolleranza:</translation>
+    </message>
+    <message>
+        <source>Points:</source>
+        <translation>Punti:</translation>
+    </message>
+    <message>
+        <source>The inner points you moved or pinned on this curve will be reset.</source>
+        <translation>I punti interni che hai spostato o spillato su questa curva verranno azzerati.</translation>
+    </message>
+    <message>
+        <source>Back to the Draft Curve</source>
+        <translation>Torna alla curva della bozza</translation>
+    </message>
+    <message>
+        <source>%1 (the draft curve has %2)</source>
+        <translation>%1 (la curva della bozza ne ha %2)</translation>
+    </message>
+    <message>
+        <source>This curve already has few points: simplifying it will not make it lighter.</source>
+        <translation>Questa curva ha già pochi punti: semplificarla non la alleggerisce.</translation>
+    </message>
+    <message>
+        <source>simplify curve</source>
+        <translation>semplifica curva</translation>
+    </message>
 </context>
 <context>
     <name>PenToolBar</name>
@@ -15996,12 +16040,28 @@ di controllo</translation>
         <source>Drag to move this point of the piece (the draft does not change). Right click to pin it or put it back.</source>
         <translation>Trascina per spostare questo punto del pezzo (la bozza non cambia). Clic destro per spillarlo o rimetterlo dove lo ha la bozza.</translation>
     </message>
+    <message>
+        <source>Drag to move this point of the piece (the draft does not change); the curves keep their shape. Hold Alt to move only the ends of the curves. Right click to pin it or put it back.</source>
+        <translation>Trascina per spostare questo punto del pezzo (la bozza non cambia): le curve mantengono la loro forma. Tieni premuto Alt per spostare solo le estremità delle curve. Clic destro per spillarlo o rimetterlo dove lo ha la bozza.</translation>
+    </message>
+    <message>
+        <source>Inner point of the curve: drag to move it. Right click to pin it (it holds the curve when the ends move) or to put it back.</source>
+        <translation>Punto interno della curva: trascinalo per spostarlo. Clic destro per spillarlo (trattiene la curva quando si spostano le estremità) o per rimetterlo a posto.</translation>
+    </message>
 </context>
 <context>
     <name>PieceSegmentHandle</name>
     <message>
         <source>Drag to move this line of the piece (the draft does not change).</source>
         <translation>Trascina per spostare questa linea del pezzo (la bozza non cambia).</translation>
+    </message>
+    <message>
+        <source>Drag to move this line of the piece (the draft does not change). Right click to simplify a curve.</source>
+        <translation>Trascina per spostare questa linea del pezzo (la bozza non cambia). Clic destro per semplificare una curva.</translation>
+    </message>
+    <message>
+        <source>Simplify Curve...</source>
+        <translation>Semplifica curva...</translation>
     </message>
 </context>
 <context>

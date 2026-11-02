@@ -51,6 +51,8 @@
 #define PATTERNPIECE_TOOL_H
 
 #include <QColor>
+#include <QMap>
+#include <QPair>
 #include <QTransform>
 #include <QtGlobal>
 #include <qcompilerdetection.h>
@@ -181,6 +183,11 @@ private slots:
     void                 nodePinToggled(quint32 nodeId);
     void                 segmentDragStarted(quint32 firstNodeId, quint32 secondNodeId);
     void                 segmentMoved(quint32 firstNodeId, quint32 secondNodeId, const QPointF &delta);
+    void                 curvePointDragStarted(quint32 key);
+    void                 curvePointMoved(quint32 key, const QPointF &position);
+    void                 curvePointPinToggled(quint32 key);
+    void                 curvePointReset(quint32 key);
+    void                 simplifyCurve(quint32 firstNodeId, quint32 secondNodeId);
 
 protected:
     virtual void         AddToFile () override;
@@ -226,6 +233,19 @@ private:
         QVector<bool>    pinned;
     };
     EditorDrag              m_drag;
+    bool                    m_bendChecked {false}; /// @brief the Alt state of the current drag was stored
+
+    QVector<class PieceNodeHandle *> m_curveHandles;    /// @brief inner points of the curves of the piece
+    QVector<QPair<quint32, int>>     m_curveHandleRefs; /// @brief (curve node, index of the point) of each one
+    struct CurveDrag
+    {
+        quint32 curveId {0};
+        int     index {-1};
+        QPointF startOffset;   // pattern units
+        QPointF startPosition; // pixels
+        int     key {0};
+    };
+    CurveDrag               m_curveDrag;
     QColor                  m_checkColor;   /// @brief color while the piece is laid on another one (seam check)
 
                            PatternPieceTool(VAbstractPattern *doc, VContainer *data, const quint32 &id,
@@ -238,6 +258,9 @@ private:
     void                  startEditorDrag();
     QVector<qreal>        dragWeights(int first, int last) const;
     void                  applyEditorDrag(int first, int last, const QPointF &delta);
+    QMap<QString, QString> nodeEditorAttributes(quint32 nodeId) const;
+    void                  pushNodeAttribute(quint32 nodeId, const QString &attribute, const QString &value,
+                                            int mergeKey = 0);
     void                  updateInternalPaths();
 
     VPieceItem::MoveTypes findLabelGeometry(const VPatternLabelData &labelData, qreal &rotationAngle, qreal &labelWidth,
