@@ -580,6 +580,12 @@ void PatternPieceTool::AllowSelecting(bool enabled)
 //---------------------------------------------------------------------------------------------------------------------
 void PatternPieceTool::resetChildren(QGraphicsItem *pItem)
 {
+    if (pItem != nullptr && pItem->data(EditorHandleDataKey).toBool())
+    {
+        // A click on a point or a line of the piece editor: resetting the labels would clear the selection and hide
+        // the handles while they are being dragged.
+        return;
+    }
     const bool selected = isSelected();
     const VPiece piece = VAbstractTool::data.GetPiece(m_id);
     VTextGraphicsItem *pVGI = qgraphicsitem_cast<VTextGraphicsItem*>(pItem);
