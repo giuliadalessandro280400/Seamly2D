@@ -1,5 +1,6 @@
 var NAVTREEINDEX261 =
 {
+"dc/d9f/classIntersectCirclesTool.html#a8f428e28358507f06fc22f2d53cce2bf":[3,0,324,8],
 "dc/d9f/classIntersectCirclesTool.html#a98a53a3c667fa51b173e5b31ba74d54c":[3,0,324,28],
 "dc/d9f/classIntersectCirclesTool.html#a9c11263561e115e2a7a665cc135eccdc":[3,0,324,14],
 "dc/d9f/classIntersectCirclesTool.html#a9c2faf673d0e8f94b7346a2b9dbe5e68":[3,0,324,29],
@@ -248,6 +249,5 @@ var NAVTREEINDEX261 =
 "dc/dba/msvc-arm64_2include_2xercesc_2xinclude_2XIncludeLocation_8hpp_source.html":[4,0,0,1,15,3,0,0,8,1],
 "dc/dba/msvc_2include_2xercesc_2dom_2impl_2DOMEntityReferenceImpl_8hpp.html":[4,0,0,1,15,2,0,0,0,0,18],
 "dc/dba/msvc_2include_2xercesc_2dom_2impl_2DOMEntityReferenceImpl_8hpp_source.html":[4,0,0,1,15,2,0,0,0,0,18],
-"dc/dbc/classVTranslateVars.html":[3,0,791],
-"dc/dbc/classVTranslateVars.html#a068ad3f8ff8f85be8d529bbd0b1b8cc7":[3,0,791,28]
+"dc/dbc/classVTranslateVars.html":[3,0,791]
 };

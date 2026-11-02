@@ -1,5 +1,6 @@
 var NAVTREEINDEX208 =
 {
+"da/de3/classVisToolPointOfIntersectionArcs.html#ad71403b71b3b946adb6eec9dd5727b27":[3,0,680,8],
 "da/de3/classVisToolPointOfIntersectionArcs.html#ade3b48ba1f3180990db62c56c29ca45a":[3,0,680,5],
 "da/de3/macx_2include_2xercesc_2dom_2impl_2DOMNodeImpl_8hpp.html":[4,0,0,1,15,0,0,0,0,0,29],
 "da/de3/macx_2include_2xercesc_2dom_2impl_2DOMNodeImpl_8hpp.html#a2676b38d9eed769b3f775bc9ecc9ed66":[4,0,0,1,15,0,0,0,0,0,29,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX208 =
 "da/dfb/classPatternPieceTool.html#ae7a3e5f0c4d1f687de819c40424fbfdf":[3,0,394,132],
 "da/dfb/classPatternPieceTool.html#ae8e9b65d6a06ce1933346d7ae92401b9":[3,0,394,69],
 "da/dfb/classPatternPieceTool.html#ae9579b761f247230e0623a8007b41c3e":[3,0,394,52],
-"da/dfb/classPatternPieceTool.html#aeccbdbd69acde398e4c084d160c74c21":[3,0,394,131],
-"da/dfb/classPatternPieceTool.html#aeecb3af95c910cf85031f5efac590c11":[3,0,394,101]
+"da/dfb/classPatternPieceTool.html#aeccbdbd69acde398e4c084d160c74c21":[3,0,394,131]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX192 =
 {
+"d9/df6/macx_2include_2xercesc_2framework_2XMLNotationDecl_8hpp.html":[4,0,0,1,15,0,0,0,1,30],
 "d9/df6/macx_2include_2xercesc_2framework_2XMLNotationDecl_8hpp_source.html":[4,0,0,1,15,0,0,0,1,30],
 "d9/df6/msvc_2include_2xercesc_2validators_2common_2CMNode_8hpp.html":[4,0,0,1,15,2,0,0,7,0,4],
 "d9/df6/msvc_2include_2xercesc_2validators_2common_2CMNode_8hpp_source.html":[4,0,0,1,15,2,0,0,7,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX192 =
 "da/d06/classDialogDateTimeFormats.html#a4e7cc2c9e508f04caa414bb60abda4db":[3,0,112,17],
 "da/d06/classDialogDateTimeFormats.html#a5bba0104e18f8edbf1a906cb2096be5e":[3,0,112,1],
 "da/d06/classDialogDateTimeFormats.html#a84c27dd9219b8f8a3bb54e497d891ae2":[3,0,112,15],
-"da/d06/classDialogDateTimeFormats.html#ab18b795ace9497d8d4edd94e60308de4":[3,0,112,4],
-"da/d06/classDialogDateTimeFormats.html#ab65da7eabe4b29889ad7e28d63b54fd6":[3,0,112,0]
+"da/d06/classDialogDateTimeFormats.html#ab18b795ace9497d8d4edd94e60308de4":[3,0,112,4]
 };

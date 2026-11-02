@@ -1,5 +1,6 @@
 var NAVTREEINDEX309 =
 {
+"df/d0c/vabstractfloatitemdata__p_8h.html":[4,0,0,1,10,0,3],
 "df/d0c/vabstractfloatitemdata__p_8h_source.html":[4,0,0,1,10,0,3],
 "df/d10/macx_2include_2xercesc_2framework_2XMLAttDef_8hpp.html":[4,0,0,1,15,0,0,0,1,13],
 "df/d10/macx_2include_2xercesc_2framework_2XMLAttDef_8hpp_source.html":[4,0,0,1,15,0,0,0,1,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX309 =
 "df/d1f/classXMLAttDef.html#aac5d3cea402331b251ce37b3d339b31d":[3,0,822,75],
 "df/d1f/classXMLAttDef.html#aac5d3cea402331b251ce37b3d339b31d":[3,0,822,74],
 "df/d1f/classXMLAttDef.html#aac5d3cea402331b251ce37b3d339b31d":[3,0,822,73],
-"df/d1f/classXMLAttDef.html#ab6c18545e394a61b07d3560191dab972":[3,0,822,108],
-"df/d1f/classXMLAttDef.html#ab6c18545e394a61b07d3560191dab972":[3,0,822,109]
+"df/d1f/classXMLAttDef.html#ab6c18545e394a61b07d3560191dab972":[3,0,822,108]
 };

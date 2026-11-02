@@ -1,5 +1,6 @@
 var NAVTREEINDEX123 =
 {
+"d7/d0d/macx_2include_2xercesc_2internal_2ValidationContextImpl_8hpp.html":[4,0,0,1,15,0,0,0,2,11],
 "d7/d0d/macx_2include_2xercesc_2internal_2ValidationContextImpl_8hpp_source.html":[4,0,0,1,15,0,0,0,2,11],
 "d7/d0d/msvc_2include_2xercesc_2util_2TransENameMap_8c.html":[4,0,0,1,15,2,0,0,6,68],
 "d7/d0d/msvc_2include_2xercesc_2util_2TransENameMap_8c_source.html":[4,0,0,1,15,2,0,0,6,68],
@@ -248,6 +249,5 @@ var NAVTREEINDEX123 =
 "d7/d27/classDOMDocument.html#a457271ac37ef8697dc07cb940aaad0e0":[3,0,160,106],
 "d7/d27/classDOMDocument.html#a457271ac37ef8697dc07cb940aaad0e0":[3,0,160,105],
 "d7/d27/classDOMDocument.html#a457271ac37ef8697dc07cb940aaad0e0":[3,0,160,104],
-"d7/d27/classDOMDocument.html#a487371673ec42d309c8ac8862172e385":[3,0,160,159],
-"d7/d27/classDOMDocument.html#a487371673ec42d309c8ac8862172e385":[3,0,160,157]
+"d7/d27/classDOMDocument.html#a487371673ec42d309c8ac8862172e385":[3,0,160,159]
 };

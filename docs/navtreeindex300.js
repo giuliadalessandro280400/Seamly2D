@@ -1,5 +1,6 @@
 var NAVTREEINDEX300 =
 {
+"de/db4/classBinMemInputStream.html#a939fb86f3143d1857e1134ad4d73bc69af2d4202a3f826f532073027d7843a1bc":[3,0,42,3,7],
 "de/db4/classBinMemInputStream.html#a939fb86f3143d1857e1134ad4d73bc69af2d4202a3f826f532073027d7843a1bc":[3,0,42,2,7],
 "de/db4/classBinMemInputStream.html#a939fb86f3143d1857e1134ad4d73bc69af2d4202a3f826f532073027d7843a1bc":[3,0,42,2,4],
 "de/db4/classBinMemInputStream.html#a939fb86f3143d1857e1134ad4d73bc69af2d4202a3f826f532073027d7843a1bc":[3,0,42,3,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX300 =
 "de/dbf/classSchemaElementDecl.html#a515e437c8675674c9e8ea21c6f929940a4a562952b7405e50b4521bb30849f57b":[3,0,480,1,22],
 "de/dbf/classSchemaElementDecl.html#a515e437c8675674c9e8ea21c6f929940a4a562952b7405e50b4521bb30849f57b":[3,0,480,0,30],
 "de/dbf/classSchemaElementDecl.html#a515e437c8675674c9e8ea21c6f929940a4a562952b7405e50b4521bb30849f57b":[3,0,480,3,22],
-"de/dbf/classSchemaElementDecl.html#a515e437c8675674c9e8ea21c6f929940a4a562952b7405e50b4521bb30849f57b":[3,0,480,2,14],
-"de/dbf/classSchemaElementDecl.html#a515e437c8675674c9e8ea21c6f929940a4a562952b7405e50b4521bb30849f57b":[3,0,480,2,6]
+"de/dbf/classSchemaElementDecl.html#a515e437c8675674c9e8ea21c6f929940a4a562952b7405e50b4521bb30849f57b":[3,0,480,2,14]
 };

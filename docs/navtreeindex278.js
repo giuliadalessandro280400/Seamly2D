@@ -1,5 +1,6 @@
 var NAVTREEINDEX278 =
 {
+"de/d02/classTST__VCubicBezierPath.html#aefe72d15d4f7f96313dc55c3ac8bf1ae":[3,0,541,3],
 "de/d02/classTST__VCubicBezierPath.html#af18f55c6bbaf4fa5c961edc278fe25ab":[3,0,541,4],
 "de/d02/classValueHashTableOfEnumerator.html":[3,0,590],
 "de/d02/classValueHashTableOfEnumerator.html#a038cbc8e40f1a6adaa23f012544fcf03":[3,0,590,39],
@@ -248,6 +249,5 @@ var NAVTREEINDEX278 =
 "de/d04/vabstractsimple_8cpp.html":[4,0,0,1,14,41],
 "de/d04/vabstractsimple_8cpp_source.html":[4,0,0,1,14,41],
 "de/d05/macx_2include_2xercesc_2dom_2impl_2DOMDeepNodeListImpl_8hpp.html":[4,0,0,1,15,0,0,0,0,0,9],
-"de/d05/macx_2include_2xercesc_2dom_2impl_2DOMDeepNodeListImpl_8hpp_source.html":[4,0,0,1,15,0,0,0,0,0,9],
-"de/d05/msvc-arm64_2include_2xercesc_2dom_2impl_2DOMDocumentTypeImpl_8hpp.html":[4,0,0,1,15,3,0,0,0,0,14]
+"de/d05/macx_2include_2xercesc_2dom_2impl_2DOMDeepNodeListImpl_8hpp_source.html":[4,0,0,1,15,0,0,0,0,0,9]
 };

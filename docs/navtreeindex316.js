@@ -1,5 +1,6 @@
 var NAVTREEINDEX316 =
 {
+"df/d81/mingw_2include_2xercesc_2util_2XMLFileMgr_8hpp.html":[4,0,0,1,15,1,0,0,6,102],
 "df/d81/mingw_2include_2xercesc_2util_2XMLFileMgr_8hpp.html#a6738b6a1cc86fbf4c231eac94e357446":[4,0,0,1,15,1,0,0,6,102,2],
 "df/d81/mingw_2include_2xercesc_2util_2XMLFileMgr_8hpp.html#aeb1328bd78b488d252f2aa52f4cc912d":[4,0,0,1,15,1,0,0,6,102,1],
 "df/d81/mingw_2include_2xercesc_2util_2XMLFileMgr_8hpp_source.html":[4,0,0,1,15,1,0,0,6,102],
@@ -248,6 +249,5 @@ var NAVTREEINDEX316 =
 "df/d89/classSAX2XMLReader.html#ad6be26566ce8e2f65b95849247d10853ad072387d6d0e7173c95bf2744d9cb42b":[3,0,470,2,4],
 "df/d89/classSAX2XMLReader.html#ad6be26566ce8e2f65b95849247d10853ad072387d6d0e7173c95bf2744d9cb42b":[3,0,470,3,1],
 "df/d89/classSAX2XMLReader.html#ad6be26566ce8e2f65b95849247d10853ad072387d6d0e7173c95bf2744d9cb42b":[3,0,470,2,1],
-"df/d89/classSAX2XMLReader.html#ad6be26566ce8e2f65b95849247d10853ad072387d6d0e7173c95bf2744d9cb42b":[3,0,470,2,7],
-"df/d89/classSAX2XMLReader.html#ad6be26566ce8e2f65b95849247d10853ad072387d6d0e7173c95bf2744d9cb42b":[3,0,470,2,10]
+"df/d89/classSAX2XMLReader.html#ad6be26566ce8e2f65b95849247d10853ad072387d6d0e7173c95bf2744d9cb42b":[3,0,470,2,7]
 };

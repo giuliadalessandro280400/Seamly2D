@@ -1,5 +1,6 @@
 var NAVTREEINDEX277 =
 {
+"dd/df1/classVToolTriangle.html#a62ecbbb286d326b152853aff88a5fe33":[3,0,788,4],
 "dd/df1/classVToolTriangle.html#a8ba91dcc8a601c293a81b0e2c97cdc30":[3,0,788,18],
 "dd/df1/classVToolTriangle.html#a9f6fa8d292545f4f41c122106d40cd9a":[3,0,788,21],
 "dd/df1/classVToolTriangle.html#aa10c246fe48122a04ac53f3a730011a6":[3,0,788,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX277 =
 "de/d02/classTST__VCubicBezierPath.html#a31d3d53a45b7f5a1a67428932b720fab":[3,0,541,6],
 "de/d02/classTST__VCubicBezierPath.html#a6f81e6f83392924b82ec5e28945ea6d0":[3,0,541,0],
 "de/d02/classTST__VCubicBezierPath.html#a8390260766d07ab52b784c55fa6cd613":[3,0,541,5],
-"de/d02/classTST__VCubicBezierPath.html#ac1bdf7ee3d14fefebbbc90caec93ae1e":[3,0,541,2],
-"de/d02/classTST__VCubicBezierPath.html#aefe72d15d4f7f96313dc55c3ac8bf1ae":[3,0,541,3]
+"de/d02/classTST__VCubicBezierPath.html#ac1bdf7ee3d14fefebbbc90caec93ae1e":[3,0,541,2]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX285 =
 {
+"de/d23/classXMLFileMgr.html#ad3250b78e9f89c6ce60e724d26d5072c":[3,0,853,24],
 "de/d24/msvc-arm64_2include_2xercesc_2util_2PanicHandler_8hpp.html":[4,0,0,1,15,3,0,0,6,43],
 "de/d24/msvc-arm64_2include_2xercesc_2util_2PanicHandler_8hpp_source.html":[4,0,0,1,15,3,0,0,6,43],
 "de/d25/msvc-arm64_2include_2xercesc_2sax2_2LexicalHandler_8hpp.html":[4,0,0,1,15,3,0,0,5,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX285 =
 "de/d31/ifcdef_8cpp.html#a58dca946c491863cefa0672f0804d7cf":[4,0,0,1,1,2,149],
 "de/d31/ifcdef_8cpp.html#a5eeaef17d5541167d8b8acda02946102":[4,0,0,1,1,2,163],
 "de/d31/ifcdef_8cpp.html#a5f2391a6b9fb248f7685d6ad547c5d60":[4,0,0,1,1,2,80],
-"de/d31/ifcdef_8cpp.html#a60582d208ea24de885ed492051184129":[4,0,0,1,1,2,173],
-"de/d31/ifcdef_8cpp.html#a6336cf92a0f2c42ce625b4692d2744c6":[4,0,0,1,1,2,155]
+"de/d31/ifcdef_8cpp.html#a60582d208ea24de885ed492051184129":[4,0,0,1,1,2,173]
 };

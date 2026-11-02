@@ -1,5 +1,6 @@
 var NAVTREEINDEX321 =
 {
+"df/de5/classVLayoutPiece.html#af6c5adc88b1dd75c14efe69089b12f10":[3,0,696,0],
 "df/de5/classVLayoutPiece.html#afacf3508bbedd1aec62d15200320562b":[3,0,696,19],
 "df/de5/dialogspline_8cpp.html":[4,0,0,1,13,0,1,63],
 "df/de5/dialogspline_8cpp_source.html":[4,0,0,1,13,0,1,63],
@@ -248,6 +249,5 @@ var NAVTREEINDEX321 =
 "df/df9/classDOMLSParserFilter.html#adae984d01a925a7d5fe15cef9458a675a9e5eda6fa5f320ae734f49483e7d39cd":[3,0,194,1,13],
 "df/df9/classDOMLSParserFilter.html#adae984d01a925a7d5fe15cef9458a675a9e5eda6fa5f320ae734f49483e7d39cd":[3,0,194,1,1],
 "df/df9/classDOMLSParserFilter.html#adae984d01a925a7d5fe15cef9458a675a9e5eda6fa5f320ae734f49483e7d39cd":[3,0,194,1,5],
-"df/df9/classDOMLSParserFilter.html#adae984d01a925a7d5fe15cef9458a675a9e5eda6fa5f320ae734f49483e7d39cd":[3,0,194,1,9],
-"df/df9/classDOMLSParserFilter.html#adae984d01a925a7d5fe15cef9458a675a9e5eda6fa5f320ae734f49483e7d39cd":[3,0,194,2,9]
+"df/df9/classDOMLSParserFilter.html#adae984d01a925a7d5fe15cef9458a675a9e5eda6fa5f320ae734f49483e7d39cd":[3,0,194,1,9]
 };

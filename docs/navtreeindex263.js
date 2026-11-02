@@ -1,5 +1,6 @@
 var NAVTREEINDEX263 =
 {
+"dc/dd3/classVPatternConverter.html#a5ff19bcae2fb45c04e78ecffd0d68b96":[3,0,719,36],
 "dc/dd3/classVPatternConverter.html#a61914686ad1cf8cff9df48d574cb462e":[3,0,719,58],
 "dc/dd3/classVPatternConverter.html#a67a9bff04b9608e674adebe27b349445":[3,0,719,6],
 "dc/dd3/classVPatternConverter.html#a6a928e66735df2c7f8b22a5fe026cada":[3,0,719,97],
@@ -248,6 +249,5 @@ var NAVTREEINDEX263 =
 "dc/df1/commandoptions_8cpp.html#ab0a98bfe048c0c625ed70647de5ae79c":[4,0,0,1,8,1,23],
 "dc/df1/commandoptions_8cpp.html#ab4b6739a5807c861d5d69f46b9ad9ebb":[4,0,0,1,8,1,10],
 "dc/df1/commandoptions_8cpp.html#ab7f28fe8828144810901bdc23cc783cf":[4,0,0,1,8,1,8],
-"dc/df1/commandoptions_8cpp.html#ab9c2b955cf95b50e6277506f12c3f809":[4,0,0,1,8,1,22],
-"dc/df1/commandoptions_8cpp.html#abae075889764bded8ecf9376ae6754a7":[4,0,0,1,8,1,36]
+"dc/df1/commandoptions_8cpp.html#ab9c2b955cf95b50e6277506f12c3f809":[4,0,0,1,8,1,22]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX224 =
 {
+"db/dee/classDOMNamedNodeMapImpl.html#aa784b33760b7969e4a85ec417a8a4f8c":[3,0,202,60],
 "db/dee/classDOMNamedNodeMapImpl.html#aa8109192e3fdcb6e13411cd31591f799":[3,0,202,56],
 "db/dee/classDOMNamedNodeMapImpl.html#aa8109192e3fdcb6e13411cd31591f799":[3,0,202,57],
 "db/dee/classDOMNamedNodeMapImpl.html#aa8109192e3fdcb6e13411cd31591f799":[3,0,202,58],
@@ -248,6 +249,5 @@ var NAVTREEINDEX224 =
 "dc/d03/classDOMXPathException.html#a501cfc0a5287d3c4abb059ce049c8149aa8cd495009a50c2b5e5832f317b8793f":[3,0,233,1,11],
 "dc/d03/classDOMXPathException.html#ad81817259e20ccfdb707e2e99561e6de":[3,0,233,15],
 "dc/d03/classDOMXPathException.html#ad81817259e20ccfdb707e2e99561e6de":[3,0,233,19],
-"dc/d03/classDOMXPathException.html#ad81817259e20ccfdb707e2e99561e6de":[3,0,233,11],
-"dc/d03/classDOMXPathException.html#ad81817259e20ccfdb707e2e99561e6de":[3,0,233,7]
+"dc/d03/classDOMXPathException.html#ad81817259e20ccfdb707e2e99561e6de":[3,0,233,11]
 };

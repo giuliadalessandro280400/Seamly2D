@@ -1,5 +1,6 @@
 var NAVTREEINDEX128 =
 {
+"d7/d5e/classDialogMirrorByAxis.html#a368f1efbfda9d8f12ed6964449261ee5":[3,0,121,17],
 "d7/d5e/classDialogMirrorByAxis.html#a383e6763547b8bfa96bdaf4eb75e4e61":[3,0,121,0],
 "d7/d5e/classDialogMirrorByAxis.html#a4d1a96e74cfbccca0b78e90b432f641c":[3,0,121,21],
 "d7/d5e/classDialogMirrorByAxis.html#a54ca2d456dd58fa96ba112bfc1993275":[3,0,121,14],
@@ -248,6 +249,5 @@ var NAVTREEINDEX128 =
 "d7/d7b/classMoveOperationLabel.html#ae8794c5690f84f353b9ecbff34778406":[3,0,367,1],
 "d7/d7b/classVPE_1_1VStringProperty.html":[3,0,2,41],
 "d7/d7b/classVPE_1_1VStringProperty.html":[2,0,33,41],
-"d7/d7b/classVPE_1_1VStringProperty.html#a0a66ae8595731e3583bfafab55f67fb1":[3,0,2,41,3],
-"d7/d7b/classVPE_1_1VStringProperty.html#a0a66ae8595731e3583bfafab55f67fb1":[2,0,33,41,3]
+"d7/d7b/classVPE_1_1VStringProperty.html#a0a66ae8595731e3583bfafab55f67fb1":[3,0,2,41,3]
 };

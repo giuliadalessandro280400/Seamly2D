@@ -1,5 +1,6 @@
 var NAVTREEINDEX302 =
 {
+"de/dc5/classMonthDayDatatypeValidator.html#ad809917f77ce725cbadb7878ac639b35":[3,0,361,19],
 "de/dc5/classMonthDayDatatypeValidator.html#ad809917f77ce725cbadb7878ac639b35":[3,0,361,17],
 "de/dc5/classMonthDayDatatypeValidator.html#ad809917f77ce725cbadb7878ac639b35":[3,0,361,18],
 "de/dc5/classMonthDayDatatypeValidator.html#adfaa83017dba655f47f4604a8df40cd3":[3,0,361,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX302 =
 "de/dcd/classXPathScanner.html#afbac01d6d3487128a9699486bad12553":[3,0,904,16],
 "de/dcf/classPreferencesPatternPage.html":[3,0,414],
 "de/dcf/classPreferencesPatternPage.html#a069067f75cf85e6ef62f0b39868f7ad7":[3,0,414,13],
-"de/dcf/classPreferencesPatternPage.html#a07ffb18d00d0f7d910889a9003f7f0d7":[3,0,414,11],
-"de/dcf/classPreferencesPatternPage.html#a14306db5b8c63a78585b82a7034b0672":[3,0,414,7]
+"de/dcf/classPreferencesPatternPage.html#a07ffb18d00d0f7d910889a9003f7f0d7":[3,0,414,11]
 };

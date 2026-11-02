@@ -1,5 +1,6 @@
 var NAVTREEINDEX225 =
 {
+"dc/d03/classDOMXPathException.html#ad81817259e20ccfdb707e2e99561e6de":[3,0,233,7],
 "dc/d03/classDOMXPathException.html#ae14d319fe7bbdf25d4738582f8a36567":[3,0,233,13],
 "dc/d03/classDOMXPathException.html#ae14d319fe7bbdf25d4738582f8a36567":[3,0,233,17],
 "dc/d03/classDOMXPathException.html#ae14d319fe7bbdf25d4738582f8a36567":[3,0,233,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX225 =
 "dc/d14/classXSAttributeUse.html#a2a4b570b18146195fce78191e2e10285":[3,0,911,40],
 "dc/d14/classXSAttributeUse.html#a56e15d95208fb5a7f71ad1ac8372fc98":[3,0,911,20],
 "dc/d14/classXSAttributeUse.html#a56e15d95208fb5a7f71ad1ac8372fc98":[3,0,911,21],
-"dc/d14/classXSAttributeUse.html#a56e15d95208fb5a7f71ad1ac8372fc98":[3,0,911,22],
-"dc/d14/classXSAttributeUse.html#a56e15d95208fb5a7f71ad1ac8372fc98":[3,0,911,23]
+"dc/d14/classXSAttributeUse.html#a56e15d95208fb5a7f71ad1ac8372fc98":[3,0,911,22]
 };

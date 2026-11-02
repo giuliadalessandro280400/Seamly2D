@@ -1,5 +1,6 @@
 var NAVTREEINDEX262 =
 {
+"dc/dbc/classVTranslateVars.html#a068ad3f8ff8f85be8d529bbd0b1b8cc7":[3,0,791,28],
 "dc/dbc/classVTranslateVars.html#a09540d2b88a52aa7372f96fdc28c0129":[3,0,791,15],
 "dc/dbc/classVTranslateVars.html#a09ab80f50dba1124ed774ec65e86c1ba":[3,0,791,20],
 "dc/dbc/classVTranslateVars.html#a0bb6d5416ac5b839c1b5782505d04617":[3,0,791,17],
@@ -248,6 +249,5 @@ var NAVTREEINDEX262 =
 "dc/dd3/classVPatternConverter.html#a5888d1a3f2726b3506bb5f8e20426751":[3,0,719,83],
 "dc/dd3/classVPatternConverter.html#a5ab3b2449349571f1368dcbc0f3e1411":[3,0,719,52],
 "dc/dd3/classVPatternConverter.html#a5cd6aff78a069e0e3fd3026d7ca6f023":[3,0,719,84],
-"dc/dd3/classVPatternConverter.html#a5f16f705064ac17336c1dee6ecad1489":[3,0,719,29],
-"dc/dd3/classVPatternConverter.html#a5ff19bcae2fb45c04e78ecffd0d68b96":[3,0,719,36]
+"dc/dd3/classVPatternConverter.html#a5f16f705064ac17336c1dee6ecad1489":[3,0,719,29]
 };

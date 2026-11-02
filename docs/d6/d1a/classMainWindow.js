@@ -217,6 +217,7 @@ var classMainWindow =
     [ "signalZoomPanActive", "d6/d1a/classMainWindow.html#ab860aceb5e3481f2dd7b9f0442c88ba7", null ],
     [ "signalZoomToAreaActive", "d6/d1a/classMainWindow.html#a17723cb378374bb4c891a3f2d6d6930a", null ],
     [ "startNewSeamly2D", "d6/d1a/classMainWindow.html#aff020cfea1f29dbcc0c56f8a09be067f", null ],
+    [ "startSeamCheck", "d6/d1a/classMainWindow.html#a8d2a12394eecd7c09805aa02233bd494", null ],
     [ "syncMeasurements", "d6/d1a/classMainWindow.html#a7e7c95e7605051e039b32167b888a5fc", null ],
     [ "toggleAllSizes", "d6/d1a/classMainWindow.html#ad2fac5d6da4a23d4e53ecea87f071fa5", null ],
     [ "ToolSelectArc", "d6/d1a/classMainWindow.html#abb4224ec966f92faac389416a661a17a", null ],

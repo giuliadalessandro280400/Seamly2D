@@ -1,5 +1,6 @@
 var NAVTREEINDEX211 =
 {
+"db/d27/classDTDGrammar.html#a9d3b7e297c2027d162f61695c034bb7b":[3,0,248,109],
 "db/d27/classDTDGrammar.html#a9d3b7e297c2027d162f61695c034bb7b":[3,0,248,108],
 "db/d27/classDTDGrammar.html#aaaf660cfff4ed2d57c84bf199c376063":[3,0,248,36],
 "db/d27/classDTDGrammar.html#aad067b1ed66551162ea8dd85a9864130":[3,0,248,126],
@@ -248,6 +249,5 @@ var NAVTREEINDEX211 =
 "db/d3c/classDOMRange.html#a1459ada3b7cbdd517b4104fa8a8af0a9a6e92daee127795781b6115cfd00b58d9":[3,0,219,1,0],
 "db/d3c/classDOMRange.html#a1459ada3b7cbdd517b4104fa8a8af0a9a6e92daee127795781b6115cfd00b58d9":[3,0,219,0,0],
 "db/d3c/classDOMRange.html#a1459ada3b7cbdd517b4104fa8a8af0a9a6e92daee127795781b6115cfd00b58d9":[3,0,219,0,12],
-"db/d3c/classDOMRange.html#a1459ada3b7cbdd517b4104fa8a8af0a9a6e92daee127795781b6115cfd00b58d9":[3,0,219,3,4],
-"db/d3c/classDOMRange.html#a1459ada3b7cbdd517b4104fa8a8af0a9ad277aa502e7daefeb9e6ad01f00197eb":[3,0,219,2,9]
+"db/d3c/classDOMRange.html#a1459ada3b7cbdd517b4104fa8a8af0a9a6e92daee127795781b6115cfd00b58d9":[3,0,219,3,4]
 };

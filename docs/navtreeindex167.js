@@ -1,5 +1,6 @@
 var NAVTREEINDEX167 =
 {
+"d8/db7/msvc_2include_2xercesc_2util_2XMLNumber_8hpp.html":[4,0,0,1,15,2,0,0,6,111],
 "d8/db7/msvc_2include_2xercesc_2util_2XMLNumber_8hpp_source.html":[4,0,0,1,15,2,0,0,6,111],
 "d8/db8/classPreferencesPathPage.html":[3,0,413],
 "d8/db8/classPreferencesPathPage.html#a129f7a31d85238d7e8c956aab80c1714":[3,0,413,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX167 =
 "d8/dba/classVAbstractPattern.html#a9e1178e49626b19138a2fe0357f1b09e":[3,0,577,272],
 "d8/dba/classVAbstractPattern.html#a9e2dfc5932c1875efa6f291346a6b092":[3,0,577,199],
 "d8/dba/classVAbstractPattern.html#aa24395bd8dd6e49c4694eccdb869c30b":[3,0,577,110],
-"d8/dba/classVAbstractPattern.html#aa27ab44659f3d020bac0ee520d8bf2a1":[3,0,577,36],
-"d8/dba/classVAbstractPattern.html#aa2bb22d7915e28fda720bd1fe7da4819":[3,0,577,63]
+"d8/dba/classVAbstractPattern.html#aa27ab44659f3d020bac0ee520d8bf2a1":[3,0,577,36]
 };

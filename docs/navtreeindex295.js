@@ -1,5 +1,6 @@
 var NAVTREEINDEX295 =
 {
+"de/d7d/vabstractpattern_8cpp_source.html":[4,0,0,1,1,1,8],
 "de/d7e/mingw_2include_2xercesc_2validators_2datatype_2AbstractStringValidator_8hpp.html":[4,0,0,1,15,1,0,0,7,1,2],
 "de/d7e/mingw_2include_2xercesc_2validators_2datatype_2AbstractStringValidator_8hpp_source.html":[4,0,0,1,15,1,0,0,7,1,2],
 "de/d7f/classDialogUndo.html":[3,0,140],
@@ -248,6 +249,5 @@ var NAVTREEINDEX295 =
 "de/d86/classDOMNodeImpl.html#a727c59a3cb1476c1485995adc782a581":[3,0,206,229],
 "de/d86/classDOMNodeImpl.html#a727c59a3cb1476c1485995adc782a581":[3,0,206,230],
 "de/d86/classDOMNodeImpl.html#a7b8d7dc9f3d8bafab134468c5beb439b":[3,0,206,322],
-"de/d86/classDOMNodeImpl.html#a7b8d7dc9f3d8bafab134468c5beb439b":[3,0,206,321],
-"de/d86/classDOMNodeImpl.html#a7b8d7dc9f3d8bafab134468c5beb439b":[3,0,206,323]
+"de/d86/classDOMNodeImpl.html#a7b8d7dc9f3d8bafab134468c5beb439b":[3,0,206,321]
 };

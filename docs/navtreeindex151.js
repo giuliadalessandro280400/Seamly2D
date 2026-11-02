@@ -1,5 +1,6 @@
 var NAVTREEINDEX151 =
 {
+"d7/da6/classVCubicBezierPath.html#a3b9e75e204d88715bbc723981ae3f29d":[3,0,613,3],
 "d7/da6/classVCubicBezierPath.html#a446b2d3ab60deea6c0f18eeb06f7822e":[3,0,613,21],
 "d7/da6/classVCubicBezierPath.html#a458eea73cd0fd81ebca4d2c59882201b":[3,0,613,7],
 "d7/da6/classVCubicBezierPath.html#a61e614261dbacfc9050cb1e88d0562ae":[3,0,613,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX151 =
 "d7/db5/classXMLSchemaDescription.html#a5e663ac65de6a7e3d9afde03b1935e3da076eec26703610edfffa9ecc4f821259":[3,0,884,2,9],
 "d7/db5/classXMLSchemaDescription.html#a5e663ac65de6a7e3d9afde03b1935e3da076eec26703610edfffa9ecc4f821259":[3,0,884,1,27],
 "d7/db5/classXMLSchemaDescription.html#a5e663ac65de6a7e3d9afde03b1935e3da076eec26703610edfffa9ecc4f821259":[3,0,884,0,0],
-"d7/db5/classXMLSchemaDescription.html#a5e663ac65de6a7e3d9afde03b1935e3da076eec26703610edfffa9ecc4f821259":[3,0,884,2,18],
-"d7/db5/classXMLSchemaDescription.html#a5e663ac65de6a7e3d9afde03b1935e3da2d410eb1aec272ec5f72e9a7aa7466e8":[3,0,884,2,35]
+"d7/db5/classXMLSchemaDescription.html#a5e663ac65de6a7e3d9afde03b1935e3da076eec26703610edfffa9ecc4f821259":[3,0,884,2,18]
 };

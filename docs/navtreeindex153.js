@@ -1,5 +1,6 @@
 var NAVTREEINDEX153 =
 {
+"d7/dd2/classVToolScale.html#a83c57a5b67de5b21caef6294192e4a17":[3,0,783,7],
 "d7/dd2/classVToolScale.html#a883cdd1ed93443890d93b04b7cd2737d":[3,0,783,24],
 "d7/dd2/classVToolScale.html#a893f14beb2e5f7504ad7e9897d4e7abc":[3,0,783,12],
 "d7/dd2/classVToolScale.html#a91c9478ef3836618dfda4dac30ff140d":[3,0,783,32],
@@ -248,6 +249,5 @@ var NAVTREEINDEX153 =
 "d7/df1/classDFAContentModel.html#ab25e722d71540327e65f304548f85160":[3,0,98,29],
 "d7/df1/classDFAContentModel.html#ab2e8df323b7bae9783d8c775e3f83837":[3,0,98,45],
 "d7/df1/classDFAContentModel.html#ab41767dc22f726d8da7ca658bbb2cac2":[3,0,98,25],
-"d7/df1/classDFAContentModel.html#ab41767dc22f726d8da7ca658bbb2cac2":[3,0,98,26],
-"d7/df1/classDFAContentModel.html#ab41767dc22f726d8da7ca658bbb2cac2":[3,0,98,27]
+"d7/df1/classDFAContentModel.html#ab41767dc22f726d8da7ca658bbb2cac2":[3,0,98,26]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX315 =
 {
+"df/d5e/classVToolSpline.html#a8180aba2966c7d9efc33e9fbccd57aee":[3,0,786,24],
 "df/d5e/classVToolSpline.html#a825ee0fbc53ef11cd2720a348d6ad256":[3,0,786,27],
 "df/d5e/classVToolSpline.html#a83b6ab28c12d32c164ea09ea23fc6f74":[3,0,786,32],
 "df/d5e/classVToolSpline.html#a8593c768944d6a536a48887e48cb2c0d":[3,0,786,18],
@@ -248,6 +249,5 @@ var NAVTREEINDEX315 =
 "df/d80/mingw_2include_2xercesc_2xinclude_2XIncludeLocation_8hpp.html":[4,0,0,1,15,1,0,0,8,1],
 "df/d80/mingw_2include_2xercesc_2xinclude_2XIncludeLocation_8hpp_source.html":[4,0,0,1,15,1,0,0,8,1],
 "df/d81/editlabeltemplate__dialog_8cpp.html":[4,0,0,1,13,0,0,4],
-"df/d81/editlabeltemplate__dialog_8cpp_source.html":[4,0,0,1,13,0,0,4],
-"df/d81/mingw_2include_2xercesc_2util_2XMLFileMgr_8hpp.html":[4,0,0,1,15,1,0,0,6,102]
+"df/d81/editlabeltemplate__dialog_8cpp_source.html":[4,0,0,1,13,0,0,4]
 };

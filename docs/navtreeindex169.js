@@ -1,5 +1,6 @@
 var NAVTREEINDEX169 =
 {
+"d8/dbc/classUnionDatatypeValidator.html#aa937f187375c2e8951ef5d59494ab053":[3,0,555,27],
 "d8/dbc/classUnionDatatypeValidator.html#ab0b1a08438752fff138a84b403036c5c":[3,0,555,73],
 "d8/dbc/classUnionDatatypeValidator.html#ab0b1a08438752fff138a84b403036c5c":[3,0,555,74],
 "d8/dbc/classUnionDatatypeValidator.html#ab0b1a08438752fff138a84b403036c5c":[3,0,555,75],
@@ -248,6 +249,5 @@ var NAVTREEINDEX169 =
 "d8/dca/classXercesGroupInfo.html#a4138856d97c5c3919b8243a9311b22ec":[3,0,807,74],
 "d8/dca/classXercesGroupInfo.html#a4138856d97c5c3919b8243a9311b22ec":[3,0,807,75],
 "d8/dca/classXercesGroupInfo.html#a47eaed6347a8cf9377229c3ba03414fc":[3,0,807,14],
-"d8/dca/classXercesGroupInfo.html#a47eaed6347a8cf9377229c3ba03414fc":[3,0,807,2],
-"d8/dca/classXercesGroupInfo.html#a47eaed6347a8cf9377229c3ba03414fc":[3,0,807,10]
+"d8/dca/classXercesGroupInfo.html#a47eaed6347a8cf9377229c3ba03414fc":[3,0,807,2]
 };

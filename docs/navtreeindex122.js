@@ -1,5 +1,6 @@
 var NAVTREEINDEX122 =
 {
+"d6/df6/classClearablePlainTextEdit.html#ab0c495d2c3b3983d4a464d42af877f46":[3,0,58,1],
 "d6/df6/msvc_2include_2xercesc_2framework_2psvi_2XSWildcard_8hpp.html":[4,0,0,1,15,2,0,0,1,0,27],
 "d6/df6/msvc_2include_2xercesc_2framework_2psvi_2XSWildcard_8hpp_source.html":[4,0,0,1,15,2,0,0,1,0,27],
 "d6/df7/button_8cpp.html":[4,0,0,1,14,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX122 =
 "d7/d0c/structReaderMgr_1_1LastExtEntityInfo.html#a6a4f639dc7c74557620524d9e4430b6a":[3,0,442,0,3],
 "d7/d0c/structReaderMgr_1_1LastExtEntityInfo.html#a7486fdde95b286b19588aef80ba51276":[3,0,442,0,2],
 "d7/d0c/structReaderMgr_1_1LastExtEntityInfo.html#a8d8b066b1784d1371a49d504f32f7fa8":[3,0,442,0,1],
-"d7/d0c/structReaderMgr_1_1LastExtEntityInfo.html#ac2abbeb66a4cabee1595ca31abc1e7b5":[3,0,442,0,0],
-"d7/d0d/macx_2include_2xercesc_2internal_2ValidationContextImpl_8hpp.html":[4,0,0,1,15,0,0,0,2,11]
+"d7/d0c/structReaderMgr_1_1LastExtEntityInfo.html#ac2abbeb66a4cabee1595ca31abc1e7b5":[3,0,442,0,0]
 };

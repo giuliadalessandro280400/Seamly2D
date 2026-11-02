@@ -1,5 +1,6 @@
 var NAVTREEINDEX307 =
 {
+"de/dcf/classXSValue.html#ad1788e787526663aeb4b99ff52567141ac6853a1f753a9e413cc815e26cf6cced":[3,0,937,7,84],
 "de/dcf/classXSValue.html#ad1788e787526663aeb4b99ff52567141ac6853a1f753a9e413cc815e26cf6cced":[3,0,937,7,174],
 "de/dcf/classXSValue.html#ad1788e787526663aeb4b99ff52567141ac6853a1f753a9e413cc815e26cf6cced":[3,0,937,6,174],
 "de/dcf/classXSValue.html#ad1788e787526663aeb4b99ff52567141ac6853a1f753a9e413cc815e26cf6cced":[3,0,937,6,129],
@@ -248,6 +249,5 @@ var NAVTREEINDEX307 =
 "de/de5/msvc_2include_2xercesc_2dom_2impl_2DOMDocumentTypeImpl_8hpp_source.html":[4,0,0,1,15,2,0,0,0,0,14],
 "de/de6/mingw_2include_2xercesc_2validators_2datatype_2AbstractNumericFacetValidator_8hpp.html":[4,0,0,1,15,1,0,0,7,1,0],
 "de/de6/mingw_2include_2xercesc_2validators_2datatype_2AbstractNumericFacetValidator_8hpp_source.html":[4,0,0,1,15,1,0,0,7,1,0],
-"de/de9/classSAXException.html":[3,0,472],
-"de/de9/classSAXException.html#a0a3e79a0aeb6583db6fdb69e2c8e90b9":[3,0,472,16]
+"de/de9/classSAXException.html":[3,0,472]
 };

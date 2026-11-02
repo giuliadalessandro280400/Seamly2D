@@ -1,5 +1,6 @@
 var NAVTREEINDEX164 =
 {
+"d8/d8b/classDOMElement.html#af81e9e0e0cfe6847c5ea0297130cc9c8":[3,0,168,103],
 "d8/d8b/classDOMElement.html#af81e9e0e0cfe6847c5ea0297130cc9c8":[3,0,168,102],
 "d8/d8b/classDOMElement.html#af81e9e0e0cfe6847c5ea0297130cc9c8":[3,0,168,101],
 "d8/d8b/macx_2include_2xercesc_2dom_2impl_2DOMAttrNSImpl_8hpp.html":[4,0,0,1,15,0,0,0,0,0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX164 =
 "d8/d9a/classDOMEntityImpl.html#a7cda46f9f97c2e20708615cc8429d754":[3,0,172,262],
 "d8/d9a/classDOMEntityImpl.html#a7d994366262e3f35130eb357494c6b97":[3,0,172,126],
 "d8/d9a/classDOMEntityImpl.html#a7d994366262e3f35130eb357494c6b97":[3,0,172,127],
-"d8/d9a/classDOMEntityImpl.html#a7d994366262e3f35130eb357494c6b97":[3,0,172,125],
-"d8/d9a/classDOMEntityImpl.html#a7d994366262e3f35130eb357494c6b97":[3,0,172,124]
+"d8/d9a/classDOMEntityImpl.html#a7d994366262e3f35130eb357494c6b97":[3,0,172,125]
 };
