@@ -8,6 +8,7 @@ var classPieceSegmentHandle =
     [ "hoverEnterEvent", "d1/da2/classPieceSegmentHandle.html#ab4fd02e8125969c39aad1da29dc0f78e", null ],
     [ "hoverLeaveEvent", "d1/da2/classPieceSegmentHandle.html#a56780601637e0739e868893e69388160", null ],
     [ "isDragging", "d1/da2/classPieceSegmentHandle.html#ace63ad9f26a8772bbbc93b00c23a7493", null ],
+    [ "mouseDoubleClickEvent", "d1/da2/classPieceSegmentHandle.html#ab3d651d6cda677f6bb4dc08a2a18e3bf", null ],
     [ "mouseMoveEvent", "d1/da2/classPieceSegmentHandle.html#a4947cce4f1f6a115326503c691e0e3c5", null ],
     [ "mousePressEvent", "d1/da2/classPieceSegmentHandle.html#ac4992c037180c09904bcf6bfd43d3971", null ],
     [ "mouseReleaseEvent", "d1/da2/classPieceSegmentHandle.html#a196631dc6ba1d37d85ef0db1312efb3e", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX68 =
 {
+"d4/d11/vcommonsettings_8cpp.html#a189fc0a17e37548c036650befce04cd9":[4,0,0,1,8,17,102],
 "d4/d11/vcommonsettings_8cpp.html#a20c760cc67cf66c34b84d18821c46cbe":[4,0,0,1,8,17,154],
 "d4/d11/vcommonsettings_8cpp.html#a20fd896ed8426c8c9750e716e05f2611":[4,0,0,1,8,17,45],
 "d4/d11/vcommonsettings_8cpp.html#a2474fcf7a475730787f7dcc8c7789a6f":[4,0,0,1,8,17,78],
@@ -248,6 +249,5 @@ var NAVTREEINDEX68 =
 "d4/d1a/classDialogCubicBezier.html#a79da3b9214b0b82ecba13ae2f9fe5f5d":[3,0,106,11],
 "d4/d1a/classDialogCubicBezier.html#a7a8051c8ac6eaa8ab1d37b69b61216da":[3,0,106,27],
 "d4/d1a/classDialogCubicBezier.html#a84617541d0cd1ecb4d75ea85646b698e":[3,0,106,5],
-"d4/d1a/classDialogCubicBezier.html#a846d233d835dc4d0196b6f5fc4bf76e8":[3,0,106,33],
-"d4/d1a/classDialogCubicBezier.html#a85e49f220caa093c0c759b140f2c3f70":[3,0,106,32]
+"d4/d1a/classDialogCubicBezier.html#a846d233d835dc4d0196b6f5fc4bf76e8":[3,0,106,33]
 };
