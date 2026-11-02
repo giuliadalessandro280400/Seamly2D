@@ -4,6 +4,8 @@ var dir_93a7de65b6c5c2d2866ed2f7bf29219a =
     [ "nodeDetails", "dir_0ca6ab6f29ec27907e8ee4f6aad54e41.html", "dir_0ca6ab6f29ec27907e8ee4f6aad54e41" ],
     [ "pattern_piece_tool.cpp", "d8/dea/pattern__piece__tool_8cpp.html", "d8/dea/pattern__piece__tool_8cpp" ],
     [ "pattern_piece_tool.h", "d1/d19/pattern__piece__tool_8h.html", "d1/d19/pattern__piece__tool_8h" ],
+    [ "piece_curve_edit.cpp", "d5/d3d/piece__curve__edit_8cpp.html", "d5/d3d/piece__curve__edit_8cpp" ],
+    [ "piece_curve_edit.h", "d5/d53/piece__curve__edit_8h.html", "d5/d53/piece__curve__edit_8h" ],
     [ "piece_node_handle.cpp", "dd/d5e/piece__node__handle_8cpp.html", "dd/d5e/piece__node__handle_8cpp" ],
     [ "piece_node_handle.h", "d4/db9/piece__node__handle_8h.html", "d4/db9/piece__node__handle_8h" ],
     [ "seam_check.cpp", "d9/de2/seam__check_8cpp.html", "d9/de2/seam__check_8cpp" ],

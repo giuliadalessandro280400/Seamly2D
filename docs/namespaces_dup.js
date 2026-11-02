@@ -35,9 +35,12 @@ var namespaces_dup =
       [ "getFormulaFromUser", "d7/d49/namespaceanonymous__namespace_02pattern__piece__dialog_8cpp_03.html#a6e4259470f736c8f847d8d04b3fef36d", null ]
     ] ],
     [ "anonymous_namespace{pattern_piece_tool.cpp}", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html", [
+      [ "applyCurveEdits", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a8da85ec6ddb31ba63b5fe38537366343", null ],
+      [ "copyCurveProperties", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a64fb6db96b150289749cd3610d90c187", null ],
       [ "curveEnds", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a4636005f88c9b36879a700cc283146a2", null ],
       [ "draftTraces", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a4173e9d51b993d81a4de95ea7d17abdd", null ],
       [ "followBothEnds", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a648fac709bbee8f61b2414bde45d807e", null ],
+      [ "followWithPins", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#ae6fe490f4c45e4be0d1e6f0025c97dd3", null ],
       [ "moveCurveEnd", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a9405dfbb26b4bb9df4789cea175211cd", null ],
       [ "samePoint", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#ab8c271df874a646a8f2ed7f3c58dca94", null ]
     ] ],
@@ -318,6 +321,7 @@ var namespaces_dup =
       [ "PreparePlaceholders", "db/dc8/namespaceanonymous__namespace_02vtextmanager_8cpp_03.html#a88d38d5a844b780e9d471ef2e836a2f6", null ],
       [ "ReplacePlaceholders", "db/dc8/namespaceanonymous__namespace_02vtextmanager_8cpp_03.html#a91aaaf6b1495aa6560f1cb8e37421b01", null ]
     ] ],
+    [ "PieceCurveEdit", "de/d2e/namespacePieceCurveEdit.html", "de/d2e/namespacePieceCurveEdit" ],
     [ "ProportionalHandles", "d9/df6/namespaceProportionalHandles.html", [
       [ "attrRefChord", "d9/df6/namespaceProportionalHandles.html#afec0824ba61871333bbd27d28c8cc404", null ],
       [ "attrRefChords", "d9/df6/namespaceProportionalHandles.html#a9903aa607e2a9f3877f15c24c4c734c2", null ],

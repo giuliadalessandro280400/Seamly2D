@@ -120,6 +120,7 @@ var classVAbstractPattern =
     [ "patternClosed", "d8/dba/classVAbstractPattern.html#aa8ca1faafcb949aaef893ba0ab6266d4", null ],
     [ "patternHasGroups", "d8/dba/classVAbstractPattern.html#afe68dbf09a046fee9737735915efd4ef", null ],
     [ "patternParsed", "d8/dba/classVAbstractPattern.html#a5dbc72bd028e5b2bc0a2406e6f9ceba0", null ],
+    [ "pieceEditorNodeAttributes", "d8/dba/classVAbstractPattern.html#aeb29fd3f4f2140091943fa235db3a8b8", null ],
     [ "removeBackgroundImage", "d8/dba/classVAbstractPattern.html#adc2a872dfb701fdb75bb341a357651f1", null ],
     [ "removeGroupItem", "d8/dba/classVAbstractPattern.html#a2f4da766b7d4f7bcd48082e54f7d4581", null ],
     [ "RemoveTool", "d8/dba/classVAbstractPattern.html#aa888559d3d61f3cba4626f8f3a79d974", null ],

@@ -10,7 +10,7 @@ var searchData=
   ['objectname_7',['ObjectName',['../d0/d61/svg__generator_8cpp.html#a55c40a09ca0ae036a377c5e639e9bee6',1,'ObjectName():&#160;svg_generator.cpp'],['../dd/d70/vlayoutpiece_8cpp.html#a55c40a09ca0ae036a377c5e639e9bee6',1,'ObjectName():&#160;vlayoutpiece.cpp']]],
   ['objects_8',['objects',['../d7/dba/classVisOperation.html#ab701bfa2c29b52f99836d415f784acf7',1,'VisOperation']]],
   ['offset_9',['offset',['../dc/d14/structqmu_1_1SToken.html#a4881e086262737088ac95951f09e16fd',1,'qmu::SToken::offset()'],['../d2/daa/structNotchData.html#ab1ab76f7386b511449b1b052f3759f14',1,'NotchData::offset()']]],
-  ['offsets_10',['offsets',['../d5/dfd/structPatternPieceTool_1_1EditorDrag.html#a7afb28973a0cda124b17684750001b9a',1,'PatternPieceTool::EditorDrag']]],
+  ['offsets_10',['offsets',['../d5/dfd/structPatternPieceTool_1_1EditorDrag.html#a7afb28973a0cda124b17684750001b9a',1,'PatternPieceTool::EditorDrag::offsets()'],['../d2/da0/structPieceCurveEdit_1_1CurveEdit.html#a8b1c9bfa67de3b9aec42720c49e530cd',1,'PieceCurveEdit::CurveEdit::offsets()']]],
   ['ok_5fbutton_11',['ok_Button',['../d2/d7b/classDialogTool.html#a36d26ab1674aa213ce63fff219d0820e',1,'DialogTool']]],
   ['okcolor_12',['okColor',['../d2/d7b/classDialogTool.html#a080d3a4a41e6b70099d201fd2bb8a963',1,'DialogTool']]],
   ['oldlayoutunit_13',['oldLayoutUnit',['../db/d32/classLayoutSettingsDialog.html#a4601707863c3b4480545d47756085fd5',1,'LayoutSettingsDialog']]],

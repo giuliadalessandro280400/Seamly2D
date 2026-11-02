@@ -16,6 +16,8 @@ var hierarchy =
       [ "SAX2XMLFilterImpl", "de/d91/classSAX2XMLFilterImpl.html", null ]
     ] ],
     [ "PatternPieceTool::ContourMark", "d3/db1/structPatternPieceTool_1_1ContourMark.html", null ],
+    [ "PatternPieceTool::CurveDrag", "df/df6/structPatternPieceTool_1_1CurveDrag.html", null ],
+    [ "PieceCurveEdit::CurveEdit", "d2/da0/structPieceCurveEdit_1_1CurveEdit.html", null ],
     [ "CustomSARecord", "dc/d74/structCustomSARecord.html", null ],
     [ "DeclHandler", "db/d62/classDeclHandler.html", [
       [ "DefaultHandler", "d2/d4a/classDefaultHandler.html", null ]
@@ -285,6 +287,7 @@ var hierarchy =
     ] ],
     [ "Pen", "d9/de7/classPen.html", null ],
     [ "point2d_s", "dc/d79/structpoint2d__s.html", null ],
+    [ "PieceCurveEdit::anonymous_namespace{piece_curve_edit.cpp}::Polyline", "d4/d03/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1Polyline.html", null ],
     [ "XMLStringPool::PoolElem", "d9/d93/structXMLStringPool_1_1PoolElem.html", null ],
     [ "PosterData", "d1/dd2/structPosterData.html", null ],
     [ "PSVIDefs", "dd/d8a/classPSVIDefs.html", null ],
@@ -618,6 +621,7 @@ var hierarchy =
     [ "QMap< GHeights, bool >", "d0/d4c/classQMap.html", null ],
     [ "QMap< GSizes, bool >", "d0/d4c/classQMap.html", null ],
     [ "QMap< int, qmu::QmuTranslation >", "d0/d4c/classQMap.html", null ],
+    [ "QMap< int, QPointF >", "d0/d4c/classQMap.html", null ],
     [ "QMap< int, QString >", "d0/d4c/classQMap.html", null ],
     [ "QMap< QCheckBox *, int >", "d0/d4c/classQMap.html", null ],
     [ "QMap< qint32, ImageItem * >", "d0/d4c/classQMap.html", null ],
@@ -781,6 +785,7 @@ var hierarchy =
         [ "SavePiecePathOptions", "df/d94/classSavePiecePathOptions.html", null ],
         [ "SaveToolOptions", "d6/d4d/classSaveToolOptions.html", null ],
         [ "SetPieceColor", "dd/d52/classSetPieceColor.html", null ],
+        [ "SetPieceNodeAttribute", "df/d1e/classSetPieceNodeAttribute.html", null ],
         [ "ShowDoublePointName", "d2/dbe/classShowDoublePointName.html", null ],
         [ "ShowOperationPointName", "dc/d9b/classShowOperationPointName.html", null ],
         [ "ShowPointName", "d8/d2c/classShowPointName.html", null ],
@@ -967,6 +972,7 @@ var hierarchy =
     [ "SchemaSymbols", "d3/d5c/classSchemaSymbols.html", null ],
     [ "SecurityManager", "d0/d59/classSecurityManager.html", null ],
     [ "VPE::VPropertyFormWidgetPrivate::SEditorWidget", "d9/d9b/structVPE_1_1VPropertyFormWidgetPrivate_1_1SEditorWidget.html", null ],
+    [ "PieceCurveEdit::anonymous_namespace{piece_curve_edit.cpp}::SegmentFit", "dd/d6b/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1SegmentFit.html", null ],
     [ "SourceItem", "d9/d96/structSourceItem.html", null ],
     [ "StDOMNode< T >", "d8/d3c/classStDOMNode.html", null ],
     [ "qmu::SToken", "dc/d14/structqmu_1_1SToken.html", null ],

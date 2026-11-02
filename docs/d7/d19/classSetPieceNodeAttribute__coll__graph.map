@@ -1,0 +1,12 @@
+<map id="SetPieceNodeAttribute" name="SetPieceNodeAttribute">
+<area shape="rect" id="node1" title="The SetPieceNodeAttribute class sets (or removes, with an empty value) one attribute of a node of a p..." alt="" coords="154,2327,360,2551"/>
+<area shape="rect" id="node2" href="$de/d04/classVUndoCommand.html" title=" " alt="" coords="158,2024,356,2277"/>
+<area shape="rect" id="node3" title=" " alt="" coords="49,417,124,494"/>
+<area shape="rect" id="node5" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="124,828,390,1961"/>
+<area shape="rect" id="node4" title=" " alt="" coords="414,1356,548,1433"/>
+<area shape="rect" id="node6" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="148,145,358,765"/>
+<area shape="rect" id="node7" title=" " alt="" coords="81,5,212,83"/>
+<area shape="rect" id="node8" href="$da/da1/classQHash.html" title=" " alt="" coords="236,5,483,83"/>
+<area shape="rect" id="node9" href="$d0/d4c/classQMap.html" title=" " alt="" coords="382,417,604,494"/>
+<area shape="rect" id="node10" href="$da/da1/classQHash.html" title=" " alt="" coords="628,417,857,494"/>
+</map>

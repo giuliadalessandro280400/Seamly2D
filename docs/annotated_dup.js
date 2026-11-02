@@ -1,5 +1,12 @@
 var annotated_dup =
 [
+    [ "PieceCurveEdit", "de/d2e/namespacePieceCurveEdit.html", [
+      [ "anonymous_namespace{piece_curve_edit.cpp}", "d8/ddb/namespacePieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03.html", [
+        [ "Polyline", "d4/d03/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1Polyline.html", "d4/d03/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1Polyline" ],
+        [ "SegmentFit", "dd/d6b/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1SegmentFit.html", "dd/d6b/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1SegmentFit" ]
+      ] ],
+      [ "CurveEdit", "d2/da0/structPieceCurveEdit_1_1CurveEdit.html", "d2/da0/structPieceCurveEdit_1_1CurveEdit" ]
+    ] ],
     [ "qmu", "da/d92/namespaceqmu.html", [
       [ "Test", "d8/d1e/namespaceqmu_1_1Test.html", [
         [ "QmuParserTester", "da/d59/classqmu_1_1Test_1_1QmuParserTester.html", "da/d59/classqmu_1_1Test_1_1QmuParserTester" ]
@@ -557,6 +564,7 @@ var annotated_dup =
     [ "SecurityManager", "d0/d59/classSecurityManager.html", "d0/d59/classSecurityManager" ],
     [ "SelectorMatcher", "d8/d98/classSelectorMatcher.html", "d8/d98/classSelectorMatcher" ],
     [ "SetPieceColor", "dd/d52/classSetPieceColor.html", "dd/d52/classSetPieceColor" ],
+    [ "SetPieceNodeAttribute", "df/d1e/classSetPieceNodeAttribute.html", "df/d1e/classSetPieceNodeAttribute" ],
     [ "SGXMLScanner", "d3/d06/classSGXMLScanner.html", "d3/d06/classSGXMLScanner" ],
     [ "ShortcutsDialog", "de/d8e/classShortcutsDialog.html", "de/d8e/classShortcutsDialog" ],
     [ "ShowDoublePointName", "d2/dbe/classShowDoublePointName.html", "d2/dbe/classShowDoublePointName" ],

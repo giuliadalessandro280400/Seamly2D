@@ -11,9 +11,9 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="d5/dfd/structPatternPieceTool_1_1EditorDrag.html" target="_top" xlink:title="draggable lines of the piece editor">
+<g id="a_node1"><a xlink:href="df/df6/structPatternPieceTool_1_1CurveDrag.html" target="_top" xlink:title="(curve node, index of the point) of each one">
 <polygon fill="white" stroke="#666666" points="155,-19 0,-19 0,0 155,0 155,-19"/>
-<text text-anchor="middle" x="77.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">PatternPieceTool::EditorDrag</text>
+<text text-anchor="middle" x="77.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">PatternPieceTool::CurveDrag</text>
 </a>
 </g>
 </g>

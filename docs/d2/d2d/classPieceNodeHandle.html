@@ -116,13 +116,13 @@ $(document).ready(function(){initNavTree('d2/d2d/classPieceNodeHandle.html','../
 <div class="dynheader">
 Inheritance diagram for PieceNodeHandle:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d74/classPieceNodeHandle__inherit__graph.svg" width="259" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d74/classPieceNodeHandle__inherit__graph.svg" width="259" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for PieceNodeHandle:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/db0/classPieceNodeHandle__coll__graph.svg" width="259" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/db0/classPieceNodeHandle__coll__graph.svg" width="259" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -155,6 +155,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a82bc5598850cb0b0af0f82e7bb3f0e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98e5fe7abd91d6ba631f0b377924236c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a98e5fe7abd91d6ba631f0b377924236c">isPinned</a> () const</td></tr>
 <tr class="separator:a98e5fe7abd91d6ba631f0b377924236c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733a709bddff61eea4f6d98c37c4a022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a733a709bddff61eea4f6d98c37c4a022">setInnerCurvePoint</a> ()</td></tr>
+<tr class="memdesc:a733a709bddff61eea4f6d98c37c4a022"><td class="mdescLeft">&#160;</td><td class="mdescRight">makes it a small diamond on an inner point of a curve  <br /></td></tr>
+<tr class="separator:a733a709bddff61eea4f6d98c37c4a022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4698122542eac77297c99a0a29042a37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a4698122542eac77297c99a0a29042a37">altDrag</a> () const</td></tr>
+<tr class="memdesc:a4698122542eac77297c99a0a29042a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if Alt was held when the drag started: only the end of the curves moves (bend)  <br /></td></tr>
+<tr class="separator:a4698122542eac77297c99a0a29042a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -190,6 +196,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a0e77aad664f918cb62c7214f6da364d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5f04d0b36e8dc67eab9aeb820e40489"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d2d/classPieceNodeHandle.html#ab5f04d0b36e8dc67eab9aeb820e40489">m_pinned</a></td></tr>
 <tr class="separator:ab5f04d0b36e8dc67eab9aeb820e40489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa67313888894dc99d10cb49e8e767266"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d2d/classPieceNodeHandle.html#aa67313888894dc99d10cb49e8e767266">m_altDrag</a> {false}</td></tr>
+<tr class="separator:aa67313888894dc99d10cb49e8e767266"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb9eb2c3ebb6ceba77a2164a4191f719"><td class="memItemLeft" align="right" valign="top">QPointF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d2d/classPieceNodeHandle.html#aeb9eb2c3ebb6ceba77a2164a4191f719">m_grabOffset</a></td></tr>
 <tr class="separator:aeb9eb2c3ebb6ceba77a2164a4191f719"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -226,7 +234,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00045">45</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../df/d4b/vmaingraphicsview_8h_source.html#l00156">EditorHandleDataKey</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">updateLook()</a>.</p>
+<p class="reference">References <a class="el" href="../../df/d4b/vmaingraphicsview_8h_source.html#l00156">EditorHandleDataKey</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">updateLook()</a>.</p>
 
 </div>
 </div>
@@ -256,6 +264,37 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4698122542eac77297c99a0a29042a37" name="a4698122542eac77297c99a0a29042a37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4698122542eac77297c99a0a29042a37">&#9670;&#160;</a></span>altDrag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PieceNodeHandle::altDrag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true if Alt was held when the drag started: only the end of the curves moves (bend) </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00055">55</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00080">m_altDrag</a>.</p>
+
+</div>
+</div>
 <a id="a84cfdd7688ba012bec671edca63bee1b" name="a84cfdd7688ba012bec671edca63bee1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a84cfdd7688ba012bec671edca63bee1b">&#9670;&#160;</a></span>contextMenuEvent()</h2>
 
@@ -280,9 +319,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00168">168</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00180">180</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00074">m_modified</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00072">m_nodeId</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00075">m_pinned</a>, <a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a29b3540678de883cf127e996473e28f6">pinToggled()</a>, and <a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a2818e7bbc0da20a597ce221cb19df279">resetRequested()</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00078">m_modified</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00076">m_nodeId</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00079">m_pinned</a>, <a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a29b3540678de883cf127e996473e28f6">pinToggled()</a>, and <a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a2818e7bbc0da20a597ce221cb19df279">resetRequested()</a>.</p>
 
 </div>
 </div>
@@ -310,7 +349,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00155">mouseReleaseEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00167">mouseReleaseEvent()</a>.</p>
 
 </div>
 </div>
@@ -338,7 +377,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00121">mousePressEvent()</a>, and <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02870">PatternPieceTool::updateNodeHandles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00132">mousePressEvent()</a>, and <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l03062">PatternPieceTool::updateNodeHandles()</a>.</p>
 
 </div>
 </div>
@@ -366,9 +405,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00194">194</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00206">206</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">updateLook()</a>.</p>
+<p class="reference">References <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">updateLook()</a>.</p>
 
 </div>
 </div>
@@ -396,9 +435,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00201">201</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00213">213</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">updateLook()</a>.</p>
+<p class="reference">References <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">updateLook()</a>.</p>
 
 </div>
 </div>
@@ -427,9 +466,9 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00048">48</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00073">m_dragging</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00077">m_dragging</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02870">PatternPieceTool::updateNodeHandles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l03062">PatternPieceTool::updateNodeHandles()</a>.</p>
 
 </div>
 </div>
@@ -458,7 +497,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00051">51</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00075">m_pinned</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00079">m_pinned</a>.</p>
 
 </div>
 </div>
@@ -496,9 +535,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00104">104</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00115">115</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00073">m_dragging</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00072">m_nodeId</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00075">m_pinned</a>, and <a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a27f507f0d751dbd8d53b447caf1f4c79">moved()</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00077">m_dragging</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00076">m_nodeId</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00079">m_pinned</a>, and <a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a27f507f0d751dbd8d53b447caf1f4c79">moved()</a>.</p>
 
 </div>
 </div>
@@ -526,9 +565,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00187">187</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00199">199</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00121">mousePressEvent()</a>.</p>
+<p class="reference">References <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00132">mousePressEvent()</a>.</p>
 
 </div>
 </div>
@@ -556,9 +595,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00141">141</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00153">153</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00073">m_dragging</a>, and <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00076">m_grabOffset</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00077">m_dragging</a>, and <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00081">m_grabOffset</a>.</p>
 
 </div>
 </div>
@@ -586,11 +625,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00121">121</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00132">132</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a225857516905b2b0c04640b647ae83e1">dragStarted()</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00073">m_dragging</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00076">m_grabOffset</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00072">m_nodeId</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00075">m_pinned</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">updateLook()</a>.</p>
+<p class="reference">References <a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a225857516905b2b0c04640b647ae83e1">dragStarted()</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00080">m_altDrag</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00077">m_dragging</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00081">m_grabOffset</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00076">m_nodeId</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00079">m_pinned</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">updateLook()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00187">mouseDoubleClickEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00199">mouseDoubleClickEvent()</a>.</p>
 
 </div>
 </div>
@@ -618,9 +657,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00155">155</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00167">167</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a69558bd993820d4e1bab8ebecb6976d7">dragFinished()</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00073">m_dragging</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00072">m_nodeId</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">updateLook()</a>.</p>
+<p class="reference">References <a class="el" href="../../d2/d2d/classPieceNodeHandle.html#a69558bd993820d4e1bab8ebecb6976d7">dragFinished()</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00077">m_dragging</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00076">m_nodeId</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">updateLook()</a>.</p>
 
 </div>
 </div>
@@ -658,7 +697,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00104">itemChange()</a>, and <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02870">PatternPieceTool::updateNodeHandles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00115">itemChange()</a>, and <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l03062">PatternPieceTool::updateNodeHandles()</a>.</p>
 
 </div>
 </div>
@@ -687,9 +726,9 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00047">47</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00072">m_nodeId</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00076">m_nodeId</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02870">PatternPieceTool::updateNodeHandles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l03062">PatternPieceTool::updateNodeHandles()</a>.</p>
 
 </div>
 </div>
@@ -717,7 +756,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00168">contextMenuEvent()</a>, and <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02870">PatternPieceTool::updateNodeHandles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00180">contextMenuEvent()</a>, and <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l03062">PatternPieceTool::updateNodeHandles()</a>.</p>
 
 </div>
 </div>
@@ -745,7 +784,28 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00168">contextMenuEvent()</a>, and <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02870">PatternPieceTool::updateNodeHandles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00180">contextMenuEvent()</a>, and <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l03062">PatternPieceTool::updateNodeHandles()</a>.</p>
+
+</div>
+</div>
+<a id="a733a709bddff61eea4f6d98c37c4a022" name="a733a709bddff61eea4f6d98c37c4a022"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a733a709bddff61eea4f6d98c37c4a022">&#9670;&#160;</a></span>setInnerCurvePoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PieceNodeHandle::setInnerCurvePoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>makes it a small diamond on an inner point of a curve </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
 </div>
 </div>
@@ -767,9 +827,9 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00069">69</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00074">m_modified</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">updateLook()</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00078">m_modified</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">updateLook()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02870">PatternPieceTool::updateNodeHandles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l03062">PatternPieceTool::updateNodeHandles()</a>.</p>
 
 </div>
 </div>
@@ -791,9 +851,9 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00076">76</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00075">m_pinned</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">updateLook()</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00079">m_pinned</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">updateLook()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l02870">PatternPieceTool::updateNodeHandles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/dea/pattern__piece__tool_8cpp_source.html#l03062">PatternPieceTool::updateNodeHandles()</a>.</p>
 
 </div>
 </div>
@@ -821,15 +881,41 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">95</a> of file <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html">piece_node_handle.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00073">m_dragging</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00074">m_modified</a>, and <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00075">m_pinned</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00077">m_dragging</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00078">m_modified</a>, and <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00079">m_pinned</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00194">hoverEnterEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00201">hoverLeaveEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00121">mousePressEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00155">mouseReleaseEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00045">PieceNodeHandle()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00069">setModified()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00076">setPinned()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00206">hoverEnterEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00213">hoverLeaveEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00132">mousePressEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00167">mouseReleaseEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00045">PieceNodeHandle()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00069">setModified()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00076">setPinned()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa67313888894dc99d10cb49e8e767266" name="aa67313888894dc99d10cb49e8e767266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa67313888894dc99d10cb49e8e767266">&#9670;&#160;</a></span>m_altDrag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PieceNodeHandle::m_altDrag {false}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00080">80</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00055">altDrag()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00132">mousePressEvent()</a>.</p>
+
+</div>
+</div>
 <a id="aa2eb4bfa85b6b3acb785ec0a4f73afd6" name="aa2eb4bfa85b6b3acb785ec0a4f73afd6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa2eb4bfa85b6b3acb785ec0a4f73afd6">&#9670;&#160;</a></span>m_dragging</h2>
 
@@ -850,9 +936,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00073">73</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00077">77</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00048">isDragging()</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00094">PieceSegmentHandle::isDragging()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00104">itemChange()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00141">mouseMoveEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00121">mousePressEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00155">mouseReleaseEvent()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">updateLook()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00048">isDragging()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00115">itemChange()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00153">mouseMoveEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00132">mousePressEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00167">mouseReleaseEvent()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">updateLook()</a>.</p>
 
 </div>
 </div>
@@ -876,9 +962,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00076">76</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00081">81</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00141">mouseMoveEvent()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00121">mousePressEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00153">mouseMoveEvent()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00132">mousePressEvent()</a>.</p>
 
 </div>
 </div>
@@ -902,9 +988,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00074">74</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00078">78</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00168">contextMenuEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00069">setModified()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">updateLook()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00180">contextMenuEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00069">setModified()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">updateLook()</a>.</p>
 
 </div>
 </div>
@@ -928,9 +1014,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00072">72</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00076">76</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00168">contextMenuEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00104">itemChange()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00121">mousePressEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00155">mouseReleaseEvent()</a>, and <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00047">nodeId()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00180">contextMenuEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00115">itemChange()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00132">mousePressEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00167">mouseReleaseEvent()</a>, and <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00047">nodeId()</a>.</p>
 
 </div>
 </div>
@@ -954,9 +1040,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00075">75</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00079">79</a> of file <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html">piece_node_handle.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00168">contextMenuEvent()</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00051">isPinned()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00104">itemChange()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00121">mousePressEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00076">setPinned()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00084">updateLook()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00180">contextMenuEvent()</a>, <a class="el" href="../../d4/db9/piece__node__handle_8h_source.html#l00051">isPinned()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00115">itemChange()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00132">mousePressEvent()</a>, <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00076">setPinned()</a>, and <a class="el" href="../../dd/d5e/piece__node__handle_8cpp_source.html#l00095">updateLook()</a>.</p>
 
 </div>
 </div>

@@ -30,7 +30,9 @@ var searchData=
   ['context_27',['Context',['../d0/d12/classRegularExpression_1_1Context.html',1,'RegularExpression']]],
   ['contourmark_28',['ContourMark',['../d3/db1/structPatternPieceTool_1_1ContourMark.html',1,'PatternPieceTool']]],
   ['countedpointerto_29',['CountedPointerTo',['../d0/d5f/classCountedPointerTo.html',1,'']]],
-  ['customsarecord_30',['CustomSARecord',['../dc/d74/structCustomSARecord.html',1,'']]],
-  ['customvariable_31',['CustomVariable',['../d2/d16/classCustomVariable.html',1,'']]],
-  ['customvariabledata_32',['CustomVariableData',['../dc/d49/classCustomVariableData.html',1,'']]]
+  ['curvedrag_30',['CurveDrag',['../df/df6/structPatternPieceTool_1_1CurveDrag.html',1,'PatternPieceTool']]],
+  ['curveedit_31',['CurveEdit',['../d2/da0/structPieceCurveEdit_1_1CurveEdit.html',1,'PieceCurveEdit']]],
+  ['customsarecord_32',['CustomSARecord',['../dc/d74/structCustomSARecord.html',1,'']]],
+  ['customvariable_33',['CustomVariable',['../d2/d16/classCustomVariable.html',1,'']]],
+  ['customvariabledata_34',['CustomVariableData',['../dc/d49/classCustomVariableData.html',1,'']]]
 ];

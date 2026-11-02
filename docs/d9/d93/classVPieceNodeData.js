@@ -10,6 +10,7 @@ var classVPieceNodeData =
     [ "m_afterWidthFormula", "d9/d93/classVPieceNodeData.html#a5185703bef8d41bd2989505bc2c80bdf", null ],
     [ "m_angleType", "d9/d93/classVPieceNodeData.html#a56f2e0e27b03bca03e945ea927b4b73f", null ],
     [ "m_beforeWidthFormula", "d9/d93/classVPieceNodeData.html#a83abfead0955a974e14b9f237e973a2c", null ],
+    [ "m_editorAttributes", "d9/d93/classVPieceNodeData.html#a49226e45180f4ce551d89c755485f329", null ],
     [ "m_excluded", "d9/d93/classVPieceNodeData.html#a8e7dfd8ff3c2beabe7b00e17e2041cca", null ],
     [ "m_id", "d9/d93/classVPieceNodeData.html#a8b9d430363d5581510a7660ad17d7e71", null ],
     [ "m_isMainPathNode", "d9/d93/classVPieceNodeData.html#a779add36b47ed6278a52d09e096438cb", null ],

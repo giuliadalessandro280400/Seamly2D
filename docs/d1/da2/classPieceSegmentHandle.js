@@ -2,6 +2,7 @@ var classPieceSegmentHandle =
 [
     [ "PieceSegmentHandle", "d1/da2/classPieceSegmentHandle.html#a2a601c02b974028ae3178019637a478d", null ],
     [ "~PieceSegmentHandle", "d1/da2/classPieceSegmentHandle.html#a2ec8591b7c4bc13985aa2e54f1b217b7", null ],
+    [ "contextMenuEvent", "d1/da2/classPieceSegmentHandle.html#a1d8bf0a9fc16480162f94d513092c119", null ],
     [ "dragFinished", "d1/da2/classPieceSegmentHandle.html#a292455e0a63aaea59c9287e149e994f1", null ],
     [ "dragStarted", "d1/da2/classPieceSegmentHandle.html#a0721732ab4fb544bce91ef2a4b9f5067", null ],
     [ "firstNodeId", "d1/da2/classPieceSegmentHandle.html#aefd268fc6a2538865579c93a8e6c5f18", null ],
@@ -16,6 +17,7 @@ var classPieceSegmentHandle =
     [ "secondNodeId", "d1/da2/classPieceSegmentHandle.html#a95ae850fa266b3350fb78a66789bd003", null ],
     [ "setSegment", "d1/da2/classPieceSegmentHandle.html#a01770fb78ecf55df1026dfcfe52b7ca0", null ],
     [ "shape", "d1/da2/classPieceSegmentHandle.html#a9f750a11fbd4e656c761fd336200bf0d", null ],
+    [ "simplifyRequested", "d1/da2/classPieceSegmentHandle.html#ae38f13d018b0b7af3153faf930b06367", null ],
     [ "updateLook", "d1/da2/classPieceSegmentHandle.html#a69a3a9d8d18ecaf6aabd51911af09c16", null ],
     [ "m_dragging", "d1/da2/classPieceSegmentHandle.html#a7336d5b299845a228c1f68cb89ffec28", null ],
     [ "m_firstNodeId", "d1/da2/classPieceSegmentHandle.html#abe8e2f0d22210486e7fb7fd374102c2e", null ],
