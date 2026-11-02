@@ -35,7 +35,9 @@ var namespaces_dup =
       [ "getFormulaFromUser", "d7/d49/namespaceanonymous__namespace_02pattern__piece__dialog_8cpp_03.html#a6e4259470f736c8f847d8d04b3fef36d", null ]
     ] ],
     [ "anonymous_namespace{pattern_piece_tool.cpp}", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html", [
+      [ "curveEnds", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a4636005f88c9b36879a700cc283146a2", null ],
       [ "draftTraces", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a4173e9d51b993d81a4de95ea7d17abdd", null ],
+      [ "followBothEnds", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a648fac709bbee8f61b2414bde45d807e", null ],
       [ "moveCurveEnd", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a9405dfbb26b4bb9df4789cea175211cd", null ],
       [ "samePoint", "d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#ab8c271df874a646a8f2ed7f3c58dca94", null ]
     ] ],

@@ -138,6 +138,7 @@ $(document).ready(function(){initNavTree('d8/dea/pattern__piece__tool_8cpp.html'
 <code>#include &quot;../vwidgets/vmaingraphicsview.h&quot;</code><br />
 <code>#include &quot;../vwidgets/nonscalingfill_pathitem.h&quot;</code><br />
 <code>#include &quot;../vwidgets/global.h&quot;</code><br />
+<code>#include &lt;QtMath&gt;</code><br />
 <code>#include &lt;QGraphicsScene&gt;</code><br />
 <code>#include &lt;QGraphicsSceneMouseEvent&gt;</code><br />
 <code>#include &lt;QGraphicsView&gt;</code><br />
@@ -172,6 +173,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a9405dfbb26b4bb9df4789cea175211cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a9405dfbb26b4bb9df4789cea175211cd">anonymous_namespace{pattern_piece_tool.cpp}::moveCurveEnd</a> (<a class="el" href="../../d2/d83/classVContainer.html">VContainer</a> *data, quint32 curveId, const QPointF &amp;endPoint, const QPointF &amp;delta)</td></tr>
 <tr class="memdesc:a9405dfbb26b4bb9df4789cea175211cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">moveCurveEnd moves the end of a curve copy that touches a displaced point, together with its handle, like moving an anchor point in a vector editor. Arcs cannot be bent this way and are left as they are.  <br /></td></tr>
 <tr class="separator:a9405dfbb26b4bb9df4789cea175211cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4636005f88c9b36879a700cc283146a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a4636005f88c9b36879a700cc283146a2">anonymous_namespace{pattern_piece_tool.cpp}::curveEnds</a> (const <a class="el" href="../../d2/d83/classVContainer.html">VContainer</a> *data, quint32 curveId, QPointF &amp;first, QPointF &amp;last)</td></tr>
+<tr class="memdesc:a4636005f88c9b36879a700cc283146a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">curveEnds gives the first and the last point of a curve copy. False for arcs, which cannot follow.  <br /></td></tr>
+<tr class="separator:a4636005f88c9b36879a700cc283146a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a648fac709bbee8f61b2414bde45d807e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dad/namespaceanonymous__namespace_02pattern__piece__tool_8cpp_03.html#a648fac709bbee8f61b2414bde45d807e">anonymous_namespace{pattern_piece_tool.cpp}::followBothEnds</a> (<a class="el" href="../../d2/d83/classVContainer.html">VContainer</a> *data, quint32 curveId, const QPointF &amp;a0, const QPointF &amp;a1, const QPointF &amp;b0, const QPointF &amp;b1)</td></tr>
+<tr class="memdesc:a648fac709bbee8f61b2414bde45d807e"><td class="mdescLeft">&#160;</td><td class="mdescRight">followBothEnds moves a whole curve copy when both its ends were moved, as when a line of the piece is dragged: the curve is moved, turned and stretched so that it keeps its shape (no bending).  <br /></td></tr>
+<tr class="separator:a648fac709bbee8f61b2414bde45d807e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
