@@ -84,6 +84,7 @@
 #include "../vwidgets/nonscalingfill_pathitem.h"
 #include "../vwidgets/global.h"
 
+#include <QtMath>
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsView>
@@ -2618,6 +2619,146 @@ void moveCurveEnd(VContainer *data, quint32 curveId, const QPointF &endPoint, co
             break; // arcs keep their shape
     }
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief curveEnds gives the first and the last point of a curve copy. False for arcs, which cannot follow.
+ */
+bool curveEnds(const VContainer *data, quint32 curveId, QPointF &first, QPointF &last)
+{
+    const QSharedPointer<VGObject> obj = data->GetGObject(curveId);
+    switch (static_cast<GOType>(obj->getType()))
+    {
+        case GOType::Spline:
+        case GOType::CubicBezier:
+        case GOType::SplinePath:
+        case GOType::CubicBezierPath:
+        {
+            const QSharedPointer<VAbstractCubicBezierPath> path =
+                qSharedPointerDynamicCast<VAbstractCubicBezierPath>(obj);
+            const QSharedPointer<VAbstractCubicBezier> single = qSharedPointerDynamicCast<VAbstractCubicBezier>(obj);
+            if (single)
+            {
+                first = static_cast<QPointF>(single->GetP1());
+                last = static_cast<QPointF>(single->GetP4());
+                return true;
+            }
+            if (path && path->CountSubSpl() > 0)
+            {
+                first = static_cast<QPointF>(path->GetSpline(1).GetP1());
+                last = static_cast<QPointF>(path->GetSpline(path->CountSubSpl()).GetP4());
+                return true;
+            }
+            return false;
+        }
+        default:
+            return false;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief followBothEnds moves a whole curve copy when both its ends were moved, as when a line of the piece is
+ * dragged: the curve is moved, turned and stretched so that it keeps its shape (no bending).
+ */
+void followBothEnds(VContainer *data, quint32 curveId, const QPointF &a0, const QPointF &a1,
+                    const QPointF &b0, const QPointF &b1)
+{
+    // Similarity a0 -> a1, b0 -> b1 as a complex multiplication: z' = a1 + (z - a0) * k
+    const QPointF d0 = b0 - a0;
+    const QPointF d1 = b1 - a1;
+    const qreal len2 = d0.x() * d0.x() + d0.y() * d0.y();
+    qreal kx = 1, ky = 0;
+    if (len2 > 1e-9)
+    {
+        kx = (d1.x() * d0.x() + d1.y() * d0.y()) / len2;
+        ky = (d1.y() * d0.x() - d1.x() * d0.y()) / len2;
+    }
+    const auto map = [&](const QPointF &z)
+    {
+        const QPointF r = z - a0;
+        return a1 + QPointF(r.x() * kx - r.y() * ky, r.x() * ky + r.y() * kx);
+    };
+    const auto mapV = [&](VPointF p)
+    {
+        const QPointF q = map(static_cast<QPointF>(p));
+        p.setX(q.x());
+        p.setY(q.y());
+        return p;
+    };
+    const qreal scale = qSqrt(kx * kx + ky * ky);
+    // QLineF angles turn the other way than y-down complex numbers
+    const qreal turn = -qRadiansToDegrees(qAtan2(ky, kx));
+
+    const QSharedPointer<VGObject> obj = data->GetGObject(curveId);
+    const auto copyProperties = [](VAbstractCurve &target, const VAbstractCurve &source)
+    {
+        target.setName(source.name());
+        target.setLineColor(source.getLineColor());
+        target.SetPenStyle(source.GetPenStyle());
+        target.setLineWeight(source.getLineWeight());
+        target.SetDuplicate(source.GetDuplicate());
+        target.setIdObject(source.getIdObject());
+        target.setMode(source.getMode());
+    };
+
+    switch (static_cast<GOType>(obj->getType()))
+    {
+        case GOType::Spline:
+        {
+            const QSharedPointer<VSpline> spl = data->GeometricObject<VSpline>(curveId);
+            VSpline moved(mapV(spl->GetP1()), map(static_cast<QPointF>(spl->GetP2())),
+                          map(static_cast<QPointF>(spl->GetP3())), mapV(spl->GetP4()), spl->getIdObject(),
+                          spl->getMode());
+            copyProperties(moved, *spl);
+            data->UpdateGObject(curveId, new VSpline(moved));
+            break;
+        }
+        case GOType::CubicBezier:
+        {
+            const QSharedPointer<VCubicBezier> spl = data->GeometricObject<VCubicBezier>(curveId);
+            VCubicBezier moved(mapV(spl->GetP1()), mapV(spl->GetP2()), mapV(spl->GetP3()), mapV(spl->GetP4()),
+                               spl->getIdObject(), spl->getMode());
+            copyProperties(moved, *spl);
+            data->UpdateGObject(curveId, new VCubicBezier(moved));
+            break;
+        }
+        case GOType::SplinePath:
+        {
+            const QSharedPointer<VSplinePath> path = data->GeometricObject<VSplinePath>(curveId);
+            VSplinePath moved = *path;
+            for (int i = 0; i < moved.CountPoints(); ++i)
+            {
+                VSplinePoint point = moved.at(i);
+                point.SetP(mapV(point.P()));
+                const qreal angle1 = point.Angle1() + turn;
+                const qreal angle2 = point.Angle2() + turn;
+                point.SetAngle1(angle1, QString::number(angle1));
+                point.SetAngle2(angle2, QString::number(angle2));
+                point.SetLength1(point.Length1() * scale, QString::number(qApp->fromPixel(point.Length1() * scale)));
+                point.SetLength2(point.Length2() * scale, QString::number(qApp->fromPixel(point.Length2() * scale)));
+                moved[i] = point;
+            }
+            data->UpdateGObject(curveId, new VSplinePath(moved));
+            break;
+        }
+        case GOType::CubicBezierPath:
+        {
+            const QSharedPointer<VCubicBezierPath> path = data->GeometricObject<VCubicBezierPath>(curveId);
+            QVector<VPointF> points = path->GetCubicPath();
+            for (VPointF &p : points)
+            {
+                p = mapV(p);
+            }
+            VCubicBezierPath moved(points, path->getIdObject(), path->getMode());
+            copyProperties(moved, *path);
+            data->UpdateGObject(curveId, new VCubicBezierPath(moved));
+            break;
+        }
+        default:
+            break;
+    }
+}
 } // namespace
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -2654,6 +2795,8 @@ void PatternPieceTool::applyNodeOffsets(quint32 pieceId, const VPiece &piece, VC
         draftTraces().insert(pieceId, trace);
     }
 
+    // Move the points, remembering where each one was
+    QVector<QPair<QPointF, QPointF>> displaced; // original position, displacement
     const int count = path.nodeCount();
     for (int i = 0; i < count; ++i)
     {
@@ -2671,15 +2814,50 @@ void PatternPieceTool::applyNodeOffsets(quint32 pieceId, const VPiece &piece, VC
         moved.setX(original.x() + delta.x());
         moved.setY(original.y() + delta.y());
         data->UpdateGObject(node.GetId(), new VPointF(moved));
+        displaced.append(qMakePair(original, delta));
+    }
 
-        // The curves before and after the point follow it
-        for (const int neighbour : {(i - 1 + count) % count, (i + 1) % count})
+    const auto displacementAt = [&displaced](const QPointF &p, QPointF &delta)
+    {
+        for (const auto &d : displaced)
         {
-            const VPieceNode &curveNode = path.at(neighbour);
-            if (neighbour != i && curveNode.GetTypeTool() != Tool::NodePoint)
+            if (samePoint(d.first, p))
             {
-                moveCurveEnd(data, curveNode.GetId(), original, delta);
+                delta = d.second;
+                return true;
             }
+        }
+        return false;
+    };
+
+    // The curves follow their ends: one end moved -> that end moves with its handle (the rest stays);
+    // both ends moved (a dragged line) -> the whole curve goes with them and keeps its shape.
+    for (int i = 0; i < count; ++i)
+    {
+        const VPieceNode &curveNode = path.at(i);
+        if (curveNode.GetTypeTool() == Tool::NodePoint)
+        {
+            continue;
+        }
+        QPointF first, last;
+        if (not curveEnds(data, curveNode.GetId(), first, last))
+        {
+            continue; // arcs keep their shape
+        }
+        QPointF firstDelta, lastDelta;
+        const bool firstMoved = displacementAt(first, firstDelta);
+        const bool lastMoved = displacementAt(last, lastDelta);
+        if (firstMoved && lastMoved)
+        {
+            followBothEnds(data, curveNode.GetId(), first, first + firstDelta, last, last + lastDelta);
+        }
+        else if (firstMoved)
+        {
+            moveCurveEnd(data, curveNode.GetId(), first, firstDelta);
+        }
+        else if (lastMoved)
+        {
+            moveCurveEnd(data, curveNode.GetId(), last, lastDelta);
         }
     }
 }
