@@ -152,6 +152,9 @@ private:
     qreal                 currentScaleFactor;
 };
 
+/// @brief data key of the items of the piece editor (point and line handles)
+const int EditorHandleDataKey = 0x5EA;
+
 /**
  * @brief The VMainGraphicsView class main scene view.
  */

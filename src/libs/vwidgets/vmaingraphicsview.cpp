@@ -789,7 +789,10 @@ void VMainGraphicsView::mouseReleaseEvent(QMouseEvent *event)
 //---------------------------------------------------------------------------------------------------------------------
 void VMainGraphicsView::mouseDoubleClickEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton && qApp->Settings()->isZoomDoubleClick())
+    // the handles of the piece editor take a quick second click as a drag, not as a zoom
+    const QGraphicsItem *clicked = itemAt(event->pos());
+    const bool editorHandle = clicked != nullptr && clicked->data(EditorHandleDataKey).toBool();
+    if (event->button() == Qt::LeftButton && qApp->Settings()->isZoomDoubleClick() && not editorHandle)
     {
         if (VAbstractMainWindow *window = qobject_cast<VAbstractMainWindow *>(qApp->getMainWindow()))
         {

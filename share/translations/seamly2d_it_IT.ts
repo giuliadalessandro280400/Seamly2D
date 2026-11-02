@@ -15992,6 +15992,10 @@ di controllo</translation>
         <source>Put Back Where the Draft Has It</source>
         <translation>Rimetti dove lo ha la bozza</translation>
     </message>
+    <message>
+        <source>Drag to move this point of the piece (the draft does not change). Right click to pin it or put it back.</source>
+        <translation>Trascina per spostare questo punto del pezzo (la bozza non cambia). Clic destro per spillarlo o rimetterlo dove lo ha la bozza.</translation>
+    </message>
 </context>
 <context>
     <name>PieceSegmentHandle</name>

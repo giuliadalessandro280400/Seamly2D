@@ -34,7 +34,7 @@
 
 /**
  * @brief The PieceNodeHandle class is a small square drawn on a point of a selected pattern piece.
- * Dragging it moves the point of the piece only (the draft does not change). Double click puts the point back
+ * Dragging it moves the point of the piece only (the draft does not change). Right click pins it or puts it back
  * where the draft has it.
  */
 class PieceNodeHandle : public QObject, public QGraphicsRectItem
@@ -105,6 +105,7 @@ protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    virtual void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
     virtual void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
 

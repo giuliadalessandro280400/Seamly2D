@@ -25,6 +25,7 @@
  *************************************************************************/
 
 #include "piece_node_handle.h"
+#include "../vwidgets/vmaingraphicsview.h"
 
 #include <QBrush>
 #include <QCursor>
@@ -58,8 +59,9 @@ PieceNodeHandle::PieceNodeHandle(quint32 nodeId, QGraphicsItem *parent)
     setAcceptedMouseButtons(Qt::LeftButton);
     setCursor(Qt::SizeAllCursor);
     setZValue(1000); // above the point marks of the piece (z 100)
+    setData(EditorHandleDataKey, true);
     setToolTip(tr("Drag to move this point of the piece (the draft does not change). "
-                  "Double click to put it back."));
+                  "Right click to pin it or put it back."));
     updateLook(false);
 }
 
@@ -123,13 +125,14 @@ void PieceNodeHandle::mousePressEvent(QGraphicsSceneMouseEvent *event)
         event->accept(); // a pinned point does not move
         return;
     }
-    if (event->button() == Qt::LeftButton && event->type() != QEvent::GraphicsSceneMouseDoubleClick)
+    if (event->button() == Qt::LeftButton)
     {
         m_dragging = true;
         m_grabOffset = pos() - parentItem()->mapFromScene(event->scenePos());
         updateLook(true);
         event->accept();
         emit dragStarted(m_nodeId);
+        return;
     }
     QGraphicsRectItem::mousePressEvent(event);
 }
@@ -183,14 +186,8 @@ void PieceNodeHandle::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 //---------------------------------------------------------------------------------------------------------------------
 void PieceNodeHandle::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (m_pinned)
-    {
-        event->accept();
-        return;
-    }
-    m_dragging = false;
-    emit resetRequested(m_nodeId);
-    event->accept();
+    // A quick second click (or tap-and-drag on a touchpad) arrives as a double click: it must drag too.
+    mousePressEvent(event);
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -223,6 +220,7 @@ PieceSegmentHandle::PieceSegmentHandle(quint32 firstNodeId, quint32 secondNodeId
     setAcceptedMouseButtons(Qt::LeftButton);
     setCursor(Qt::SizeAllCursor);
     setZValue(900); // under the point handles, over the piece
+    setData(EditorHandleDataKey, true);
     setToolTip(tr("Drag to move this line of the piece (the draft does not change)."));
     setBrush(Qt::NoBrush);
     updateLook(false);
@@ -261,13 +259,14 @@ void PieceSegmentHandle::updateLook(bool hover)
 //---------------------------------------------------------------------------------------------------------------------
 void PieceSegmentHandle::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton && event->type() != QEvent::GraphicsSceneMouseDoubleClick)
+    if (event->button() == Qt::LeftButton)
     {
         m_dragging = true;
         m_startScenePos = event->scenePos();
         updateLook(true);
         event->accept();
         emit dragStarted(m_firstNodeId, m_secondNodeId);
+        return;
     }
     QGraphicsPathItem::mousePressEvent(event);
 }
@@ -299,6 +298,12 @@ void PieceSegmentHandle::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     {
         emit dragFinished();
     }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PieceSegmentHandle::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    mousePressEvent(event); // a quick second click drags too
 }
 
 //---------------------------------------------------------------------------------------------------------------------
