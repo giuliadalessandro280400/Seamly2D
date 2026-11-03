@@ -7211,6 +7211,52 @@ Premere Invio per aggiungerlo temporaneamente all&apos;elenco.</translation>
         <source>First click the piece you want to check, then press this button again.</source>
         <translation>Prima clicca il pezzo che vuoi controllare, poi premi di nuovo questo pulsante.</translation>
     </message>
+    <message>
+        <source>All Sizes</source>
+        <translation>Tutte le taglie</translation>
+    </message>
+    <message>
+        <source>First, Middle and Last</source>
+        <translation>Prima, media e ultima</translation>
+    </message>
+    <message>
+        <source>Make the Handles of All Curves Proportional...</source>
+        <translation>Rendi proporzionali le maniglie di tutte le curve...</translation>
+    </message>
+    <message>
+        <source>Proportional Handles</source>
+        <translation>Maniglie proporzionali</translation>
+    </message>
+    <message>
+        <source>The handles of all the curves will follow their curve in every size, so the curves keep their shape.
+
+In the current size (%1) the curves stay exactly as they are now: it is best to do this in the size in which you drew the pattern.
+
+Continue?</source>
+        <translation>Le maniglie di tutte le curve seguiranno la loro curva in ogni taglia, così le curve mantengono la loro forma.
+
+Nella taglia attuale (%1) le curve restano esattamente come sono adesso: conviene farlo nella taglia in cui hai disegnato il modello.
+
+Continuare?</translation>
+    </message>
+    <message>
+        <source>make curve handles proportional</source>
+        <translation>rendi proporzionali le maniglie delle curve</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n curve(s) now have proportional handles.</source>
+        <translation>
+            <numerusform>%n curva ora ha le maniglie proporzionali.</numerusform>
+            <numerusform>%n curve ora hanno le maniglie proporzionali.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n curve(s) have handles given by a formula and were left as they are.</source>
+        <translation>
+            <numerusform>%n curva ha le maniglie date da una formula ed è rimasta com'era.</numerusform>
+            <numerusform>%n curve hanno le maniglie date da una formula e sono rimaste com'erano.</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>MainWindowsNoGUI</name>

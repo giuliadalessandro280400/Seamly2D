@@ -64,6 +64,7 @@
 #include <QMap>
 #include <QPointer>
 #include <QPainterPath>
+#include <QMenu>
 #include <QSharedPointer>
 
 namespace Ui
@@ -195,6 +196,9 @@ private slots:
     void exportLayoutAs();
     void exportPiecesAs();
     void startSeamCheck();
+    void rebuildAllSizesMenu();
+    void setHiddenSizes(const QStringList &hidden);
+    void makeAllHandlesProportional();
     void exportDraftBlocksAs();
 
     void handleArrowTool(bool checked);
@@ -348,6 +352,8 @@ private:
     QPointer<QLabel>                  m_allSizesLegend;     ///< colors of the sizes shown together
     QTimer                           *m_allSizesTimer {nullptr};
     bool                              m_allSizesUpdating {false};
+    QMenu                            *m_allSizesMenu {nullptr}; ///< which sizes to show together
+    QStringList                       m_hiddenSizes;              ///< sizes left out of the view of all sizes
 
     void                              clearAllSizes();
     QPainterPath                      captureSceneGeometry(QGraphicsScene *scene, bool activeBlockOnly) const;

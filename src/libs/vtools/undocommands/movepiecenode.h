@@ -29,6 +29,8 @@
 #define MOVEPIECENODE_H
 
 #include <QMap>
+#include <QString>
+#include <QVector>
 #include <QPointF>
 #include <QtGlobal>
 
@@ -137,6 +139,36 @@ private:
     int     m_mergeKey;
 
     void apply(const QString &value);
+};
+
+/**
+ * @brief The SetElementAttributes class changes attributes of several elements of the pattern in one undo step
+ * (for example: make the handles of all curves proportional). An empty value removes the attribute.
+ */
+class SetElementAttributes : public VUndoCommand
+{
+    Q_OBJECT
+public:
+    struct Change
+    {
+        quint32 id;
+        QString attribute;
+        QString oldValue;
+        QString newValue;
+    };
+
+    SetElementAttributes(VAbstractPattern *doc, const QVector<Change> &changes, const QString &text,
+                         QUndoCommand *parent = nullptr);
+    virtual ~SetElementAttributes() = default;
+
+    virtual void undo() override;
+    virtual void redo() override;
+
+private:
+    Q_DISABLE_COPY(SetElementAttributes)
+    QVector<Change> m_changes;
+
+    void apply(bool forward);
 };
 
 #endif // MOVEPIECENODE_H

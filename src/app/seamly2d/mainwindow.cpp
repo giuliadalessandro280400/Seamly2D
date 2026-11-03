@@ -90,6 +90,9 @@
 #include "../vtools/dialogs/tooldialogs.h"
 #include "../vtools/dialogs/support/editlabeltemplate_dialog.h"
 #include "../vtools/tools/pattern_piece_tool.h"
+#include "../vgeometry/vsplinepath.h"
+#include "../vtools/tools/drawTools/toolcurve/proportionalhandles.h"
+#include "../vtools/undocommands/movepiecenode.h"
 #include "../vtools/tools/union_tool.h"
 #include "../vtools/tools/drawTools/drawtools.h"
 #include "../vwidgets/vscenepoint.h"
@@ -2542,6 +2545,14 @@ void MainWindow::initializeStatusToolBar()
         m_allSizesButton->setToolTip(tr("Show all sizes together"));
         ui->statusBar->addPermanentWidget(m_allSizesButton);
         connect(m_allSizesButton.data(), &QToolButton::toggled, this, &MainWindow::toggleAllSizes);
+
+        // The arrow next to the button chooses the sizes to show
+        m_allSizesMenu = new QMenu(m_allSizesButton);
+        m_allSizesButton->setMenu(m_allSizesMenu);
+        m_allSizesButton->setPopupMode(QToolButton::MenuButtonPopup);
+        connect(m_allSizesMenu, &QMenu::aboutToShow, this, &MainWindow::rebuildAllSizesMenu);
+        m_hiddenSizes = qApp->Settings()->value(QStringLiteral("allSizes/hidden/") + qApp->getFilePath())
+                            .toStringList();
 
         m_allSizesLegend = new QLabel(this);
         m_allSizesLegend->setVisible(false);
@@ -5442,13 +5453,16 @@ void MainWindow::updateAllSizes()
         baseSize = VContainer::size();
     }
     QVector<qreal> sizes;
+    QStringList sizeTexts;
     for (int i = 0; i < gradationSizes->count(); ++i)
     {
         bool ok = false;
-        const qreal size = gradationSizes->itemText(i).toDouble(&ok);
-        if (ok)
+        const QString text = gradationSizes->itemText(i);
+        const qreal size = text.toDouble(&ok);
+        if (ok && (not m_hiddenSizes.contains(text) || qFuzzyCompare(size, baseSize)))
         {
             sizes.append(size);
+            sizeTexts.append(text);
         }
     }
 
@@ -5477,7 +5491,7 @@ void MainWindow::updateAllSizes()
         const qreal size = sizes.at(i);
         const qreal t = count > 1 ? static_cast<qreal>(i) / (count - 1) : 0;
         const QColor color = QColor::fromHsv(static_cast<int>(240 * (1.0 - t)), 230, 215);
-        const QString sizeText = gradationSizes->itemText(i);
+        const QString sizeText = sizeTexts.at(i);
 
         if (qFuzzyCompare(size, baseSize))
         {
@@ -9171,4 +9185,172 @@ void MainWindow::startSeamCheck()
     }
     QMessageBox::information(this, tr("Check Seam"),
                              tr("First click the piece you want to check, then press this button again."));
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief rebuildAllSizesMenu the menu of the view of all sizes: which sizes to show, and the handles of the curves.
+ */
+void MainWindow::rebuildAllSizesMenu()
+{
+    if (m_allSizesMenu == nullptr || gradationSizes.isNull())
+    {
+        return;
+    }
+    m_allSizesMenu->clear();
+
+    QStringList sizes;
+    for (int i = 0; i < gradationSizes->count(); ++i)
+    {
+        sizes.append(gradationSizes->itemText(i));
+    }
+
+    QAction *all = m_allSizesMenu->addAction(tr("All Sizes"));
+    connect(all, &QAction::triggered, this, [this]() { setHiddenSizes(QStringList()); });
+
+    QAction *firstMiddleLast = m_allSizesMenu->addAction(tr("First, Middle and Last"));
+    connect(firstMiddleLast, &QAction::triggered, this, [this, sizes]()
+    {
+        QStringList hidden = sizes;
+        if (not sizes.isEmpty())
+        {
+            hidden.removeAll(sizes.first());
+            hidden.removeAll(sizes.at(sizes.size() / 2));
+            hidden.removeAll(sizes.last());
+        }
+        setHiddenSizes(hidden);
+    });
+
+    m_allSizesMenu->addSeparator();
+    for (const QString &size : sizes)
+    {
+        QAction *action = m_allSizesMenu->addAction(tr("Size %1").arg(size));
+        action->setCheckable(true);
+        action->setChecked(not m_hiddenSizes.contains(size));
+        connect(action, &QAction::toggled, this, [this, size](bool shown)
+        {
+            QStringList hidden = m_hiddenSizes;
+            hidden.removeAll(size);
+            if (not shown)
+            {
+                hidden.append(size);
+            }
+            setHiddenSizes(hidden);
+        });
+    }
+
+    m_allSizesMenu->addSeparator();
+    QAction *proportional = m_allSizesMenu->addAction(tr("Make the Handles of All Curves Proportional..."));
+    connect(proportional, &QAction::triggered, this, &MainWindow::makeAllHandlesProportional);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void MainWindow::setHiddenSizes(const QStringList &hidden)
+{
+    m_hiddenSizes = hidden;
+    qApp->Settings()->setValue(QStringLiteral("allSizes/hidden/") + qApp->getFilePath(), m_hiddenSizes);
+    if (not m_allSizesButton.isNull() && m_allSizesButton->isChecked())
+    {
+        scheduleAllSizesUpdate();
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief makeAllHandlesProportional makes the handles of every curve of the pattern follow the curve in all sizes.
+ *
+ * The current size becomes the reference: here the curves stay exactly as they are; in the other sizes the handles
+ * grow and shrink with the distance between the ends of each curve, so the curves keep their shape. Handles given by
+ * a formula are left as they are (the formula already decides how they grade).
+ */
+void MainWindow::makeAllHandlesProportional()
+{
+    const QString sizeText = gradationSizes.isNull() ? QString() : gradationSizes->currentText();
+    const QMessageBox::StandardButton answer = QMessageBox::question(
+        this, tr("Proportional Handles"),
+        tr("The handles of all the curves will follow their curve in every size, so the curves keep their shape.\n\n"
+           "In the current size (%1) the curves stay exactly as they are now: it is best to do this in the size in "
+           "which you drew the pattern.\n\nContinue?").arg(sizeText));
+    if (answer != QMessageBox::Yes)
+    {
+        return;
+    }
+
+    QVector<SetElementAttributes::Change> changes;
+    int skipped = 0;
+    const QDomNodeList splines = doc->elementsByTagName(QStringLiteral("spline"));
+    for (int i = 0; i < splines.size(); ++i)
+    {
+        const QDomElement element = splines.at(i).toElement();
+        const QString type = element.attribute(QStringLiteral("type"));
+        const quint32 id = element.attribute(QStringLiteral("id")).toUInt();
+        try
+        {
+            if (type == QLatin1String("simpleInteractive"))
+            {
+                if (element.attribute(ProportionalHandles::attrRefChord(), QStringLiteral("0")).toDouble() > 0)
+                {
+                    continue; // already proportional
+                }
+                if (not ProportionalHandles::isNumber(element.attribute(QStringLiteral("length1")))
+                    || not ProportionalHandles::isNumber(element.attribute(QStringLiteral("length2"))))
+                {
+                    ++skipped;
+                    continue;
+                }
+                const QSharedPointer<VSpline> spline = pattern->GeometricObject<VSpline>(id);
+                const qreal chord = ProportionalHandles::chord(static_cast<QPointF>(spline->GetP1()),
+                                                               static_cast<QPointF>(spline->GetP4()));
+                changes.append({id, ProportionalHandles::attrRefChord(), QString(), QString::number(chord)});
+            }
+            else if (type == QLatin1String("pathInteractive"))
+            {
+                if (not element.attribute(ProportionalHandles::attrRefChords()).isEmpty())
+                {
+                    continue;
+                }
+                bool numbers = true;
+                const QDomNodeList points = element.elementsByTagName(QStringLiteral("pathPoint"));
+                for (int k = 0; k < points.size(); ++k)
+                {
+                    const QDomElement point = points.at(k).toElement();
+                    numbers = numbers && ProportionalHandles::isNumber(point.attribute(QStringLiteral("length1")))
+                              && ProportionalHandles::isNumber(point.attribute(QStringLiteral("length2")));
+                }
+                if (not numbers)
+                {
+                    ++skipped;
+                    continue;
+                }
+                const QSharedPointer<VSplinePath> path = pattern->GeometricObject<VSplinePath>(id);
+                QVector<qreal> chords;
+                for (int k = 0; k + 1 < path->CountPoints(); ++k)
+                {
+                    chords.append(ProportionalHandles::chord(static_cast<QPointF>(path->at(k).P()),
+                                                             static_cast<QPointF>(path->at(k + 1).P())));
+                }
+                changes.append({id, ProportionalHandles::attrRefChords(), QString(),
+                                ProportionalHandles::formatList(chords)});
+            }
+        }
+        catch (const VException &)
+        {
+            ++skipped;
+        }
+    }
+
+    if (not changes.isEmpty())
+    {
+        auto *cmd = new SetElementAttributes(doc, changes, tr("make curve handles proportional"));
+        connect(cmd, &VUndoCommand::NeedLiteParsing, doc, &VPattern::LiteParseTree);
+        qApp->getUndoStack()->push(cmd);
+    }
+
+    QString message = tr("%n curve(s) now have proportional handles.", "", changes.size());
+    if (skipped > 0)
+    {
+        message += QLatin1Char('\n') + tr("%n curve(s) have handles given by a formula and were left as they are.", "",
+                                          skipped);
+    }
+    QMessageBox::information(this, tr("Proportional Handles"), message);
 }

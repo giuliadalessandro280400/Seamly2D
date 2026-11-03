@@ -318,3 +318,47 @@ int SetPieceNodeAttribute::id() const
 {
     return static_cast<int>(UndoCommand::SetPieceNodeAttribute);
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+SetElementAttributes::SetElementAttributes(VAbstractPattern *doc, const QVector<Change> &changes, const QString &text,
+                                           QUndoCommand *parent)
+    : VUndoCommand(QDomElement(), doc, parent)
+    , m_changes(changes)
+{
+    setText(text);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void SetElementAttributes::apply(bool forward)
+{
+    for (const Change &change : m_changes)
+    {
+        QDomElement element = doc->elementById(change.id);
+        if (element.isNull())
+        {
+            continue;
+        }
+        const QString value = forward ? change.newValue : change.oldValue;
+        if (value.isEmpty())
+        {
+            element.removeAttribute(change.attribute);
+        }
+        else
+        {
+            element.setAttribute(change.attribute, value);
+        }
+    }
+    emit NeedLiteParsing(Document::LiteParse);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void SetElementAttributes::undo()
+{
+    apply(false);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void SetElementAttributes::redo()
+{
+    apply(true);
+}
