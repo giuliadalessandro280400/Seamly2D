@@ -48,10 +48,12 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with Valentina.  If not, see <http://www.gnu.org/licenses/>.
+
 //-----------------------------------------------------------------------------
 
 // Seamly application headers
 #include "mainwindow.h"
+#include <QMouseEvent>
 #include "ui_mainwindow.h"
 
 #include "options.h"
@@ -174,6 +176,37 @@ const QString strCtrl      = QStringLiteral("Ctrl");
 /// This is the constructor for the Mainwindow class.
 ///
 /// @param parent parent widget.
+
+namespace
+{
+/**
+ * @brief The KeepMenuOpenFilter class lets the user tick several entries of a menu: a click on an entry that can be
+ * ticked toggles it and the menu stays open (a click outside closes it).
+ */
+class KeepMenuOpenFilter : public QObject
+{
+public:
+    explicit KeepMenuOpenFilter(QObject *parent) : QObject(parent) {}
+
+protected:
+    virtual bool eventFilter(QObject *watched, QEvent *event) override
+    {
+        if (event->type() == QEvent::MouseButtonRelease)
+        {
+            if (auto *menu = qobject_cast<QMenu *>(watched))
+            {
+                QAction *action = menu->actionAt(static_cast<QMouseEvent *>(event)->position().toPoint());
+                if (action != nullptr && action->isCheckable() && action->isEnabled())
+                {
+                    action->trigger();
+                    return true;
+                }
+            }
+        }
+        return QObject::eventFilter(watched, event);
+    }
+};
+} // namespace
 
 MainWindow::MainWindow(QWidget *parent)
     : MainWindowsNoGUI(parent)
@@ -2548,6 +2581,7 @@ void MainWindow::initializeStatusToolBar()
 
         // The arrow next to the button chooses the sizes to show
         m_allSizesMenu = new QMenu(m_allSizesButton);
+        m_allSizesMenu->installEventFilter(new KeepMenuOpenFilter(m_allSizesMenu));
         m_allSizesButton->setMenu(m_allSizesMenu);
         m_allSizesButton->setPopupMode(QToolButton::MenuButtonPopup);
         connect(m_allSizesMenu, &QMenu::aboutToShow, this, &MainWindow::rebuildAllSizesMenu);
@@ -9186,6 +9220,7 @@ void MainWindow::startSeamCheck()
     QMessageBox::information(this, tr("Check Seam"),
                              tr("First click the piece you want to check, then press this button again."));
 }
+
 
 //---------------------------------------------------------------------------------------------------------------------
 /**

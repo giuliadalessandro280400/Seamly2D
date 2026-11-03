@@ -76,6 +76,8 @@
 #include <QStandardPaths>
 #include <QStyleHints>
 #include <QMessageBox>
+#include <QStatusBar>
+#include <QMainWindow>
 #include <QThread>
 #include <QDateTime>
 #include <QIcon>
@@ -234,7 +236,20 @@ inline void noisyFailureMsgHandler(QtMsgType type, const QMessageLogContext &con
                 break;
         }
 
-        if (type == QtWarningMsg || type == QtCriticalMsg || type == QtFatalMsg)
+        // Warnings and errors do not stop the work with a window to close: they are written in the status bar
+        // (and in the log). The drawing shows what went wrong. Only fatal errors still open a window.
+        if ((type == QtWarningMsg || type == QtCriticalMsg) && Application2D::isGUIMode())
+        {
+            if (auto *window = qobject_cast<QMainWindow *>(qApp->getMainWindow()))
+            {
+                if (window->statusBar() != nullptr)
+                {
+                    window->statusBar()->showMessage(msg.section(QLatin1Char('\n'), 0, 0).simplified(), 10000);
+                }
+            }
+        }
+
+        if (type == QtFatalMsg)
         {
             if (Application2D::isGUIMode())
             {
