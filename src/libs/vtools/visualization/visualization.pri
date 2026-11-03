@@ -31,6 +31,7 @@ HEADERS += \
     $$PWD/line/operation/vistoolrotation.h \
     $$PWD/line/operation/vistoolscale.h \
     $$PWD/line/operation/vistoolalign.h \
+    $$PWD/line/operation/vistoolslashspread.h \
     $$PWD/path/vispath.h \
     $$PWD/path/vistoolarc.h \
     $$PWD/path/vistoolcutarc.h \
@@ -76,6 +77,7 @@ SOURCES += \
     $$PWD/line/operation/vistoolrotation.cpp \
     $$PWD/line/operation/vistoolscale.cpp \
     $$PWD/line/operation/vistoolalign.cpp \
+    $$PWD/line/operation/vistoolslashspread.cpp \
     $$PWD/path/vispath.cpp \
     $$PWD/path/vistoolarc.cpp \
     $$PWD/path/vistoolcutarc.cpp \

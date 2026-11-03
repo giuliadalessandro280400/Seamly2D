@@ -89,6 +89,7 @@
 #include "tools/dialogrotation.h"
 #include "tools/dialogscale.h"
 #include "tools/dialogalign.h"
+#include "tools/dialogslashspread.h"
 #include "tools/dialogmirrorbyline.h"
 #include "tools/dialogmirrorbyaxis.h"
 #include "tools/dialogmove.h"

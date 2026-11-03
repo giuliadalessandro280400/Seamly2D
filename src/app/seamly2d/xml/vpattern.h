@@ -250,6 +250,7 @@ private:
     void ParseToolRotation(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);
     void ParseToolScale(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);
     void ParseToolAlign(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);
+    void ParseToolSlashSpread(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);
     void ParseToolMirrorByLine(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);
     void ParseToolMirrorByAxis(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);
     void ParseToolMove(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse);

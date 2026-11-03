@@ -272,6 +272,13 @@
                           <xs:attribute name="sourceDirection" type="xs:unsignedInt"/>
                           <xs:attribute name="targetPoint" type="xs:unsignedInt"/>
                           <xs:attribute name="targetDirection" type="xs:unsignedInt"/>
+                          <xs:attribute name="hinge" type="xs:unsignedInt"/>
+                          <xs:attribute name="edgeStart" type="xs:unsignedInt"/>
+                          <xs:attribute name="edgeEnd" type="xs:unsignedInt"/>
+                          <xs:attribute name="slashes" type="xs:unsignedInt"/>
+                          <xs:attribute name="spread" type="xs:string"/>
+                          <xs:attribute name="spreadType" type="xs:string"/>
+                          <xs:attribute name="fixedSide" type="xs:string"/>
                           <xs:attribute name="suffix" type="xs:string"/>
                           <xs:attribute name="type" type="xs:string" use="required"/>
                           <xs:attribute name="p1Line" type="xs:unsignedInt"/>

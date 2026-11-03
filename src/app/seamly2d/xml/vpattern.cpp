@@ -3169,6 +3169,57 @@ void VPattern::ParseToolScale(VMainGraphicsScene *scene, QDomElement &domElement
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void VPattern::ParseToolSlashSpread(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse)
+{
+    SCASSERT(scene != nullptr)
+    Q_ASSERT_X(domElement.isNull() == false, Q_FUNC_INFO, "domElement is null");
+
+    try
+    {
+        quint32 id = NULL_ID;
+
+        ToolsCommonAttributes(domElement, id);
+        const quint32 hinge     = GetParametrUInt(domElement, VToolSlashSpread::AttrHinge, NULL_ID_STR);
+        const quint32 edgeStart = GetParametrUInt(domElement, VToolSlashSpread::AttrEdgeStart, NULL_ID_STR);
+        const quint32 edgeEnd   = GetParametrUInt(domElement, VToolSlashSpread::AttrEdgeEnd, NULL_ID_STR);
+        const int slashes = qMax(1, static_cast<int>(GetParametrUInt(domElement, VToolSlashSpread::AttrSlashes, "3")));
+        const QString spread = GetParametrString(domElement, VToolSlashSpread::AttrSpread, "0");
+        QString f = spread;//need for saving fixed formula;
+        const bool percent = GetParametrString(domElement, VToolSlashSpread::AttrSpreadType, "length")
+                             == QLatin1String("percent");
+        const SlashSpread::Fixed fixed =
+            SlashSpread::fixedFromString(GetParametrString(domElement, VToolSlashSpread::AttrFixed, "start"));
+        const QString suffix = GetParametrString(domElement, AttrSuffix, "");
+
+        QVector<SourceItem> source;
+        QVector<DestinationItem> destination;
+        VAbstractOperation::ExtractData(domElement, source, destination);
+
+        VToolSlashSpread::Create(id, hinge, edgeStart, edgeEnd, slashes, f, percent, fixed, suffix, source,
+                                 destination, scene, this, data, parse, Source::FromFile);
+        //Rewrite attribute formula. Need for situation when we have wrong formula.
+        if (f != spread)
+        {
+            SetAttribute(domElement, VToolSlashSpread::AttrSpread, f);
+            modified = true;
+            haveLiteChange();
+        }
+    }
+    catch (const VExceptionBadId &error)
+    {
+        VExceptionObjectError excep(tr("Error creating or updating operation of slash and spread"), domElement);
+        excep.AddMoreInformation(error.ErrorMessage());
+        throw excep;
+    }
+    catch (qmu::QmuParserError &error)
+    {
+        VExceptionObjectError excep(tr("Error creating or updating operation of slash and spread"), domElement);
+        excep.AddMoreInformation(QString("Message:     " + error.GetMsg() + "\n"+ "Expression:  " + error.GetExpr()));
+        throw excep;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void VPattern::ParseToolAlign(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse)
 {
     SCASSERT(scene != nullptr)
@@ -3618,7 +3669,8 @@ void VPattern::ParseOperationElement(VMainGraphicsScene *scene, QDomElement &dom
                                             << VToolMirrorByAxis::ToolType  /*2*/
                                             << VToolMove::ToolType            /*3*/
                                             << VToolScale::ToolType           /*4*/
-                                            << VToolAlign::ToolType;          /*5*/
+                                            << VToolAlign::ToolType           /*5*/
+                                            << VToolSlashSpread::ToolType;    /*6*/
 
     switch (opers.indexOf(type))
     {
@@ -3639,6 +3691,9 @@ void VPattern::ParseOperationElement(VMainGraphicsScene *scene, QDomElement &dom
             break;
         case 5: //VToolAlign::ToolType
             ParseToolAlign(scene, domElement, parse);
+            break;
+        case 6: //VToolSlashSpread::ToolType
+            ParseToolSlashSpread(scene, domElement, parse);
             break;
         default:
             VException e(tr("Unknown operation type '%1'.").arg(type));
@@ -4267,7 +4322,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 QRectF VPattern::ActiveDrawBoundingRect() const
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were used.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were used.");
 
     QRectF rect;
 
@@ -4333,6 +4388,7 @@ QRectF VPattern::ActiveDrawBoundingRect() const
                 case Tool::Rotation:
                 case Tool::Scale:
                 case Tool::Align:
+                case Tool::SlashSpread:
                 case Tool::MirrorByLine:
                 case Tool::MirrorByAxis:
                 case Tool::Move:

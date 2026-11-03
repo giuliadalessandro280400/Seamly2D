@@ -37,6 +37,7 @@ HEADERS += \
     $$PWD/tools/dialogrotation.h \
     $$PWD/tools/dialogscale.h \
     $$PWD/tools/dialogalign.h \
+    $$PWD/tools/dialogslashspread.h \
     $$PWD/tools/dialogmirrorbyline.h \
     $$PWD/tools/dialogmirrorbyaxis.h \
     $$PWD/tools/dialogmove.h \
@@ -86,6 +87,7 @@ SOURCES += \
     $$PWD/tools/dialogrotation.cpp \
     $$PWD/tools/dialogscale.cpp \
     $$PWD/tools/dialogalign.cpp \
+    $$PWD/tools/dialogslashspread.cpp \
     $$PWD/tools/dialogmirrorbyline.cpp \
     $$PWD/tools/dialogmirrorbyaxis.cpp \
     $$PWD/tools/dialogmove.cpp \
@@ -134,6 +136,7 @@ FORMS += \
     $$PWD/tools/dialogrotation.ui \
     $$PWD/tools/dialogscale.ui \
     $$PWD/tools/dialogalign.ui \
+    $$PWD/tools/dialogslashspread.ui \
     $$PWD/tools/dialogmirrorbyline.ui \
     $$PWD/tools/dialogmirrorbyaxis.ui \
     $$PWD/tools/dialogmove.ui \

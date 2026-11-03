@@ -1679,6 +1679,26 @@ void MainWindow::handleScaleTool(bool checked)
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void MainWindow::handleSlashSpreadTool(bool checked)
+{
+    ToolSelectOperationObjects();
+    const QString tooltip = tr("<b>Tool::Operations - Slash and Spread:</b> Select the objects of the part to open -"
+                               " Hold <b>%1</b> for multiple selection, "
+                               "Press <b>ENTER</b> to confirm selection")
+                               .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
+                                                                strCtrl.toUtf8().constData()));
+    SetToolButtonWithApply<DialogSlashSpread>
+    (
+        checked,
+        Tool::SlashSpread,
+        ":/cursor/slash_spread_cursor.png",
+        tooltip,
+        &MainWindow::ClosedDrawDialogWithApply<VToolSlashSpread>,
+        &MainWindow::ApplyDrawDialog<VToolSlashSpread>
+    );
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handleAlignTool(bool checked)
 {
     ToolSelectOperationObjects();
@@ -3198,7 +3218,7 @@ void MainWindow::initializeToolButtons()
     connect(ui->arrowPointer_ToolButton, &QToolButton::clicked, this, &MainWindow::handleArrowTool);
 
     // This check helps to find missed tools
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Check if all tools were connected.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Check if all tools were connected.");
 
     connect(ui->pointAtDistanceAngle_ToolButton, &QToolButton::clicked,
             this, &MainWindow::handlePointAtDistanceAngleTool);
@@ -3244,6 +3264,7 @@ void MainWindow::initializeToolButtons()
     connect(ui->rotation_ToolButton,       &QToolButton::clicked, this, &MainWindow::handleRotationTool);
     connect(ui->scale_ToolButton,          &QToolButton::clicked, this, &MainWindow::handleScaleTool);
     connect(ui->align_ToolButton,          &QToolButton::clicked, this, &MainWindow::handleAlignTool);
+    connect(ui->slashSpread_ToolButton,    &QToolButton::clicked, this, &MainWindow::handleSlashSpreadTool);
     connect(ui->mirrorByLine_ToolButton,   &QToolButton::clicked, this, &MainWindow::handleMirrorByLineTool);
     connect(ui->mirrorByAxis_ToolButton,   &QToolButton::clicked, this, &MainWindow::handleMirrorByAxisTool);
     connect(ui->move_ToolButton,           &QToolButton::clicked, this, &MainWindow::handleMoveTool);
@@ -3542,6 +3563,7 @@ void MainWindow::handleOperationsMenu()
     QAction *action_Move         = menu.addAction(QIcon(":/toolicon/32x32/move.png"),           tr("Move") + "\t" + tr("Alt+M"));
     QAction *action_Scale        = menu.addAction(QIcon(":/toolicon/32x32/scale.png"),          tr("Scale") + "\tS, C");
     QAction *action_Align        = menu.addAction(QIcon(":/toolicon/32x32/align.png"),          tr("Align") + "\tA, G");
+    QAction *action_SlashSpread  = menu.addAction(QIcon(":/toolicon/32x32/slash_spread.png"),   tr("Slash and Spread"));
     QAction *action_TrueDarts    = menu.addAction(QIcon(":/toolicon/32x32/true_darts.png"),     tr("True Darts") + "\tT, D");
     QAction *action_ExportDraftBlocks = menu.addAction(QIcon(":/toolicon/32x32/export.png"),    tr("Export Draft Blocks") + "\tE, D");
 
@@ -3592,6 +3614,12 @@ void MainWindow::handleOperationsMenu()
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         ui->align_ToolButton->setChecked(true);
         handleAlignTool(true);
+    }
+    else if (selectedAction == action_SlashSpread)
+    {
+        ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
+        ui->slashSpread_ToolButton->setChecked(true);
+        handleSlashSpreadTool(true);
     }
     else if (selectedAction == action_TrueDarts)
     {
@@ -3755,7 +3783,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 void MainWindow::CancelTool()
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were handled.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were handled.");
 
     qCDebug(vMainWindow, "Canceling tool.");
     dialogTool.clear();
@@ -3909,6 +3937,9 @@ void MainWindow::CancelTool()
             break;
         case Tool::Align:
             ui->align_ToolButton->setChecked(false);
+            break;
+        case Tool::SlashSpread:
+            ui->slashSpread_ToolButton->setChecked(false);
             break;
         case Tool::MirrorByLine:
             ui->mirrorByLine_ToolButton->setChecked(false);
@@ -5675,7 +5706,7 @@ void MainWindow::setToolsEnabled(bool enable)
     }
 
     // This check helps to find missed tools
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were handled.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were handled.");
 
     //Toolbox Drafting Tools
     //Points
@@ -5721,6 +5752,7 @@ void MainWindow::setToolsEnabled(bool enable)
     ui->rotation_ToolButton->setEnabled(draftTools);
     ui->scale_ToolButton->setEnabled(draftTools);
     ui->align_ToolButton->setEnabled(draftTools);
+    ui->slashSpread_ToolButton->setEnabled(draftTools);
     ui->mirrorByLine_ToolButton->setEnabled(draftTools);
     ui->mirrorByAxis_ToolButton->setEnabled(draftTools);
     ui->move_ToolButton->setEnabled(draftTools);
@@ -6206,7 +6238,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 void MainWindow::LastUsedTool()
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were handled.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were handled.");
 
     if (currentTool == lastUsedTool)
     {
@@ -6383,6 +6415,10 @@ void MainWindow::LastUsedTool()
         case Tool::Align:
             ui->align_ToolButton->setChecked(true);
             handleAlignTool(true);
+            break;
+        case Tool::SlashSpread:
+            ui->slashSpread_ToolButton->setChecked(true);
+            handleSlashSpreadTool(true);
             break;
         case Tool::MirrorByLine:
             ui->mirrorByLine_ToolButton->setChecked(true);

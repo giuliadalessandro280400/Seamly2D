@@ -63,6 +63,8 @@ HEADERS += \
     $$PWD/drawTools/operation/vtoolrotation.h \
     $$PWD/drawTools/operation/vtoolscale.h \
     $$PWD/drawTools/operation/vtoolalign.h \
+    $$PWD/drawTools/operation/vtoolslashspread.h \
+    $$PWD/drawTools/operation/slashspread.h \
     $$PWD/drawTools/operation/vabstractoperation.h \
     $$PWD/drawTools/operation/vtoolmove.h \
     $$PWD/drawTools/toolcurve/vtoolellipticalarc.h \
@@ -124,6 +126,8 @@ SOURCES += \
     $$PWD/drawTools/operation/vtoolrotation.cpp \
     $$PWD/drawTools/operation/vtoolscale.cpp \
     $$PWD/drawTools/operation/vtoolalign.cpp \
+    $$PWD/drawTools/operation/vtoolslashspread.cpp \
+    $$PWD/drawTools/operation/slashspread.cpp \
     $$PWD/piece_node_handle.cpp \
     $$PWD/piece_curve_edit.cpp \
     $$PWD/seam_check.cpp \

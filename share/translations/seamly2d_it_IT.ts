@@ -4095,6 +4095,10 @@ Volete scaricarla?</translation>
         <source>%1 - Align</source>
         <translation>%1 - Allinea</translation>
     </message>
+    <message>
+        <source>%1 - Slash and Spread</source>
+        <translation>%1 - Taglia e apri</translation>
+    </message>
 </context>
 <context>
     <name>HistoryDialog</name>
@@ -4317,6 +4321,10 @@ Volete scaricarla?</translation>
     <message>
         <source>Align %1 to %2, line %1_%3 along %2_%4. Suffix %5</source>
         <translation>Allinea %1 su %2, linea %1_%3 lungo %2_%4. Suffisso %5</translation>
+    </message>
+    <message>
+        <source>Slash and spread around %1, edge %2_%3, %4 slashes, spread %5. Suffix %6</source>
+        <translation>Taglia e apri attorno a %1, bordo %2_%3, %4 tagli, apertura %5. Suffisso %6</translation>
     </message>
 </context>
 <context>
@@ -7276,6 +7284,18 @@ Continuare?</translation>
     <message>
         <source>To:</source>
         <translation>A:</translation>
+    </message>
+    <message>
+        <source>Slash and Spread: open the selected objects around a hinge point</source>
+        <translation>Taglia e apri: apre gli oggetti selezionati attorno a un punto cerniera</translation>
+    </message>
+    <message>
+        <source>Slash and Spread</source>
+        <translation>Taglia e apri</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Tool::Operations - Slash and Spread:&lt;/b&gt; Select the objects of the part to open - Hold &lt;b&gt;%1&lt;/b&gt; for multiple selection, Press &lt;b&gt;ENTER&lt;/b&gt; to confirm selection</source>
+        <translation>&lt;b&gt;Strumento::Operazioni - Taglia e apri:&lt;/b&gt; Seleziona gli oggetti della parte da aprire - Tieni premuto &lt;b&gt;%1&lt;/b&gt; per la selezione multipla, premi &lt;b&gt;INVIO&lt;/b&gt; per confermare la selezione</translation>
     </message>
 </context>
 <context>
@@ -13358,6 +13378,10 @@ caricare in SeamlyME come di consueto.
         <source>Error creating or updating operation of aligning</source>
         <translation>Errore nella creazione o nell'aggiornamento dell'operazione di allineamento</translation>
     </message>
+    <message>
+        <source>Error creating or updating operation of slash and spread</source>
+        <translation>Errore nella creazione o nell'aggiornamento dell'operazione taglia e apri</translation>
+    </message>
 </context>
 <context>
     <name>VPoster</name>
@@ -14184,6 +14208,26 @@ caricare in SeamlyME come di consueto.
     <message>
         <source>Extra angle:</source>
         <translation>Angolo aggiuntivo:</translation>
+    </message>
+    <message>
+        <source>Slash and Spread</source>
+        <translation>Taglia e apri</translation>
+    </message>
+    <message>
+        <source>Hinge point:</source>
+        <translation>Punto cerniera:</translation>
+    </message>
+    <message>
+        <source>Edge to open, first point:</source>
+        <translation>Bordo da aprire, primo punto:</translation>
+    </message>
+    <message>
+        <source>Edge to open, last point:</source>
+        <translation>Bordo da aprire, ultimo punto:</translation>
+    </message>
+    <message>
+        <source>Spread:</source>
+        <translation>Apertura:</translation>
     </message>
 </context>
 <context>
@@ -16195,6 +16239,135 @@ di controllo</translation>
     <message>
         <source>Walked:</source>
         <translation>Percorso:</translation>
+    </message>
+</context>
+<context>
+    <name>DialogSlashSpread</name>
+    <message>
+        <source>Slash and Spread</source>
+        <translation>Taglia e apri</translation>
+    </message>
+    <message>
+        <source>Selection</source>
+        <translation>Selezione</translation>
+    </message>
+    <message>
+        <source>Hinge point:</source>
+        <translation>Punto cerniera:</translation>
+    </message>
+    <message>
+        <source>Edge to open, first point:</source>
+        <translation>Bordo da aprire, primo punto:</translation>
+    </message>
+    <message>
+        <source>Edge to open, last point:</source>
+        <translation>Bordo da aprire, ultimo punto:</translation>
+    </message>
+    <message>
+        <source>Fixed part:</source>
+        <translation>Parte ferma:</translation>
+    </message>
+    <message>
+        <source>Suffix:</source>
+        <translation>Suffisso:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation>Geometria</translation>
+    </message>
+    <message>
+        <source>Spread:</source>
+        <translation>Apertura:</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation>Valore</translation>
+    </message>
+    <message>
+        <source>Formula wizard</source>
+        <translation>Formula magica</translation>
+    </message>
+    <message>
+        <source>The slashes go from the hinge to the edge, evenly spaced along it. Each one opens so that the edge gets longer by the spread; curves that are cut are redrawn smooth.</source>
+        <translation>I tagli vanno dalla cerniera al bordo, distribuiti in modo uniforme lungo il bordo. Ognuno si apre in modo che il bordo si allunghi dell'apertura; le curve tagliate vengono ridisegnate morbide.</translation>
+    </message>
+    <message>
+        <source>The part at the first point of the edge</source>
+        <translation>La parte al primo punto del bordo</translation>
+    </message>
+    <message>
+        <source>The part at the last point of the edge</source>
+        <translation>La parte all'ultimo punto del bordo</translation>
+    </message>
+    <message>
+        <source>The middle: both sides open</source>
+        <translation>Il centro: si aprono tutte e due le parti</translation>
+    </message>
+    <message>
+        <source>Length added to the edge</source>
+        <translation>Lunghezza aggiunta al bordo</translation>
+    </message>
+    <message>
+        <source>Percentage of the edge</source>
+        <translation>Percentuale del bordo</translation>
+    </message>
+    <message>
+        <source>Slashes:</source>
+        <translation>Tagli:</translation>
+    </message>
+    <message>
+        <source>Spread measured as:</source>
+        <translation>Apertura misurata come:</translation>
+    </message>
+    <message>
+        <source>Select the hinge point (where the slashes end)</source>
+        <translation>Seleziona il punto cerniera (dove finiscono i tagli)</translation>
+    </message>
+    <message>
+        <source>Select the first point of the edge to open</source>
+        <translation>Seleziona il primo punto del bordo da aprire</translation>
+    </message>
+    <message>
+        <source>Select a point different from the hinge</source>
+        <translation>Seleziona un punto diverso dalla cerniera</translation>
+    </message>
+    <message>
+        <source>Select the last point of the edge to open</source>
+        <translation>Seleziona l'ultimo punto del bordo da aprire</translation>
+    </message>
+    <message>
+        <source>Select a point different from the hinge and the first point</source>
+        <translation>Seleziona un punto diverso dalla cerniera e dal primo punto</translation>
+    </message>
+    <message>
+        <source>Edit spread</source>
+        <translation>Modifica apertura</translation>
+    </message>
+</context>
+<context>
+    <name>VisToolSlashSpread</name>
+    <message>
+        <source>Slash and spread: %1 slashes, the edge gets %2 longer</source>
+        <translation>Taglia e apri: %1 tagli, il bordo si allunga di %2</translation>
+    </message>
+</context>
+<context>
+    <name>VToolSlashSpread</name>
+    <message>
+        <source>Hinge</source>
+        <translation>Cerniera</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation>Bordo</translation>
+    </message>
+    <message>
+        <source>Slashes</source>
+        <translation>Tagli</translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation>Apertura</translation>
     </message>
 </context>
 </TS>

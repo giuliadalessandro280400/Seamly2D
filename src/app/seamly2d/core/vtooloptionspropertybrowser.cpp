@@ -117,7 +117,7 @@ void VToolOptionsPropertyBrowser::clearPropertyBrowser()
 void VToolOptionsPropertyBrowser::showItemOptions(QGraphicsItem *item)
 {
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were used in switch.");
 
     switch (item->type())
     {
@@ -224,6 +224,9 @@ void VToolOptionsPropertyBrowser::showItemOptions(QGraphicsItem *item)
         case VToolAlign::Type:
             showOptionsToolAlign(item);
             break;
+        case VToolSlashSpread::Type:
+            showOptionsToolSlashSpread(item);
+            break;
         case VToolMirrorByLine::Type:
             showOptionsToolMirrorByLine(item);
             break;
@@ -250,7 +253,7 @@ void VToolOptionsPropertyBrowser::updateOptions()
     }
 
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were used in switch.");
 
     switch (currentItem->type())
     {
@@ -354,6 +357,9 @@ void VToolOptionsPropertyBrowser::updateOptions()
         case VToolAlign::Type:
             updateOptionsToolAlign();
             break;
+        case VToolSlashSpread::Type:
+            updateOptionsToolSlashSpread();
+            break;
         case VToolMirrorByLine::Type:
             updateOptionsToolMirrorByLine();
             break;
@@ -401,7 +407,7 @@ void VToolOptionsPropertyBrowser::userChangedData(VPE::VProperty *property)
     }
 
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were used in switch.");
 
     switch (currentItem->type())
     {
@@ -500,6 +506,9 @@ void VToolOptionsPropertyBrowser::userChangedData(VPE::VProperty *property)
             break;
         case VToolAlign::Type:
             changeDataToolAlign(prop);
+            break;
+        case VToolSlashSpread::Type:
+            changeDataToolSlashSpread(prop);
             break;
         case VToolMirrorByLine::Type:
             changeDataToolMirrorByLine(prop);
@@ -854,6 +863,7 @@ QMap<QString, quint32> VToolOptionsPropertyBrowser::getObjectList(Tool *tool, GO
                 case 48:    //Tool::Move
                 case static_cast<int>(::Tool::Scale):
                 case static_cast<int>(::Tool::Align):
+                case static_cast<int>(::Tool::SlashSpread):
                 {
                     QVector<quint32> list = qApp->getCurrentDocument()->getOpItems(recId, QStringLiteral("destination"));
                     for (qint32 j = 0; j < list.size(); ++j)
@@ -4499,6 +4509,83 @@ QStringList VToolOptionsPropertyBrowser::propertiesList() const
                                             << VToolAlign::AttrSourcePoint        /* 67 */
                                             << VToolAlign::AttrSourceDirection    /* 68 */
                                             << VToolAlign::AttrTargetPoint        /* 69 */
-                                            << VToolAlign::AttrTargetDirection;   /* 70 */
+                                            << VToolAlign::AttrTargetDirection    /* 70 */
+                                            << VToolSlashSpread::AttrHinge        /* 71 */
+                                            << VToolSlashSpread::AttrEdgeStart    /* 72 */
+                                            << VToolSlashSpread::AttrEdgeEnd      /* 73 */
+                                            << VToolSlashSpread::AttrSpread;      /* 74 */
     return attr;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::changeDataToolSlashSpread(VPE::VProperty *property)
+{
+    SCASSERT(property != nullptr)
+
+    QVariant value = property->data(VPE::VProperty::DPC_Data, Qt::DisplayRole);
+    const QString id = propertyToId[property];
+
+    VToolSlashSpread *tool = qgraphicsitem_cast<VToolSlashSpread *>(currentItem);
+    SCASSERT(tool != nullptr)
+    switch (propertiesList().indexOf(id))
+    {
+        case 38: // AttrSuffix
+            setOperationSuffix<VToolSlashSpread>(value.toString());
+            break;
+        case 71:
+            tool->setHingeId(value.toInt());
+            break;
+        case 72:
+            tool->setEdgeStartId(value.toInt());
+            break;
+        case 73:
+            tool->setEdgeEndId(value.toInt());
+            break;
+        case 74:
+            tool->setFormulaSpread(value.value<VFormula>());
+            break;
+        default:
+            qWarning() << "Unknown property type. id = "<<id;
+            break;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::showOptionsToolSlashSpread(QGraphicsItem *item)
+{
+    VToolSlashSpread *tool = qgraphicsitem_cast<VToolSlashSpread *>(item);
+    tool->ShowVisualization(true);
+    formView->setTitle(tr("Slash and Spread"));
+
+    addPropertyLabel(tr("Selection"), AttrName);
+    addObjectProperty(tool, tool->pointName(tool->getHingeId()), tr("Hinge point:"),
+                      VToolSlashSpread::AttrHinge, GOType::Point);
+    addObjectProperty(tool, tool->pointName(tool->getEdgeStartId()), tr("Edge to open, first point:"),
+                      VToolSlashSpread::AttrEdgeStart, GOType::Point);
+    addObjectProperty(tool, tool->pointName(tool->getEdgeEndId()), tr("Edge to open, last point:"),
+                      VToolSlashSpread::AttrEdgeEnd, GOType::Point);
+    addPropertyOperationSuffix(tool, tr("Suffix:"));
+
+    addPropertyLabel(tr("Geometry"), AttrName);
+    addPropertyFormula(tr("Spread:"), tool->getFormulaSpread(), VToolSlashSpread::AttrSpread);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::updateOptionsToolSlashSpread()
+{
+    VToolSlashSpread *tool = qgraphicsitem_cast<VToolSlashSpread *>(currentItem);
+    idToProperty[AttrSuffix]->setValue(tool->Suffix());
+
+    QVariant valueSpread;
+    valueSpread.setValue(tool->getFormulaSpread());
+    idToProperty[VToolSlashSpread::AttrSpread]->setValue(valueSpread);
+
+    const QMap<QString, quint32> points = getObjectList(tool, GOType::Point);
+    const QList<QPair<QString, quint32>> ids = {{VToolSlashSpread::AttrHinge, tool->getHingeId()},
+                                                {VToolSlashSpread::AttrEdgeStart, tool->getEdgeStartId()},
+                                                {VToolSlashSpread::AttrEdgeEnd, tool->getEdgeEndId()}};
+    for (const auto &pair : ids)
+    {
+        idToProperty[pair.first]->setValue(VPE::VObjectProperty::indexOfObject(points, tool->pointName(pair.second)));
+    }
 }

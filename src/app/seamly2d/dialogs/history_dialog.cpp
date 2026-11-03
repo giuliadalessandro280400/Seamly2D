@@ -65,6 +65,7 @@
 #include "../vtools/tools/vabstracttool.h"
 #include "../vtools/tools/drawTools/operation/vabstractoperation.h"
 #include "../vtools/tools/drawTools/operation/vtoolalign.h"
+#include "../vtools/tools/drawTools/operation/vtoolslashspread.h"
 #include "../vtools/tools/drawTools/toolpoint/toolsinglepoint/toolcut/vtoolcutspline.h"
 #include "../vtools/tools/drawTools/toolpoint/toolsinglepoint/toolcut/vtoolcutsplinepath.h"
 #include "../vtools/tools/drawTools/toolpoint/toolsinglepoint/toolcut/vtoolcutarc.h"
@@ -351,7 +352,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 RowData HistoryDialog::record(const VToolRecord &tool)
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 56, "Not all tools were used in history.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were used in history.");
 
     RowData rowData;
     const quint32 &toolId = tool.getId();
@@ -673,6 +674,20 @@ RowData HistoryDialog::record(const VToolRecord &tool)
                                 .arg(getName(attrUInt(domElement, VToolAlign::AttrTargetPoint)))
                                 .arg(getName(attrUInt(domElement, VToolAlign::AttrSourceDirection)))
                                 .arg(getName(attrUInt(domElement, VToolAlign::AttrTargetDirection)), suffix);
+                break;
+            }
+
+            case Tool::SlashSpread:
+            {
+                const QString suffix = m_doc->GetParametrString(domElement, AttrSuffix, QString());
+                rowData.icon = ":/toolicon/32x32/slash_spread.png";
+                rowData.name = getDestinationNames(domElement, suffix);
+                rowData.tool = tr("Slash and spread around %1, edge %2_%3, %4 slashes, spread %5. Suffix %6")
+                                .arg(getName(attrUInt(domElement, VToolSlashSpread::AttrHinge)))
+                                .arg(getName(attrUInt(domElement, VToolSlashSpread::AttrEdgeStart)))
+                                .arg(getName(attrUInt(domElement, VToolSlashSpread::AttrEdgeEnd)))
+                                .arg(m_doc->GetParametrString(domElement, VToolSlashSpread::AttrSlashes, "3"))
+                                .arg(m_doc->GetParametrString(domElement, VToolSlashSpread::AttrSpread, "0"), suffix);
                 break;
             }
 
