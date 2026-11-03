@@ -7257,6 +7257,26 @@ Continuare?</translation>
             <numerusform>%n curve hanno le maniglie date da una formula e sono rimaste com'erano.</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Size Range of the Pattern...</source>
+        <translation>Intervallo di taglie del modello...</translation>
+    </message>
+    <message>
+        <source>Size Range</source>
+        <translation>Intervallo di taglie</translation>
+    </message>
+    <message>
+        <source>The sizes of this pattern. Only these sizes are offered and shown together; the range is saved in the pattern.</source>
+        <translation>Le taglie di questo modello. Vengono proposte e mostrate insieme solo queste; l'intervallo è salvato nel modello.</translation>
+    </message>
+    <message>
+        <source>From:</source>
+        <translation>Da:</translation>
+    </message>
+    <message>
+        <source>To:</source>
+        <translation>A:</translation>
+    </message>
 </context>
 <context>
     <name>MainWindowsNoGUI</name>

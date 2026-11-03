@@ -54,6 +54,9 @@
 // Seamly application headers
 #include "mainwindow.h"
 #include <QMouseEvent>
+#include <QVBoxLayout>
+#include <QFormLayout>
+#include <QDialogButtonBox>
 #include "ui_mainwindow.h"
 
 #include "options.h"
@@ -9273,6 +9276,58 @@ void MainWindow::rebuildAllSizesMenu()
             setHiddenSizes(hidden);
         });
     }
+
+    QAction *range = m_allSizesMenu->addAction(tr("Size Range of the Pattern..."));
+    connect(range, &QAction::triggered, this, [this]()
+    {
+        // all the sizes Seamly knows, in the units of the pattern
+        QMap<GSizes, bool> everything;
+        everything.insert(GSizes::ALL, true);
+        const QStringList allTexts = MeasurementVariable::ListSizes(everything, qApp->patternUnit());
+        const QStringList current = MeasurementVariable::ListSizes(doc->GetGradationSizes(), qApp->patternUnit());
+
+        QDialog dialog(this);
+        dialog.setWindowTitle(tr("Size Range"));
+        auto *layout = new QVBoxLayout(&dialog);
+        auto *text = new QLabel(tr("The sizes of this pattern. Only these sizes are offered and shown together; "
+                                   "the range is saved in the pattern."), &dialog);
+        text->setWordWrap(true);
+        layout->addWidget(text);
+        auto *form = new QFormLayout();
+        auto *from = new QComboBox(&dialog);
+        auto *to = new QComboBox(&dialog);
+        from->addItems(allTexts);
+        to->addItems(allTexts);
+        from->setCurrentIndex(qMax(0, allTexts.indexOf(current.isEmpty() ? allTexts.first() : current.first())));
+        to->setCurrentIndex(qMax(0, allTexts.indexOf(current.isEmpty() ? allTexts.last() : current.last())));
+        form->addRow(tr("From:"), from);
+        form->addRow(tr("To:"), to);
+        layout->addLayout(form);
+        auto *buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+        connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+        connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+        layout->addWidget(buttons);
+        if (dialog.exec() != QDialog::Accepted)
+        {
+            return;
+        }
+
+        const int first = qMin(from->currentIndex(), to->currentIndex());
+        const int last = qMax(from->currentIndex(), to->currentIndex());
+        QMap<GSizes, bool> sizes;
+        sizes.insert(GSizes::ALL, false);
+        for (int i = 0; i < allTexts.size(); ++i)
+        {
+            sizes.insert(static_cast<GSizes>(22 + 2 * i), i >= first && i <= last);
+        }
+        doc->SetGradationSizes(sizes);
+        UpdateSizesList(MeasurementVariable::ListSizes(doc->GetGradationSizes(), qApp->patternUnit()));
+        emit doc->patternChanged(false);
+        if (not m_allSizesButton.isNull() && m_allSizesButton->isChecked())
+        {
+            scheduleAllSizesUpdate();
+        }
+    });
 
     m_allSizesMenu->addSeparator();
     QAction *proportional = m_allSizesMenu->addAction(tr("Make the Handles of All Curves Proportional..."));
