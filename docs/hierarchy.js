@@ -9,6 +9,7 @@ var hierarchy =
     ] ],
     [ "Base64", "d8/d3a/classBase64.html", null ],
     [ "BitOps", "da/d87/classBitOps.html", null ],
+    [ "SetElementAttributes::Change", "d4/d37/structSetElementAttributes_1_1Change.html", null ],
     [ "Utils::CheckableMessageBoxPrivate", "dc/d2a/classUtils_1_1CheckableMessageBoxPrivate.html", null ],
     [ "CMDynamicBuffer", "df/d1b/structCMDynamicBuffer.html", null ],
     [ "ContentHandler", "d8/de7/classContentHandler.html", [
@@ -784,6 +785,7 @@ var hierarchy =
         [ "SavePieceOptions", "d9/d20/classSavePieceOptions.html", null ],
         [ "SavePiecePathOptions", "df/d94/classSavePiecePathOptions.html", null ],
         [ "SaveToolOptions", "d6/d4d/classSaveToolOptions.html", null ],
+        [ "SetElementAttributes", "d0/d8e/classSetElementAttributes.html", null ],
         [ "SetPieceColor", "dd/d52/classSetPieceColor.html", null ],
         [ "SetPieceNodeAttribute", "df/d1e/classSetPieceNodeAttribute.html", null ],
         [ "ShowDoublePointName", "d2/dbe/classShowDoublePointName.html", null ],

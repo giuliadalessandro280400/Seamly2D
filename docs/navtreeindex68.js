@@ -1,9 +1,16 @@
 var NAVTREEINDEX68 =
 {
-"d4/d0f/classVToolPointOfIntersectionArcs.html#ae3f4a1620eef7e7f1fbe8acd3daba7a6":[3,0,781,6],
-"d4/d0f/classVToolPointOfIntersectionArcs.html#ae786052f167da9bf44cacf6c17e6dfb2":[3,0,781,9],
-"d4/d0f/classVToolPointOfIntersectionArcs.html#aec09200d6147cacf17442d33c234cc67":[3,0,781,14],
-"d4/d0f/classVToolPointOfIntersectionArcs.html#aed4df03c0f9a27d8dee72f39c03ebfe8":[3,0,781,5],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#aae057a03a30bc96ee57a06940877c263":[3,0,782,3],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#ab8ac1319a3e00246d08151d84cca582e":[3,0,782,13],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#ac4d6252568fc4df0541c39623c8dabbc":[3,0,782,0],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#ac6238c132941479d41c3e7fb810bbe0a":[3,0,782,19],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#ac7f032bcbc9901341737135a334ed946":[3,0,782,16],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#ad3a4fa986504d621164b140e6d8bf4b5":[3,0,782,18],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#adad4d7fc7fdab5b16edaa90c012aca86":[3,0,782,8],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#ae3f4a1620eef7e7f1fbe8acd3daba7a6":[3,0,782,6],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#ae786052f167da9bf44cacf6c17e6dfb2":[3,0,782,9],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#aec09200d6147cacf17442d33c234cc67":[3,0,782,14],
+"d4/d0f/classVToolPointOfIntersectionArcs.html#aed4df03c0f9a27d8dee72f39c03ebfe8":[3,0,782,5],
 "d4/d10/classDeleteDraftBlock.html":[3,0,94],
 "d4/d10/classDeleteDraftBlock.html#a05b1fa53ba1508e4225d43865f99eb20":[3,0,94,3],
 "d4/d10/classDeleteDraftBlock.html#a18d4b6c3b8fc00c7b1782997eadb5d60":[3,0,94,5],
@@ -242,12 +249,5 @@ var NAVTREEINDEX68 =
 "d4/d15/classDialogPatternProperties.html#ae3c3a07d6a4800ee9874c930d4b26130":[3,0,127,8],
 "d4/d15/classDialogPatternProperties.html#aeab7e8750d61941f297e8b235dcd0978":[3,0,127,50],
 "d4/d15/classDialogPatternProperties.html#aef6a53c10e7d048b65cb1b442434f3a2":[3,0,127,35],
-"d4/d15/classDialogPatternProperties.html#af021c8e1c8cec25bc2e592d73bb2fd8e":[3,0,127,31],
-"d4/d15/classDialogPatternProperties.html#af2032c528ed854fbc8f0f43019bccfcb":[3,0,127,36],
-"d4/d15/classDialogPatternProperties.html#af5e65c2fcf3095b18af5eb509a59222e":[3,0,127,52],
-"d4/d15/classDialogPatternProperties.html#afafd38ff1d20d1026e23ba0f6f2353c8":[3,0,127,43],
-"d4/d16/msvc_2include_2xercesc_2util_2XMLDateTime_8hpp.html":[4,0,0,1,15,2,0,0,6,94],
-"d4/d16/msvc_2include_2xercesc_2util_2XMLDateTime_8hpp_source.html":[4,0,0,1,15,2,0,0,6,94],
-"d4/d16/namespaceanonymous__namespace_02vtextgraphicsitem_8cpp_03.html":[2,0,26],
-"d4/d16/namespaceanonymous__namespace_02vtextgraphicsitem_8cpp_03.html#ac6b26a0ea6e45c81110d6b48f997eee2":[2,0,26,0]
+"d4/d15/classDialogPatternProperties.html#af021c8e1c8cec25bc2e592d73bb2fd8e":[3,0,127,31]
 };

@@ -1,5 +1,5 @@
 <map id="VUndoCommand" name="VUndoCommand">
-<area shape="rect" id="node1" title=" " alt="" coords="2908,131,3107,399"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2997,131,3196,399"/>
 <area shape="rect" id="node4" href="$db/d26/classAddDetNode.html" title=" " alt="" coords="5,513,177,649"/>
 <area shape="rect" id="node5" href="$d2/d4d/classAddDraftBlock.html" title=" " alt="" coords="201,520,352,641"/>
 <area shape="rect" id="node6" href="$d2/d67/classAddGroup.html" title=" " alt="" coords="376,520,553,641"/>
@@ -25,15 +25,16 @@
 <area shape="rect" id="node29" href="$d9/d20/classSavePieceOptions.html" title=" " alt="" coords="4120,483,4295,678"/>
 <area shape="rect" id="node30" href="$df/d94/classSavePiecePathOptions.html" title=" " alt="" coords="4319,469,4522,693"/>
 <area shape="rect" id="node31" href="$d6/d4d/classSaveToolOptions.html" title=" " alt="" coords="4547,483,4713,678"/>
-<area shape="rect" id="node32" href="$dd/d52/classSetPieceColor.html" title=" " alt="" coords="4737,469,4885,693"/>
-<area shape="rect" id="node33" href="$df/d1e/classSetPieceNodeAttribute.html" title="The SetPieceNodeAttribute class sets (or removes, with an empty value) one attribute of a node of a p..." alt="" coords="4910,469,5115,693"/>
-<area shape="rect" id="node34" href="$d2/dbe/classShowDoublePointName.html" title=" " alt="" coords="5139,483,5350,678"/>
-<area shape="rect" id="node35" href="$dc/d9b/classShowOperationPointName.html" title=" " alt="" coords="5374,491,5603,671"/>
-<area shape="rect" id="node36" href="$d8/d2c/classShowPointName.html" title=" " alt="" coords="5627,498,5793,663"/>
-<area shape="rect" id="node37" href="$dd/d47/classTogglePieceInLayout.html" title=" " alt="" coords="5817,469,6008,693"/>
-<area shape="rect" id="node38" href="$d9/d39/classTogglePieceLock.html" title=" " alt="" coords="6033,469,6198,693"/>
-<area shape="rect" id="node2" title=" " alt="" coords="2906,5,2981,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="3005,5,3138,83"/>
+<area shape="rect" id="node32" href="$d0/d8e/classSetElementAttributes.html" title="The SetElementAttributes class changes attributes of several elements of the pattern in one undo step..." alt="" coords="4738,513,4935,649"/>
+<area shape="rect" id="node33" href="$dd/d52/classSetPieceColor.html" title=" " alt="" coords="4960,469,5108,693"/>
+<area shape="rect" id="node34" href="$df/d1e/classSetPieceNodeAttribute.html" title="The SetPieceNodeAttribute class sets (or removes, with an empty value) one attribute of a node of a p..." alt="" coords="5133,469,5338,693"/>
+<area shape="rect" id="node35" href="$d2/dbe/classShowDoublePointName.html" title=" " alt="" coords="5362,483,5573,678"/>
+<area shape="rect" id="node36" href="$dc/d9b/classShowOperationPointName.html" title=" " alt="" coords="5597,491,5826,671"/>
+<area shape="rect" id="node37" href="$d8/d2c/classShowPointName.html" title=" " alt="" coords="5850,498,6015,663"/>
+<area shape="rect" id="node38" href="$dd/d47/classTogglePieceInLayout.html" title=" " alt="" coords="6040,469,6231,693"/>
+<area shape="rect" id="node39" href="$d9/d39/classTogglePieceLock.html" title=" " alt="" coords="6255,469,6421,693"/>
+<area shape="rect" id="node2" title=" " alt="" coords="2995,5,3070,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="3094,5,3227,83"/>
 <area shape="rect" id="node16" href="$d1/d74/classMoveDoubleLabel.html" title=" " alt="" coords="1871,763,2045,957"/>
 <area shape="rect" id="node17" href="$d7/ddb/classMoveLabel.html" title=" " alt="" coords="2069,792,2199,928"/>
 <area shape="rect" id="node18" href="$d7/d7b/classMoveOperationLabel.html" title=" " alt="" coords="2223,777,2416,943"/>

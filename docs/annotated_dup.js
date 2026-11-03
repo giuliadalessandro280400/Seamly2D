@@ -563,6 +563,7 @@ var annotated_dup =
     [ "SeamlyWelcomeDialog", "d4/d8f/classSeamlyWelcomeDialog.html", "d4/d8f/classSeamlyWelcomeDialog" ],
     [ "SecurityManager", "d0/d59/classSecurityManager.html", "d0/d59/classSecurityManager" ],
     [ "SelectorMatcher", "d8/d98/classSelectorMatcher.html", "d8/d98/classSelectorMatcher" ],
+    [ "SetElementAttributes", "d0/d8e/classSetElementAttributes.html", "d0/d8e/classSetElementAttributes" ],
     [ "SetPieceColor", "dd/d52/classSetPieceColor.html", "dd/d52/classSetPieceColor" ],
     [ "SetPieceNodeAttribute", "df/d1e/classSetPieceNodeAttribute.html", "df/d1e/classSetPieceNodeAttribute" ],
     [ "SGXMLScanner", "d3/d06/classSGXMLScanner.html", "d3/d06/classSGXMLScanner" ],
