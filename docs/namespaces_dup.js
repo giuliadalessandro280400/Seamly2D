@@ -62,6 +62,10 @@ var namespaces_dup =
       [ "signedArea", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html#a21eee88099eca9888d6d70d89821dbd6", null ],
       [ "wrap", "da/d1d/namespaceanonymous__namespace_02seam__check_8cpp_03.html#a7f0b240322558bdd3ca3db9237179a5f", null ]
     ] ],
+    [ "anonymous_namespace{slashspread.cpp}", "d4/d4a/namespaceanonymous__namespace_02slashspread_8cpp_03.html", [
+      [ "normalized", "d4/d4a/namespaceanonymous__namespace_02slashspread_8cpp_03.html#a62a79c0bccfe00a52190e4ca0ee93693", null ],
+      [ "polylineAt", "d4/d4a/namespaceanonymous__namespace_02slashspread_8cpp_03.html#a274ada1dcf18c5c6fb84290a6632152a", null ]
+    ] ],
     [ "anonymous_namespace{tst_vtoolmove.cpp}", "d7/d5d/namespaceanonymous__namespace_02tst__vtoolmove_8cpp_03.html", [
       [ "moveAngle", "d7/d5d/namespaceanonymous__namespace_02tst__vtoolmove_8cpp_03.html#a2513e9612873952810698e97da058004", null ],
       [ "moveLength", "d7/d5d/namespaceanonymous__namespace_02tst__vtoolmove_8cpp_03.html#a3b179851d0f03fa190ba08ac0d583839", null ],

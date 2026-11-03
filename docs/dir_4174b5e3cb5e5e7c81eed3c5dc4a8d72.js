@@ -13,5 +13,7 @@ var dir_4174b5e3cb5e5e7c81eed3c5dc4a8d72 =
     [ "vistoolrotation.cpp", "d1/df2/vistoolrotation_8cpp.html", null ],
     [ "vistoolrotation.h", "de/d9c/vistoolrotation_8h.html", "de/d9c/vistoolrotation_8h" ],
     [ "vistoolscale.cpp", "d6/ddd/vistoolscale_8cpp.html", null ],
-    [ "vistoolscale.h", "da/d2c/vistoolscale_8h.html", "da/d2c/vistoolscale_8h" ]
+    [ "vistoolscale.h", "da/d2c/vistoolscale_8h.html", "da/d2c/vistoolscale_8h" ],
+    [ "vistoolslashspread.cpp", "d2/d4c/vistoolslashspread_8cpp.html", null ],
+    [ "vistoolslashspread.h", "d7/d6b/vistoolslashspread_8h.html", "d7/d6b/vistoolslashspread_8h" ]
 ];

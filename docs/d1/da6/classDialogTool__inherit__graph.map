@@ -1,5 +1,5 @@
 <map id="DialogTool" name="DialogTool">
-<area shape="rect" id="node1" title="The DialogTool class parent for all dialog of tools." alt="" coords="4737,131,4964,1103"/>
+<area shape="rect" id="node1" title="The DialogTool class parent for all dialog of tools." alt="" coords="4840,131,5067,1103"/>
 <area shape="rect" id="node3" href="$d1/dde/classAddToGroupDialog.html" title=" " alt="" coords="5,1429,184,1653"/>
 <area shape="rect" id="node4" href="$d6/dfc/classAnchorPointDialog.html" title=" " alt="" coords="208,1400,387,1683"/>
 <area shape="rect" id="node5" href="$d7/d42/classBasePointDialog.html" title=" " alt="" coords="411,1459,576,1624"/>
@@ -30,21 +30,22 @@
 <area shape="rect" id="node30" href="$d5/dc7/classDialogRotation.html" title=" " alt="" coords="5837,1297,6003,1785"/>
 <area shape="rect" id="node31" href="$d6/d71/classDialogScale.html" title=" " alt="" coords="6027,1224,6205,1859"/>
 <area shape="rect" id="node32" href="$d1/dd5/classDialogShoulderPoint.html" title=" " alt="" coords="6229,1371,6419,1712"/>
-<area shape="rect" id="node33" href="$de/d10/classDialogSpline.html" title="The DialogSpline class dialog for ToolSpline. Help create spline and edit option." alt="" coords="6444,1151,6671,1932"/>
-<area shape="rect" id="node34" href="$df/d5e/classDialogSplinePath.html" title="The DialogSplinePath class dialog for ToolSplinePath. Help create spline path and edit option." alt="" coords="6695,1173,6895,1910"/>
-<area shape="rect" id="node35" href="$d1/d40/classDialogTriangle.html" title=" " alt="" coords="6919,1400,7095,1683"/>
-<area shape="rect" id="node36" href="$d7/d8c/classDialogTrueDarts.html" title=" " alt="" coords="7119,1312,7366,1771"/>
-<area shape="rect" id="node37" href="$d1/d7d/classEditFormulaDialog.html" title="The EditFormulaDialog class dialog for editing wrong formula." alt="" coords="7390,1165,7589,1917"/>
-<area shape="rect" id="node38" href="$d3/da7/classEditGroupDialog.html" title=" " alt="" coords="7613,1371,7777,1712"/>
-<area shape="rect" id="node39" href="$d1/d42/classHistoryDialog.html" title=" " alt="" coords="7801,1319,7991,1763"/>
-<area shape="rect" id="node40" href="$d6/d55/classInsertNodesDialog.html" title=" " alt="" coords="8015,1371,8198,1712"/>
-<area shape="rect" id="node41" href="$d9/d71/classInternalPathDialog.html" title=" " alt="" coords="8222,1180,8485,1903"/>
-<area shape="rect" id="node42" href="$d3/dfc/classIntersectArcLineDialog.html" title=" " alt="" coords="8509,1371,8715,1712"/>
-<area shape="rect" id="node43" href="$dc/dfe/classIntersectCircleTangentDialog.html" title=" " alt="" coords="8739,1341,8984,1741"/>
-<area shape="rect" id="node44" href="$d0/d09/classIntersectCirclesDialog.html" title=" " alt="" coords="9009,1253,9218,1829"/>
-<area shape="rect" id="node45" href="$d5/d41/classPatternPieceDialog.html" title=" " alt="" coords="9242,1151,9505,1932"/>
-<area shape="rect" id="node46" href="$d1/d64/classPointIntersectXYDialog.html" title="The PointIntersectXYDialog class dialog for ToolPointOfIntersection. Help create point and edit optio..." alt="" coords="9529,1385,9735,1697"/>
-<area shape="rect" id="node47" href="$d0/dc3/classUnionDialog.html" title="The UnionDialog class dialog for Union Tool." alt="" coords="9760,1371,9907,1712"/>
-<area shape="rect" id="node48" href="$d0/d09/classVariablesDialog.html" title="The VariablesDialog class show Variables dialog. Tables of all variables in program will be here." alt="" coords="9931,1239,10119,1844"/>
-<area shape="rect" id="node2" title=" " alt="" coords="4813,5,4888,83"/>
+<area shape="rect" id="node33" href="$d5/dc1/classDialogSlashSpread.html" title=" " alt="" coords="6443,1253,6623,1829"/>
+<area shape="rect" id="node34" href="$de/d10/classDialogSpline.html" title="The DialogSpline class dialog for ToolSpline. Help create spline and edit option." alt="" coords="6648,1151,6875,1932"/>
+<area shape="rect" id="node35" href="$df/d5e/classDialogSplinePath.html" title="The DialogSplinePath class dialog for ToolSplinePath. Help create spline path and edit option." alt="" coords="6899,1173,7099,1910"/>
+<area shape="rect" id="node36" href="$d1/d40/classDialogTriangle.html" title=" " alt="" coords="7123,1400,7299,1683"/>
+<area shape="rect" id="node37" href="$d7/d8c/classDialogTrueDarts.html" title=" " alt="" coords="7323,1312,7570,1771"/>
+<area shape="rect" id="node38" href="$d1/d7d/classEditFormulaDialog.html" title="The EditFormulaDialog class dialog for editing wrong formula." alt="" coords="7594,1165,7793,1917"/>
+<area shape="rect" id="node39" href="$d3/da7/classEditGroupDialog.html" title=" " alt="" coords="7817,1371,7981,1712"/>
+<area shape="rect" id="node40" href="$d1/d42/classHistoryDialog.html" title=" " alt="" coords="8005,1319,8195,1763"/>
+<area shape="rect" id="node41" href="$d6/d55/classInsertNodesDialog.html" title=" " alt="" coords="8219,1371,8402,1712"/>
+<area shape="rect" id="node42" href="$d9/d71/classInternalPathDialog.html" title=" " alt="" coords="8426,1180,8689,1903"/>
+<area shape="rect" id="node43" href="$d3/dfc/classIntersectArcLineDialog.html" title=" " alt="" coords="8713,1371,8919,1712"/>
+<area shape="rect" id="node44" href="$dc/dfe/classIntersectCircleTangentDialog.html" title=" " alt="" coords="8943,1341,9188,1741"/>
+<area shape="rect" id="node45" href="$d0/d09/classIntersectCirclesDialog.html" title=" " alt="" coords="9213,1253,9422,1829"/>
+<area shape="rect" id="node46" href="$d5/d41/classPatternPieceDialog.html" title=" " alt="" coords="9446,1151,9709,1932"/>
+<area shape="rect" id="node47" href="$d1/d64/classPointIntersectXYDialog.html" title="The PointIntersectXYDialog class dialog for ToolPointOfIntersection. Help create point and edit optio..." alt="" coords="9733,1385,9939,1697"/>
+<area shape="rect" id="node48" href="$d0/dc3/classUnionDialog.html" title="The UnionDialog class dialog for Union Tool." alt="" coords="9964,1371,10111,1712"/>
+<area shape="rect" id="node49" href="$d0/d09/classVariablesDialog.html" title="The VariablesDialog class show Variables dialog. Tables of all variables in program will be here." alt="" coords="10135,1239,10323,1844"/>
+<area shape="rect" id="node2" title=" " alt="" coords="4916,5,4991,83"/>
 </map>

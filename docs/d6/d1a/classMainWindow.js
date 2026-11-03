@@ -134,6 +134,7 @@ var classMainWindow =
     [ "handleRotationTool", "d6/d1a/classMainWindow.html#a523fe1dfd26e06fe0257fafc7c710eed", null ],
     [ "handleScaleTool", "d6/d1a/classMainWindow.html#a68186874b7abd7a1428ca2c4631af72b", null ],
     [ "handleShoulderPointTool", "d6/d1a/classMainWindow.html#a30a92754af6f28d747dab7ffa08d9924", null ],
+    [ "handleSlashSpreadTool", "d6/d1a/classMainWindow.html#ae4d5acbd392d44516513cd3816e59bfa", null ],
     [ "handleSplineTool", "d6/d1a/classMainWindow.html#a6e32bd28c9b7b0740e37ab1a6c5708ff", null ],
     [ "handleSplineWithControlPointsTool", "d6/d1a/classMainWindow.html#a47af7d40b8736707ea1561c773039655", null ],
     [ "handleTriangleTool", "d6/d1a/classMainWindow.html#a0f0e005f2d2599f6d833925f84dee652", null ],

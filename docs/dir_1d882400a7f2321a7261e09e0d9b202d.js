@@ -63,6 +63,8 @@ var dir_1d882400a7f2321a7261e09e0d9b202d =
     [ "dialogscale.h", "d6/d8e/dialogscale_8h.html", "d6/d8e/dialogscale_8h" ],
     [ "dialogshoulderpoint.cpp", "d3/d23/dialogshoulderpoint_8cpp.html", null ],
     [ "dialogshoulderpoint.h", "db/d16/dialogshoulderpoint_8h.html", "db/d16/dialogshoulderpoint_8h" ],
+    [ "dialogslashspread.cpp", "d0/def/dialogslashspread_8cpp.html", null ],
+    [ "dialogslashspread.h", "d4/de7/dialogslashspread_8h.html", "d4/de7/dialogslashspread_8h" ],
     [ "dialogspline.cpp", "df/de5/dialogspline_8cpp.html", null ],
     [ "dialogspline.h", "d3/dae/dialogspline_8h.html", "d3/dae/dialogspline_8h" ],
     [ "dialogsplinepath.cpp", "dc/dc2/dialogsplinepath_8cpp.html", null ],

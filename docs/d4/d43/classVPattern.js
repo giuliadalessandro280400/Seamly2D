@@ -87,6 +87,7 @@ var classVPattern =
     [ "ParseToolScale", "d4/d43/classVPattern.html#affa6656e151974802ebb51e17c2529d7", null ],
     [ "ParseToolsElement", "d4/d43/classVPattern.html#ab1a3e68f9b62881f25d1a9fe908a1246", null ],
     [ "ParseToolShoulderPoint", "d4/d43/classVPattern.html#aa22b423020bdf556fe229e8d93358124", null ],
+    [ "ParseToolSlashSpread", "d4/d43/classVPattern.html#ae7aa727e26da329bea313602bd65d116", null ],
     [ "ParseToolSpline", "d4/d43/classVPattern.html#ad50e7ca14a4b8337d1908464fe9fa2de", null ],
     [ "ParseToolSplinePath", "d4/d43/classVPattern.html#a9174c43e258af7030ca058d3c79815f4", null ],
     [ "ParseToolTriangle", "d4/d43/classVPattern.html#ada518c25daf57ce1397cedfe3b859151", null ],

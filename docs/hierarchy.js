@@ -366,6 +366,7 @@ var hierarchy =
         [ "DialogRotation", "d5/dc7/classDialogRotation.html", null ],
         [ "DialogScale", "d6/d71/classDialogScale.html", null ],
         [ "DialogShoulderPoint", "d1/dd5/classDialogShoulderPoint.html", null ],
+        [ "DialogSlashSpread", "d5/dc1/classDialogSlashSpread.html", null ],
         [ "DialogSpline", "de/d10/classDialogSpline.html", null ],
         [ "DialogSplinePath", "df/d5e/classDialogSplinePath.html", null ],
         [ "DialogTriangle", "d1/d40/classDialogTriangle.html", null ],
@@ -485,7 +486,8 @@ var hierarchy =
         [ "VToolAlign", "d0/dae/classVToolAlign.html", null ],
         [ "VToolMove", "d5/d6f/classVToolMove.html", null ],
         [ "VToolRotation", "d2/d0f/classVToolRotation.html", null ],
-        [ "VToolScale", "d7/dd2/classVToolScale.html", null ]
+        [ "VToolScale", "d7/dd2/classVToolScale.html", null ],
+        [ "VToolSlashSpread", "d0/d7b/classVToolSlashSpread.html", null ]
       ] ],
       [ "VScaledLine", "dd/da2/classVScaledLine.html", [
         [ "VisLine", "de/d0e/classVisLine.html", [
@@ -500,7 +502,8 @@ var hierarchy =
             [ "VisToolMirrorByLine", "d3/d9c/classVisToolMirrorByLine.html", null ],
             [ "VisToolMove", "dd/d50/classVisToolMove.html", null ],
             [ "VisToolRotation", "d6/d62/classVisToolRotation.html", null ],
-            [ "VisToolScale", "d7/de6/classVisToolScale.html", null ]
+            [ "VisToolScale", "d7/de6/classVisToolScale.html", null ],
+            [ "VisToolSlashSpread", "d8/d32/classVisToolSlashSpread.html", null ]
           ] ],
           [ "VisToolAlongLine", "de/d5b/classVisToolAlongLine.html", null ],
           [ "VisToolBisector", "dd/d3b/classVisToolBisector.html", null ],
@@ -976,6 +979,7 @@ var hierarchy =
     [ "SecurityManager", "d0/d59/classSecurityManager.html", null ],
     [ "VPE::VPropertyFormWidgetPrivate::SEditorWidget", "d9/d9b/structVPE_1_1VPropertyFormWidgetPrivate_1_1SEditorWidget.html", null ],
     [ "PieceCurveEdit::anonymous_namespace{piece_curve_edit.cpp}::SegmentFit", "dd/d6b/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1SegmentFit.html", null ],
+    [ "SlashSpread", "d4/d9a/classSlashSpread.html", null ],
     [ "SourceItem", "d9/d96/structSourceItem.html", null ],
     [ "StDOMNode< T >", "d8/d3c/classStDOMNode.html", null ],
     [ "qmu::SToken", "dc/d14/structqmu_1_1SToken.html", null ],
