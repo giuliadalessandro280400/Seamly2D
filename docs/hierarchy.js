@@ -798,6 +798,7 @@ var hierarchy =
         [ "VisLine", "de/d0e/classVisLine.html", null ],
         [ "VisPath", "db/d76/classVisPath.html", null ]
       ] ],
+      [ "anonymous_namespace{mainwindow.cpp}::KeepMenuOpenFilter", "de/db2/classanonymous__namespace_02mainwindow_8cpp_03_1_1KeepMenuOpenFilter.html", null ],
       [ "qmu::Test::QmuParserTester", "da/d59/classqmu_1_1Test_1_1QmuParserTester.html", null ]
     ] ],
     [ "QPaintDevice", null, [

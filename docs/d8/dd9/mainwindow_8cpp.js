@@ -1,5 +1,6 @@
 var mainwindow_8cpp =
 [
+    [ "anonymous_namespace{mainwindow.cpp}::KeepMenuOpenFilter", "de/db2/classanonymous__namespace_02mainwindow_8cpp_03_1_1KeepMenuOpenFilter.html", "de/db2/classanonymous__namespace_02mainwindow_8cpp_03_1_1KeepMenuOpenFilter" ],
     [ "AllSizesItemKey", "d8/dd9/mainwindow_8cpp.html#a7d8d4559a9d4050137cb42ad99324385", null ],
     [ "autosavePostfix", "d8/dd9/mainwindow_8cpp.html#ac5b466f36c60d25594e51a27bbf55772", null ],
     [ "strCtrl", "d8/dd9/mainwindow_8cpp.html#aee35d89c888e999fd85048be69c760e1", null ],

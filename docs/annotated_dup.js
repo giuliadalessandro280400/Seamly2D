@@ -1,5 +1,8 @@
 var annotated_dup =
 [
+    [ "anonymous_namespace{mainwindow.cpp}", "d5/d7e/namespaceanonymous__namespace_02mainwindow_8cpp_03.html", [
+      [ "KeepMenuOpenFilter", "de/db2/classanonymous__namespace_02mainwindow_8cpp_03_1_1KeepMenuOpenFilter.html", "de/db2/classanonymous__namespace_02mainwindow_8cpp_03_1_1KeepMenuOpenFilter" ]
+    ] ],
     [ "PieceCurveEdit", "de/d2e/namespacePieceCurveEdit.html", [
       [ "anonymous_namespace{piece_curve_edit.cpp}", "d8/ddb/namespacePieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03.html", [
         [ "Polyline", "d4/d03/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1Polyline.html", "d4/d03/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1Polyline" ],

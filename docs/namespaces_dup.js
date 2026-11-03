@@ -17,9 +17,7 @@ var namespaces_dup =
     [ "anonymous_namespace{internal_path_dialog.cpp}", "df/de6/namespaceanonymous__namespace_02internal__path__dialog_8cpp_03.html", [
       [ "cutLinePath", "df/de6/namespaceanonymous__namespace_02internal__path__dialog_8cpp_03.html#a394f1f735699f1b1d0e822cf8d3af1d3", null ]
     ] ],
-    [ "anonymous_namespace{mainwindow.cpp}", "d5/d7e/namespaceanonymous__namespace_02mainwindow_8cpp_03.html", [
-      [ "AllSizesItemKey", "d5/d7e/namespaceanonymous__namespace_02mainwindow_8cpp_03.html#a7d8d4559a9d4050137cb42ad99324385", null ]
-    ] ],
+    [ "anonymous_namespace{mainwindow.cpp}", "d5/d7e/namespaceanonymous__namespace_02mainwindow_8cpp_03.html", "d5/d7e/namespaceanonymous__namespace_02mainwindow_8cpp_03" ],
     [ "anonymous_namespace{mainwindowsnogui.cpp}", "df/da0/namespaceanonymous__namespace_02mainwindowsnogui_8cpp_03.html", [
       [ "CreateLayoutPath", "df/da0/namespaceanonymous__namespace_02mainwindowsnogui_8cpp_03.html#adc02e3f28db0229af91f2077610c4b9d", null ],
       [ "RemoveLayoutPath", "df/da0/namespaceanonymous__namespace_02mainwindowsnogui_8cpp_03.html#aba458b4f78f014b23015631f3a439456", null ]
