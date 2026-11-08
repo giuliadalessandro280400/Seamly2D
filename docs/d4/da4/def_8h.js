@@ -292,6 +292,7 @@ var def_8h =
       [ "Scale", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395a85a7cd587d6142dbfc1a4de05af7b75d", null ],
       [ "Align", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395ad12fbc9a2ba3b0b91a4190959b4c966b", null ],
       [ "SlashSpread", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395a0740d73c5df1ca0e5e42538d5000d477", null ],
+      [ "ImportDxf", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395a030371e4455ba77eee36b9d543b68165", null ],
       [ "LAST_ONE_DO_NOT_USE", "d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395ae154556eea64f68495301fc09a12122e", null ]
     ] ],
     [ "Unit", "d4/da4/def_8h.html#aa5a23406ae0e7d969b980e50c4e94889", [

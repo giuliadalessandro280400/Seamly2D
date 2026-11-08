@@ -142,6 +142,7 @@ var classMainWindow =
     [ "handleUnionTool", "d6/d1a/classMainWindow.html#a1339d0408db0262fdefe964895427969", null ],
     [ "hideAllGroups", "d6/d1a/classMainWindow.html#a1b6fe8f5319d0e2617b0e9d70b10c2b7", null ],
     [ "IgnoreLocking", "d6/d1a/classMainWindow.html#a9593955cf7ad87b04484465ce66519d1", null ],
+    [ "importAamaDxf", "d6/d1a/classMainWindow.html#a4a1cb0d223d838c9293784acff8608ec", null ],
     [ "initBasePointComboBox", "d6/d1a/classMainWindow.html#a1ee720a503872fff029a4d9c18dfdf90", null ],
     [ "initializeAutoSave", "d6/d1a/classMainWindow.html#a756e9a0e33545421d931c197f639e464", null ],
     [ "initializeDocksContain", "d6/d1a/classMainWindow.html#a388c7ad0440e71501e720721aa2be620", null ],

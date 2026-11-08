@@ -1,5 +1,6 @@
 var namespaces_dup =
 [
+    [ "anonymous_namespace{aamadxf.cpp}", "d0/dff/namespaceanonymous__namespace_02aamadxf_8cpp_03.html", "d0/dff/namespaceanonymous__namespace_02aamadxf_8cpp_03" ],
     [ "anonymous_namespace{dialogexporttocsv.cpp}", "d2/d4e/namespaceanonymous__namespace_02dialogexporttocsv_8cpp_03.html", [
       [ "encodingName", "d2/d4e/namespaceanonymous__namespace_02dialogexporttocsv_8cpp_03.html#a6f7c62063135531346d419500b1f7894", null ]
     ] ],
@@ -323,6 +324,7 @@ var namespaces_dup =
       [ "PreparePlaceholders", "db/dc8/namespaceanonymous__namespace_02vtextmanager_8cpp_03.html#a88d38d5a844b780e9d471ef2e836a2f6", null ],
       [ "ReplacePlaceholders", "db/dc8/namespaceanonymous__namespace_02vtextmanager_8cpp_03.html#a91aaaf6b1495aa6560f1cb8e37421b01", null ]
     ] ],
+    [ "anonymous_namespace{vtoolimportdxf.cpp}", "d5/d1a/namespaceanonymous__namespace_02vtoolimportdxf_8cpp_03.html", "d5/d1a/namespaceanonymous__namespace_02vtoolimportdxf_8cpp_03" ],
     [ "PieceCurveEdit", "de/d2e/namespacePieceCurveEdit.html", "de/d2e/namespacePieceCurveEdit" ],
     [ "ProportionalHandles", "d9/df6/namespaceProportionalHandles.html", [
       [ "attrRefChord", "d9/df6/namespaceProportionalHandles.html#afec0824ba61871333bbd27d28c8cc404", null ],

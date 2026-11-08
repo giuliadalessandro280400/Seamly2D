@@ -1,52 +1,52 @@
 <map id="src/libs/vtools/tools/seam_check.cpp" name="src/libs/vtools/tools/seam_check.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="2614,5,2762,45"/>
-<area shape="rect" id="node2" href="$d3/d24/seam__check_8h.html" title=" " alt="" coords="237,240,352,265"/>
-<area shape="rect" id="node10" href="$d1/d19/pattern__piece__tool_8h.html" title=" " alt="" coords="886,93,1041,119"/>
-<area shape="rect" id="node22" title=" " alt="" coords="1341,321,1544,346"/>
-<area shape="rect" id="node24" title=" " alt="" coords="1568,321,1791,346"/>
-<area shape="rect" id="node25" title=" " alt="" coords="2001,321,2110,346"/>
-<area shape="rect" id="node26" title=" " alt="" coords="2134,321,2377,346"/>
-<area shape="rect" id="node28" title=" " alt="" coords="3076,401,3265,427"/>
-<area shape="rect" id="node32" title=" " alt="" coords="1210,321,1317,346"/>
-<area shape="rect" id="node37" title=" " alt="" coords="2194,93,2429,119"/>
-<area shape="rect" id="node38" title=" " alt="" coords="2452,93,2558,119"/>
-<area shape="rect" id="node39" title=" " alt="" coords="2582,93,2684,119"/>
-<area shape="rect" id="node40" title=" " alt="" coords="2708,93,2777,119"/>
-<area shape="rect" id="node41" title=" " alt="" coords="2801,93,2894,119"/>
-<area shape="rect" id="node42" title=" " alt="" coords="2918,93,3030,119"/>
-<area shape="rect" id="node43" title=" " alt="" coords="3054,93,3121,119"/>
-<area shape="rect" id="node44" title=" " alt="" coords="3145,93,3212,119"/>
-<area shape="rect" id="node45" title=" " alt="" coords="3236,93,3307,119"/>
-<area shape="rect" id="node46" title=" " alt="" coords="3331,93,3434,119"/>
-<area shape="rect" id="node47" title=" " alt="" coords="3458,93,3528,119"/>
-<area shape="rect" id="node48" title=" " alt="" coords="3553,93,3638,119"/>
-<area shape="rect" id="node49" title=" " alt="" coords="3663,93,3726,119"/>
-<area shape="rect" id="node50" title=" " alt="" coords="3750,93,3809,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="582,321,649,346"/>
-<area shape="rect" id="node4" title=" " alt="" coords="649,401,724,427"/>
-<area shape="rect" id="node5" title=" " alt="" coords="479,321,558,346"/>
-<area shape="rect" id="node6" title=" " alt="" coords="60,321,134,346"/>
-<area shape="rect" id="node7" title=" " alt="" coords="1659,401,1730,427"/>
-<area shape="rect" id="node8" title=" " alt="" coords="358,321,455,346"/>
-<area shape="rect" id="node9" title=" " alt="" coords="158,321,231,346"/>
-<area shape="rect" id="node11" title=" " alt="" coords="1075,321,1135,346"/>
-<area shape="rect" id="node12" title=" " alt="" coords="1214,167,1270,192"/>
-<area shape="rect" id="node13" title=" " alt="" coords="2620,401,2699,427"/>
-<area shape="rect" id="node14" title=" " alt="" coords="2836,401,2996,427"/>
-<area shape="rect" id="node15" title=" " alt="" coords="60,167,206,192"/>
-<area shape="rect" id="node16" href="$d9/dde/vinteractivetool_8h.html" title=" " alt="" coords="1052,167,1190,192"/>
-<area shape="rect" id="node34" title=" " alt="" coords="231,167,395,192"/>
-<area shape="rect" id="node35" title=" " alt="" coords="419,167,647,192"/>
-<area shape="rect" id="node36" title=" " alt="" coords="671,167,875,192"/>
-<area shape="rect" id="node17" href="$d1/de6/vabstracttool_8h.html" title=" " alt="" coords="2380,240,2500,265"/>
-<area shape="rect" id="node29" href="$d1/d30/dialogtool_8h.html" title=" " alt="" coords="1207,240,1406,265"/>
-<area shape="rect" id="node33" title=" " alt="" coords="1052,240,1182,265"/>
-<area shape="rect" id="node18" title=" " alt="" coords="2462,401,2569,427"/>
-<area shape="rect" id="node19" title=" " alt="" coords="2774,321,2868,346"/>
-<area shape="rect" id="node20" title=" " alt="" coords="2892,321,2931,346"/>
-<area shape="rect" id="node21" title=" " alt="" coords="2955,321,3036,346"/>
-<area shape="rect" id="node23" title=" " alt="" coords="1815,313,1976,353"/>
-<area shape="rect" id="node27" href="$d8/ddf/vdatatool_8h.html" title=" " alt="" coords="2553,321,2649,346"/>
-<area shape="rect" id="node30" title=" " alt="" coords="851,321,948,346"/>
-<area shape="rect" id="node31" title=" " alt="" coords="724,321,827,346"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2595,5,2742,50"/>
+<area shape="rect" id="node2" href="$d3/d24/seam__check_8h.html" title=" " alt="" coords="235,249,349,277"/>
+<area shape="rect" id="node10" href="$d1/d19/pattern__piece__tool_8h.html" title=" " alt="" coords="886,98,1040,126"/>
+<area shape="rect" id="node22" title=" " alt="" coords="1328,334,1531,361"/>
+<area shape="rect" id="node24" title=" " alt="" coords="1555,334,1776,361"/>
+<area shape="rect" id="node25" title=" " alt="" coords="1985,334,2093,361"/>
+<area shape="rect" id="node26" title=" " alt="" coords="2118,334,2360,361"/>
+<area shape="rect" id="node28" title=" " alt="" coords="3055,418,3244,445"/>
+<area shape="rect" id="node32" title=" " alt="" coords="1200,334,1305,361"/>
+<area shape="rect" id="node37" title=" " alt="" coords="2178,98,2412,126"/>
+<area shape="rect" id="node38" title=" " alt="" coords="2436,98,2540,126"/>
+<area shape="rect" id="node39" title=" " alt="" coords="2565,98,2665,126"/>
+<area shape="rect" id="node40" title=" " alt="" coords="2689,98,2757,126"/>
+<area shape="rect" id="node41" title=" " alt="" coords="2781,98,2873,126"/>
+<area shape="rect" id="node42" title=" " alt="" coords="2897,98,3008,126"/>
+<area shape="rect" id="node43" title=" " alt="" coords="3032,98,3099,126"/>
+<area shape="rect" id="node44" title=" " alt="" coords="3123,98,3189,126"/>
+<area shape="rect" id="node45" title=" " alt="" coords="3214,98,3283,126"/>
+<area shape="rect" id="node46" title=" " alt="" coords="3307,98,3408,126"/>
+<area shape="rect" id="node47" title=" " alt="" coords="3432,98,3502,126"/>
+<area shape="rect" id="node48" title=" " alt="" coords="3526,98,3610,126"/>
+<area shape="rect" id="node49" title=" " alt="" coords="3634,98,3697,126"/>
+<area shape="rect" id="node50" title=" " alt="" coords="3720,98,3779,126"/>
+<area shape="rect" id="node3" title=" " alt="" coords="577,334,642,361"/>
+<area shape="rect" id="node4" title=" " alt="" coords="644,418,717,445"/>
+<area shape="rect" id="node5" title=" " alt="" coords="475,334,552,361"/>
+<area shape="rect" id="node6" title=" " alt="" coords="61,334,134,361"/>
+<area shape="rect" id="node7" title=" " alt="" coords="1647,418,1716,445"/>
+<area shape="rect" id="node8" title=" " alt="" coords="355,334,451,361"/>
+<area shape="rect" id="node9" title=" " alt="" coords="157,334,230,361"/>
+<area shape="rect" id="node11" title=" " alt="" coords="1065,334,1125,361"/>
+<area shape="rect" id="node12" title=" " alt="" coords="1211,174,1267,201"/>
+<area shape="rect" id="node13" title=" " alt="" coords="2602,418,2681,445"/>
+<area shape="rect" id="node14" title=" " alt="" coords="2817,418,2976,445"/>
+<area shape="rect" id="node15" title=" " alt="" coords="62,174,208,201"/>
+<area shape="rect" id="node16" href="$d9/dde/vinteractivetool_8h.html" title=" " alt="" coords="1051,174,1187,201"/>
+<area shape="rect" id="node34" title=" " alt="" coords="232,174,395,201"/>
+<area shape="rect" id="node35" title=" " alt="" coords="420,174,647,201"/>
+<area shape="rect" id="node36" title=" " alt="" coords="672,174,875,201"/>
+<area shape="rect" id="node17" href="$d1/de6/vabstracttool_8h.html" title=" " alt="" coords="2363,249,2483,277"/>
+<area shape="rect" id="node29" href="$d1/d30/dialogtool_8h.html" title=" " alt="" coords="1206,249,1403,277"/>
+<area shape="rect" id="node33" title=" " alt="" coords="1051,249,1181,277"/>
+<area shape="rect" id="node18" title=" " alt="" coords="2446,418,2552,445"/>
+<area shape="rect" id="node19" title=" " alt="" coords="2758,334,2850,361"/>
+<area shape="rect" id="node20" title=" " alt="" coords="2874,334,2913,361"/>
+<area shape="rect" id="node21" title=" " alt="" coords="2937,334,3018,361"/>
+<area shape="rect" id="node23" title=" " alt="" coords="1800,325,1960,370"/>
+<area shape="rect" id="node27" href="$d8/ddf/vdatatool_8h.html" title=" " alt="" coords="2537,334,2632,361"/>
+<area shape="rect" id="node30" title=" " alt="" coords="844,334,940,361"/>
+<area shape="rect" id="node31" title=" " alt="" coords="717,334,819,361"/>
 </map>

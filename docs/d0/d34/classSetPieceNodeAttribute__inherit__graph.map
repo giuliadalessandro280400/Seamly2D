@@ -1,6 +1,6 @@
 <map id="SetPieceNodeAttribute" name="SetPieceNodeAttribute">
-<area shape="rect" id="node1" title="The SetPieceNodeAttribute class sets (or removes, with an empty value) one attribute of a node of a p..." alt="" coords="5,447,211,671"/>
-<area shape="rect" id="node2" href="$de/d04/classVUndoCommand.html" title=" " alt="" coords="9,131,207,399"/>
-<area shape="rect" id="node3" title=" " alt="" coords="7,5,81,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="105,5,239,83"/>
+<area shape="rect" id="node1" title="The SetPieceNodeAttribute class sets (or removes, with an empty value) one attribute of a node of a p..." alt="" coords="5,491,210,745"/>
+<area shape="rect" id="node2" href="$de/d04/classVUndoCommand.html" title=" " alt="" coords="8,138,207,443"/>
+<area shape="rect" id="node3" title=" " alt="" coords="8,5,82,90"/>
+<area shape="rect" id="node4" title=" " alt="" coords="105,5,238,90"/>
 </map>

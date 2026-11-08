@@ -1,12 +1,12 @@
 <map id="SeamCheck" name="SeamCheck">
-<area shape="rect" id="node1" title="The SeamCheck class walks a piece along another one, like sliding one paper pattern on the other." alt="" coords="319,2024,473,2571"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,417,80,494"/>
-<area shape="rect" id="node5" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="263,828,529,1961"/>
-<area shape="rect" id="node3" href="$d7/df5/classVMainGraphicsScene.html" title="The VMainGraphicsScene class main scene." alt="" coords="701,1121,918,1668"/>
-<area shape="rect" id="node4" title=" " alt="" coords="837,417,965,494"/>
-<area shape="rect" id="node6" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="105,145,314,765"/>
-<area shape="rect" id="node7" title=" " alt="" coords="37,5,168,83"/>
-<area shape="rect" id="node8" href="$da/da1/classQHash.html" title=" " alt="" coords="193,5,439,83"/>
-<area shape="rect" id="node9" href="$d0/d4c/classQMap.html" title=" " alt="" coords="339,417,560,494"/>
-<area shape="rect" id="node10" href="$da/da1/classQHash.html" title=" " alt="" coords="584,417,813,494"/>
+<area shape="rect" id="node1" title="The SeamCheck class walks a piece along another one, like sliding one paper pattern on the other." alt="" coords="318,2306,470,2935"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,469,79,554"/>
+<area shape="rect" id="node5" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="261,933,527,2241"/>
+<area shape="rect" id="node3" href="$d7/df5/classVMainGraphicsScene.html" title="The VMainGraphicsScene class main scene." alt="" coords="695,1273,912,1901"/>
+<area shape="rect" id="node4" title=" " alt="" coords="832,469,959,554"/>
+<area shape="rect" id="node6" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="103,155,312,868"/>
+<area shape="rect" id="node7" title=" " alt="" coords="36,5,165,90"/>
+<area shape="rect" id="node8" href="$da/da1/classQHash.html" title=" " alt="" coords="190,5,436,90"/>
+<area shape="rect" id="node9" href="$d0/d4c/classQMap.html" title=" " alt="" coords="336,469,556,554"/>
+<area shape="rect" id="node10" href="$da/da1/classQHash.html" title=" " alt="" coords="580,469,808,554"/>
 </map>

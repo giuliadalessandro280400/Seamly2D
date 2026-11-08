@@ -1,5 +1,7 @@
 var hierarchy =
 [
+    [ "AamaFile", "db/d58/structAamaFile.html", null ],
+    [ "AamaPiece", "d0/df6/structAamaPiece.html", null ],
     [ "AlignTransform", "d6/d75/structAlignTransform.html", null ],
     [ "AttributeList", "d3/d8d/classAttributeList.html", [
       [ "VecAttrListImpl", "d8/ddc/classVecAttrListImpl.html", null ]
@@ -9,6 +11,7 @@ var hierarchy =
     ] ],
     [ "Base64", "d8/d3a/classBase64.html", null ],
     [ "BitOps", "da/d87/classBitOps.html", null ],
+    [ "anonymous_namespace{aamadxf.cpp}::Block", "da/d6e/structanonymous__namespace_02aamadxf_8cpp_03_1_1Block.html", null ],
     [ "SetElementAttributes::Change", "d4/d37/structSetElementAttributes_1_1Change.html", null ],
     [ "Utils::CheckableMessageBoxPrivate", "dc/d2a/classUtils_1_1CheckableMessageBoxPrivate.html", null ],
     [ "CMDynamicBuffer", "df/d1b/structCMDynamicBuffer.html", null ],
@@ -23,6 +26,7 @@ var hierarchy =
     [ "DeclHandler", "db/d62/classDeclHandler.html", [
       [ "DefaultHandler", "d2/d4a/classDefaultHandler.html", null ]
     ] ],
+    [ "anonymous_namespace{vtoolimportdxf.cpp}::Deformation", "d6/d89/classanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Deformation.html", null ],
     [ "del_point2d_t", "d1/d9e/structdel__point2d__t.html", null ],
     [ "delaunay2d_t", "d6/da5/structdelaunay2d__t.html", null ],
     [ "delaunay_s", "de/d32/structdelaunay__s.html", null ],
@@ -208,9 +212,12 @@ var hierarchy =
       [ "SAX2XMLFilterImpl", "de/d91/classSAX2XMLFilterImpl.html", null ]
     ] ],
     [ "dx_data", "d8/db3/classdx__data.html", null ],
+    [ "DxfLink", "df/d6e/structDxfLink.html", null ],
+    [ "DxfShape", "d4/d13/structDxfShape.html", null ],
     [ "PatternPieceTool::EditorDrag", "d5/dfd/structPatternPieceTool_1_1EditorDrag.html", null ],
     [ "EncodingValidator", "dd/d0c/classEncodingValidator.html", null ],
     [ "EndOfEntityException", "d4/d48/classEndOfEntityException.html", null ],
+    [ "anonymous_namespace{aamadxf.cpp}::Entity", "d7/d8e/structanonymous__namespace_02aamadxf_8cpp_03_1_1Entity.html", null ],
     [ "EntityResolver", "dc/db4/classEntityResolver.html", [
       [ "DefaultHandler", "d2/d4a/classDefaultHandler.html", null ],
       [ "HandlerBase", "dc/d20/classHandlerBase.html", null ],
@@ -280,6 +287,7 @@ var hierarchy =
     [ "std::numpunct", null, [
       [ "qmu::QmuParserBase::change_dec_sep< TChar >", "d4/d39/classqmu_1_1QmuParserBase_1_1change__dec__sep.html", null ]
     ] ],
+    [ "anonymous_namespace{aamadxf.cpp}::Pair", "d3/deb/structanonymous__namespace_02aamadxf_8cpp_03_1_1Pair.html", null ],
     [ "PanicHandler", "d5/de4/classPanicHandler.html", [
       [ "DefaultPanicHandler", "d8/d85/classDefaultPanicHandler.html", null ]
     ] ],
@@ -287,6 +295,7 @@ var hierarchy =
       [ "SAXParser", "da/da7/classSAXParser.html", null ]
     ] ],
     [ "Pen", "d9/de7/classPen.html", null ],
+    [ "anonymous_namespace{vtoolimportdxf.cpp}::Placement", "d3/db2/structanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Placement.html", null ],
     [ "point2d_s", "dc/d79/structpoint2d__s.html", null ],
     [ "PieceCurveEdit::anonymous_namespace{piece_curve_edit.cpp}::Polyline", "d4/d03/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1Polyline.html", null ],
     [ "XMLStringPool::PoolElem", "d9/d93/structXMLStringPool_1_1PoolElem.html", null ],
@@ -484,6 +493,7 @@ var hierarchy =
           [ "VToolMirrorByLine", "dc/d0a/classVToolMirrorByLine.html", null ]
         ] ],
         [ "VToolAlign", "d0/dae/classVToolAlign.html", null ],
+        [ "VToolImportDxf", "dc/d89/classVToolImportDxf.html", null ],
         [ "VToolMove", "d5/d6f/classVToolMove.html", null ],
         [ "VToolRotation", "d2/d0f/classVToolRotation.html", null ],
         [ "VToolScale", "d7/dd2/classVToolScale.html", null ],

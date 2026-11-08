@@ -1,7 +1,16 @@
 var annotated_dup =
 [
+    [ "anonymous_namespace{aamadxf.cpp}", "d0/dff/namespaceanonymous__namespace_02aamadxf_8cpp_03.html", [
+      [ "Block", "da/d6e/structanonymous__namespace_02aamadxf_8cpp_03_1_1Block.html", "da/d6e/structanonymous__namespace_02aamadxf_8cpp_03_1_1Block" ],
+      [ "Entity", "d7/d8e/structanonymous__namespace_02aamadxf_8cpp_03_1_1Entity.html", "d7/d8e/structanonymous__namespace_02aamadxf_8cpp_03_1_1Entity" ],
+      [ "Pair", "d3/deb/structanonymous__namespace_02aamadxf_8cpp_03_1_1Pair.html", "d3/deb/structanonymous__namespace_02aamadxf_8cpp_03_1_1Pair" ]
+    ] ],
     [ "anonymous_namespace{mainwindow.cpp}", "d5/d7e/namespaceanonymous__namespace_02mainwindow_8cpp_03.html", [
       [ "KeepMenuOpenFilter", "de/db2/classanonymous__namespace_02mainwindow_8cpp_03_1_1KeepMenuOpenFilter.html", "de/db2/classanonymous__namespace_02mainwindow_8cpp_03_1_1KeepMenuOpenFilter" ]
+    ] ],
+    [ "anonymous_namespace{vtoolimportdxf.cpp}", "d5/d1a/namespaceanonymous__namespace_02vtoolimportdxf_8cpp_03.html", [
+      [ "Deformation", "d6/d89/classanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Deformation.html", "d6/d89/classanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Deformation" ],
+      [ "Placement", "d3/db2/structanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Placement.html", "d3/db2/structanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Placement" ]
     ] ],
     [ "PieceCurveEdit", "de/d2e/namespacePieceCurveEdit.html", [
       [ "anonymous_namespace{piece_curve_edit.cpp}", "d8/ddb/namespacePieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03.html", [
@@ -77,6 +86,8 @@ var annotated_dup =
       [ "VWidgetProperty", "df/d07/classVPE_1_1VWidgetProperty.html", "df/d07/classVPE_1_1VWidgetProperty" ],
       [ "VWidgetPropertyPrivate", "df/da8/classVPE_1_1VWidgetPropertyPrivate.html", "df/da8/classVPE_1_1VWidgetPropertyPrivate" ]
     ] ],
+    [ "AamaFile", "db/d58/structAamaFile.html", "db/d58/structAamaFile" ],
+    [ "AamaPiece", "d0/df6/structAamaPiece.html", "d0/df6/structAamaPiece" ],
     [ "About2DAppDialog", "df/d22/classAbout2DAppDialog.html", "df/d22/classAbout2DAppDialog" ],
     [ "AbstractDOMParser", "d6/da7/classAbstractDOMParser.html", "d6/da7/classAbstractDOMParser" ],
     [ "AbstractLayoutDialog", "df/dc3/classAbstractLayoutDialog.html", "df/dc3/classAbstractLayoutDialog" ],
@@ -332,6 +343,8 @@ var annotated_dup =
     [ "dx_iface", "de/d1b/classdx__iface.html", "de/d1b/classdx__iface" ],
     [ "dx_ifaceBlock", "df/d01/classdx__ifaceBlock.html", "df/d01/classdx__ifaceBlock" ],
     [ "dx_ifaceImg", "d9/d70/classdx__ifaceImg.html", "d9/d70/classdx__ifaceImg" ],
+    [ "DxfLink", "df/d6e/structDxfLink.html", "df/d6e/structDxfLink" ],
+    [ "DxfShape", "d4/d13/structDxfShape.html", "d4/d13/structDxfShape" ],
     [ "EditFormulaDialog", "d1/d7d/classEditFormulaDialog.html", "d1/d7d/classEditFormulaDialog" ],
     [ "EditGroupDialog", "d3/da7/classEditGroupDialog.html", "d3/da7/classEditGroupDialog" ],
     [ "EditLabelTemplateDialog", "d7/df1/classEditLabelTemplateDialog.html", "d7/df1/classEditLabelTemplateDialog" ],
@@ -848,6 +861,7 @@ var annotated_dup =
     [ "VToolEllipticalArc", "d4/daa/classVToolEllipticalArc.html", "d4/daa/classVToolEllipticalArc" ],
     [ "VToolEndLine", "dc/d21/classVToolEndLine.html", "dc/d21/classVToolEndLine" ],
     [ "VToolHeight", "d7/d9e/classVToolHeight.html", "d7/d9e/classVToolHeight" ],
+    [ "VToolImportDxf", "dc/d89/classVToolImportDxf.html", "dc/d89/classVToolImportDxf" ],
     [ "VToolLine", "dc/d2b/classVToolLine.html", "dc/d2b/classVToolLine" ],
     [ "VToolLineIntersect", "d3/dac/classVToolLineIntersect.html", "d3/dac/classVToolLineIntersect" ],
     [ "VToolLineIntersectAxis", "dc/df4/classVToolLineIntersectAxis.html", "dc/df4/classVToolLineIntersectAxis" ],

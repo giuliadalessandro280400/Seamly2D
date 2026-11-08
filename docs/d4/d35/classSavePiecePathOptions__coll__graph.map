@@ -1,14 +1,14 @@
 <map id="SavePiecePathOptions" name="SavePiecePathOptions">
-<area shape="rect" id="node1" title=" " alt="" coords="364,2677,567,2857"/>
-<area shape="rect" id="node2" href="$de/d04/classVUndoCommand.html" title=" " alt="" coords="120,2185,318,2439"/>
-<area shape="rect" id="node3" title=" " alt="" coords="11,417,86,494"/>
-<area shape="rect" id="node5" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="86,828,352,1961"/>
-<area shape="rect" id="node4" title=" " alt="" coords="376,1356,510,1433"/>
-<area shape="rect" id="node6" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="110,145,320,765"/>
-<area shape="rect" id="node7" title=" " alt="" coords="43,5,174,83"/>
-<area shape="rect" id="node8" href="$da/da1/classQHash.html" title=" " alt="" coords="198,5,445,83"/>
-<area shape="rect" id="node9" href="$d0/d4c/classQMap.html" title=" " alt="" coords="344,417,566,494"/>
-<area shape="rect" id="node10" href="$da/da1/classQHash.html" title=" " alt="" coords="590,417,819,494"/>
-<area shape="rect" id="node11" href="$df/de1/classVPiecePath.html" title=" " alt="" coords="342,2149,589,2475"/>
-<area shape="rect" id="node12" href="$d2/d83/classVContainer.html" title="Manages a collection of geometric objects, pieces, paths, and variables." alt="" coords="612,2024,836,2600"/>
+<area shape="rect" id="node1" title=" " alt="" coords="366,3051,569,3254"/>
+<area shape="rect" id="node2" href="$de/d04/classVUndoCommand.html" title=" " alt="" coords="122,2493,320,2782"/>
+<area shape="rect" id="node3" title=" " alt="" coords="13,469,87,554"/>
+<area shape="rect" id="node5" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="88,933,353,2241"/>
+<area shape="rect" id="node4" title=" " alt="" coords="377,1545,510,1629"/>
+<area shape="rect" id="node6" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="111,155,320,868"/>
+<area shape="rect" id="node7" title=" " alt="" coords="44,5,173,90"/>
+<area shape="rect" id="node8" href="$da/da1/classQHash.html" title=" " alt="" coords="198,5,444,90"/>
+<area shape="rect" id="node9" href="$d0/d4c/classQMap.html" title=" " alt="" coords="344,469,564,554"/>
+<area shape="rect" id="node10" href="$da/da1/classQHash.html" title=" " alt="" coords="588,469,816,554"/>
+<area shape="rect" id="node11" href="$df/de1/classVPiecePath.html" title=" " alt="" coords="344,2451,591,2824"/>
+<area shape="rect" id="node12" href="$d2/d83/classVContainer.html" title="Manages a collection of geometric objects, pieces, paths, and variables." alt="" coords="614,2306,838,2969"/>
 </map>

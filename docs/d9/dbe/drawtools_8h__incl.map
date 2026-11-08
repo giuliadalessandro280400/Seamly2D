@@ -1,52 +1,52 @@
 <map id="src/libs/vtools/tools/drawTools/drawtools.h" name="src/libs/vtools/tools/drawTools/drawtools.h">
-<area shape="rect" id="node1" title=" " alt="" coords="4867,5,5037,45"/>
-<area shape="rect" id="node2" href="$d5/d9f/vtoolalongline_8h.html" title=" " alt="" coords="4990,93,5207,133"/>
-<area shape="rect" id="node14" href="$d9/d45/vtoolbisector_8h.html" title=" " alt="" coords="5953,93,6161,133"/>
-<area shape="rect" id="node16" href="$d5/de5/vtoolendline_8h.html" title=" " alt="" coords="6185,93,6391,133"/>
-<area shape="rect" id="node17" href="$da/d73/vtoolnormal_8h.html" title=" " alt="" coords="5503,93,5705,133"/>
-<area shape="rect" id="node18" href="$d5/deb/vtoolshoulderpoint_8h.html" title=" " alt="" coords="5231,93,5478,133"/>
-<area shape="rect" id="node19" href="$d8/d3f/vtoolheight_8h.html" title=" " alt="" coords="5730,93,5929,133"/>
-<area shape="rect" id="node20" href="$de/d1f/vtoollineintersectaxis_8h.html" title=" " alt="" coords="6783,93,7049,133"/>
-<area shape="rect" id="node21" href="$d7/d6b/vtoolcurveintersectaxis_8h.html" title=" " alt="" coords="7073,93,7351,133"/>
-<area shape="rect" id="node22" href="$d3/d19/vtoolarc_8h.html" title=" " alt="" coords="3140,189,3292,214"/>
-<area shape="rect" id="node23" href="$d5/d63/vtoolellipticalarc_8h.html" title=" " alt="" coords="3316,189,3524,214"/>
-<area shape="rect" id="node24" href="$de/dd9/vtoolarcwithlength_8h.html" title=" " alt="" coords="2407,189,2628,214"/>
-<area shape="rect" id="node25" href="$db/d8c/vtoolspline_8h.html" title=" " alt="" coords="5351,189,5521,214"/>
-<area shape="rect" id="node26" href="$d4/df1/vtoolcubicbezier_8h.html" title=" " alt="" coords="2652,189,2857,214"/>
-<area shape="rect" id="node27" href="$d6/d38/vtoolsplinepath_8h.html" title=" " alt="" coords="5127,189,5327,214"/>
-<area shape="rect" id="node28" href="$d6/d25/vtoolcubicbezierpath_8h.html" title=" " alt="" coords="2881,189,3116,214"/>
-<area shape="rect" id="node29" href="$d5/d78/vtoolline_8h.html" title=" " alt="" coords="4369,189,4460,214"/>
-<area shape="rect" id="node30" href="$d7/dea/vtoolcutspline_8h.html" title=" " alt="" coords="4484,181,4665,221"/>
-<area shape="rect" id="node31" href="$d6/d9d/vtoolcutsplinepath_8h.html" title=" " alt="" coords="4689,181,4897,221"/>
-<area shape="rect" id="node32" href="$d5/dbe/vtoolcutarc_8h.html" title=" " alt="" coords="4921,181,5103,221"/>
-<area shape="rect" id="node33" href="$d9/d65/vtoollineintersect_8h.html" title=" " alt="" coords="3751,181,3932,221"/>
-<area shape="rect" id="node34" href="$d3/dd8/intersect__arc__line__tool_8h.html" title=" " alt="" coords="7578,181,7763,221"/>
-<area shape="rect" id="node35" href="$d5/d59/basepoint__tool_8h.html" title=" " alt="" coords="3956,181,4137,221"/>
-<area shape="rect" id="node36" href="$dc/db2/vtooltriangle_8h.html" title=" " alt="" coords="7788,181,7969,221"/>
-<area shape="rect" id="node37" href="$de/d47/point__intersectxy__tool_8h.html" title=" " alt="" coords="4162,181,4345,221"/>
-<area shape="rect" id="node38" href="$dd/d11/vtoolpointofintersectionarcs_8h.html" title=" " alt="" coords="7994,181,8214,221"/>
-<area shape="rect" id="node39" href="$d8/dd6/intersect__circles__tool_8h.html" title=" " alt="" coords="5999,181,6180,221"/>
-<area shape="rect" id="node40" href="$d6/d68/vtoolpointofintersectioncurves_8h.html" title=" " alt="" coords="6415,181,6651,221"/>
-<area shape="rect" id="node41" href="$d6/d7f/intersect__circletangent__tool_8h.html" title=" " alt="" coords="6676,181,6895,221"/>
-<area shape="rect" id="node42" href="$de/db2/vtoolpointfromarcandtangent_8h.html" title=" " alt="" coords="7324,181,7553,221"/>
-<area shape="rect" id="node43" href="$d0/d85/vtooltruedarts_8h.html" title=" " alt="" coords="6204,181,6391,221"/>
-<area shape="rect" id="node44" href="$d6/da5/vtoolrotation_8h.html" title=" " alt="" coords="1380,189,1564,214"/>
-<area shape="rect" id="node45" href="$d1/dac/vtoolscale_8h.html" title=" " alt="" coords="1589,189,1755,214"/>
-<area shape="rect" id="node46" href="$db/dc2/vtoolalign_8h.html" title=" " alt="" coords="2217,189,2383,214"/>
-<area shape="rect" id="node47" href="$d5/d2d/vtoolslashspread_8h.html" title=" " alt="" coords="1780,189,1991,214"/>
-<area shape="rect" id="node48" href="$dc/d5e/vtoolmirrorbyline_8h.html" title=" " alt="" coords="8773,101,9030,126"/>
-<area shape="rect" id="node49" href="$df/db5/vtoolmirrorbyaxis_8h.html" title=" " alt="" coords="9450,101,9710,126"/>
-<area shape="rect" id="node50" href="$d3/d95/vtoolmove_8h.html" title=" " alt="" coords="1185,189,1356,214"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5339,269,5499,295"/>
-<area shape="rect" id="node4" title=" " alt="" coords="7380,269,7497,295"/>
-<area shape="rect" id="node5" title=" " alt="" coords="6030,269,6149,295"/>
-<area shape="rect" id="node6" title=" " alt="" coords="3675,269,3781,295"/>
-<area shape="rect" id="node7" title=" " alt="" coords="5207,269,5281,295"/>
-<area shape="rect" id="node8" title=" " alt="" coords="3806,269,3877,295"/>
-<area shape="rect" id="node9" title=" " alt="" coords="5655,269,5734,295"/>
-<area shape="rect" id="node10" title=" " alt="" coords="3315,269,3517,295"/>
-<area shape="rect" id="node11" title=" " alt="" coords="3541,269,3651,295"/>
-<area shape="rect" id="node12" href="$df/dd0/vtoollinepoint_8h.html" title=" " alt="" coords="5749,189,5873,214"/>
-<area shape="rect" id="node13" title=" " alt="" coords="9809,269,9989,295"/>
-<area shape="rect" id="node15" title=" " alt="" coords="7634,269,7707,295"/>
+<area shape="rect" id="node1" title=" " alt="" coords="4760,5,4930,50"/>
+<area shape="rect" id="node2" href="$d5/d9f/vtoolalongline_8h.html" title=" " alt="" coords="4810,98,5027,143"/>
+<area shape="rect" id="node13" href="$d9/d45/vtoolbisector_8h.html" title=" " alt="" coords="6637,98,6845,143"/>
+<area shape="rect" id="node15" href="$d5/de5/vtoolendline_8h.html" title=" " alt="" coords="5051,98,5255,143"/>
+<area shape="rect" id="node16" href="$da/d73/vtoolnormal_8h.html" title=" " alt="" coords="6091,98,6293,143"/>
+<area shape="rect" id="node17" href="$d5/deb/vtoolshoulderpoint_8h.html" title=" " alt="" coords="6317,98,6562,143"/>
+<area shape="rect" id="node18" href="$d8/d3f/vtoolheight_8h.html" title=" " alt="" coords="5280,98,5477,143"/>
+<area shape="rect" id="node19" href="$de/d1f/vtoollineintersectaxis_8h.html" title=" " alt="" coords="5802,98,6067,143"/>
+<area shape="rect" id="node20" href="$d7/d6b/vtoolcurveintersectaxis_8h.html" title=" " alt="" coords="5502,98,5778,143"/>
+<area shape="rect" id="node21" href="$d3/d19/vtoolarc_8h.html" title=" " alt="" coords="3504,199,3655,227"/>
+<area shape="rect" id="node22" href="$d5/d63/vtoolellipticalarc_8h.html" title=" " alt="" coords="3680,199,3887,227"/>
+<area shape="rect" id="node23" href="$de/dd9/vtoolarcwithlength_8h.html" title=" " alt="" coords="2772,199,2993,227"/>
+<area shape="rect" id="node24" href="$db/d8c/vtoolspline_8h.html" title=" " alt="" coords="6055,199,6225,227"/>
+<area shape="rect" id="node25" href="$d4/df1/vtoolcubicbezier_8h.html" title=" " alt="" coords="3016,199,3221,227"/>
+<area shape="rect" id="node26" href="$d6/d38/vtoolsplinepath_8h.html" title=" " alt="" coords="5329,199,5529,227"/>
+<area shape="rect" id="node27" href="$d6/d25/vtoolcubicbezierpath_8h.html" title=" " alt="" coords="3245,199,3480,227"/>
+<area shape="rect" id="node28" href="$d5/d78/vtoolline_8h.html" title=" " alt="" coords="4168,199,4258,227"/>
+<area shape="rect" id="node29" href="$d7/dea/vtoolcutspline_8h.html" title=" " alt="" coords="4283,191,4463,235"/>
+<area shape="rect" id="node30" href="$d6/d9d/vtoolcutsplinepath_8h.html" title=" " alt="" coords="4487,191,4694,235"/>
+<area shape="rect" id="node31" href="$d5/dbe/vtoolcutarc_8h.html" title=" " alt="" coords="4718,191,4898,235"/>
+<area shape="rect" id="node32" href="$d9/d65/vtoollineintersect_8h.html" title=" " alt="" coords="4922,191,5102,235"/>
+<area shape="rect" id="node33" href="$d3/dd8/intersect__arc__line__tool_8h.html" title=" " alt="" coords="7469,191,7653,235"/>
+<area shape="rect" id="node34" href="$d5/d59/basepoint__tool_8h.html" title=" " alt="" coords="5126,191,5306,235"/>
+<area shape="rect" id="node35" href="$dc/db2/vtooltriangle_8h.html" title=" " alt="" coords="7678,191,7858,235"/>
+<area shape="rect" id="node36" href="$de/d47/point__intersectxy__tool_8h.html" title=" " alt="" coords="3962,191,4144,235"/>
+<area shape="rect" id="node37" href="$dd/d11/vtoolpointofintersectionarcs_8h.html" title=" " alt="" coords="8287,191,8507,235"/>
+<area shape="rect" id="node38" href="$d8/dd6/intersect__circles__tool_8h.html" title=" " alt="" coords="6300,191,6481,235"/>
+<area shape="rect" id="node39" href="$d6/d68/vtoolpointofintersectioncurves_8h.html" title=" " alt="" coords="6505,191,6740,235"/>
+<area shape="rect" id="node40" href="$d6/d7f/intersect__circletangent__tool_8h.html" title=" " alt="" coords="6764,191,6982,235"/>
+<area shape="rect" id="node41" href="$de/db2/vtoolpointfromarcandtangent_8h.html" title=" " alt="" coords="7007,191,7235,235"/>
+<area shape="rect" id="node42" href="$d0/d85/vtooltruedarts_8h.html" title=" " alt="" coords="7259,191,7444,235"/>
+<area shape="rect" id="node43" href="$d6/da5/vtoolrotation_8h.html" title=" " alt="" coords="1803,199,1986,227"/>
+<area shape="rect" id="node44" href="$d1/dac/vtoolscale_8h.html" title=" " alt="" coords="1186,199,1352,227"/>
+<area shape="rect" id="node45" href="$db/dc2/vtoolalign_8h.html" title=" " alt="" coords="2584,199,2749,227"/>
+<area shape="rect" id="node46" href="$d5/d2d/vtoolslashspread_8h.html" title=" " alt="" coords="1376,199,1586,227"/>
+<area shape="rect" id="node47" href="$d6/dac/vtoolimportdxf_8h.html" title=" " alt="" coords="2010,199,2205,227"/>
+<area shape="rect" id="node48" href="$dc/d5e/vtoolmirrorbyline_8h.html" title=" " alt="" coords="8464,106,8720,134"/>
+<area shape="rect" id="node49" href="$df/db5/vtoolmirrorbyaxis_8h.html" title=" " alt="" coords="9373,106,9632,134"/>
+<area shape="rect" id="node50" href="$d3/d95/vtoolmove_8h.html" title=" " alt="" coords="1610,199,1779,227"/>
+<area shape="rect" id="node3" title=" " alt="" coords="3896,283,4055,311"/>
+<area shape="rect" id="node4" title=" " alt="" coords="7294,283,7410,311"/>
+<area shape="rect" id="node5" title=" " alt="" coords="6331,283,6450,311"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5579,283,5685,311"/>
+<area shape="rect" id="node7" title=" " alt="" coords="3704,283,3778,311"/>
+<area shape="rect" id="node8" title=" " alt="" coords="3802,283,3872,311"/>
+<area shape="rect" id="node9" title=" " alt="" coords="5778,283,5856,311"/>
+<area shape="rect" id="node10" title=" " alt="" coords="3479,283,3681,311"/>
+<area shape="rect" id="node11" title=" " alt="" coords="5375,283,5483,311"/>
+<area shape="rect" id="node12" href="$df/dd0/vtoollinepoint_8h.html" title=" " alt="" coords="5755,199,5879,227"/>
+<area shape="rect" id="node14" title=" " alt="" coords="7480,283,7552,311"/>
 </map>

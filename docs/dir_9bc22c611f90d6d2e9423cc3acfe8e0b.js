@@ -1,12 +1,16 @@
 var dir_9bc22c611f90d6d2e9423cc3acfe8e0b =
 [
     [ "mirror", "dir_354d20b0c67e02df61fe14ff77a24737.html", "dir_354d20b0c67e02df61fe14ff77a24737" ],
+    [ "aamadxf.cpp", "d1/d34/aamadxf_8cpp.html", "d1/d34/aamadxf_8cpp" ],
+    [ "aamadxf.h", "d9/d06/aamadxf_8h.html", "d9/d06/aamadxf_8h" ],
     [ "slashspread.cpp", "d6/d45/slashspread_8cpp.html", "d6/d45/slashspread_8cpp" ],
     [ "slashspread.h", "df/d4d/slashspread_8h.html", "df/d4d/slashspread_8h" ],
     [ "vabstractoperation.cpp", "d8/de3/vabstractoperation_8cpp.html", "d8/de3/vabstractoperation_8cpp" ],
     [ "vabstractoperation.h", "da/d89/vabstractoperation_8h.html", "da/d89/vabstractoperation_8h" ],
     [ "vtoolalign.cpp", "da/d65/vtoolalign_8cpp.html", null ],
     [ "vtoolalign.h", "db/dc2/vtoolalign_8h.html", "db/dc2/vtoolalign_8h" ],
+    [ "vtoolimportdxf.cpp", "d8/d80/vtoolimportdxf_8cpp.html", "d8/d80/vtoolimportdxf_8cpp" ],
+    [ "vtoolimportdxf.h", "d6/dac/vtoolimportdxf_8h.html", "d6/dac/vtoolimportdxf_8h" ],
     [ "vtoolmove.cpp", "d3/d2b/vtoolmove_8cpp.html", null ],
     [ "vtoolmove.h", "d3/d95/vtoolmove_8h.html", "d3/d95/vtoolmove_8h" ],
     [ "vtoolrotation.cpp", "df/dd2/vtoolrotation_8cpp.html", null ],

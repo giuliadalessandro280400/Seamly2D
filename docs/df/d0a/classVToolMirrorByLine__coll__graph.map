@@ -1,20 +1,20 @@
 <map id="VToolMirrorByLine" name="VToolMirrorByLine">
-<area shape="rect" id="node1" title=" " alt="" coords="571,4503,763,4873"/>
-<area shape="rect" id="node2" href="$d3/dba/classVAbstractMirror.html" title=" " alt="" coords="554,4200,779,4453"/>
-<area shape="rect" id="node3" href="$d7/d15/classVAbstractOperation.html" title=" " alt="" coords="547,3501,786,4151"/>
-<area shape="rect" id="node4" href="$d2/df2/classVDrawTool.html" title="The VDrawTool abstract class for all draw tool." alt="" coords="361,2951,569,3439"/>
-<area shape="rect" id="node5" href="$d4/d36/classVInteractiveTool.html" title=" " alt="" coords="361,2736,570,2901"/>
-<area shape="rect" id="node6" href="$d4/d36/classVAbstractTool.html" title="The VAbstractTool abstract class for all tools." alt="" coords="247,2024,449,2673"/>
-<area shape="rect" id="node7" href="$d5/d68/classVDataTool.html" title="The VDataTool class need for getting access to data container of tool." alt="" coords="139,1297,314,1492"/>
-<area shape="rect" id="node8" title=" " alt="" coords="253,417,328,494"/>
-<area shape="rect" id="node10" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="339,828,605,1961"/>
-<area shape="rect" id="node9" href="$d2/d83/classVContainer.html" title="Manages a collection of geometric objects, pieces, paths, and variables." alt="" coords="5,167,229,743"/>
-<area shape="rect" id="node11" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="851,145,1061,765"/>
-<area shape="rect" id="node12" title=" " alt="" coords="784,5,915,83"/>
-<area shape="rect" id="node13" href="$da/da1/classQHash.html" title=" " alt="" coords="939,5,1186,83"/>
-<area shape="rect" id="node14" href="$d0/d4c/classQMap.html" title=" " alt="" coords="352,417,573,494"/>
-<area shape="rect" id="node15" href="$da/da1/classQHash.html" title=" " alt="" coords="597,417,827,494"/>
-<area shape="rect" id="node16" href="$dd/daa/classQSharedPointer.html" title=" " alt="" coords="473,2310,695,2387"/>
-<area shape="rect" id="node17" title=" " alt="" coords="593,3156,740,3233"/>
-<area shape="rect" id="node18" href="$d0/d4c/classQMap.html" title=" " alt="" coords="764,3149,959,3241"/>
+<area shape="rect" id="node1" title=" " alt="" coords="568,5114,759,5538"/>
+<area shape="rect" id="node2" href="$d3/dba/classVAbstractMirror.html" title=" " alt="" coords="552,4776,776,5065"/>
+<area shape="rect" id="node3" href="$d7/d15/classVAbstractOperation.html" title=" " alt="" coords="545,3980,782,4727"/>
+<area shape="rect" id="node4" href="$d2/df2/classVDrawTool.html" title="The VDrawTool abstract class for all draw tool." alt="" coords="360,3354,567,3915"/>
+<area shape="rect" id="node5" href="$d4/d36/classVInteractiveTool.html" title=" " alt="" coords="360,3119,568,3305"/>
+<area shape="rect" id="node6" href="$d4/d36/classVAbstractTool.html" title="The VAbstractTool abstract class for all tools." alt="" coords="246,2306,447,3054"/>
+<area shape="rect" id="node7" href="$d5/d68/classVDataTool.html" title="The VDataTool class need for getting access to data container of tool." alt="" coords="138,1477,312,1697"/>
+<area shape="rect" id="node8" title=" " alt="" coords="252,469,326,554"/>
+<area shape="rect" id="node10" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="336,933,602,2241"/>
+<area shape="rect" id="node9" href="$d2/d83/classVContainer.html" title="Manages a collection of geometric objects, pieces, paths, and variables." alt="" coords="5,180,229,842"/>
+<area shape="rect" id="node11" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="846,155,1054,868"/>
+<area shape="rect" id="node12" title=" " alt="" coords="779,5,908,90"/>
+<area shape="rect" id="node13" href="$da/da1/classQHash.html" title=" " alt="" coords="932,5,1179,90"/>
+<area shape="rect" id="node14" href="$d0/d4c/classQMap.html" title=" " alt="" coords="350,469,570,554"/>
+<area shape="rect" id="node15" href="$da/da1/classQHash.html" title=" " alt="" coords="594,469,822,554"/>
+<area shape="rect" id="node16" href="$dd/daa/classQSharedPointer.html" title=" " alt="" coords="471,2638,691,2722"/>
+<area shape="rect" id="node17" title=" " alt="" coords="591,3592,736,3677"/>
+<area shape="rect" id="node18" href="$d0/d4c/classQMap.html" title=" " alt="" coords="760,3584,954,3685"/>
 </map>

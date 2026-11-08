@@ -71,6 +71,7 @@ var classVPattern =
     [ "ParseToolEllipticalArc", "d4/d43/classVPattern.html#ab22bdb8a93f383648d135236a9bfd631", null ],
     [ "ParseToolEndLine", "d4/d43/classVPattern.html#a0575f91ef7eb1490388a0c88efe00f42", null ],
     [ "ParseToolHeight", "d4/d43/classVPattern.html#a267ba63e834165e37b190607fa089be4", null ],
+    [ "ParseToolImportDxf", "d4/d43/classVPattern.html#ad6e2ccb1a8cdc42283773604a6c0a402", null ],
     [ "ParseToolIntersectArcLine", "d4/d43/classVPattern.html#acb805bb04dc887aff871ec8d362823c7", null ],
     [ "ParseToolLineIntersect", "d4/d43/classVPattern.html#a4e00718619366832eea8afd7ffae192c", null ],
     [ "ParseToolLineIntersectAxis", "d4/d43/classVPattern.html#a38c5be94b629eef4387203b544b52fe9", null ],

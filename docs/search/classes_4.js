@@ -10,11 +10,12 @@ var searchData=
   ['enamemapfor_7',['ENameMapFor',['../d3/d9c/classENameMapFor.html',1,'']]],
   ['encodingvalidator_8',['EncodingValidator',['../dd/d0c/classEncodingValidator.html',1,'']]],
   ['endofentityexception_9',['EndOfEntityException',['../d4/d48/classEndOfEntityException.html',1,'']]],
-  ['entitydatatypevalidator_10',['ENTITYDatatypeValidator',['../df/d53/classENTITYDatatypeValidator.html',1,'']]],
-  ['entityresolver_11',['EntityResolver',['../dc/db4/classEntityResolver.html',1,'']]],
-  ['errorhandler_12',['ErrorHandler',['../d8/d53/classErrorHandler.html',1,'']]],
-  ['expandingtextedit_13',['ExpandingTextEdit',['../db/dac/classExpandingTextEdit.html',1,'']]],
-  ['exportformatcombobox_14',['ExportFormatCombobox',['../d4/d06/classExportFormatCombobox.html',1,'']]],
-  ['exportlayoutdialog_15',['ExportLayoutDialog',['../de/dbd/classExportLayoutDialog.html',1,'']]],
-  ['exportprogressdialog_16',['ExportProgressDialog',['../d7/deb/classExportProgressDialog.html',1,'']]]
+  ['entity_10',['Entity',['../d7/d8e/structanonymous__namespace_02aamadxf_8cpp_03_1_1Entity.html',1,'anonymous_namespace{aamadxf.cpp}']]],
+  ['entitydatatypevalidator_11',['ENTITYDatatypeValidator',['../df/d53/classENTITYDatatypeValidator.html',1,'']]],
+  ['entityresolver_12',['EntityResolver',['../dc/db4/classEntityResolver.html',1,'']]],
+  ['errorhandler_13',['ErrorHandler',['../d8/d53/classErrorHandler.html',1,'']]],
+  ['expandingtextedit_14',['ExpandingTextEdit',['../db/dac/classExpandingTextEdit.html',1,'']]],
+  ['exportformatcombobox_15',['ExportFormatCombobox',['../d4/d06/classExportFormatCombobox.html',1,'']]],
+  ['exportlayoutdialog_16',['ExportLayoutDialog',['../de/dbd/classExportLayoutDialog.html',1,'']]],
+  ['exportprogressdialog_17',['ExportProgressDialog',['../d7/deb/classExportProgressDialog.html',1,'']]]
 ];

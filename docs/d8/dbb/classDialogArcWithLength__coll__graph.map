@@ -1,19 +1,19 @@
 <map id="DialogArcWithLength" name="DialogArcWithLength">
-<area shape="rect" id="node1" title=" " alt="" coords="173,3771,368,4391"/>
-<area shape="rect" id="node2" href="$d2/d7b/classDialogTool.html" title="The DialogTool class parent for all dialog of tools." alt="" coords="57,2736,284,3708"/>
-<area shape="rect" id="node3" title=" " alt="" coords="27,2310,101,2387"/>
-<area shape="rect" id="node4" href="$d2/d83/classVContainer.html" title="Manages a collection of geometric objects, pieces, paths, and variables." alt="" coords="5,167,229,743"/>
-<area shape="rect" id="node6" href="$d5/d68/classVDataTool.html" title="The VDataTool class need for getting access to data container of tool." alt="" coords="181,1297,355,1492"/>
-<area shape="rect" id="node5" href="$d4/d36/classVAbstractTool.html" title="The VAbstractTool abstract class for all tools." alt="" coords="176,2024,379,2673"/>
-<area shape="rect" id="node7" title=" " alt="" coords="253,417,328,494"/>
-<area shape="rect" id="node8" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="380,828,647,1961"/>
-<area shape="rect" id="node9" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="353,145,562,765"/>
-<area shape="rect" id="node10" title=" " alt="" coords="285,5,416,83"/>
-<area shape="rect" id="node11" href="$da/da1/classQHash.html" title=" " alt="" coords="441,5,687,83"/>
-<area shape="rect" id="node12" href="$d0/d4c/classQMap.html" title=" " alt="" coords="587,417,808,494"/>
-<area shape="rect" id="node13" href="$da/da1/classQHash.html" title=" " alt="" coords="832,417,1061,494"/>
-<area shape="rect" id="node14" href="$d2/d6d/classVArc.html" title="VArc class for anticlockwise arc." alt="" coords="325,3088,454,3356"/>
-<area shape="rect" id="node15" href="$d9/d54/classVAbstractArc.html" title=" " alt="" coords="451,2215,616,2483"/>
-<area shape="rect" id="node16" href="$dc/d55/classVAbstractCurve.html" title=" " alt="" coords="873,1209,1087,1580"/>
-<area shape="rect" id="node17" href="$d1/de7/classVGObject.html" title="The VGObject class keep information graphical objects." alt="" coords="1085,197,1280,714"/>
+<area shape="rect" id="node1" title=" " alt="" coords="166,4305,361,5018"/>
+<area shape="rect" id="node2" href="$d2/d7b/classDialogTool.html" title="The DialogTool class parent for all dialog of tools." alt="" coords="50,3119,277,4240"/>
+<area shape="rect" id="node3" title=" " alt="" coords="20,2638,94,2722"/>
+<area shape="rect" id="node4" href="$d2/d83/classVContainer.html" title="Manages a collection of geometric objects, pieces, paths, and variables." alt="" coords="5,180,229,842"/>
+<area shape="rect" id="node6" href="$d5/d68/classVDataTool.html" title="The VDataTool class need for getting access to data container of tool." alt="" coords="172,1477,347,1697"/>
+<area shape="rect" id="node5" href="$d4/d36/classVAbstractTool.html" title="The VAbstractTool abstract class for all tools." alt="" coords="170,2306,371,3054"/>
+<area shape="rect" id="node7" title=" " alt="" coords="252,469,326,554"/>
+<area shape="rect" id="node8" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="371,933,636,2241"/>
+<area shape="rect" id="node9" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="350,155,558,868"/>
+<area shape="rect" id="node10" title=" " alt="" coords="283,5,412,90"/>
+<area shape="rect" id="node11" href="$da/da1/classQHash.html" title=" " alt="" coords="436,5,683,90"/>
+<area shape="rect" id="node12" href="$d0/d4c/classQMap.html" title=" " alt="" coords="583,469,803,554"/>
+<area shape="rect" id="node13" href="$da/da1/classQHash.html" title=" " alt="" coords="827,469,1055,554"/>
+<area shape="rect" id="node14" href="$d2/d6d/classVArc.html" title="VArc class for anticlockwise arc." alt="" coords="317,3527,445,3832"/>
+<area shape="rect" id="node15" href="$d9/d54/classVAbstractArc.html" title=" " alt="" coords="443,2527,607,2833"/>
+<area shape="rect" id="node16" href="$dc/d55/classVAbstractCurve.html" title=" " alt="" coords="872,1375,1084,1799"/>
+<area shape="rect" id="node17" href="$d1/de7/classVGObject.html" title="The VGObject class keep information graphical objects." alt="" coords="1079,214,1272,808"/>
 </map>

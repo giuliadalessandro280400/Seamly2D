@@ -9,7 +9,7 @@ var searchData=
   ['unitinch_6',['unitINCH',['../d4/da4/def_8h.html#ac99511a44618ea64c4927fe23f1a8832',1,'unitINCH():&#160;def.cpp'],['../d6/d0b/def_8cpp.html#ac99511a44618ea64c4927fe23f1a8832',1,'unitINCH():&#160;def.cpp']]],
   ['unitmm_7',['unitMM',['../d4/da4/def_8h.html#a4b5c5c4ec31a31da47f7aa6fe4231101',1,'unitMM():&#160;def.cpp'],['../d6/d0b/def_8cpp.html#a4b5c5c4ec31a31da47f7aa6fe4231101',1,'unitMM():&#160;def.cpp']]],
   ['unitpx_8',['unitPX',['../d4/da4/def_8h.html#ab7b5d272ddc9705ff0a78d42eb8060a1',1,'unitPX():&#160;def.cpp'],['../d6/d0b/def_8cpp.html#ab7b5d272ddc9705ff0a78d42eb8060a1',1,'unitPX():&#160;def.cpp']]],
-  ['units_9',['units',['../d3/df8/structDraftImage.html#ab702f8a6aa5a000da6a33f8a35e477c9',1,'DraftImage']]],
+  ['units_9',['units',['../db/d58/structAamaFile.html#a3c02e21b709eed9c26f2ff177e480c13',1,'AamaFile::units()'],['../d3/df8/structDraftImage.html#ab702f8a6aa5a000da6a33f8a35e477c9',1,'DraftImage::units()']]],
   ['unixstandardsharepath_10',['unixStandardSharePath',['../de/d0f/classVCommonSettings.html#a8255af76f09b99f162be4cef80c2755d',1,'VCommonSettings']]],
   ['unsorted_11',['unsorted',['../db/de0/classVBank.html#a79c53474ac5759d117ecb704e315aee5',1,'VBank']]],
   ['updatechildren_12',['UpdateChildren',['../db/d53/classVPE_1_1VPropertyPrivate.html#a060e1205f685d16382ab2c6491bffbff',1,'VPE::VPropertyPrivate']]],

@@ -1,6 +1,6 @@
 <map id="VFSplinePointData" name="VFSplinePointData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,917,184,1097"/>
-<area shape="rect" id="node2" title=" " alt="" coords="19,675,127,752"/>
-<area shape="rect" id="node3" href="$db/d57/classVPointF.html" title="The VPointF class keep data of point." alt="" coords="152,572,309,855"/>
-<area shape="rect" id="node4" href="$d1/de7/classVGObject.html" title="The VGObject class keep information graphical objects." alt="" coords="133,5,328,523"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,1036,183,1240"/>
+<area shape="rect" id="node2" title=" " alt="" coords="19,768,126,852"/>
+<area shape="rect" id="node3" href="$db/d57/classVPointF.html" title="The VPointF class keep data of point." alt="" coords="150,649,307,971"/>
+<area shape="rect" id="node4" href="$d1/de7/classVGObject.html" title="The VGObject class keep information graphical objects." alt="" coords="132,5,325,600"/>
 </map>

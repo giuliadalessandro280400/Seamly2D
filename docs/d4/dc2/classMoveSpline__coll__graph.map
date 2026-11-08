@@ -1,17 +1,17 @@
 <map id="MoveSpline" name="MoveSpline">
-<area shape="rect" id="node1" title=" " alt="" coords="390,3273,528,3468"/>
-<area shape="rect" id="node2" href="$de/d04/classVUndoCommand.html" title=" " alt="" coords="260,2913,458,3167"/>
-<area shape="rect" id="node3" title=" " alt="" coords="12,1277,87,1354"/>
-<area shape="rect" id="node5" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="174,1688,440,2821"/>
-<area shape="rect" id="node4" title=" " alt="" coords="464,2216,598,2293"/>
-<area shape="rect" id="node6" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="112,1005,321,1625"/>
-<area shape="rect" id="node7" title=" " alt="" coords="44,719,175,796"/>
-<area shape="rect" id="node8" href="$da/da1/classQHash.html" title=" " alt="" coords="200,719,446,796"/>
-<area shape="rect" id="node9" href="$d0/d4c/classQMap.html" title=" " alt="" coords="346,1277,567,1354"/>
-<area shape="rect" id="node10" href="$da/da1/classQHash.html" title=" " alt="" coords="591,1277,820,1354"/>
-<area shape="rect" id="node11" href="$d7/d85/classVSpline.html" title="VSpline class that implements the spline." alt="" coords="552,2884,710,3196"/>
-<area shape="rect" id="node12" href="$dd/d51/classVAbstractCubicBezier.html" title=" " alt="" coords="703,2055,900,2455"/>
-<area shape="rect" id="node13" href="$dd/dc4/classVAbstractBezier.html" title=" " alt="" coords="845,1240,1006,1391"/>
-<area shape="rect" id="node14" href="$dc/d55/classVAbstractCurve.html" title=" " alt="" coords="819,572,1032,943"/>
-<area shape="rect" id="node15" href="$d1/de7/classVGObject.html" title="The VGObject class keep information graphical objects." alt="" coords="828,5,1023,523"/>
+<area shape="rect" id="node1" title=" " alt="" coords="397,3728,533,3949"/>
+<area shape="rect" id="node2" href="$de/d04/classVUndoCommand.html" title=" " alt="" coords="266,3324,464,3612"/>
+<area shape="rect" id="node3" title=" " alt="" coords="21,1453,94,1537"/>
+<area shape="rect" id="node5" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="181,1917,446,3225"/>
+<area shape="rect" id="node4" title=" " alt="" coords="470,2529,602,2613"/>
+<area shape="rect" id="node6" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="118,1138,327,1852"/>
+<area shape="rect" id="node7" title=" " alt="" coords="51,819,181,903"/>
+<area shape="rect" id="node8" href="$da/da1/classQHash.html" title=" " alt="" coords="205,819,451,903"/>
+<area shape="rect" id="node9" href="$d0/d4c/classQMap.html" title=" " alt="" coords="351,1453,571,1537"/>
+<area shape="rect" id="node10" href="$da/da1/classQHash.html" title=" " alt="" coords="595,1453,823,1537"/>
+<area shape="rect" id="node11" href="$d7/d85/classVSpline.html" title="VSpline class that implements the spline." alt="" coords="557,3290,715,3646"/>
+<area shape="rect" id="node12" href="$dd/d51/classVAbstractCubicBezier.html" title=" " alt="" coords="706,2342,902,2800"/>
+<area shape="rect" id="node13" href="$dd/dc4/classVAbstractBezier.html" title=" " alt="" coords="848,1410,1008,1580"/>
+<area shape="rect" id="node14" href="$dc/d55/classVAbstractCurve.html" title=" " alt="" coords="822,649,1034,1073"/>
+<area shape="rect" id="node15" href="$d1/de7/classVGObject.html" title="The VGObject class keep information graphical objects." alt="" coords="831,5,1025,600"/>
 </map>

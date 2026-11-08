@@ -1,12 +1,12 @@
 <map id="ShowDoublePointName" name="ShowDoublePointName">
-<area shape="rect" id="node1" title=" " alt="" coords="152,2327,362,2521"/>
-<area shape="rect" id="node2" href="$de/d04/classVUndoCommand.html" title=" " alt="" coords="158,2024,356,2277"/>
-<area shape="rect" id="node3" title=" " alt="" coords="49,417,124,494"/>
-<area shape="rect" id="node5" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="124,828,390,1961"/>
-<area shape="rect" id="node4" title=" " alt="" coords="414,1356,548,1433"/>
-<area shape="rect" id="node6" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="148,145,358,765"/>
-<area shape="rect" id="node7" title=" " alt="" coords="81,5,212,83"/>
-<area shape="rect" id="node8" href="$da/da1/classQHash.html" title=" " alt="" coords="236,5,483,83"/>
-<area shape="rect" id="node9" href="$d0/d4c/classQMap.html" title=" " alt="" coords="382,417,604,494"/>
-<area shape="rect" id="node10" href="$da/da1/classQHash.html" title=" " alt="" coords="628,417,857,494"/>
+<area shape="rect" id="node1" title=" " alt="" coords="158,2644,369,2864"/>
+<area shape="rect" id="node2" href="$de/d04/classVUndoCommand.html" title=" " alt="" coords="164,2306,363,2595"/>
+<area shape="rect" id="node3" title=" " alt="" coords="56,469,130,554"/>
+<area shape="rect" id="node5" href="$d8/dba/classVAbstractPattern.html" title=" " alt="" coords="131,933,396,2241"/>
+<area shape="rect" id="node4" title=" " alt="" coords="420,1545,552,1629"/>
+<area shape="rect" id="node6" href="$d6/deb/classVDomDocument.html" title="The VDomDocument class represents a Seamly2D document (.val file)." alt="" coords="154,155,362,868"/>
+<area shape="rect" id="node7" title=" " alt="" coords="87,5,216,90"/>
+<area shape="rect" id="node8" href="$da/da1/classQHash.html" title=" " alt="" coords="240,5,487,90"/>
+<area shape="rect" id="node9" href="$d0/d4c/classQMap.html" title=" " alt="" coords="387,469,607,554"/>
+<area shape="rect" id="node10" href="$da/da1/classQHash.html" title=" " alt="" coords="631,469,859,554"/>
 </map>

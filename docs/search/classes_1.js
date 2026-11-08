@@ -48,8 +48,9 @@ var searchData=
   ['binoutputstream_45',['BinOutputStream',['../df/de5/classBinOutputStream.html',1,'']]],
   ['bitops_46',['BitOps',['../da/d87/classBitOps.html',1,'']]],
   ['bitset_47',['BitSet',['../d6/dd0/classBitSet.html',1,'']]],
-  ['blockrangefactory_48',['BlockRangeFactory',['../d0/dca/classBlockRangeFactory.html',1,'']]],
-  ['bmpattern_49',['BMPattern',['../d3/db2/classBMPattern.html',1,'']]],
-  ['booleandatatypevalidator_50',['BooleanDatatypeValidator',['../d0/d4c/classBooleanDatatypeValidator.html',1,'']]],
-  ['button_51',['Button',['../d1/d19/classButton.html',1,'']]]
+  ['block_48',['Block',['../da/d6e/structanonymous__namespace_02aamadxf_8cpp_03_1_1Block.html',1,'anonymous_namespace{aamadxf.cpp}']]],
+  ['blockrangefactory_49',['BlockRangeFactory',['../d0/dca/classBlockRangeFactory.html',1,'']]],
+  ['bmpattern_50',['BMPattern',['../d3/db2/classBMPattern.html',1,'']]],
+  ['booleandatatypevalidator_51',['BooleanDatatypeValidator',['../d0/d4c/classBooleanDatatypeValidator.html',1,'']]],
+  ['button_52',['Button',['../d1/d19/classButton.html',1,'']]]
 ];
