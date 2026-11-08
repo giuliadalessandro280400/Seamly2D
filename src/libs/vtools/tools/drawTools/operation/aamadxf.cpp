@@ -285,7 +285,11 @@ AamaPiece makePiece(const Block &block, const Entity &insert, double unit)
 
     for (const QPointF &p : outline->points)
     {
-        piece.boundary.append(map(p));
+        const QPointF q = map(p);
+        if (piece.boundary.isEmpty() || not near(piece.boundary.last(), q, 0.01))
+        {
+            piece.boundary.append(q); // a vertex repeated right after itself is dropped
+        }
     }
     // a closed outline may repeat its first vertex at the end
     if (piece.boundary.size() > 3 && near(piece.boundary.first(), piece.boundary.last(), 0.01))
@@ -351,6 +355,7 @@ AamaFile readAama(const QString &path, double unitMm)
     QVector<Entity> inserts;
     QVector<Entity> loose; // entities drawn directly, not in a block
     int insUnits = -1;
+    int measurement = -1; // $MEASUREMENT: 0 imperial, 1 metric
     QString unitsText;
 
     int i = 0;
@@ -367,6 +372,10 @@ AamaFile readAama(const QString &path, double unitMm)
                     if (pairs.at(i).code == 9 && pairs.at(i).value == QLatin1String("$INSUNITS") && i + 1 < pairs.size())
                     {
                         insUnits = pairs.at(i + 1).value.toInt();
+                    }
+                    if (pairs.at(i).code == 9 && pairs.at(i).value == QLatin1String("$MEASUREMENT") && i + 1 < pairs.size())
+                    {
+                        measurement = pairs.at(i + 1).value.toInt();
                     }
                     ++i;
                 }
@@ -424,7 +433,8 @@ AamaFile readAama(const QString &path, double unitMm)
 
     // Units
     double unit = 1; // mm
-    if (insUnits == 1 || unitsText.contains(QLatin1String("ENGLISH"), Qt::CaseInsensitive))
+    if (insUnits == 1 || unitsText.contains(QLatin1String("ENGLISH"), Qt::CaseInsensitive)
+        || (insUnits <= 0 && unitsText.isEmpty() && measurement == 0))
     {
         unit = 25.4;
         file.units = QStringLiteral("inch");
@@ -439,7 +449,8 @@ AamaFile readAama(const QString &path, double unitMm)
         unit = 1000;
         file.units = QStringLiteral("m");
     }
-    else if (insUnits == 4 || unitsText.contains(QLatin1String("METRIC"), Qt::CaseInsensitive))
+    else if (insUnits == 4 || unitsText.contains(QLatin1String("METRIC"), Qt::CaseInsensitive)
+             || (insUnits <= 0 && measurement == 1))
     {
         file.units = QStringLiteral("mm");
     }

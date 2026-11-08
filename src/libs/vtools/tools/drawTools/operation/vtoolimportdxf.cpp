@@ -225,24 +225,44 @@ Placement makePlacement(const VContainer *data, quint32 anchor, int dxfAnchor, q
     }
 
     qreal turn = 0;
-    if (direction != NULL_ID && dxfDirection >= 0 && dxfDirection < shapes.size()
-        && not shapes.at(dxfDirection).points.isEmpty())
+    QPointF directionRef;
+    QPointF directionNow;
+    QPointF dxfDirectionPoint;
+    const bool hasDirection = direction != NULL_ID && dxfDirection >= 0 && dxfDirection < shapes.size()
+                              && not shapes.at(dxfDirection).points.isEmpty();
+    if (hasDirection)
     {
-        const QPointF directionRef = unitsToPixel(directionReference);
-        const QPointF dxfDirectionPoint = mmToPixel(shapes.at(dxfDirection).points.first());
+        directionRef = unitsToPixel(directionReference);
+        directionNow = static_cast<QPointF>(*data->GeometricObject<VPointF>(direction));
+        dxfDirectionPoint = mmToPixel(shapes.at(dxfDirection).points.first());
         turn = QLineF(placement.anchorRef, directionRef).angle()
                - QLineF(placement.dxfAnchor, dxfDirectionPoint).angle();
-        from.append(directionRef);
-        to.append(static_cast<QPointF>(*data->GeometricObject<VPointF>(direction)));
     }
     placement.angle = turn + angle;
 
+    // Each tie moves its DXF point exactly as much as its draft point moved; the free points follow in proportion.
+    const auto placed = [&placement](const QPointF &mm)
+    {
+        return placement.anchorRef + rotated(mmToPixel(mm) - placement.dxfAnchor, placement.angle);
+    };
+    if (hasDirection)
+    {
+        const QPointF p = placed(shapes.at(dxfDirection).points.first());
+        from.append(p);
+        to.append(p + (directionNow - directionRef));
+    }
     for (const DxfLink &link : links)
     {
+        if (link.shape < 0 || link.shape >= shapes.size() || shapes.at(link.shape).points.isEmpty())
+        {
+            continue;
+        }
         try
         {
-            to.append(static_cast<QPointF>(*data->GeometricObject<VPointF>(link.point)));
-            from.append(unitsToPixel(link.reference));
+            const QPointF now = static_cast<QPointF>(*data->GeometricObject<VPointF>(link.point));
+            const QPointF p = placed(shapes.at(link.shape).points.first());
+            from.append(p);
+            to.append(p + (now - unitsToPixel(link.reference)));
         }
         catch (const VException &)
         {
