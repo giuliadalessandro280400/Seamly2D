@@ -3169,6 +3169,60 @@ void VPattern::ParseToolScale(VMainGraphicsScene *scene, QDomElement &domElement
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+void VPattern::ParseToolImportDxf(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse)
+{
+    SCASSERT(scene != nullptr)
+    Q_ASSERT_X(domElement.isNull() == false, Q_FUNC_INFO, "domElement is null");
+
+    try
+    {
+        quint32 id = NULL_ID;
+
+        ToolsCommonAttributes(domElement, id);
+        const quint32 anchor     = GetParametrUInt(domElement, VToolImportDxf::AttrAnchor, NULL_ID_STR);
+        const int dxfAnchor      = domElement.attribute(VToolImportDxf::AttrDxfAnchor, "0").toInt();
+        const quint32 direction  = GetParametrUInt(domElement, VToolImportDxf::AttrDirection, NULL_ID_STR);
+        const int dxfDirection   = domElement.attribute(VToolImportDxf::AttrDxfDirection, "-1").toInt();
+        const QString angle      = GetParametrString(domElement, AttrAngle, "0");
+        QString f = angle;//need for saving fixed formula;
+        const QVector<DxfLink> links = VToolImportDxf::readLinks(domElement.attribute(VToolImportDxf::AttrLinks));
+        QPointF anchorReference, directionReference;
+        const QStringList reference = domElement.attribute(VToolImportDxf::AttrReference).split(',');
+        if (reference.size() == 4)
+        {
+            anchorReference = QPointF(reference.at(0).toDouble(), reference.at(1).toDouble());
+            directionReference = QPointF(reference.at(2).toDouble(), reference.at(3).toDouble());
+        }
+
+        QVector<SourceItem> source;
+        QVector<DestinationItem> destination;
+        VAbstractOperation::ExtractData(domElement, source, destination);
+        const QVector<DxfShape> shapes = VToolImportDxf::readShapes(domElement);
+
+        VToolImportDxf::Create(id, anchor, dxfAnchor, direction, dxfDirection, f, shapes, anchorReference,
+                               directionReference, links, destination, scene, this, data, parse, Source::FromFile);
+        if (f != angle)
+        {
+            SetAttribute(domElement, AttrAngle, f);
+            modified = true;
+            haveLiteChange();
+        }
+    }
+    catch (const VExceptionBadId &error)
+    {
+        VExceptionObjectError excep(tr("Error creating or updating the imported DXF"), domElement);
+        excep.AddMoreInformation(error.ErrorMessage());
+        throw excep;
+    }
+    catch (qmu::QmuParserError &error)
+    {
+        VExceptionObjectError excep(tr("Error creating or updating the imported DXF"), domElement);
+        excep.AddMoreInformation(QString("Message:     " + error.GetMsg() + "\n"+ "Expression:  " + error.GetExpr()));
+        throw excep;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void VPattern::ParseToolSlashSpread(VMainGraphicsScene *scene, QDomElement &domElement, const Document &parse)
 {
     SCASSERT(scene != nullptr)
@@ -3670,7 +3724,8 @@ void VPattern::ParseOperationElement(VMainGraphicsScene *scene, QDomElement &dom
                                             << VToolMove::ToolType            /*3*/
                                             << VToolScale::ToolType           /*4*/
                                             << VToolAlign::ToolType           /*5*/
-                                            << VToolSlashSpread::ToolType;    /*6*/
+                                            << VToolSlashSpread::ToolType     /*6*/
+                                            << VToolImportDxf::ToolType;      /*7*/
 
     switch (opers.indexOf(type))
     {
@@ -3694,6 +3749,9 @@ void VPattern::ParseOperationElement(VMainGraphicsScene *scene, QDomElement &dom
             break;
         case 6: //VToolSlashSpread::ToolType
             ParseToolSlashSpread(scene, domElement, parse);
+            break;
+        case 7: //VToolImportDxf::ToolType
+            ParseToolImportDxf(scene, domElement, parse);
             break;
         default:
             VException e(tr("Unknown operation type '%1'.").arg(type));
@@ -4322,7 +4380,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 QRectF VPattern::ActiveDrawBoundingRect() const
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were used.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 58, "Not all tools were used.");
 
     QRectF rect;
 
@@ -4389,6 +4447,7 @@ QRectF VPattern::ActiveDrawBoundingRect() const
                 case Tool::Scale:
                 case Tool::Align:
                 case Tool::SlashSpread:
+                case Tool::ImportDxf:
                 case Tool::MirrorByLine:
                 case Tool::MirrorByAxis:
                 case Tool::Move:

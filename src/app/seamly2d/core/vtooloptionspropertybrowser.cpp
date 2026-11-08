@@ -117,7 +117,7 @@ void VToolOptionsPropertyBrowser::clearPropertyBrowser()
 void VToolOptionsPropertyBrowser::showItemOptions(QGraphicsItem *item)
 {
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 58, "Not all tools were used in switch.");
 
     switch (item->type())
     {
@@ -227,6 +227,9 @@ void VToolOptionsPropertyBrowser::showItemOptions(QGraphicsItem *item)
         case VToolSlashSpread::Type:
             showOptionsToolSlashSpread(item);
             break;
+        case VToolImportDxf::Type:
+            showOptionsToolImportDxf(item);
+            break;
         case VToolMirrorByLine::Type:
             showOptionsToolMirrorByLine(item);
             break;
@@ -253,7 +256,7 @@ void VToolOptionsPropertyBrowser::updateOptions()
     }
 
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 58, "Not all tools were used in switch.");
 
     switch (currentItem->type())
     {
@@ -360,6 +363,9 @@ void VToolOptionsPropertyBrowser::updateOptions()
         case VToolSlashSpread::Type:
             updateOptionsToolSlashSpread();
             break;
+        case VToolImportDxf::Type:
+            updateOptionsToolImportDxf();
+            break;
         case VToolMirrorByLine::Type:
             updateOptionsToolMirrorByLine();
             break;
@@ -407,7 +413,7 @@ void VToolOptionsPropertyBrowser::userChangedData(VPE::VProperty *property)
     }
 
     // This check helps to find missing tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were used in switch.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 58, "Not all tools were used in switch.");
 
     switch (currentItem->type())
     {
@@ -509,6 +515,9 @@ void VToolOptionsPropertyBrowser::userChangedData(VPE::VProperty *property)
             break;
         case VToolSlashSpread::Type:
             changeDataToolSlashSpread(prop);
+            break;
+        case VToolImportDxf::Type:
+            changeDataToolImportDxf(prop);
             break;
         case VToolMirrorByLine::Type:
             changeDataToolMirrorByLine(prop);
@@ -864,6 +873,7 @@ QMap<QString, quint32> VToolOptionsPropertyBrowser::getObjectList(Tool *tool, GO
                 case static_cast<int>(::Tool::Scale):
                 case static_cast<int>(::Tool::Align):
                 case static_cast<int>(::Tool::SlashSpread):
+                case static_cast<int>(::Tool::ImportDxf):
                 {
                     QVector<quint32> list = qApp->getCurrentDocument()->getOpItems(recId, QStringLiteral("destination"));
                     for (qint32 j = 0; j < list.size(); ++j)
@@ -4513,7 +4523,9 @@ QStringList VToolOptionsPropertyBrowser::propertiesList() const
                                             << VToolSlashSpread::AttrHinge        /* 71 */
                                             << VToolSlashSpread::AttrEdgeStart    /* 72 */
                                             << VToolSlashSpread::AttrEdgeEnd      /* 73 */
-                                            << VToolSlashSpread::AttrSpread;      /* 74 */
+                                            << VToolSlashSpread::AttrSpread       /* 74 */
+                                            << VToolImportDxf::AttrAnchor         /* 75 */
+                                            << VToolImportDxf::AttrDirection;     /* 76 */
     return attr;
 }
 
@@ -4587,5 +4599,68 @@ void VToolOptionsPropertyBrowser::updateOptionsToolSlashSpread()
     for (const auto &pair : ids)
     {
         idToProperty[pair.first]->setValue(VPE::VObjectProperty::indexOfObject(points, tool->pointName(pair.second)));
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::changeDataToolImportDxf(VPE::VProperty *property)
+{
+    SCASSERT(property != nullptr)
+
+    QVariant value = property->data(VPE::VProperty::DPC_Data, Qt::DisplayRole);
+    const QString id = propertyToId[property];
+
+    VToolImportDxf *tool = qgraphicsitem_cast<VToolImportDxf *>(currentItem);
+    SCASSERT(tool != nullptr)
+    switch (propertiesList().indexOf(id))
+    {
+        case 5: // AttrAngle
+            tool->setFormulaAngle(value.value<VFormula>());
+            break;
+        case 75:
+            tool->setAnchorId(value.toInt());
+            break;
+        case 76:
+            tool->setDirectionId(value.toInt());
+            break;
+        default:
+            qWarning() << "Unknown property type. id = "<<id;
+            break;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::showOptionsToolImportDxf(QGraphicsItem *item)
+{
+    VToolImportDxf *tool = qgraphicsitem_cast<VToolImportDxf *>(item);
+    formView->setTitle(tr("Imported DXF"));
+
+    addPropertyLabel(tr("Placement"), AttrName);
+    addObjectProperty(tool, tool->pointName(tool->getAnchorId()), tr("Placed on point:"),
+                      VToolImportDxf::AttrAnchor, GOType::Point);
+    if (tool->getDirectionId() != NULL_ID)
+    {
+        addObjectProperty(tool, tool->pointName(tool->getDirectionId()), tr("Turned towards point:"),
+                          VToolImportDxf::AttrDirection, GOType::Point);
+    }
+    addPropertyFormula(tr("Extra angle:"), tool->getFormulaAngle(), AttrAngle);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VToolOptionsPropertyBrowser::updateOptionsToolImportDxf()
+{
+    VToolImportDxf *tool = qgraphicsitem_cast<VToolImportDxf *>(currentItem);
+
+    QVariant valueAngle;
+    valueAngle.setValue(tool->getFormulaAngle());
+    idToProperty[AttrAngle]->setValue(valueAngle);
+
+    const QMap<QString, quint32> points = getObjectList(tool, GOType::Point);
+    idToProperty[VToolImportDxf::AttrAnchor]->setValue(
+        VPE::VObjectProperty::indexOfObject(points, tool->pointName(tool->getAnchorId())));
+    if (tool->getDirectionId() != NULL_ID && idToProperty.contains(VToolImportDxf::AttrDirection))
+    {
+        idToProperty[VToolImportDxf::AttrDirection]->setValue(
+            VPE::VObjectProperty::indexOfObject(points, tool->pointName(tool->getDirectionId())));
     }
 }

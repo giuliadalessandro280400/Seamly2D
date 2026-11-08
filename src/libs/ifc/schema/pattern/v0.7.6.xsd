@@ -235,7 +235,7 @@
                             <xs:element name="source" minOccurs="1" maxOccurs="1">
                               <xs:complexType>
                                 <xs:sequence>
-                                  <xs:element name="item" minOccurs="1" maxOccurs="unbounded">
+                                  <xs:element name="item" minOccurs="0" maxOccurs="unbounded">
                                     <xs:complexType>
                                       <xs:attribute name="idObject" type="xs:unsignedInt" use="required"/>
                                       <xs:attribute name="alias" type="xs:string"/>
@@ -260,6 +260,24 @@
                                 </xs:sequence>
                               </xs:complexType>
                             </xs:element>
+                            <xs:element name="shapes" minOccurs="0" maxOccurs="1">
+                              <xs:complexType>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                  <xs:element name="point">
+                                    <xs:complexType>
+                                      <xs:attribute name="name" type="xs:string" use="required"/>
+                                      <xs:attribute name="xy" type="xs:string" use="required"/>
+                                    </xs:complexType>
+                                  </xs:element>
+                                  <xs:element name="curve">
+                                    <xs:complexType>
+                                      <xs:attribute name="name" type="xs:string" use="required"/>
+                                      <xs:attribute name="xy" type="xs:string" use="required"/>
+                                    </xs:complexType>
+                                  </xs:element>
+                                </xs:choice>
+                              </xs:complexType>
+                            </xs:element>
                           </xs:sequence>
                           <xs:attribute name="id" type="xs:unsignedInt" use="required"/>
                           <xs:attribute name="center" type="xs:unsignedInt"/>
@@ -279,6 +297,12 @@
                           <xs:attribute name="spread" type="xs:string"/>
                           <xs:attribute name="spreadType" type="xs:string"/>
                           <xs:attribute name="fixedSide" type="xs:string"/>
+                          <xs:attribute name="anchor" type="xs:unsignedInt"/>
+                          <xs:attribute name="dxfAnchor" type="xs:int"/>
+                          <xs:attribute name="direction" type="xs:unsignedInt"/>
+                          <xs:attribute name="dxfDirection" type="xs:int"/>
+                          <xs:attribute name="reference" type="xs:string"/>
+                          <xs:attribute name="links" type="xs:string"/>
                           <xs:attribute name="suffix" type="xs:string"/>
                           <xs:attribute name="type" type="xs:string" use="required"/>
                           <xs:attribute name="p1Line" type="xs:unsignedInt"/>

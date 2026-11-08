@@ -199,6 +199,7 @@ private slots:
     void rebuildAllSizesMenu();
     void setHiddenSizes(const QStringList &hidden);
     void makeAllHandlesProportional();
+    void importAamaDxf();
     void exportDraftBlocksAs();
 
     void handleArrowTool(bool checked);

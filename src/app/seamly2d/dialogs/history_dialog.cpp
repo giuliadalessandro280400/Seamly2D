@@ -66,6 +66,7 @@
 #include "../vtools/tools/drawTools/operation/vabstractoperation.h"
 #include "../vtools/tools/drawTools/operation/vtoolalign.h"
 #include "../vtools/tools/drawTools/operation/vtoolslashspread.h"
+#include "../vtools/tools/drawTools/operation/vtoolimportdxf.h"
 #include "../vtools/tools/drawTools/toolpoint/toolsinglepoint/toolcut/vtoolcutspline.h"
 #include "../vtools/tools/drawTools/toolpoint/toolsinglepoint/toolcut/vtoolcutsplinepath.h"
 #include "../vtools/tools/drawTools/toolpoint/toolsinglepoint/toolcut/vtoolcutarc.h"
@@ -352,7 +353,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 RowData HistoryDialog::record(const VToolRecord &tool)
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were used in history.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 58, "Not all tools were used in history.");
 
     RowData rowData;
     const quint32 &toolId = tool.getId();
@@ -674,6 +675,14 @@ RowData HistoryDialog::record(const VToolRecord &tool)
                                 .arg(getName(attrUInt(domElement, VToolAlign::AttrTargetPoint)))
                                 .arg(getName(attrUInt(domElement, VToolAlign::AttrSourceDirection)))
                                 .arg(getName(attrUInt(domElement, VToolAlign::AttrTargetDirection)), suffix);
+                break;
+            }
+
+            case Tool::ImportDxf:
+            {
+                rowData.icon = ":/toolicon/32x32/import_dxf.png";
+                rowData.name = getDestinationNames(domElement, QString());
+                rowData.tool = tr("DXF placed on %1").arg(getName(attrUInt(domElement, VToolImportDxf::AttrAnchor)));
                 break;
             }
 

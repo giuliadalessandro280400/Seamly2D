@@ -249,6 +249,7 @@ void VDrawTool::ContextMenu(QGraphicsSceneContextMenuEvent *event, quint32 objec
         tool_type != Tool::Scale &&
         tool_type != Tool::Align &&
         tool_type != Tool::SlashSpread &&
+        tool_type != Tool::ImportDxf &&
         tool_type != Tool::Move &&
         tool_type != Tool::MirrorByLine &&
         tool_type != Tool::MirrorByAxis)
@@ -700,6 +701,7 @@ void VDrawTool::ContextMenu(QGraphicsSceneContextMenuEvent *event, quint32 objec
         case Tool::Scale:
         case Tool::Align:
         case Tool::SlashSpread:
+        case Tool::ImportDxf:
         case Tool::Move:
         case Tool::MirrorByLine:
         case Tool::MirrorByAxis:

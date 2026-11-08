@@ -224,6 +224,7 @@ private:
     void changeDataToolScale(VPE::VProperty *property);
     void changeDataToolAlign(VPE::VProperty *property);
     void changeDataToolSlashSpread(VPE::VProperty *property);
+    void changeDataToolImportDxf(VPE::VProperty *property);
     void changeDataToolMove(VPE::VProperty *property);
     void changeDataToolMirrorByLine(VPE::VProperty *property);
     void changeDataToolMirrorByAxis(VPE::VProperty *property);
@@ -262,6 +263,7 @@ private:
     void showOptionsToolScale(QGraphicsItem *item);
     void showOptionsToolAlign(QGraphicsItem *item);
     void showOptionsToolSlashSpread(QGraphicsItem *item);
+    void showOptionsToolImportDxf(QGraphicsItem *item);
     void showOptionsToolMove(QGraphicsItem *item);
     void showOptionsToolMirrorByLine(QGraphicsItem *item);
     void showOptionsToolMirrorByAxis(QGraphicsItem *item);
@@ -300,6 +302,7 @@ private:
     void updateOptionsToolScale();
     void updateOptionsToolAlign();
     void updateOptionsToolSlashSpread();
+    void updateOptionsToolImportDxf();
     void updateOptionsToolMove();
     void updateOptionsToolMirrorByLine();
     void updateOptionsToolMirrorByAxis();

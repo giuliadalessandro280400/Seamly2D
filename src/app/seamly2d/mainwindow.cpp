@@ -54,6 +54,11 @@
 // Seamly application headers
 #include "mainwindow.h"
 #include <QMouseEvent>
+#include <QFileDialog>
+#include <QListWidget>
+#include <QDoubleSpinBox>
+#include "../vtools/tools/drawTools/operation/aamadxf.h"
+#include "../vtools/tools/drawTools/operation/vtoolimportdxf.h"
 #include <QVBoxLayout>
 #include <QFormLayout>
 #include <QDialogButtonBox>
@@ -3218,7 +3223,7 @@ void MainWindow::initializeToolButtons()
     connect(ui->arrowPointer_ToolButton, &QToolButton::clicked, this, &MainWindow::handleArrowTool);
 
     // This check helps to find missed tools
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Check if all tools were connected.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 58, "Check if all tools were connected.");
 
     connect(ui->pointAtDistanceAngle_ToolButton, &QToolButton::clicked,
             this, &MainWindow::handlePointAtDistanceAngleTool);
@@ -3783,7 +3788,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 void MainWindow::CancelTool()
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were handled.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 58, "Not all tools were handled.");
 
     qCDebug(vMainWindow, "Canceling tool.");
     dialogTool.clear();
@@ -5706,7 +5711,7 @@ void MainWindow::setToolsEnabled(bool enable)
     }
 
     // This check helps to find missed tools
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were handled.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 58, "Not all tools were handled.");
 
     //Toolbox Drafting Tools
     //Points
@@ -6238,7 +6243,7 @@ QT_WARNING_DISABLE_GCC("-Wswitch-default")
 void MainWindow::LastUsedTool()
 {
     // This check helps to find missed tools in the switch
-    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 57, "Not all tools were handled.");
+    Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 58, "Not all tools were handled.");
 
     if (currentTool == lastUsedTool)
     {
@@ -6495,6 +6500,17 @@ bool MainWindow::startNewSeamly2D(const QString &fileName) const
 void MainWindow::createActions()
 {
     ui->setupUi(this);
+
+    {
+        // File > Import AAMA DXF: a DXF pattern laid on the draft
+        auto *importDxf = new QAction(QIcon(QStringLiteral(":/toolicon/32x32/import_dxf.png")),
+                                      tr("Import AAMA DXF..."), this);
+        importDxf->setObjectName(QStringLiteral("importDxf_Action"));
+        importDxf->setToolTip(tr("Lay a DXF pattern (AAMA) on the draft and tie it to its points"));
+        const QList<QAction *> fileActions = ui->file_Menu->actions();
+        ui->file_Menu->insertAction(fileActions.size() > 3 ? fileActions.at(3) : nullptr, importDxf);
+        connect(importDxf, &QAction::triggered, this, &MainWindow::importAamaDxf);
+    }
 
     //Files menu
     connect(ui->actionNew, &QAction::triggered, this, &MainWindow::New);
@@ -9479,4 +9495,199 @@ void MainWindow::makeAllHandlesProportional()
                                           skipped);
     }
     QMessageBox::information(this, tr("Proportional Handles"), message);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief importAamaDxf lays a DXF pattern (AAMA) on the draft: choose the pieces, a DXF point and the point of the
+ * draft it sits on, and optionally a second pair to turn it. Its points can then be tied to points of the draft (right
+ * click on a DXF point): the DXF follows them in every size, the other points in proportion.
+ */
+void MainWindow::importAamaDxf()
+{
+    if (qApp->getCurrentScene() != draftScene || doc->getActiveDraftBlockName().isEmpty())
+    {
+        QMessageBox::information(this, tr("Import AAMA DXF"), tr("Open the draft (Draft mode) to import a DXF."));
+        return;
+    }
+
+    const QString path = QFileDialog::getOpenFileName(this, tr("Import AAMA DXF"), QString(),
+                                                      tr("DXF files (*.dxf *.DXF)"));
+    if (path.isEmpty())
+    {
+        return;
+    }
+
+    AamaFile file = readAama(path);
+    if (not file.error.isEmpty())
+    {
+        QMessageBox::warning(this, tr("Import AAMA DXF"), file.error);
+        return;
+    }
+
+    // the points of the draft
+    QMap<QString, quint32> draftPoints;
+    const QHash<quint32, QSharedPointer<VGObject>> *objects = pattern->DataGObjects();
+    for (auto i = objects->cbegin(); i != objects->cend(); ++i)
+    {
+        if (static_cast<GOType>(i.value()->getType()) == GOType::Point && i.value()->getMode() == Draw::Calculation
+            && not i.value()->name().isEmpty())
+        {
+            draftPoints.insert(i.value()->name(), i.key());
+        }
+    }
+    if (draftPoints.isEmpty())
+    {
+        QMessageBox::information(this, tr("Import AAMA DXF"),
+                                 tr("The draft has no points yet: the DXF is laid on a point of the draft."));
+        return;
+    }
+
+    QDialog dialog(this);
+    dialog.setWindowTitle(tr("Import AAMA DXF"));
+    auto *layout = new QVBoxLayout(&dialog);
+    auto *info = new QLabel(&dialog);
+    info->setWordWrap(true);
+    layout->addWidget(info);
+
+    auto *form = new QFormLayout();
+    auto *units = new QComboBox(&dialog);
+    units->addItem(tr("As the file says"), 0.0);
+    units->addItem(tr("Millimetres"), 1.0);
+    units->addItem(tr("Centimetres"), 10.0);
+    units->addItem(tr("Inches"), 25.4);
+    form->addRow(tr("Units of the file:"), units);
+    auto *pieceList = new QListWidget(&dialog);
+    pieceList->setMaximumHeight(110);
+    form->addRow(tr("Pieces:"), pieceList);
+    auto *dxfAnchor = new QComboBox(&dialog);
+    auto *draftAnchor = new QComboBox(&dialog);
+    draftAnchor->addItems(draftPoints.keys());
+    form->addRow(tr("Put the DXF point:"), dxfAnchor);
+    form->addRow(tr("on the draft point:"), draftAnchor);
+    auto *dxfDirection = new QComboBox(&dialog);
+    auto *draftDirection = new QComboBox(&dialog);
+    draftDirection->addItem(tr("(none)"));
+    draftDirection->addItems(draftPoints.keys());
+    form->addRow(tr("Turn it so that the DXF point:"), dxfDirection);
+    form->addRow(tr("lies towards the draft point:"), draftDirection);
+    auto *angle = new QDoubleSpinBox(&dialog);
+    angle->setRange(-360, 360);
+    angle->setDecimals(2);
+    angle->setSuffix(QStringLiteral("°"));
+    form->addRow(tr("Extra angle:"), angle);
+    layout->addLayout(form);
+    auto *hint = new QLabel(tr("After the import, right click a DXF point to tie it to a point of the draft: the DXF "
+                               "follows the tied points in every size, and the other points move in proportion."),
+                            &dialog);
+    hint->setWordWrap(true);
+    layout->addWidget(hint);
+    auto *buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+    connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+    connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+    layout->addWidget(buttons);
+
+    QVector<DxfShape> shapes;
+    const auto selectedPieces = [pieceList]()
+    {
+        QVector<int> pieces;
+        for (int i = 0; i < pieceList->count(); ++i)
+        {
+            if (pieceList->item(i)->checkState() == Qt::Checked)
+            {
+                pieces.append(i);
+            }
+        }
+        return pieces;
+    };
+    const auto refreshPoints = [&]()
+    {
+        shapes = VToolImportDxf::shapesFromFile(file, selectedPieces(), pattern);
+        const QString keepAnchor = dxfAnchor->currentText();
+        const QString keepDirection = dxfDirection->currentText();
+        dxfAnchor->clear();
+        dxfDirection->clear();
+        dxfDirection->addItem(tr("(none)"), -1);
+        for (int i = 0; i < shapes.size(); ++i)
+        {
+            if (shapes.at(i).point)
+            {
+                dxfAnchor->addItem(shapes.at(i).name, i);
+                dxfDirection->addItem(shapes.at(i).name, i);
+            }
+        }
+        dxfAnchor->setCurrentIndex(qMax(0, dxfAnchor->findText(keepAnchor)));
+        dxfDirection->setCurrentIndex(qMax(0, dxfDirection->findText(keepDirection)));
+        buttons->button(QDialogButtonBox::Ok)->setEnabled(dxfAnchor->count() > 0);
+    };
+    const auto refreshFile = [&]()
+    {
+        info->setText(tr("%1\n%2 piece(s). Units: %3.").arg(QFileInfo(path).fileName()).arg(file.pieces.size())
+                      .arg(file.units.isEmpty() ? tr("not written in the file (millimetres assumed)") : file.units));
+        pieceList->blockSignals(true);
+        pieceList->clear();
+        for (const AamaPiece &piece : file.pieces)
+        {
+            auto *item = new QListWidgetItem(piece.name, pieceList);
+            item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+            item->setCheckState(Qt::Checked);
+        }
+        pieceList->blockSignals(false);
+        refreshPoints();
+    };
+    connect(pieceList, &QListWidget::itemChanged, &dialog, [&]() { refreshPoints(); });
+    connect(units, QOverload<int>::of(&QComboBox::currentIndexChanged), &dialog, [&]()
+    {
+        AamaFile again = readAama(path, units->currentData().toDouble());
+        if (again.error.isEmpty())
+        {
+            file = again;
+        }
+        refreshFile();
+    });
+    refreshFile();
+
+    if (dialog.exec() != QDialog::Accepted || shapes.isEmpty())
+    {
+        return;
+    }
+
+    const quint32 anchorId = draftPoints.value(draftAnchor->currentText());
+    const int dxfAnchorIndex = dxfAnchor->currentData().toInt();
+    quint32 directionId = NULL_ID;
+    int dxfDirectionIndex = -1;
+    if (draftDirection->currentIndex() > 0 && dxfDirection->currentData().toInt() >= 0)
+    {
+        directionId = draftPoints.value(draftDirection->currentText());
+        dxfDirectionIndex = dxfDirection->currentData().toInt();
+    }
+    const auto here = [this](quint32 id)
+    {
+        if (id == NULL_ID)
+        {
+            return QPointF();
+        }
+        const QPointF p = static_cast<QPointF>(*pattern->GeometricObject<VPointF>(id));
+        return QPointF(qApp->fromPixel(p.x()), qApp->fromPixel(p.y()));
+    };
+    QString angleFormula = QString::number(angle->value());
+
+    VToolImportDxf *tool = VToolImportDxf::Create(0, anchorId, dxfAnchorIndex, directionId, dxfDirectionIndex,
+                                                  angleFormula, shapes, here(anchorId), here(directionId),
+                                                  QVector<DxfLink>(), QVector<DestinationItem>(), draftScene, doc,
+                                                  pattern, Document::FullParse, Source::FromGui);
+    if (tool != nullptr)
+    {
+        connect(tool, &VToolImportDxf::ToolTip, this, &MainWindow::setStatusMessage);
+        if (doc->getCursorId() > NULL_ID)
+        {
+            const quint32 toolId = tool->getId();
+            doc->LiteParseTree(Document::LiteParse);
+            doc->setCursorId(toolId);
+        }
+        if (historyDialog)
+        {
+            historyDialog->updateHistory(true);
+        }
+    }
 }

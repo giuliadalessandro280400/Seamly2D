@@ -4099,6 +4099,10 @@ Volete scaricarla?</translation>
         <source>%1 - Slash and Spread</source>
         <translation>%1 - Taglia e apri</translation>
     </message>
+    <message>
+        <source>%1 - Imported DXF</source>
+        <translation>%1 - DXF importato</translation>
+    </message>
 </context>
 <context>
     <name>HistoryDialog</name>
@@ -4325,6 +4329,10 @@ Volete scaricarla?</translation>
     <message>
         <source>Slash and spread around %1, edge %2_%3, %4 slashes, spread %5. Suffix %6</source>
         <translation>Taglia e apri attorno a %1, bordo %2_%3, %4 tagli, apertura %5. Suffisso %6</translation>
+    </message>
+    <message>
+        <source>DXF placed on %1</source>
+        <translation>DXF appoggiato su %1</translation>
     </message>
 </context>
 <context>
@@ -7297,6 +7305,96 @@ Continuare?</translation>
         <source>&lt;b&gt;Tool::Operations - Slash and Spread:&lt;/b&gt; Select the objects of the part to open - Hold &lt;b&gt;%1&lt;/b&gt; for multiple selection, Press &lt;b&gt;ENTER&lt;/b&gt; to confirm selection</source>
         <translation>&lt;b&gt;Strumento::Operazioni - Taglia e apri:&lt;/b&gt; Seleziona gli oggetti della parte da aprire - Tieni premuto &lt;b&gt;%1&lt;/b&gt; per la selezione multipla, premi &lt;b&gt;INVIO&lt;/b&gt; per confermare la selezione</translation>
     </message>
+    <message>
+        <source>Import AAMA DXF...</source>
+        <translation>Importa DXF AAMA...</translation>
+    </message>
+    <message>
+        <source>Lay a DXF pattern (AAMA) on the draft and tie it to its points</source>
+        <translation>Appoggia un cartamodello DXF (AAMA) sulla bozza e collegalo ai suoi punti</translation>
+    </message>
+    <message>
+        <source>Import AAMA DXF</source>
+        <translation>Importa DXF AAMA</translation>
+    </message>
+    <message>
+        <source>Open the draft (Draft mode) to import a DXF.</source>
+        <translation>Apri la bozza (modalità Bozza) per importare un DXF.</translation>
+    </message>
+    <message>
+        <source>DXF files (*.dxf *.DXF)</source>
+        <translation>File DXF (*.dxf *.DXF)</translation>
+    </message>
+    <message>
+        <source>The draft has no points yet: the DXF is laid on a point of the draft.</source>
+        <translation>La bozza non ha ancora punti: il DXF si appoggia su un punto della bozza.</translation>
+    </message>
+    <message>
+        <source>As the file says</source>
+        <translation>Come dice il file</translation>
+    </message>
+    <message>
+        <source>Millimetres</source>
+        <translation>Millimetri</translation>
+    </message>
+    <message>
+        <source>Centimetres</source>
+        <translation>Centimetri</translation>
+    </message>
+    <message>
+        <source>Inches</source>
+        <translation>Pollici</translation>
+    </message>
+    <message>
+        <source>Units of the file:</source>
+        <translation>Unità del file:</translation>
+    </message>
+    <message>
+        <source>Pieces:</source>
+        <translation>Pezzi:</translation>
+    </message>
+    <message>
+        <source>Put the DXF point:</source>
+        <translation>Metti il punto del DXF:</translation>
+    </message>
+    <message>
+        <source>on the draft point:</source>
+        <translation>sul punto della bozza:</translation>
+    </message>
+    <message>
+        <source>(none)</source>
+        <translation>(nessuno)</translation>
+    </message>
+    <message>
+        <source>Turn it so that the DXF point:</source>
+        <translation>Ruotalo in modo che il punto del DXF:</translation>
+    </message>
+    <message>
+        <source>lies towards the draft point:</source>
+        <translation>sia in direzione del punto della bozza:</translation>
+    </message>
+    <message>
+        <source>Extra angle:</source>
+        <translation>Angolo in più:</translation>
+    </message>
+    <message>
+        <source>After the import, right click a DXF point to tie it to a point of the draft: the DXF follows the tied points in every size, and the other points move in proportion.</source>
+        <translation>Dopo l'importazione, clic destro sul DXF per collegarne i punti alla bozza: il DXF segue i punti collegati in ogni taglia, e gli altri punti si muovono in proporzione.</translation>
+    </message>
+    <message>
+        <source>%1
+%2 piece(s). Units: %3.</source>
+        <translation>%1
+%2 pezzi. Unità: %3.</translation>
+    </message>
+    <message>
+        <source>not written in the file (millimetres assumed)</source>
+        <translation>non scritte nel file (considerati millimetri)</translation>
+    </message>
+    <message>
+        <source>DXF placed on %1</source>
+        <translation>DXF appoggiato su %1</translation>
+    </message>
 </context>
 <context>
     <name>MainWindowsNoGUI</name>
@@ -9878,6 +9976,18 @@ Continuare?</translation>
     <message>
         <source>inch</source>
         <translation>pollice</translation>
+    </message>
+    <message>
+        <source>Can't open the file.</source>
+        <translation>Impossibile aprire il file.</translation>
+    </message>
+    <message>
+        <source>This is not a text DXF file (binary DXF is not supported).</source>
+        <translation>Questo non è un DXF di testo (il DXF binario non è supportato).</translation>
+    </message>
+    <message>
+        <source>No pattern piece found: an AAMA file has the outline of each piece on layer 1.</source>
+        <translation>Nessun pezzo trovato: un file AAMA ha il contorno di ogni pezzo sul livello 1.</translation>
     </message>
 </context>
 <context>
@@ -13382,6 +13492,10 @@ caricare in SeamlyME come di consueto.
         <source>Error creating or updating operation of slash and spread</source>
         <translation>Errore nella creazione o nell'aggiornamento dell'operazione taglia e apri</translation>
     </message>
+    <message>
+        <source>Error creating or updating the imported DXF</source>
+        <translation>Errore nella creazione o nell'aggiornamento del DXF importato</translation>
+    </message>
 </context>
 <context>
     <name>VPoster</name>
@@ -14228,6 +14342,22 @@ caricare in SeamlyME come di consueto.
     <message>
         <source>Spread:</source>
         <translation>Apertura:</translation>
+    </message>
+    <message>
+        <source>Imported DXF</source>
+        <translation>DXF importato</translation>
+    </message>
+    <message>
+        <source>Placement</source>
+        <translation>Posizione</translation>
+    </message>
+    <message>
+        <source>Placed on point:</source>
+        <translation>Appoggiato sul punto:</translation>
+    </message>
+    <message>
+        <source>Turned towards point:</source>
+        <translation>Ruotato verso il punto:</translation>
     </message>
 </context>
 <context>
@@ -16368,6 +16498,61 @@ di controllo</translation>
     <message>
         <source>Spread</source>
         <translation>Apertura</translation>
+    </message>
+</context>
+<context>
+    <name>VToolImportDxf</name>
+    <message>
+        <source>Tie Points to the Draft...</source>
+        <translation>Collega i punti alla bozza...</translation>
+    </message>
+    <message>
+        <source>Tie %1 to a Point of the Draft...</source>
+        <translation>Collega %1 a un punto della bozza...</translation>
+    </message>
+    <message>
+        <source>Untie %1</source>
+        <translation>Scollega %1</translation>
+    </message>
+    <message>
+        <source>Delete DXF</source>
+        <translation>Elimina DXF</translation>
+    </message>
+    <message>
+        <source>Tie DXF Point</source>
+        <translation>Collega punto del DXF</translation>
+    </message>
+    <message>
+        <source>Point of the draft that %1 follows:</source>
+        <translation>Punto della bozza che %1 segue:</translation>
+    </message>
+    <message>
+        <source>Tie DXF Points</source>
+        <translation>Collega i punti del DXF</translation>
+    </message>
+    <message>
+        <source>Choose the point of the draft that each DXF point follows. The points you leave free move in proportion to the tied ones. The point the DXF is placed on is already tied.</source>
+        <translation>Scegli il punto della bozza che ogni punto del DXF segue. I punti che lasci liberi si muovono in proporzione a quelli collegati. Il punto su cui è appoggiato il DXF è già collegato.</translation>
+    </message>
+    <message>
+        <source>DXF point</source>
+        <translation>Punto del DXF</translation>
+    </message>
+    <message>
+        <source>Follows the draft point</source>
+        <translation>Segue il punto della bozza</translation>
+    </message>
+    <message>
+        <source>(free)</source>
+        <translation>(libero)</translation>
+    </message>
+    <message>
+        <source>DXF placed on</source>
+        <translation>DXF appoggiato su</translation>
+    </message>
+    <message>
+        <source>Tied points</source>
+        <translation>Punti collegati</translation>
     </message>
 </context>
 </TS>
