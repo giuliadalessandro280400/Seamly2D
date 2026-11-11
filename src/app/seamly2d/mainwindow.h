@@ -200,6 +200,9 @@ private slots:
     void setHiddenSizes(const QStringList &hidden);
     void makeAllHandlesProportional();
     void importAamaDxf();
+    void rebuildBasesMenu();
+    void insertBase(const QString &path);
+    void saveAsBase();
     void exportDraftBlocksAs();
 
     void handleArrowTool(bool checked);
@@ -355,6 +358,7 @@ private:
     QTimer                           *m_allSizesTimer {nullptr};
     bool                              m_allSizesUpdating {false};
     QMenu                            *m_allSizesMenu {nullptr}; ///< which sizes to show together
+    QMenu                            *m_basesMenu {nullptr};    ///< ready-made bases
     QStringList                       m_hiddenSizes;              ///< sizes left out of the view of all sizes
 
     void                              clearAllSizes();

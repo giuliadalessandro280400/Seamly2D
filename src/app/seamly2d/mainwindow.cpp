@@ -128,6 +128,9 @@
 #include <QScrollBar>
 #include <QFileDialog>
 #include <QUndoStack>
+#include <QDesktopServices>
+#include <QInputDialog>
+#include "core/base_library.h"
 #include <QAction>
 #include <QProcess>
 #include <QSettings>
@@ -6512,6 +6515,15 @@ void MainWindow::createActions()
         connect(importDxf, &QAction::triggered, this, &MainWindow::importAamaDxf);
     }
 
+    {
+        // Bases: ready-made draft blocks inserted with one click
+        m_basesMenu = new QMenu(tr("&Bases"), this);
+        m_basesMenu->setObjectName(QStringLiteral("bases_Menu"));
+        ui->menuBar->insertMenu(ui->help_Menu->menuAction(), m_basesMenu);
+        connect(m_basesMenu, &QMenu::aboutToShow, this, &MainWindow::rebuildBasesMenu);
+        rebuildBasesMenu();
+    }
+
     //Files menu
     connect(ui->actionNew, &QAction::triggered, this, &MainWindow::New);
     connect(ui->actionOpen, &QAction::triggered, this, &MainWindow::Open);
@@ -9690,4 +9702,243 @@ void MainWindow::importAamaDxf()
             historyDialog->updateHistory(true);
         }
     }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void MainWindow::rebuildBasesMenu()
+{
+    if (m_basesMenu == nullptr)
+    {
+        return;
+    }
+    m_basesMenu->clear();
+
+    const QVector<BaseLibrary::Entry> entries = BaseLibrary::entries();
+    QMap<QString, QMenu *> folders;
+    bool userSeparator = false;
+    for (const BaseLibrary::Entry &entry : entries)
+    {
+        if (!entry.builtIn && !userSeparator)
+        {
+            m_basesMenu->addSection(tr("My bases"));
+            userSeparator = true;
+        }
+
+        QMenu *menu = m_basesMenu;
+        if (!entry.folder.isEmpty())
+        {
+            const QString key = (entry.builtIn ? QStringLiteral("b/") : QStringLiteral("u/")) + entry.folder;
+            if (!folders.contains(key))
+            {
+                folders.insert(key, m_basesMenu->addMenu(entry.folder));
+            }
+            menu = folders.value(key);
+        }
+
+        QAction *action = menu->addAction(entry.title);
+        action->setToolTip(entry.description);
+        action->setStatusTip(entry.description);
+        const QString path = entry.path;
+        connect(action, &QAction::triggered, this, [this, path]() { insertBase(path); });
+    }
+    m_basesMenu->setToolTipsVisible(true);
+
+    m_basesMenu->addSeparator();
+    QAction *save = m_basesMenu->addAction(tr("Save Pattern as Base..."));
+    save->setEnabled(draft_block_combobox != nullptr && draft_block_combobox->count() > 0);
+    connect(save, &QAction::triggered, this, &MainWindow::saveAsBase);
+
+    QAction *folder = m_basesMenu->addAction(tr("Open Bases Folder"));
+    connect(folder, &QAction::triggered, this, []()
+    {
+        QDesktopServices::openUrl(QUrl::fromLocalFile(BaseLibrary::userFolder()));
+    });
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void MainWindow::insertBase(const QString &path)
+{
+    // No pattern yet: a new one, whose empty block the base takes the place of.
+    if (draft_block_combobox->count() == 0)
+    {
+        New();
+        if (draft_block_combobox->count() == 0)
+        {
+            return;
+        }
+    }
+
+    if (!drawMode)
+    {
+        ui->showDraftMode->setChecked(true);
+        showDraftMode(true);
+    }
+
+    QDomDocument preview;
+    QString error;
+    if (!BaseLibrary::readBase(path, preview, &error))
+    {
+        setStatusMessage(error);
+        return;
+    }
+
+    // A pattern made of one block with just its base point: the base replaces it.
+    QString emptyBlock;
+    QString emptyPointName;
+    QPointF start;
+    const QStringList blocks = BaseLibrary::blockNames(*doc);
+    if (blocks.size() == 1)
+    {
+        const QDomElement block = doc->getDraftBlockElement(blocks.first());
+        const QDomElement calculation = block.firstChildElement(QStringLiteral("calculation"));
+        const QDomElement first = calculation.firstChildElement();
+        const bool onlyBasePoint = !first.isNull() && first.nextSiblingElement().isNull()
+                && first.attribute(QStringLiteral("type")) == QLatin1String("single");
+        const bool noPieces = block.firstChildElement(QStringLiteral("pieces")).firstChildElement().isNull();
+        if (onlyBasePoint && noPieces)
+        {
+            emptyBlock = blocks.first();
+            emptyPointName = first.attribute(QStringLiteral("name"));
+            start = QPointF(first.attribute(QStringLiteral("x")).toDouble(),
+                            first.attribute(QStringLiteral("y")).toDouble());
+        }
+    }
+    if (emptyBlock.isEmpty())
+    {
+        // to the right of what is already drawn
+        const QRectF rect = draftScene->visibleItemsBoundingRect();
+        start = QPointF(qApp->fromPixel(rect.right()) + UnitConvertor(5.0, Unit::Cm, qApp->patternUnit()),
+                        qApp->fromPixel(40.0));
+    }
+
+    // The base needs measurements and the pattern has none: ask for the file first.
+    QSet<QString> known;
+    auto collectKnown = [this, &known]()
+    {
+        known.clear();
+        const QHash<QString, QSharedPointer<VInternalVariable>> *variables = pattern->DataVariables();
+        for (auto it = variables->constBegin(); it != variables->constEnd(); ++it)
+        {
+            known.insert(it.key());
+        }
+    };
+    collectKnown();
+
+    if (doc->MPath().isEmpty())
+    {
+        bool needsMeasurements = false;
+        const QRegularExpression word(QStringLiteral("[A-Za-z@][\\w@]*"));
+        QDomElement root = preview.documentElement();
+        for (QDomElement b = root.firstChildElement(QStringLiteral("draftBlock")); !b.isNull() && !needsMeasurements;
+             b = b.nextSiblingElement(QStringLiteral("draftBlock")))
+        {
+            const QDomNodeList points = b.elementsByTagName(QStringLiteral("point"));
+            for (int i = 0; i < points.size() && !needsMeasurements; ++i)
+            {
+                const QString length = points.at(i).toElement().attribute(QStringLiteral("length"));
+                needsMeasurements = word.match(length).hasMatch();
+            }
+        }
+
+        if (needsMeasurements)
+        {
+            const QString filter = tr("Measurements") + QStringLiteral(" (*.smms *.smis *.vst *.vit)");
+            const QString file = fileDialog(this, tr("Measurements for the base"),
+                                            qApp->Seamly2DSettings()->getMultisizePath(), filter, nullptr,
+                                            qApp->Settings()->getUseNativeFileDialogs(),
+                                            QFileDialog::ExistingFile, QFileDialog::AcceptOpen);
+            if (!file.isEmpty() && loadMeasurements(file))
+            {
+                if (!m_watcher->files().isEmpty())
+                {
+                    m_watcher->removePaths(m_watcher->files());
+                }
+                doc->SetMPath(RelativeMPath(qApp->getFilePath(), file));
+                m_watcher->addPath(file);
+                ui->unloadMeasurements_Action->setEnabled(true);
+                ui->editCurrent_Action->setEnabled(true);
+                collectKnown();
+            }
+        }
+    }
+
+    const QString skipName = emptyPointName;
+    const BaseLibrary::InsertResult result =
+        BaseLibrary::insertBase(doc, path, start, known, [skipName](const QString &name)
+    {
+        return name != skipName && !VContainer::IsUnique(name);
+    });
+
+    if (!result.ok)
+    {
+        setStatusMessage(result.error);
+        return;
+    }
+
+    if (!emptyBlock.isEmpty())
+    {
+        QDomElement old = doc->getDraftBlockElement(emptyBlock);
+        old.parentNode().removeChild(old);
+    }
+
+    // Ids and blocks changed under the undo history: it can't be replayed any more.
+    qApp->getUndoStack()->clear();
+
+    doc->changeActiveDraftBlock(result.blocks.first(), Document::LiteParse);
+    draft_block_combobox->blockSignals(true);
+    draft_block_combobox->clear();
+    draft_block_combobox->addItems(BaseLibrary::blockNames(*doc));
+    draft_block_combobox->setCurrentIndex(draft_block_combobox->findText(result.blocks.first()));
+    draft_block_combobox->blockSignals(false);
+
+    fullParseFile();
+    changeDraftBlockGlobally(result.blocks.first());
+    patternChangesWereSaved(false);
+    zoomToSelected();
+
+    QString message = tr("Base inserted: %1").arg(result.blocks.join(QStringLiteral(", ")));
+    if (!result.missing.isEmpty())
+    {
+        message += QStringLiteral(" — ") + tr("missing measurements: %1")
+                   .arg(result.missing.join(QStringLiteral(", ")));
+    }
+    if (!result.renamedPoints.isEmpty())
+    {
+        message += QStringLiteral(" — ") + tr("renamed points: %1")
+                   .arg(result.renamedPoints.join(QStringLiteral(", ")));
+    }
+    if (!result.baseUnit.isEmpty() && result.baseUnit != UnitsToStr(qApp->patternUnit()))
+    {
+        message += QStringLiteral(" — ") + tr("the base is in %1, the pattern in %2: fixed numbers keep "
+                                                  "their value").arg(result.baseUnit,
+                                                                     UnitsToStr(qApp->patternUnit()));
+    }
+    qCInfo(vMainWindow, "%s", qUtf8Printable(message));
+    ui->statusBar->showMessage(message, 20000);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void MainWindow::saveAsBase()
+{
+    QString suggested = QFileInfo(qApp->getFilePath()).completeBaseName();
+    if (suggested.isEmpty() && draft_block_combobox->count() > 0)
+    {
+        suggested = draft_block_combobox->itemText(0);
+    }
+    bool ok = false;
+    const QString title = QInputDialog::getText(this, tr("Save Pattern as Base"),
+                                                tr("Name of the base (all the draft blocks of the pattern):"),
+                                                QLineEdit::Normal, suggested, &ok);
+    if (!ok || title.trimmed().isEmpty())
+    {
+        return;
+    }
+    QString error;
+    const QString file = BaseLibrary::saveAsBase(doc, title, &error);
+    if (file.isEmpty())
+    {
+        setStatusMessage(error);
+        return;
+    }
+    ui->statusBar->showMessage(tr("Base saved: %1").arg(QDir::toNativeSeparators(file)), 10000);
 }

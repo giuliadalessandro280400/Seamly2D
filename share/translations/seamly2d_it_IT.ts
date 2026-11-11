@@ -7306,6 +7306,54 @@ Continuare?</translation>
         <translation>&lt;b&gt;Strumento::Operazioni - Taglia e apri:&lt;/b&gt; Seleziona gli oggetti della parte da aprire - Tieni premuto &lt;b&gt;%1&lt;/b&gt; per la selezione multipla, premi &lt;b&gt;INVIO&lt;/b&gt; per confermare la selezione</translation>
     </message>
     <message>
+        <source>&amp;Bases</source>
+        <translation>&amp;Basi</translation>
+    </message>
+    <message>
+        <source>My bases</source>
+        <translation>Le mie basi</translation>
+    </message>
+    <message>
+        <source>Save Pattern as Base...</source>
+        <translation>Salva il modello come base...</translation>
+    </message>
+    <message>
+        <source>Open Bases Folder</source>
+        <translation>Apri la cartella delle basi</translation>
+    </message>
+    <message>
+        <source>Measurements for the base</source>
+        <translation>Misure per la base</translation>
+    </message>
+    <message>
+        <source>Base inserted: %1</source>
+        <translation>Base inserita: %1</translation>
+    </message>
+    <message>
+        <source>missing measurements: %1</source>
+        <translation>misure mancanti: %1</translation>
+    </message>
+    <message>
+        <source>renamed points: %1</source>
+        <translation>punti rinominati: %1</translation>
+    </message>
+    <message>
+        <source>the base is in %1, the pattern in %2: fixed numbers keep their value</source>
+        <translation>la base è in %1, il modello in %2: i numeri fissi restano uguali</translation>
+    </message>
+    <message>
+        <source>Save Pattern as Base</source>
+        <translation>Salva il modello come base</translation>
+    </message>
+    <message>
+        <source>Name of the base (all the draft blocks of the pattern):</source>
+        <translation>Nome della base (tutti i blocchi di bozza del modello):</translation>
+    </message>
+    <message>
+        <source>Base saved: %1</source>
+        <translation>Base salvata: %1</translation>
+    </message>
+    <message>
         <source>Import AAMA DXF...</source>
         <translation>Importa DXF AAMA...</translation>
     </message>
@@ -9843,6 +9891,22 @@ Continuare?</translation>
 </context>
 <context>
     <name>QObject</name>
+    <message>
+        <source>Bases</source>
+        <translation>Basi</translation>
+    </message>
+    <message>
+        <source>Can't read the base %1</source>
+        <translation>Impossibile leggere la base %1</translation>
+    </message>
+    <message>
+        <source>The base %1 has no draft blocks</source>
+        <translation>La base %1 non ha blocchi di bozza</translation>
+    </message>
+    <message>
+        <source>Base</source>
+        <translation>Base</translation>
+    </message>
     <message>
         <source>Create new pattern piece to start working.</source>
         <translation>Crea nuovo pezzo di cartamodello per iniziare a lavorare.</translation>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pattern>
+    <version>0.7.6</version>
+    <unit>cm</unit>
+    <description>Gonna dritta: vita, fianco, lunghezza 60 cm (esempio di prova)</description>
+    <notes/>
+    <measurements/>
+    <variables/>
+    <draftBlock name="Gonna dritta">
+        <calculation>
+            <point id="1" mx="0.13" my="0.26" name="A" showPointName="true" type="single" x="0" y="0"/>
+            <point angle="270" basePoint="1" id="2" length="height_waist_side" lineColor="black" lineType="solidLine" lineWeight="0.35" mx="0.13" my="0.26" name="C" showPointName="true" type="endLine"/>
+            <point angle="270" basePoint="1" id="3" length="60" lineColor="black" lineType="solidLine" lineWeight="0.35" mx="0.13" my="0.26" name="B" showPointName="true" type="endLine"/>
+            <point angle="0" basePoint="2" id="4" length="hip_circ/4+1" lineColor="black" lineType="solidLine" lineWeight="0.35" mx="0.13" my="0.26" name="D" showPointName="true" type="endLine"/>
+            <point angle="0" basePoint="3" id="5" length="hip_circ/4+1" lineColor="black" lineType="solidLine" lineWeight="0.35" mx="0.13" my="0.26" name="E" showPointName="true" type="endLine"/>
+            <point angle="0" basePoint="1" id="6" length="waist_circ/4+3.5" lineColor="black" lineType="none" lineWeight="0.35" mx="0.13" my="0.26" name="F0" showPointName="false" type="endLine"/>
+            <point angle="90" basePoint="6" id="7" length="1.2" lineColor="black" lineType="solidLine" lineWeight="0.35" mx="0.13" my="0.26" name="F" showPointName="true" type="endLine"/>
+            <line firstPoint="1" id="8" lineColor="black" lineType="solidLine" lineWeight="0.35" secondPoint="7"/>
+            <spline angle1="275" angle2="90" color="black" id="9" length1="6" length2="6" lineWeight="0.35" penStyle="solidLine" point1="7" point4="4" type="simpleInteractive"/>
+            <line firstPoint="4" id="10" lineColor="black" lineType="solidLine" lineWeight="0.35" secondPoint="5"/>
+            <line firstPoint="5" id="11" lineColor="black" lineType="solidLine" lineWeight="0.35" secondPoint="3"/>
+            <line firstPoint="3" id="12" lineColor="black" lineType="solidLine" lineWeight="0.35" secondPoint="1"/>
+        </calculation>
+        <modeling/>
+        <pieces/>
+        <groups/>
+    </draftBlock>
+</pattern>

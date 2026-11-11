@@ -45,6 +45,7 @@ include(seamly2d.pri)
 # Resource files. This files will be included in binary.
 RESOURCES += \
     share/resources/cursor.qrc \ # Tools cursor icons.
+    share/resources/bases.qrc \ # Ready-made bases (draft blocks).
     share/resources/toolicon.qrc
     share/resources/sounds.qrc
 

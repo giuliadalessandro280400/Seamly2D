@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>bases/Gonne/gonna_dritta.sm2d</file>
+        <file>bases/Gonne/gonna_dritta_davanti_e_dietro.sm2d</file>
+    </qresource>
+</RCC>
