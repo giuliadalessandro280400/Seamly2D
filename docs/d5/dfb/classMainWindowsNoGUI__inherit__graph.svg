@@ -135,7 +135,7 @@ var sectionId = 'dynsection-0';
 <text xml:space="preserve" text-anchor="start" x="8" y="-729.75" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; infoToolButton</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-717" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; m_statusMessage</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-704.25" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; isInitialized</text>
-<text xml:space="preserve" text-anchor="start" x="8" y="-691.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 46 more...</text>
+<text xml:space="preserve" text-anchor="start" x="8" y="-691.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 47 more...</text>
 <polyline fill="none" stroke="#666666" points="0,-684.25 187.75,-684.25"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-670.75" font-family="Helvetica,sans-Serif" font-size="10.00">+ MainWindow()</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-658" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~MainWindow()</text>
@@ -189,7 +189,7 @@ var sectionId = 'dynsection-0';
 <text xml:space="preserve" text-anchor="start" x="8" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; setGuiEnabled()</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-33.25" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; changeDraftBlockGlobally()</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-20.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; initToolBarStyles()</text>
-<text xml:space="preserve" text-anchor="start" x="8" y="-7.75" font-family="Helvetica,sans-Serif" font-size="10.00">and 88 more...</text>
+<text xml:space="preserve" text-anchor="start" x="8" y="-7.75" font-family="Helvetica,sans-Serif" font-size="10.00">and 91 more...</text>
 </a>
 </g>
 </g>

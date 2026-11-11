@@ -1,6 +1,24 @@
 var namespaces_dup =
 [
     [ "anonymous_namespace{aamadxf.cpp}", "d0/dff/namespaceanonymous__namespace_02aamadxf_8cpp_03.html", "d0/dff/namespaceanonymous__namespace_02aamadxf_8cpp_03" ],
+    [ "anonymous_namespace{base_library.cpp}", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html", [
+      [ "collect", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a732a4cbbe24e9f4ca479c236a09b819a", null ],
+      [ "descriptionOf", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a4bc3f6a611176303dcd628b7be05fad5", null ],
+      [ "forEachElement", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a4b50d0c36a180742aaeab41f31984caf", null ],
+      [ "idAttributes", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#acb822164b30ffb8a3de0fa6840257708", null ],
+      [ "identifierRe", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#aa3469a92a6f64b56b8c0de2039f6c0ca", null ],
+      [ "idTextElements", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#ac46f0fc00359750fcef3d89f81096b4a", null ],
+      [ "isPointVariable", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a0b6530a87b8cd9411d72542d5f179971", null ],
+      [ "looksLikeFormula", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a42ff51ac45ebf4e964beab3f9c09e14a", null ],
+      [ "maxId", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#af71503f0186d3f30e79d6e308f28d5e2", null ],
+      [ "nameAttributes", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a454b1176869472bd728b34d0b0e34024", null ],
+      [ "namesInFormula", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#abc4134bd524657d1de2ce9aa38c8febc", null ],
+      [ "notFormulas", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a4733ba3dceb9004c6ec7b31516cfeb65", null ],
+      [ "pointVariablePrefixes", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a08a873d8675789ac77dbdb5d3a5d0492", null ],
+      [ "renameInFormula", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a5a721e2f4e13693b47fd0c1247a69952", null ],
+      [ "titleFromFile", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a0f823631b0643ae6b977edcece876548", null ],
+      [ "baseResourceDir", "de/db0/namespaceanonymous__namespace_02base__library_8cpp_03.html#a49f89eca2eb26c5c8218a163feb9d47a", null ]
+    ] ],
     [ "anonymous_namespace{dialogexporttocsv.cpp}", "d2/d4e/namespaceanonymous__namespace_02dialogexporttocsv_8cpp_03.html", [
       [ "encodingName", "d2/d4e/namespaceanonymous__namespace_02dialogexporttocsv_8cpp_03.html#a6f7c62063135531346d419500b1f7894", null ]
     ] ],
@@ -325,6 +343,7 @@ var namespaces_dup =
       [ "ReplacePlaceholders", "db/dc8/namespaceanonymous__namespace_02vtextmanager_8cpp_03.html#a91aaaf6b1495aa6560f1cb8e37421b01", null ]
     ] ],
     [ "anonymous_namespace{vtoolimportdxf.cpp}", "d5/d1a/namespaceanonymous__namespace_02vtoolimportdxf_8cpp_03.html", "d5/d1a/namespaceanonymous__namespace_02vtoolimportdxf_8cpp_03" ],
+    [ "BaseLibrary", "d0/d6f/namespaceBaseLibrary.html", "d0/d6f/namespaceBaseLibrary" ],
     [ "PieceCurveEdit", "de/d2e/namespacePieceCurveEdit.html", "de/d2e/namespacePieceCurveEdit" ],
     [ "ProportionalHandles", "d9/df6/namespaceProportionalHandles.html", [
       [ "attrRefChord", "d9/df6/namespaceProportionalHandles.html#afec0824ba61871333bbd27d28c8cc404", null ],

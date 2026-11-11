@@ -12,6 +12,10 @@ var annotated_dup =
       [ "Deformation", "d6/d89/classanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Deformation.html", "d6/d89/classanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Deformation" ],
       [ "Placement", "d3/db2/structanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Placement.html", "d3/db2/structanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Placement" ]
     ] ],
+    [ "BaseLibrary", "d0/d6f/namespaceBaseLibrary.html", [
+      [ "Entry", "dd/d67/structBaseLibrary_1_1Entry.html", "dd/d67/structBaseLibrary_1_1Entry" ],
+      [ "InsertResult", "d0/d35/structBaseLibrary_1_1InsertResult.html", "d0/d35/structBaseLibrary_1_1InsertResult" ]
+    ] ],
     [ "PieceCurveEdit", "de/d2e/namespacePieceCurveEdit.html", [
       [ "anonymous_namespace{piece_curve_edit.cpp}", "d8/ddb/namespacePieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03.html", [
         [ "Polyline", "d4/d03/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1Polyline.html", "d4/d03/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1Polyline" ],

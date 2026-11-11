@@ -223,6 +223,7 @@ var hierarchy =
       [ "HandlerBase", "dc/d20/classHandlerBase.html", null ],
       [ "SAX2XMLFilterImpl", "de/d91/classSAX2XMLFilterImpl.html", null ]
     ] ],
+    [ "BaseLibrary::Entry", "dd/d67/structBaseLibrary_1_1Entry.html", null ],
     [ "ErrorHandler", "d8/d53/classErrorHandler.html", [
       [ "DefaultHandler", "d2/d4a/classDefaultHandler.html", null ],
       [ "HandlerBase", "dc/d20/classHandlerBase.html", null ],
@@ -271,6 +272,7 @@ var hierarchy =
     [ "Hash2KeysSetBucketElem", "d7/df4/structHash2KeysSetBucketElem.html", null ],
     [ "HexBin", "dc/d8b/classHexBin.html", null ],
     [ "ICValueHasher", "da/d10/structICValueHasher.html", null ],
+    [ "BaseLibrary::InsertResult", "d0/d35/structBaseLibrary_1_1InsertResult.html", null ],
     [ "JanitorMemFunCall< T >", "d9/db9/classJanitorMemFunCall.html", null ],
     [ "LexicalHandler", "d6/dad/classLexicalHandler.html", [
       [ "DefaultHandler", "d2/d4a/classDefaultHandler.html", null ]

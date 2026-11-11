@@ -2,6 +2,8 @@ var dir_e83d8c2e3e50889a02889b58f7b170a9 =
 [
     [ "application_2d.cpp", "df/d3e/application__2d_8cpp.html", "df/d3e/application__2d_8cpp" ],
     [ "application_2d.h", "d7/d61/application__2d_8h.html", "d7/d61/application__2d_8h" ],
+    [ "base_library.cpp", "d3/d93/base__library_8cpp.html", "d3/d93/base__library_8cpp" ],
+    [ "base_library.h", "d3/d99/base__library_8h.html", "d3/d99/base__library_8h" ],
     [ "macos_dock.h", "dc/d54/macos__dock_8h.html", "dc/d54/macos__dock_8h" ],
     [ "macos_dock.mm", "d2/dad/macos__dock_8mm.html", "d2/dad/macos__dock_8mm" ],
     [ "vcmdexport.cpp", "df/d9b/vcmdexport_8cpp.html", "df/d9b/vcmdexport_8cpp" ],
