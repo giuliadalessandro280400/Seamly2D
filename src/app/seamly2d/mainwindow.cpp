@@ -131,6 +131,7 @@
 #include <QDesktopServices>
 #include <QInputDialog>
 #include "core/base_library.h"
+#include "sim3d/prova3d_panel.h"
 #include <QAction>
 #include <QProcess>
 #include <QSettings>
@@ -6151,6 +6152,20 @@ void MainWindow::createMenus()
     separatorAct = new QAction(this);
     separatorAct->setSeparator(true);
     ui->edit_Menu->insertAction(ui->previousDraftBlock_Action, separatorAct);
+
+    // Prova 3D: the fitting on the dress form, beside the pattern
+    {
+        auto *dock = new QDockWidget(tr("3D Fitting"), this);
+        dock->setObjectName(QStringLiteral("prova3d_DockWidget"));
+        dock->setWidget(new Prova3dPanel(dock));
+        dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+        addDockWidget(Qt::RightDockWidgetArea, dock);
+        dock->hide();
+        QAction *toggle = dock->toggleViewAction();
+        toggle->setShortcut(QKeySequence(Qt::ControlModifier | Qt::ShiftModifier | Qt::Key_3));
+        ui->view_Menu->addSeparator();
+        ui->view_Menu->addAction(toggle);
+    }
 
     //Add dock menus
     actionDockWidgetToolOptions = ui->toolProperties_DockWidget->toggleViewAction();

@@ -7354,6 +7354,10 @@ Continuare?</translation>
         <translation>Base salvata: %1</translation>
     </message>
     <message>
+        <source>3D Fitting</source>
+        <translation>Prova 3D</translation>
+    </message>
+    <message>
         <source>Import AAMA DXF...</source>
         <translation>Importa DXF AAMA...</translation>
     </message>
@@ -16617,6 +16621,105 @@ di controllo</translation>
     <message>
         <source>Tied points</source>
         <translation>Punti collegati</translation>
+    </message>
+</context>
+<context>
+    <name>Prova3dPanel</name>
+    <message>
+        <source>3D Fitting</source>
+        <translation>Prova 3D</translation>
+    </message>
+    <message>
+        <source>Dress form · size 42</source>
+        <translation>Manichino da sartoria · taglia 42</translation>
+    </message>
+    <message>
+        <source>Test bodice</source>
+        <translation>Corpino di prova</translation>
+    </message>
+    <message>
+        <source>Width of the test bodice: below 100 % it gets tighter</source>
+        <translation>Larghezza del corpino di prova: sotto il 100 % diventa più stretto</translation>
+    </message>
+    <message>
+        <source>width</source>
+        <translation>larghezza</translation>
+    </message>
+    <message>
+        <source>Cloth for the drop</source>
+        <translation>Tessuto per la caduta</translation>
+    </message>
+    <message>
+        <source>How much the warp threads can stretch (0 for a woven without elastane)</source>
+        <translation>Quanto possono allungarsi i fili di ordito (0 per un tessuto senza elastan)</translation>
+    </message>
+    <message>
+        <source>How much the weft threads can stretch</source>
+        <translation>Quanto possono allungarsi i fili di trama</translation>
+    </message>
+    <message>
+        <source>Locking angle: how far the bias gives before the threads jam</source>
+        <translation>Angolo di blocco: quanto cede lo sbieco prima che i fili si blocchino</translation>
+    </message>
+    <message>
+        <source>warp</source>
+        <translation>ordito</translation>
+    </message>
+    <message>
+        <source>weft</source>
+        <translation>trama</translation>
+    </message>
+    <message>
+        <source>locking angle</source>
+        <translation>angolo di blocco</translation>
+    </message>
+    <message>
+        <source>weight</source>
+        <translation>peso</translation>
+    </message>
+    <message>
+        <source>Fit in paper</source>
+        <translation>Prova in carta</translation>
+    </message>
+    <message>
+        <source>Drop</source>
+        <translation>Caduta</translation>
+    </message>
+    <message>
+        <source>start over</source>
+        <translation>ricomincia</translation>
+    </message>
+    <message>
+        <source>Put the test bodice on the form and fit it in paper.</source>
+        <translation>Metti il corpino di prova sul manichino e provalo in carta.</translation>
+    </message>
+    <message>
+        <source>Putting it on and fitting in paper…</source>
+        <translation>Montaggio e prova in carta…</translation>
+    </message>
+    <message>
+        <source>Pins out, the cloth drops…</source>
+        <translation>Via gli spilli, il tessuto cade…</translation>
+    </message>
+    <message>
+        <source>Paper fitting: %1 s</source>
+        <translation>Prova in carta: %1 s</translation>
+    </message>
+    <message>
+        <source>Drop: %1 s</source>
+        <translation>Caduta: %1 s</translation>
+    </message>
+    <message>
+        <source>%1 — %2 cm missing</source>
+        <translation>%1 — mancano %2 cm</translation>
+    </message>
+    <message>
+        <source>some seams are open, the pins stay in</source>
+        <translation>alcune cuciture sono aperte, gli spilli restano</translation>
+    </message>
+    <message>
+        <source>Closed:</source>
+        <translation>Chiuse:</translation>
     </message>
 </context>
 </TS>
