@@ -309,7 +309,7 @@ bool buildInput(const Setup &setup, const VContainer *data, Input &out, QString 
         const bool hasCenter = nodes.contains(ps.center1) && nodes.contains(ps.center2) && ps.center1 != ps.center2;
         sim::P2 c1{0, 0}, c2{0, 0};
         double centroidX = 0, minY = 1e18;
-        for (const sim::P2 &p : pts) { centroidX += p.x / n; minY = std::min(minY, p.y); }
+        for (const sim::P2 &p : pts) { centroidX += p.x / n; minY = (std::min)(minY, p.y); }
         if (hasCenter)
         {
             c1 = pts[size_t(nodes.value(ps.center1))];

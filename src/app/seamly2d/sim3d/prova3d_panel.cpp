@@ -202,7 +202,7 @@ void Prova3dView::paintEvent(QPaintEvent *)
     p.drawRect(rect().adjusted(0, 0, -1, -1));
 
     const double cy = std::cos(m_yaw), sy = std::sin(m_yaw), cp = std::cos(m_pitch), sp = std::sin(m_pitch);
-    const double scale = std::min(width() / 70.0, height() / 92.0) * m_zoom;
+    const double scale = (std::min)(width() / 70.0, height() / 92.0) * m_zoom;
     const QPointF centre(width() / 2.0, height() / 2.0);
     const double midY = 116.0;
     auto view = [&](const sim::V3 &v) {
@@ -246,7 +246,7 @@ void Prova3dView::paintEvent(QPaintEvent *)
             for (int e = 0; e < 3; ++e)
             {
                 const int a = tr[e], b = tr[(e + 1) % 3];
-                ++edgeCount[{std::min(a, b), std::max(a, b)}];
+                ++edgeCount[{(std::min)(a, b), (std::max)(a, b)}];
             }
         for (const auto &kv : edgeCount)
             if (kv.second == 1) border.push_back(kv.first);
@@ -296,7 +296,7 @@ void Prova3dView::paintEvent(QPaintEvent *)
             if (s.len() > 1e-9) n = s * (1.0 / s.len());
         }
         const double shade = 0.62 + 0.38 * std::fabs(n.dot(light));
-        QColor base = isForm ? formColor : pieceColors[std::min(1, std::max(0, gp[it.index]))];
+        QColor base = isForm ? formColor : pieceColors[(std::min)(1, (std::max)(0, gp[it.index]))];
         QColor c = QColor::fromRgbF(base.redF() * shade, base.greenF() * shade, base.blueF() * shade);
         p.setPen(QPen(c, 0.6));
         p.setBrush(c);
@@ -358,13 +358,13 @@ void Prova3dView::mouseMoveEvent(QMouseEvent *event)
     const QPoint d = event->pos() - m_lastPos;
     m_lastPos = event->pos();
     m_yaw += d.x() * 0.012;
-    m_pitch = std::max(-0.9, std::min(0.9, m_pitch + d.y() * 0.008));
+    m_pitch = (std::max)(-0.9, (std::min)(0.9, m_pitch + d.y() * 0.008));
     update();
 }
 
 void Prova3dView::wheelEvent(QWheelEvent *event)
 {
-    m_zoom = std::max(0.5, std::min(4.0, m_zoom * std::pow(1.0015, event->angleDelta().y())));
+    m_zoom = (std::max)(0.5, (std::min)(4.0, m_zoom * std::pow(1.0015, event->angleDelta().y())));
     update();
 }
 
