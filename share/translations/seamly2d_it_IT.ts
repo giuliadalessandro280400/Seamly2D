@@ -16722,8 +16722,162 @@ di controllo</translation>
         <translation>alcune cuciture sono aperte, gli spilli restano</translation>
     </message>
     <message>
+        <source>Pattern</source>
+        <translation>Cartamodello</translation>
+    </message>
+    <message>
+        <source>3D setup…</source>
+        <translation>Preparazione 3D…</translation>
+    </message>
+    <message>
+        <source>Set up the pieces and the seams, then fit the pattern in paper.</source>
+        <translation>Prepara pezzi e cuciture, poi prova il cartamodello in carta.</translation>
+    </message>
+    <message>
+        <source>Open a pattern with pieces first.</source>
+        <translation>Apri prima un cartamodello con dei pezzi.</translation>
+    </message>
+    <message>
+        <source>Set up saved with the pattern.</source>
+        <translation>Preparazione salvata nel cartamodello.</translation>
+    </message>
+    <message>
+        <source>No seams yet: add them in the 3D setup.</source>
+        <translation>Non ci sono ancora cuciture: aggiungile nella Preparazione 3D.</translation>
+    </message>
+    <message>
         <source>Closed:</source>
         <translation>Chiuse:</translation>
+    </message>
+</context>
+<context>
+    <name>Prova3dSetupDialog</name>
+    <message>
+        <source>3D Setup</source>
+        <translation>Preparazione 3D</translation>
+    </message>
+    <message>
+        <source>Halves are made whole on the form; a seam set on the half is sewn on both halves, unless it is separated.</source>
+        <translation>Le metà diventano intere sul manichino; una cucitura impostata sulla metà si cuce su entrambe le metà, a meno che non sia separata.</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>Pezzi</translation>
+    </message>
+    <message>
+        <source>Piece</source>
+        <translation>Pezzo</translation>
+    </message>
+    <message>
+        <source>Made whole</source>
+        <translation>Come diventa intero</translation>
+    </message>
+    <message>
+        <source>Centre line from</source>
+        <translation>Linea centrale da</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>a</translation>
+    </message>
+    <message>
+        <source>On the form</source>
+        <translation>Sul manichino</translation>
+    </message>
+    <message>
+        <source>Seams</source>
+        <translation>Cuciture</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>da</translation>
+    </message>
+    <message>
+        <source>sewn with</source>
+        <translation>cucito con</translation>
+    </message>
+    <message>
+        <source>other way</source>
+        <translation>verso opposto</translation>
+    </message>
+    <message>
+        <source>Halves</source>
+        <translation>Metà</translation>
+    </message>
+    <message>
+        <source>+ add a seam</source>
+        <translation>+ aggiungi una cucitura</translation>
+    </message>
+    <message>
+        <source>remove the selected one</source>
+        <translation>togli quella selezionata</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annulla</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Salva</translation>
+    </message>
+    <message>
+        <source>Walk the second edge the other way round</source>
+        <translation>Percorri il secondo bordo nel verso opposto</translation>
+    </message>
+    <message>
+        <source>Separate seams: sew this one on one half only</source>
+        <translation>Separa cuciture: cuci questa su una metà sola</translation>
+    </message>
+</context>
+<context>
+    <name>Prova3dSetup</name>
+    <message>
+        <source>Cut 2</source>
+        <translation>Taglia 2</translation>
+    </message>
+    <message>
+        <source>Whole</source>
+        <translation>Intero</translation>
+    </message>
+    <message>
+        <source>On the fold</source>
+        <translation>Sul piega</translation>
+    </message>
+    <message>
+        <source>Back, from the shoulders</source>
+        <translation>Dietro, dalle spalle</translation>
+    </message>
+    <message>
+        <source>Front, from the waist</source>
+        <translation>Davanti, dalla vita</translation>
+    </message>
+    <message>
+        <source>Back, from the waist</source>
+        <translation>Dietro, dalla vita</translation>
+    </message>
+    <message>
+        <source>Front, from the shoulders</source>
+        <translation>Davanti, dalle spalle</translation>
+    </message>
+    <message>
+        <source>Right half only</source>
+        <translation>Solo metà destra</translation>
+    </message>
+    <message>
+        <source>Left half only</source>
+        <translation>Solo metà sinistra</translation>
+    </message>
+    <message>
+        <source>Both halves</source>
+        <translation>Entrambe le metà</translation>
+    </message>
+    <message>
+        <source>%1: no centre line, taken as whole</source>
+        <translation>%1: manca la linea centrale, preso intero</translation>
+    </message>
+    <message>
+        <source>No piece is set up for the 3D fitting</source>
+        <translation>Nessun pezzo è preparato per la prova 3D</translation>
     </message>
 </context>
 </TS>

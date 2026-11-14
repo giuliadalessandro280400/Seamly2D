@@ -5,6 +5,10 @@
  *****************************************************************************/
 
 #include "prova3d_panel.h"
+#include "prova3d_setup.h"
+#include "prova3d_setup_dialog.h"
+
+#include "../vpatterndb/vcontainer.h"
 
 #include <QDoubleSpinBox>
 #include <QElapsedTimer>
@@ -112,9 +116,54 @@ const char *panelStyle = R"(
     padding: 1px 0px; selection-background-color: #1C1B19; selection-color: #F3EFE7;
 }
 #prova3dPanel QDoubleSpinBox:focus { border-bottom: 1px solid #A8261E; }
+#prova3dPanel QComboBox {
+    background: transparent; color: #1C1B19; border: none; border-bottom: 1px solid #1C1B19; padding: 2px 18px 2px 2px;
+}
+#prova3dPanel QComboBox:hover { border-bottom: 1px solid #A8261E; }
+#prova3dPanel QComboBox::drop-down { border: none; width: 14px; }
+#prova3dPanel QComboBox QAbstractItemView {
+    background: #FBF9F4; color: #1C1B19; border: 1px solid #1C1B19; selection-background-color: #1C1B19;
+    selection-color: #F3EFE7; outline: none;
+}
+#prova3dPanel QTableWidget { background: #FBF9F4; border: 1px solid #CFC7B8; color: #1C1B19; }
+#prova3dPanel QTableWidget::item { border-bottom: 1px solid #E6E0D4; padding: 2px 6px; }
+#prova3dPanel QHeaderView::section {
+    background: #F3EFE7; color: #6E685D; border: none; border-bottom: 1px solid #1C1B19; padding: 5px 6px;
+    font-size: 8pt;
+}
+#prova3dPanel QCheckBox::indicator { width: 13px; height: 13px; border: 1px solid #1C1B19; background: #FBF9F4; }
+#prova3dPanel QCheckBox::indicator:checked { background: #1C1B19; }
+#prova3dPanel QPushButton#p3toggle { border: none; border-bottom: 1px solid transparent; padding: 3px 2px; color: #8A8478; }
+#prova3dPanel QPushButton#p3toggle:checked { color: #1C1B19; border-bottom: 1px solid #1C1B19; }
+#prova3dPanel QPushButton#p3toggle:hover { background: transparent; color: #A8261E; }
 #prova3dPanel QDoubleSpinBox::up-button, #prova3dPanel QDoubleSpinBox::down-button { width: 0px; border: none; }
 )";
 } // namespace
+
+// ============================================================================ shared look
+QString Prova3dPanel::styleSheetText() { return QString::fromLatin1(panelStyle); }
+
+QFont Prova3dPanel::titleFont()
+{
+    QFont tf;
+    tf.setFamilies(serifFamilies());
+    tf.setPointSizeF(20);
+    tf.setItalic(true);
+    return tf;
+}
+
+QFont Prova3dPanel::noteFont()
+{
+    QFont f;
+    f.setFamilies(serifFamilies());
+    f.setItalic(true);
+    f.setPointSizeF(10);
+    return f;
+}
+
+QFont Prova3dPanel::capsFont() { return smallCaps(7); }
+
+QLabel *Prova3dPanel::sectionLabel(const QString &text, QWidget *parent) { return ::sectionLabel(text, parent); }
 
 // ============================================================================ view
 Prova3dView::Prova3dView(QWidget *parent)
@@ -355,10 +404,34 @@ Prova3dPanel::Prova3dPanel(QWidget *parent)
     m_view = new Prova3dView(this);
     layout->addWidget(m_view, 1);
 
-    // the test bodice
+    // what goes on the form: the pattern, or the test bodice
     layout->addSpacing(4);
-    layout->addWidget(sectionLabel(tr("Test bodice"), this));
-    auto *bodice = new QGridLayout();
+    auto *source = new QHBoxLayout();
+    source->setSpacing(14);
+    m_patternSource = new QPushButton(tr("Pattern"), this);
+    m_demoSource = new QPushButton(tr("Test bodice"), this);
+    for (QPushButton *b : {m_patternSource, m_demoSource})
+    {
+        b->setObjectName(QStringLiteral("p3toggle"));
+        b->setCheckable(true);
+        b->setAutoExclusive(true);
+        b->setFont(smallCaps(7));
+        b->setCursor(Qt::PointingHandCursor);
+        source->addWidget(b);
+    }
+    source->addStretch(1);
+    m_setupButton = new QPushButton(tr("3D setup\u2026"), this);
+    m_setupButton->setObjectName(QStringLiteral("p3quiet"));
+    m_setupButton->setCursor(Qt::PointingHandCursor);
+    source->addWidget(m_setupButton);
+    layout->addLayout(source);
+    connect(m_patternSource, &QPushButton::clicked, this, [this]() { setSource(true); });
+    connect(m_demoSource, &QPushButton::clicked, this, [this]() { setSource(false); });
+    connect(m_setupButton, &QPushButton::clicked, this, &Prova3dPanel::openSetup);
+
+    m_demoBox = new QWidget(this);
+    auto *bodice = new QGridLayout(m_demoBox);
+    bodice->setContentsMargins(0, 0, 0, 0);
     bodice->setHorizontalSpacing(14);
     QFont labelFont;
     labelFont.setFamilies(serifFamilies());
@@ -375,7 +448,7 @@ Prova3dPanel::Prova3dPanel(QWidget *parent)
     m_width->setToolTip(tr("Width of the test bodice: below 100 % it gets tighter"));
     addField(bodice, 0, 0, tr("width"), m_width);
     bodice->setColumnStretch(2, 1);
-    layout->addLayout(bodice);
+    layout->addWidget(m_demoBox);
 
     layout->addSpacing(2);
     layout->addWidget(sectionLabel(tr("Cloth for the drop"), this));
@@ -413,6 +486,7 @@ Prova3dPanel::Prova3dPanel(QWidget *parent)
     quiet.setItalic(true);
     quiet.setPointSizeF(10);
     m_restartButton->setFont(quiet);
+    m_setupButton->setFont(quiet);
     m_restartButton->setCursor(Qt::PointingHandCursor);
     buttons->addWidget(m_paperButton);
     buttons->addWidget(m_dropButton);
@@ -437,7 +511,42 @@ Prova3dPanel::Prova3dPanel(QWidget *parent)
     connect(this, &Prova3dPanel::phaseFinished, this, &Prova3dPanel::onPhaseFinished, Qt::QueuedConnection);
 
     m_dropButton->setEnabled(false);
-    m_status->setText(tr("Put the test bodice on the form and fit it in paper."));
+    setSource(true);
+}
+
+void Prova3dPanel::setPattern(VAbstractPattern *doc, const VContainer *data)
+{
+    m_doc = doc;
+    m_data = data;
+}
+
+void Prova3dPanel::setSource(bool pattern)
+{
+    m_usePattern = pattern;
+    m_patternSource->setChecked(pattern);
+    m_demoSource->setChecked(!pattern);
+    m_demoBox->setVisible(!pattern);
+    m_setupButton->setVisible(pattern);
+    if (m_worker == nullptr)
+    {
+        m_status->setText(pattern ? tr("Set up the pieces and the seams, then fit the pattern in paper.")
+                                  : tr("Put the test bodice on the form and fit it in paper."));
+    }
+}
+
+void Prova3dPanel::openSetup()
+{
+    if (m_doc == nullptr || m_data == nullptr || m_data->DataPieces()->isEmpty())
+    {
+        m_status->setText(tr("Open a pattern with pieces first."));
+        return;
+    }
+    Prova3dSetupDialog dialog(prova3d::Setup::load(m_doc), m_data, this);
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        dialog.setup().save(m_doc);
+        m_status->setText(tr("Set up saved with the pattern."));
+    }
 }
 
 Prova3dPanel::~Prova3dPanel()
@@ -501,11 +610,30 @@ void Prova3dPanel::runPhase(int phase)
     m_status->setText(phase == 1 ? tr("Putting it on and fitting in paper…") : tr("Pins out, the cloth drops…"));
 
     const double width = m_width->value() / 100.0;
+    const bool usePattern = m_usePattern;
+    prova3d::Input input;
+    if (phase == 1 && usePattern)
+    {
+        QString error;
+        if (m_doc == nullptr || m_data == nullptr
+            || !prova3d::buildInput(prova3d::Setup::load(m_doc), m_data, input, &error))
+        {
+            m_status->setText(error.isEmpty() ? tr("Open a pattern with pieces first.") : error);
+            setBusy(false);
+            return;
+        }
+        if (input.seams.empty())
+        {
+            m_status->setText(tr("No seams yet: add them in the 3D setup."));
+            setBusy(false);
+            return;
+        }
+    }
     const sim::Material cloth = fabric();
     const bool needForm = !m_form;
     QPointer<Prova3dView> view = m_view;
 
-    m_worker = QThread::create([this, phase, width, cloth, needForm, view]()
+    m_worker = QThread::create([this, phase, width, cloth, needForm, view, usePattern, input]()
     {
         QElapsedTimer timer;
         timer.start();
@@ -522,7 +650,17 @@ void Prova3dPanel::runPhase(int phase)
         bool pinsKept = false;
         if (phase == 1)
         {
-            const sim::Demo demo = sim::demoBodice(width);
+            sim::Demo demo;
+            if (usePattern)
+            {
+                demo.pieces = input.pieces;
+                demo.seams = input.seams;
+                demo.pins = input.pins;
+            }
+            else
+            {
+                demo = sim::demoBodice(width);
+            }
             auto garment = std::make_shared<sim::Garment>(demo.pieces, demo.seams, *m_form, 1.5, 23.0);
             garment->setProgress(repaint);
             std::vector<QString> names;
@@ -545,6 +683,7 @@ void Prova3dPanel::runPhase(int phase)
             // paper: pinned at centre front and back, assembled, then its weight
             garment->setMaterial(sim::Material::paperDefault());
             garment->setLatchSeams(true);
+            garment->latchClosedSeams(1.0);   // what closed while dressing starts sewn: the paper opens what it can't hold
             std::vector<sim::PinInput> pins;
             for (const auto &pp : demo.pins) pins.push_back({pp.first, pp.second, garment->nodeAt(pp.first, pp.second)});
             garment->setPins(pins);
@@ -554,7 +693,7 @@ void Prova3dPanel::runPhase(int phase)
         }
         else if (phase == 0)
         {
-            summary = tr("Put the test bodice on the form and fit it in paper.");
+            // only the form: the status line stays as it is
         }
         else if (m_garment)
         {
@@ -588,7 +727,7 @@ void Prova3dPanel::runPhase(int phase)
 
 void Prova3dPanel::onPhaseFinished(const QString &summary)
 {
-    m_status->setText(summary);
+    if (!summary.isEmpty()) m_status->setText(summary);
 }
 
 void Prova3dPanel::refreshNotes()

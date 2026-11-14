@@ -288,6 +288,7 @@ MainWindow::MainWindow(QWidget *parent)
         //  - draftScene - draft mode scene.
         //  - pieceScene - piece mode scene.
         doc = new VPattern(pattern, draftScene, pieceScene);
+        if (m_prova3d != nullptr) m_prova3d->setPattern(doc, pattern);
 
         // Connect signals to slots for handling application events in the doc VPattern object.
         connect(doc, &VPattern::ClearMainWindow, this, &MainWindow::Clear);
@@ -6157,7 +6158,9 @@ void MainWindow::createMenus()
     {
         auto *dock = new QDockWidget(tr("3D Fitting"), this);
         dock->setObjectName(QStringLiteral("prova3d_DockWidget"));
-        dock->setWidget(new Prova3dPanel(dock));
+        m_prova3d = new Prova3dPanel(dock);
+        m_prova3d->setPattern(doc, pattern);
+        dock->setWidget(m_prova3d);
         dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
         addDockWidget(Qt::RightDockWidgetArea, dock);
         dock->hide();

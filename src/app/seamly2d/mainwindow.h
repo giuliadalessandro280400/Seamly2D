@@ -358,7 +358,8 @@ private:
     QTimer                           *m_allSizesTimer {nullptr};
     bool                              m_allSizesUpdating {false};
     QMenu                            *m_allSizesMenu {nullptr}; ///< which sizes to show together
-    QMenu                            *m_basesMenu {nullptr};    ///< ready-made bases
+    QMenu                            *m_basesMenu {nullptr};
+    class Prova3dPanel               *m_prova3d {nullptr};    ///< 3D fitting
     QStringList                       m_hiddenSizes;              ///< sizes left out of the view of all sizes
 
     void                              clearAllSizes();

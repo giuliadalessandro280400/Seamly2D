@@ -801,6 +801,34 @@
             <xs:attribute name="name" type="xs:string"/>
           </xs:complexType>
         </xs:element>
+        <xs:element name="prova3d" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="piece">
+                <xs:complexType>
+                  <xs:attribute name="piece" type="xs:unsignedInt" use="required"/>
+                  <xs:attribute name="use" type="xs:boolean"/>
+                  <xs:attribute name="mode" type="xs:string"/>
+                  <xs:attribute name="center1" type="xs:unsignedInt"/>
+                  <xs:attribute name="center2" type="xs:unsignedInt"/>
+                  <xs:attribute name="position" type="xs:string"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="seam">
+                <xs:complexType>
+                  <xs:attribute name="pieceA" type="xs:unsignedInt" use="required"/>
+                  <xs:attribute name="a1" type="xs:unsignedInt" use="required"/>
+                  <xs:attribute name="a2" type="xs:unsignedInt" use="required"/>
+                  <xs:attribute name="pieceB" type="xs:unsignedInt" use="required"/>
+                  <xs:attribute name="b1" type="xs:unsignedInt" use="required"/>
+                  <xs:attribute name="b2" type="xs:unsignedInt" use="required"/>
+                  <xs:attribute name="reverse" type="xs:boolean"/>
+                  <xs:attribute name="sides" type="xs:string"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
       <xs:attribute name="readOnly" type="xs:boolean"/>
     </xs:complexType>

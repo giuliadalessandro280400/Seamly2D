@@ -21,6 +21,8 @@ class QDoubleSpinBox;
 class QLabel;
 class QPushButton;
 class QThread;
+class VAbstractPattern;
+class VContainer;
 
 /// Draws the form and the garment, paper on paper. Drag to turn, wheel to zoom.
 class Prova3dView : public QWidget
@@ -59,6 +61,16 @@ public:
     explicit Prova3dPanel(QWidget *parent = nullptr);
     ~Prova3dPanel() override;
 
+    /// the pattern whose pieces go on the form
+    void setPattern(VAbstractPattern *doc, const VContainer *data);
+
+    // the look of the panel, shared with the setup window
+    static QString styleSheetText();
+    static QFont titleFont();
+    static QFont noteFont();
+    static QFont capsFont();
+    static QLabel *sectionLabel(const QString &text, QWidget *parent);
+
 protected:
     void showEvent(QShowEvent *event) override;
 
@@ -70,6 +82,8 @@ private slots:
     void drop();
     void restart();
     void onPhaseFinished(const QString &summary);
+    void openSetup();
+    void setSource(bool pattern);
 
 private:
     void runPhase(int phase);
@@ -88,6 +102,13 @@ private:
     QDoubleSpinBox *m_weight{nullptr};
     QLabel *m_status{nullptr};
     QLabel *m_notes{nullptr};
+    QPushButton *m_patternSource{nullptr};
+    QPushButton *m_demoSource{nullptr};
+    QPushButton *m_setupButton{nullptr};
+    QWidget *m_demoBox{nullptr};
+    VAbstractPattern *m_doc{nullptr};
+    const VContainer *m_data{nullptr};
+    bool m_usePattern{true};
 
     std::unique_ptr<sim::DressForm> m_form;
     std::shared_ptr<sim::Garment> m_garment;

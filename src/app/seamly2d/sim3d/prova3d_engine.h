@@ -54,6 +54,8 @@ public:
     double radius(double theta, double y) const;
     // pushes p out of the form (plus thickness). Returns true if it moved; normal = outward normal.
     bool project(V3 &p, double thickness, V3 *normal) const;
+    // distance from the form (negative inside) and the outward direction
+    double distance(const V3 &p, V3 *normal) const;
     double bottom() const { return m_levels.front().y; }
     double top() const { return m_levels.back().y; }
     void mesh(std::vector<V3> &verts, std::vector<std::array<int, 3>> &tris, int around = 96) const;
@@ -108,6 +110,7 @@ struct SeamInput {
     int pieceB, fromB, toB;   // walked forward if !reverseB, backward otherwise
     bool reverseB{false};
     std::string name;
+    bool autoDirection{false};   // walk each edge the short way between its two ends (ignores reverseB)
 };
 
 struct PinInput {
@@ -124,6 +127,13 @@ public:
     void setMaterial(const Material &m);
     void setPins(const std::vector<PinInput> &pins);
     void releasePins() { m_pins.clear(); }
+    // sewing in order, as on the form: only darts and the seams starting within `depth` cm of the top of their
+    // piece pull (a negative depth enables them all)
+    void enableSeamsFromTop(double depth);
+    // the seams already closed (within tol cm) are taken as sewn: the paper then opens only those it can't keep
+    void latchClosedSeams(double tol);
+    // while dressing: the cloth is drawn gently towards the form (cm per step, 0 = off)
+    void setAttraction(double cmPerStep) { m_attract = cmPerStep; }
     // seams that close get sewn (and then hold) only when this is on
     void setLatchSeams(bool on) {
         m_latch = on;
@@ -162,7 +172,7 @@ private:
     enum Kind { Thread, Shear, Edge };
     struct Dist { int a, b; double rest, lo, hi, compliance; double lambda; Kind kind; double dir; };
     struct Bend { int a, b; double rest, compliance, lambda; bool warp; };
-    struct SeamPt { int a0, a1; double wa; int b0, b1; double wb; double lambda; int seam; bool sewn; };
+    struct SeamPt { int a0, a1; double wa; int b0, b1; double wb; double lambda; int seam; bool sewn; double tension; int cooldown; };
     struct Pin { int node; V3 to; };
     struct Hinge { int i[4]; double K[4]; double scale; double kk; };   // isometric bending across an edge
 
@@ -184,6 +194,9 @@ private:
     std::vector<Hinge> m_hinge;
     std::vector<int> m_orphan;
     bool m_latch{true};
+    double m_attract{0};
+    std::vector<char> m_seamEnabled;
+    std::vector<double> m_pieceTop;
     std::map<std::tuple<int, long long, long long>, int> m_nodeIndex;
     std::function<void()> m_progress;
     mutable std::mutex m_shownMutex;

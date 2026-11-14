@@ -316,6 +316,19 @@ double DressForm::sdf(const V3 &p) const
     return (c00 * (1 - ty) + c10 * ty) * (1 - tz) + (c01 * (1 - ty) + c11 * ty) * tz;
 }
 
+double DressForm::distance(const V3 &p, V3 *normal) const
+{
+    const double d = sdf(p);
+    if (normal && d < 1e8) {
+        const double h = m_cell * 0.5;
+        V3 n(sdf(p + V3(h, 0, 0)) - sdf(p - V3(h, 0, 0)), sdf(p + V3(0, h, 0)) - sdf(p - V3(0, h, 0)),
+             sdf(p + V3(0, 0, h)) - sdf(p - V3(0, 0, h)));
+        const double l = n.len();
+        *normal = l > 1e-9 ? n * (1.0 / l) : V3();
+    }
+    return d;
+}
+
 bool DressForm::project(V3 &p, double thickness, V3 *normal) const
 {
     double d = sdf(p);
@@ -393,8 +406,18 @@ Garment::Garment(const std::vector<PieceInput> &pieces, const std::vector<SeamIn
             if (len < 0) len += bd.length;
             return std::make_pair(a, len);
         };
-        auto [a0, lenA] = span(A, si.fromA, si.toA, false);
-        auto [b0, lenB] = span(B, si.fromB, si.toB, si.reverseB);
+        SeamInput sd = si;
+        if (sd.autoDirection) {
+            auto fwd = [](const Boundary &bd, int from, int to) {
+                double l = bd.vertexParam[to] - bd.vertexParam[from];
+                return l < 0 ? l + bd.length : l;
+            };
+            if (fwd(A, sd.fromA, sd.toA) > A.length / 2) { std::swap(sd.fromA, sd.toA); std::swap(sd.fromB, sd.toB); }
+            sd.reverseB = fwd(B, sd.fromB, sd.toB) > B.length / 2;
+            m_seamInput[s] = sd;
+        }
+        auto [a0, lenA] = span(A, sd.fromA, sd.toA, false);
+        auto [b0, lenB] = span(B, sd.fromB, sd.toB, sd.reverseB);
         const int n = std::max(2, int(std::ceil(std::max(lenA, lenB) / (spacing * 0.5))));
         auto locate = [](const Boundary &bd, double p, int &n0, int &n1, double &w) {
             p = std::fmod(p, bd.length);
@@ -412,8 +435,10 @@ Garment::Garment(const std::vector<PieceInput> &pieces, const std::vector<SeamIn
         for (int k = 0; k <= n; ++k) {
             const double t = double(k) / n;
             SeamPt sp{};
+            sp.tension = 0;
+            sp.cooldown = 0;
             locate(A, a0 + t * lenA, sp.a0, sp.a1, sp.wa);
-            locate(B, si.reverseB ? b0 - t * lenB : b0 + t * lenB, sp.b0, sp.b1, sp.wb);
+            locate(B, sd.reverseB ? b0 - t * lenB : b0 + t * lenB, sp.b0, sp.b1, sp.wb);
             sp.seam = int(s);
             m_seam.push_back(sp);
         }
@@ -445,6 +470,12 @@ int Garment::nodeFor(int piece, const P2 &uv, const P2 &pattern)
 void Garment::build(const PieceInput &p, int pieceIndex, double h, double R)
 {
     m_outlines[pieceIndex] = p.outline;
+    {
+        double top = 1e18;
+        for (const P2 &q : p.outline) top = std::min(top, q.y);
+        if (int(m_pieceTop.size()) <= pieceIndex) m_pieceTop.resize(size_t(pieceIndex) + 1, 0);
+        m_pieceTop[size_t(pieceIndex)] = top;
+    }
     const double g = p.grainDeg * kPi / 180;
     const P2 gw{std::cos(g), std::sin(g)};   // warp direction
     const P2 gf{-gw.y, gw.x};                // weft direction
@@ -465,8 +496,18 @@ void Garment::build(const PieceInput &p, int pieceIndex, double h, double R)
                 if (std::hypot(q.x - v.x, q.y - v.y) < 0.25 * h) { q = v; snapped = true; break; }
             }
             if (!snapped) {
+                // a point of the outline stays on the outline: only points inside go to the grid crossing
+                bool onOutline = false;
+                for (size_t e = 0; e < uvOutline.size() && !onOutline; ++e) {
+                    const P2 &a = uvOutline[e], &b = uvOutline[(e + 1) % uvOutline.size()];
+                    const double l2 = (b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y);
+                    if (l2 < 1e-18) continue;
+                    double t = ((q.x - a.x) * (b.x - a.x) + (q.y - a.y) * (b.y - a.y)) / l2;
+                    t = std::max(0.0, std::min(1.0, t));
+                    onOutline = std::hypot(a.x + t * (b.x - a.x) - q.x, a.y + t * (b.y - a.y) - q.y) < 1e-6;
+                }
                 const P2 gc{std::round(q.x / h) * h, std::round(q.y / h) * h};
-                if (std::hypot(q.x - gc.x, q.y - gc.y) < 0.25 * h && pointInPolygon(uvOutline, gc)) q = gc;
+                if (!onOutline && std::hypot(q.x - gc.x, q.y - gc.y) < 0.25 * h && pointInPolygon(uvOutline, gc)) q = gc;
             }
             const int id = nodeFor(pieceIndex, q, toPattern(q));
             if (std::find(ids.begin(), ids.end(), id) == ids.end()) ids.push_back(id);
@@ -524,7 +565,14 @@ void Garment::build(const PieceInput &p, int pieceIndex, double h, double R)
     for (int k = first; k < last; ++k) {
         const P2 &q = m_nodePattern[k];
         const double th = p.angleDeg * kPi / 180 + (p.mirrored ? -1 : 1) * (q.x - p.centerX) / R;
-        m_x[k] = V3(R * std::sin(th), p.height - (q.y - p.topY), R * std::cos(th));
+        const double Y = p.height - (q.y - p.topY);
+        // pieces hanging from the shoulders start leaning over them: front and back meet close above the shoulder
+        double rz = R;
+        if (p.height > 130) {
+            const double t = std::max(0.0, std::min(1.0, (Y - 126.0) / (139.0 - 126.0)));
+            rz = R + (9.0 - R) * t * t * (3 - 2 * t);
+        }
+        m_x[k] = V3(R * std::sin(th), Y, rz * std::cos(th));
     }
 
     // nodes that ended up in no triangle (merged corners) are left out
@@ -796,20 +844,32 @@ Garment::Stats Garment::settle(double gravity, int maxSteps, double tol, double 
             m_x[k] += m_v[k] * dt;
         }
         for (const Pin &p : m_pins) m_x[p.node] = p.to;
+        if (m_attract > 0) {
+            for (size_t k = 0; k < m_x.size(); ++k) {
+                if (w[k] == 0) continue;
+                V3 n;
+                const double d = m_form.distance(m_x[k], &n);
+                if (d > 1e8 || n.dot(n) < 0.5) continue;
+                const double excess = d - (m_mat.thickness + 0.5);
+                if (excess > 0) m_x[k] -= n * std::min(m_attract, excess);
+            }
+        }
         for (size_t i = 0; i < m_seam.size(); ++i) {
             V3 pa, pb;
             seamPoints(m_seam[i], pa, pb);
             const double gap = (pb - pa).len();
+            if (!m_seamEnabled.empty() && !m_seamEnabled[size_t(m_seam[i].seam)]) { seamTarget[i] = 1e9; m_seam[i].lambda = 0; continue; }
             const bool dart = m_seamInput[m_seam[i].seam].pieceA == m_seamInput[m_seam[i].seam].pieceB;
             // sewn only when the edges really touch (zero ease); darts are closed first and always hold
-            if (gap < 0.05 && (m_latch || dart)) m_seam[i].sewn = true;
+            if (m_seam[i].cooldown > 0) --m_seam[i].cooldown;   // a seam the cloth has just opened stays open a while
+            else if (gap < 0.05 && (m_latch || dart)) m_seam[i].sewn = true;
             if (!m_seam[i].sewn && m_latch && gap < 3.0) {
                 // a single point left out between sewn ones (or at the end of a sewn stretch) is the mesh, not the fit
                 const bool hasPrev = i > 0 && m_seam[i - 1].seam == m_seam[i].seam;
                 const bool hasNext = i + 1 < m_seam.size() && m_seam[i + 1].seam == m_seam[i].seam;
                 const bool prevOk = !hasPrev || m_seam[i - 1].sewn;
                 const bool nextOk = !hasNext || m_seam[i + 1].sewn;
-                if (prevOk && nextOk && (hasPrev || hasNext)) m_seam[i].sewn = true;
+                if (prevOk && nextOk && (hasPrev || hasNext) && m_seam[i].cooldown == 0) m_seam[i].sewn = true;
             }
             seamTarget[i] = m_seam[i].sewn ? 0.0 : std::max(0.0, gap - sewSpeed);
             m_seam[i].lambda = 0;
@@ -953,6 +1013,14 @@ Garment::Stats Garment::settle(double gravity, int maxSteps, double tol, double 
             // sewn seams: both sides go to the same point, kept outside the form
             for (SeamPt &sp : m_seam) {
                 if (!sp.sewn) continue;
+                {
+                    // how hard the cloth pulls this point of the seam open: a seam that can't hold opens
+                    const V3 qa = m_x[sp.a0] * (1 - sp.wa) + m_x[sp.a1] * sp.wa;
+                    const V3 qb = m_x[sp.b0] * (1 - sp.wb) + m_x[sp.b1] * sp.wb;
+                    sp.tension = 0.9 * sp.tension + 0.1 * (qb - qa).len();
+                    const bool dart = m_seamInput[size_t(sp.seam)].pieceA == m_seamInput[size_t(sp.seam)].pieceB;
+                    if (m_latch && !dart && sp.tension > 0.12) { sp.sewn = false; sp.tension = 0; sp.cooldown = 400; continue; }
+                }
                 const double wa0 = 1 - sp.wa, wa1 = sp.wa, wb0 = 1 - sp.wb, wb1 = sp.wb;
                 const V3 pa = m_x[sp.a0] * wa0 + m_x[sp.a1] * wa1;
                 const V3 pb = m_x[sp.b0] * wb0 + m_x[sp.b1] * wb1;
@@ -1018,6 +1086,28 @@ std::vector<std::pair<double, double>> Garment::seamProfile(int seam) const
         out.push_back({lenA * k / std::max<size_t>(1, pts.size() - 1), s.sewn ? 0.0 : (pb - pa).len()});
     }
     return out;
+}
+
+void Garment::latchClosedSeams(double tol)
+{
+    for (SeamPt &s : m_seam) {
+        const V3 pa = m_x[s.a0] * (1 - s.wa) + m_x[s.a1] * s.wa;
+        const V3 pb = m_x[s.b0] * (1 - s.wb) + m_x[s.b1] * s.wb;
+        if ((pb - pa).len() < tol) { s.sewn = true; s.tension = 0; s.cooldown = 0; }
+    }
+}
+
+void Garment::enableSeamsFromTop(double depth)
+{
+    m_seamEnabled.assign(m_seamInput.size(), 1);
+    if (depth < 0) return;
+    for (size_t i = 0; i < m_seamInput.size(); ++i) {
+        const SeamInput &si = m_seamInput[i];
+        if (si.pieceA == si.pieceB) continue;   // darts first, always
+        const std::vector<P2> &o = m_outlines[size_t(si.pieceA)];
+        const double y = std::min(o[size_t(si.fromA)].y, o[size_t(si.toA)].y) - m_pieceTop[size_t(si.pieceA)];
+        m_seamEnabled[i] = y <= depth;
+    }
 }
 
 std::vector<Garment::OpenSeam> Garment::openSeams() const

@@ -7,3 +7,11 @@ HEADERS += \
 SOURCES += \
     $$PWD/prova3d_engine.cpp \
     $$PWD/prova3d_panel.cpp
+
+HEADERS += \
+    $$PWD/prova3d_setup.h \
+    $$PWD/prova3d_setup_dialog.h
+
+SOURCES += \
+    $$PWD/prova3d_setup.cpp \
+    $$PWD/prova3d_setup_dialog.cpp
