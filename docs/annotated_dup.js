@@ -40,6 +40,18 @@ var annotated_dup =
       [ "QmuTranslation", "dc/d3e/classqmu_1_1QmuTranslation.html", "dc/d3e/classqmu_1_1QmuTranslation" ],
       [ "SToken", "dc/d14/structqmu_1_1SToken.html", "dc/d14/structqmu_1_1SToken" ]
     ] ],
+    [ "sim", "d8/d7d/namespacesim.html", [
+      [ "Demo", "d0/ddd/structsim_1_1Demo.html", "d0/ddd/structsim_1_1Demo" ],
+      [ "DressForm", "df/d21/classsim_1_1DressForm.html", "df/d21/classsim_1_1DressForm" ],
+      [ "FormLevel", "d4/dbc/structsim_1_1FormLevel.html", "d4/dbc/structsim_1_1FormLevel" ],
+      [ "Garment", "d4/d29/classsim_1_1Garment.html", "d4/d29/classsim_1_1Garment" ],
+      [ "Material", "d4/db5/structsim_1_1Material.html", "d4/db5/structsim_1_1Material" ],
+      [ "P2", "d6/dfe/structsim_1_1P2.html", "d6/dfe/structsim_1_1P2" ],
+      [ "PieceInput", "d7/d67/structsim_1_1PieceInput.html", "d7/d67/structsim_1_1PieceInput" ],
+      [ "PinInput", "db/dc3/structsim_1_1PinInput.html", "db/dc3/structsim_1_1PinInput" ],
+      [ "SeamInput", "d8/d9d/structsim_1_1SeamInput.html", "d8/d9d/structsim_1_1SeamInput" ],
+      [ "V3", "d9/dea/structsim_1_1V3.html", "d9/dea/structsim_1_1V3" ]
+    ] ],
     [ "Utils", "d4/d3d/namespaceUtils.html", [
       [ "CheckableMessageBox", "dd/dc4/classUtils_1_1CheckableMessageBox.html", "dd/dc4/classUtils_1_1CheckableMessageBox" ],
       [ "CheckableMessageBoxPrivate", "dc/d2a/classUtils_1_1CheckableMessageBoxPrivate.html", "dc/d2a/classUtils_1_1CheckableMessageBoxPrivate" ]
@@ -508,6 +520,8 @@ var annotated_dup =
     [ "PreferencesPathPage", "d8/db8/classPreferencesPathPage.html", "d8/db8/classPreferencesPathPage" ],
     [ "PreferencesPatternPage", "de/dcf/classPreferencesPatternPage.html", "de/dcf/classPreferencesPatternPage" ],
     [ "PrefMapElem", "db/dab/structPrefMapElem.html", "db/dab/structPrefMapElem" ],
+    [ "Prova3dPanel", "db/dd6/classProva3dPanel.html", "db/dd6/classProva3dPanel" ],
+    [ "Prova3dView", "d9/da2/classProva3dView.html", "d9/da2/classProva3dView" ],
     [ "PSVIAttribute", "d8/d99/classPSVIAttribute.html", "d8/d99/classPSVIAttribute" ],
     [ "PSVIAttributeList", "da/d25/classPSVIAttributeList.html", "da/d25/classPSVIAttributeList" ],
     [ "PSVIAttributeStorage", "d6/d40/classPSVIAttributeStorage.html", "d6/d40/classPSVIAttributeStorage" ],

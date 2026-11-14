@@ -9,6 +9,7 @@ var functions_enum =
     [ "g", "functions_enum_g.html", null ],
     [ "h", "functions_enum_h.html", null ],
     [ "i", "functions_enum_i.html", null ],
+    [ "k", "functions_enum_k.html", null ],
     [ "l", "functions_enum_l.html", null ],
     [ "m", "functions_enum_m.html", null ],
     [ "n", "functions_enum_n.html", null ],

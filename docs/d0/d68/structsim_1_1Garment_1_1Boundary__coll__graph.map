@@ -1,0 +1,5 @@
+<map id="sim::Garment::Boundary" name="sim::Garment::Boundary">
+<area shape="rect" id="node1" title=" " alt="" coords="70,172,251,256"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,143,90"/>
+<area shape="rect" id="node3" title=" " alt="" coords="166,5,331,90"/>
+</map>

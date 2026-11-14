@@ -2,6 +2,7 @@ var dir_ae5dd9defefe3c74d512678fc1a876cc =
 [
     [ "core", "dir_e83d8c2e3e50889a02889b58f7b170a9.html", "dir_e83d8c2e3e50889a02889b58f7b170a9" ],
     [ "dialogs", "dir_97d355521c4cf933b349974c8906fc73.html", "dir_97d355521c4cf933b349974c8906fc73" ],
+    [ "sim3d", "dir_e3f87fafa11dda37bada4058ebaca429.html", "dir_e3f87fafa11dda37bada4058ebaca429" ],
     [ "xml", "dir_4a806acb29bd472c75b3989df6527801.html", "dir_4a806acb29bd472c75b3989df6527801" ],
     [ "main.cpp", "dc/d14/app_2seamly2d_2main_8cpp.html", "dc/d14/app_2seamly2d_2main_8cpp" ],
     [ "mainwindow.cpp", "d8/dd9/mainwindow_8cpp.html", "d8/dd9/mainwindow_8cpp" ],

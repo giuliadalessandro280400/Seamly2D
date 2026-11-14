@@ -10,8 +10,10 @@ var hierarchy =
       [ "VecAttributesImpl", "d4/d90/classVecAttributesImpl.html", null ]
     ] ],
     [ "Base64", "d8/d3a/classBase64.html", null ],
+    [ "sim::Garment::Bend", "d6/d9e/structsim_1_1Garment_1_1Bend.html", null ],
     [ "BitOps", "da/d87/classBitOps.html", null ],
     [ "anonymous_namespace{aamadxf.cpp}::Block", "da/d6e/structanonymous__namespace_02aamadxf_8cpp_03_1_1Block.html", null ],
+    [ "sim::Garment::Boundary", "d8/d68/structsim_1_1Garment_1_1Boundary.html", null ],
     [ "SetElementAttributes::Change", "d4/d37/structSetElementAttributes_1_1Change.html", null ],
     [ "Utils::CheckableMessageBoxPrivate", "dc/d2a/classUtils_1_1CheckableMessageBoxPrivate.html", null ],
     [ "CMDynamicBuffer", "df/d1b/structCMDynamicBuffer.html", null ],
@@ -30,7 +32,9 @@ var hierarchy =
     [ "del_point2d_t", "d1/d9e/structdel__point2d__t.html", null ],
     [ "delaunay2d_t", "d6/da5/structdelaunay2d__t.html", null ],
     [ "delaunay_s", "de/d32/structdelaunay__s.html", null ],
+    [ "sim::Demo", "d0/ddd/structsim_1_1Demo.html", null ],
     [ "DestinationItem", "de/d14/structDestinationItem.html", null ],
+    [ "sim::Garment::Dist", "da/d51/structsim_1_1Garment_1_1Dist.html", null ],
     [ "DocTypeHandler", "d7/d77/classDocTypeHandler.html", [
       [ "AbstractDOMParser", "d6/da7/classAbstractDOMParser.html", [
         [ "DOMLSParserImpl", "d3/dca/classDOMLSParserImpl.html", null ],
@@ -197,6 +201,7 @@ var hierarchy =
       [ "DOMXPathResultImpl", "d9/dbf/classDOMXPathResultImpl.html", null ]
     ] ],
     [ "DraftImage", "d3/df8/structDraftImage.html", null ],
+    [ "sim::DressForm", "df/d21/classsim_1_1DressForm.html", null ],
     [ "DRW_Block", null, [
       [ "dx_ifaceBlock", "df/d01/classdx__ifaceBlock.html", null ]
     ] ],
@@ -235,6 +240,8 @@ var hierarchy =
     ] ],
     [ "face_s", "d3/d07/structface__s.html", null ],
     [ "FlagJanitor< T >", "de/dac/classFlagJanitor.html", null ],
+    [ "sim::FormLevel", "d4/dbc/structsim_1_1FormLevel.html", null ],
+    [ "sim::Garment", "d4/d29/classsim_1_1Garment.html", null ],
     [ "GroupAttributes", "d8/d6b/structGroupAttributes.html", null ],
     [ "halfedge_s", "d3/d38/structhalfedge__s.html", null ],
     [ "HasDOMChildImpl", "d1/d9d/classHasDOMChildImpl.html", [
@@ -271,6 +278,7 @@ var hierarchy =
     ] ],
     [ "Hash2KeysSetBucketElem", "d7/df4/structHash2KeysSetBucketElem.html", null ],
     [ "HexBin", "dc/d8b/classHexBin.html", null ],
+    [ "sim::Garment::Hinge", "d9/d18/structsim_1_1Garment_1_1Hinge.html", null ],
     [ "ICValueHasher", "da/d10/structICValueHasher.html", null ],
     [ "BaseLibrary::InsertResult", "d0/d35/structBaseLibrary_1_1InsertResult.html", null ],
     [ "JanitorMemFunCall< T >", "d9/db9/classJanitorMemFunCall.html", null ],
@@ -281,6 +289,7 @@ var hierarchy =
       [ "ReaderMgr", "d4/d1c/classReaderMgr.html", null ],
       [ "XSDLocator", "dd/d47/classXSDLocator.html", null ]
     ] ],
+    [ "sim::Material", "d4/db5/structsim_1_1Material.html", null ],
     [ "MemoryManager", "d6/d9a/classMemoryManager.html", [
       [ "MemoryManagerImpl", "d2/d42/classMemoryManagerImpl.html", null ]
     ] ],
@@ -289,6 +298,8 @@ var hierarchy =
     [ "std::numpunct", null, [
       [ "qmu::QmuParserBase::change_dec_sep< TChar >", "d4/d39/classqmu_1_1QmuParserBase_1_1change__dec__sep.html", null ]
     ] ],
+    [ "sim::Garment::OpenSeam", "d4/dd9/structsim_1_1Garment_1_1OpenSeam.html", null ],
+    [ "sim::P2", "d6/dfe/structsim_1_1P2.html", null ],
     [ "anonymous_namespace{aamadxf.cpp}::Pair", "d3/deb/structanonymous__namespace_02aamadxf_8cpp_03_1_1Pair.html", null ],
     [ "PanicHandler", "d5/de4/classPanicHandler.html", [
       [ "DefaultPanicHandler", "d8/d85/classDefaultPanicHandler.html", null ]
@@ -297,6 +308,9 @@ var hierarchy =
       [ "SAXParser", "da/da7/classSAXParser.html", null ]
     ] ],
     [ "Pen", "d9/de7/classPen.html", null ],
+    [ "sim::PieceInput", "d7/d67/structsim_1_1PieceInput.html", null ],
+    [ "sim::Garment::Pin", "d0/dd2/structsim_1_1Garment_1_1Pin.html", null ],
+    [ "sim::PinInput", "db/dc3/structsim_1_1PinInput.html", null ],
     [ "anonymous_namespace{vtoolimportdxf.cpp}::Placement", "d3/db2/structanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Placement.html", null ],
     [ "point2d_s", "dc/d79/structpoint2d__s.html", null ],
     [ "PieceCurveEdit::anonymous_namespace{piece_curve_edit.cpp}::Polyline", "d4/d03/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1Polyline.html", null ],
@@ -919,6 +933,8 @@ var hierarchy =
       [ "PreferencesGraphicsViewPage", "d9/d0d/classPreferencesGraphicsViewPage.html", null ],
       [ "PreferencesPathPage", "d8/db8/classPreferencesPathPage.html", null ],
       [ "PreferencesPatternPage", "de/dcf/classPreferencesPatternPage.html", null ],
+      [ "Prova3dPanel", "db/dd6/classProva3dPanel.html", null ],
+      [ "Prova3dView", "d9/da2/classProva3dView.html", null ],
       [ "SeamlyMePreferencesConfigurationPage", "df/de0/classSeamlyMePreferencesConfigurationPage.html", null ],
       [ "SeamlyMePreferencesPathPage", "d7/d92/classSeamlyMePreferencesPathPage.html", null ],
       [ "VFormulaPropertyEditor", "dc/d74/classVFormulaPropertyEditor.html", null ],
@@ -988,11 +1004,15 @@ var hierarchy =
       [ "SAX2XMLReaderImpl", "d2/daa/classSAX2XMLReaderImpl.html", null ]
     ] ],
     [ "SchemaSymbols", "d3/d5c/classSchemaSymbols.html", null ],
+    [ "sim::SeamInput", "d8/d9d/structsim_1_1SeamInput.html", null ],
+    [ "sim::Garment::SeamPt", "d1/d83/structsim_1_1Garment_1_1SeamPt.html", null ],
     [ "SecurityManager", "d0/d59/classSecurityManager.html", null ],
     [ "VPE::VPropertyFormWidgetPrivate::SEditorWidget", "d9/d9b/structVPE_1_1VPropertyFormWidgetPrivate_1_1SEditorWidget.html", null ],
     [ "PieceCurveEdit::anonymous_namespace{piece_curve_edit.cpp}::SegmentFit", "dd/d6b/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1SegmentFit.html", null ],
+    [ "sim::DressForm::Shape", "d0/d7d/structsim_1_1DressForm_1_1Shape.html", null ],
     [ "SlashSpread", "d4/d9a/classSlashSpread.html", null ],
     [ "SourceItem", "d9/d96/structSourceItem.html", null ],
+    [ "sim::Garment::Stats", "dc/dfe/structsim_1_1Garment_1_1Stats.html", null ],
     [ "StDOMNode< T >", "d8/d3c/classStDOMNode.html", null ],
     [ "qmu::SToken", "dc/d14/structqmu_1_1SToken.html", null ],
     [ "StringHasher", "d8/d6a/structStringHasher.html", null ],
@@ -1004,6 +1024,7 @@ var hierarchy =
     [ "TranscodeToStr", "d8/dad/classTranscodeToStr.html", null ],
     [ "XMLTransService::TransRec", "de/d76/structXMLTransService_1_1TransRec.html", null ],
     [ "UnionToolInitData", "d9/d2d/structUnionToolInitData.html", null ],
+    [ "sim::V3", "d9/dea/structsim_1_1V3.html", null ],
     [ "VAbstractFloatItemData", "d4/dc0/classVAbstractFloatItemData.html", [
       [ "VGrainlineData", "da/d7f/classVGrainlineData.html", null ],
       [ "VPatternLabelData", "df/da3/classVPatternLabelData.html", [

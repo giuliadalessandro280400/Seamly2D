@@ -67,6 +67,21 @@ var namespaces_dup =
     [ "anonymous_namespace{preferencespatternpage.cpp}", "d1/dbe/namespaceanonymous__namespace_02preferencespatternpage_8cpp_03.html", [
       [ "initAllStringsComboBox", "d1/dbe/namespaceanonymous__namespace_02preferencespatternpage_8cpp_03.html#a97383a8b46e2afedbc957a5c56b7522f", null ]
     ] ],
+    [ "anonymous_namespace{prova3d_panel.cpp}", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html", [
+      [ "field", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#a3d3fa0d62cf139c6562a563d3ba9e884", null ],
+      [ "formColor", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#a6f3e0c0174ceb86892a36e309c16b96e", null ],
+      [ "handFamilies", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#a82df4a51d61dc2df8c963821f48674fb", null ],
+      [ "ink", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#af1544a9c4dfd6415540478587fba1109", null ],
+      [ "paper", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#a26d1a527f0787f00a9edce1e69843c21", null ],
+      [ "paperLight", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#a3107efc366c533c7fa044830bff0c9bb", null ],
+      [ "redPencil", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#ab63f5e4df2434f8089c4f9da95617034", null ],
+      [ "rule", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#a54b8f8d57aaa105c39fb2c3f75d444aa", null ],
+      [ "ruleLine", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#a91c5a459eb01a20d130d3f519f245835", null ],
+      [ "sectionLabel", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#a581d5795c4f4355c18145aab12d31bd8", null ],
+      [ "serifFamilies", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#adf964fdf69870347296ee0d30138e6da", null ],
+      [ "smallCaps", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#adde73f4b7c716d03e0e47d55a2797793", null ],
+      [ "panelStyle", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#a78273ea98827e29da16e5590bc471702", null ]
+    ] ],
     [ "anonymous_namespace{savetooloptions.cpp}", "dd/da8/namespaceanonymous__namespace_02savetooloptions_8cpp_03.html", [
       [ "childElements", "dd/da8/namespaceanonymous__namespace_02savetooloptions_8cpp_03.html#a90bc00f8429f2767711cee83fd7c5b09", null ],
       [ "referencesChanged", "dd/da8/namespaceanonymous__namespace_02savetooloptions_8cpp_03.html#a37fef8eec386cdf9b1548406ee1b6175", null ]
@@ -409,6 +424,7 @@ var namespaces_dup =
       [ "updateUnionInternalPaths", "dd/db0/namespaceQT__WARNING__POP.html#aeb3cad6fd9643948b4a44c7a8ba576be", null ],
       [ "UpdateUnitedNodes", "dd/db0/namespaceQT__WARNING__POP.html#a5736c077b3b3069a8f171feceae4310f", null ]
     ] ],
+    [ "sim", "d8/d7d/namespacesim.html", "d8/d7d/namespacesim" ],
     [ "Ui", "db/d3c/namespaceUi.html", null ],
     [ "Utils", "d4/d3d/namespaceUtils.html", "d4/d3d/namespaceUtils" ],
     [ "VPE", "de/d21/namespaceVPE.html", "de/d21/namespaceVPE" ]
