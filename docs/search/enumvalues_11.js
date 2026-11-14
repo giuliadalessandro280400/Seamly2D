@@ -62,7 +62,7 @@ var searchData=
   ['resize_59',['Resize',['../da/d7d/classVPieceItem.html#a3e439ca880d8bddb9cff29d04dbc5367a9d723d04c40bfd81835c0766a698cf63',1,'VPieceItem']]],
   ['resizehandlesitem_60',['ResizeHandlesItem',['../d4/da4/def_8h.html#a474a10f771dff4181411f5ff47029582a3de4e8ddb0f11db7071012c6998c25e1',1,'def.h']]],
   ['reusedidvalue_61',['ReusedIDValue',['../d5/dc5/classXMLValid.html#ac30e7f5d9612c52f5f1208c83f090c86a273cf84cac1862b239a3ecccc95f8109',1,'XMLValid']]],
-  ['right_62',['Right',['../d4/da4/def_8h.html#ac8554770a804b795ffbfc2b15287a008a92b09c7c48c520c3c55e497875da437c',1,'def.h']]],
+  ['right_62',['Right',['../d4/da4/def_8h.html#ac8554770a804b795ffbfc2b15287a008a92b09c7c48c520c3c55e497875da437c',1,'Right():&#160;def.h'],['../db/d66/namespaceprova3d.html#abfdf1eb05329d6e1eb56bf76c74ac0d6a92b09c7c48c520c3c55e497875da437c',1,'prova3d::Right()']]],
   ['rightmostpoint_63',['RightmostPoint',['../d0/d89/vabstractpattern_8h.html#a7a2eb4ed5c1958e5bf0fe28638ad6ef2ac5357df0bec8a2decc37f2ad9986bf85',1,'vabstractpattern.h']]],
   ['roll24in_64',['Roll24in',['../d4/da4/def_8h.html#aca73ca8ec1be60fec2512e2685077078aa53fc34a28678c56601220fc3f021c1d',1,'def.h']]],
   ['roll30in_65',['Roll30in',['../d4/da4/def_8h.html#aca73ca8ec1be60fec2512e2685077078a27736e8ab588cd66ad41f2fb889c15f6',1,'def.h']]],

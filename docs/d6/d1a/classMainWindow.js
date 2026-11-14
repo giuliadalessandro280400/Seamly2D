@@ -304,6 +304,7 @@ var classMainWindow =
     [ "m_measurements", "d6/d1a/classMainWindow.html#a857adfe7ab492d997102f9db3f12086b", null ],
     [ "m_penReset", "d6/d1a/classMainWindow.html#a98e04c2354e77c45ca479817b9d53478", null ],
     [ "m_penToolBar", "d6/d1a/classMainWindow.html#a77643494265991ec1ec783285b2b86a7", null ],
+    [ "m_prova3d", "d6/d1a/classMainWindow.html#ad68930f8d21957f10918686712afa13f", null ],
     [ "m_statusMessage", "d6/d1a/classMainWindow.html#a488925f7adaf0aa622bb2c1eea53df7d", null ],
     [ "m_watcher", "d6/d1a/classMainWindow.html#a5858be1f5a77a4b44361ef55a9d7fab3", null ],
     [ "m_zoom_to_object_combobox", "d6/d1a/classMainWindow.html#a726e2cce26f81ef823744fe84d01a0a7", null ],

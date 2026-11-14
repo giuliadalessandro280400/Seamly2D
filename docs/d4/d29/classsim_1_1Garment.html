@@ -146,6 +146,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a317f1c63344e98c65ad7a4cef2f21412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e880b93b8e56d2ad8287f460a79efaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#a2e880b93b8e56d2ad8287f460a79efaa">releasePins</a> ()</td></tr>
 <tr class="separator:a2e880b93b8e56d2ad8287f460a79efaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50c4b2f21822104a692d470480f28ede"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#a50c4b2f21822104a692d470480f28ede">enableSeamsFromTop</a> (double depth)</td></tr>
+<tr class="separator:a50c4b2f21822104a692d470480f28ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b40700e655e971be26078f0960ed482"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#a1b40700e655e971be26078f0960ed482">latchClosedSeams</a> (double tol)</td></tr>
+<tr class="separator:a1b40700e655e971be26078f0960ed482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56c0a4d96cf58c15657721ff9e53ee21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#a56c0a4d96cf58c15657721ff9e53ee21">setAttraction</a> (double cmPerStep)</td></tr>
+<tr class="separator:a56c0a4d96cf58c15657721ff9e53ee21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae364added594dbf391316989c257c18c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#ae364added594dbf391316989c257c18c">setLatchSeams</a> (bool on)</td></tr>
 <tr class="separator:ae364added594dbf391316989c257c18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed22fadafc452b3c14e03e80607c2495"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; double, double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#aed22fadafc452b3c14e03e80607c2495">seamProfile</a> (int seam) const</td></tr>
@@ -236,6 +242,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac02ab3f58a5e3885218137ebb6b71e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a451b55f776d40c0283a0698d0819decf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#a451b55f776d40c0283a0698d0819decf">m_latch</a> {true}</td></tr>
 <tr class="separator:a451b55f776d40c0283a0698d0819decf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3837aa7542a3fa0c9ae5b9085fe7f16e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#a3837aa7542a3fa0c9ae5b9085fe7f16e">m_attract</a> {0}</td></tr>
+<tr class="separator:a3837aa7542a3fa0c9ae5b9085fe7f16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc7193c654d6ddc8a68575442cee111e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#abc7193c654d6ddc8a68575442cee111e">m_seamEnabled</a></td></tr>
+<tr class="separator:abc7193c654d6ddc8a68575442cee111e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75e4094647a7fc3d174b2d62623a69fc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#a75e4094647a7fc3d174b2d62623a69fc">m_pieceTop</a></td></tr>
+<tr class="separator:a75e4094647a7fc3d174b2d62623a69fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ed23f3b233a1958646e54eedb15d74f"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::tuple&lt; int, long long, long long &gt;, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#a3ed23f3b233a1958646e54eedb15d74f">m_nodeIndex</a></td></tr>
 <tr class="separator:a3ed23f3b233a1958646e54eedb15d74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa96de45fdd214259f74b228989235f67"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d29/classsim_1_1Garment.html#aa96de45fdd214259f74b228989235f67">m_progress</a></td></tr>
@@ -263,7 +275,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00119">119</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00122">122</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a9c7985ec00635079eded4f6ad63fea39" name="a9c7985ec00635079eded4f6ad63fea39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9c7985ec00635079eded4f6ad63fea39">&#9670;&#160;</a></span>Kind</h2>
@@ -290,7 +302,7 @@ Private Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="a9c7985ec00635079eded4f6ad63fea39a38a3cf768754d4f6811178fa4c021240" name="a9c7985ec00635079eded4f6ad63fea39a38a3cf768754d4f6811178fa4c021240"></a>Edge&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00162">162</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00172">172</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
 </div>
 </div>
@@ -339,9 +351,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">360</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">373</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00107">sim::SeamInput::fromA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00108">sim::SeamInput::fromB</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">sim::Garment::Boundary::length</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00199">m_boundary</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00180">m_dist</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00176">m_mass</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00178">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00185">m_orphan</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00200">m_outlines</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_prev</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">m_seam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00195">m_tris</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_v</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">sim::Garment::Boundary::nodes</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00089">sim::Material::paperDefault()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">sim::Garment::Boundary::param</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00107">sim::SeamInput::pieceA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00108">sim::SeamInput::pieceB</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00192">publish()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00109">sim::SeamInput::reverseB</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00142">seams()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00706">setMaterial()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00107">sim::SeamInput::toA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00108">sim::SeamInput::toB</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">sim::Garment::Boundary::vertexParam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::x</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::y</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00113">sim::SeamInput::autoDirection</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00109">sim::SeamInput::fromA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00110">sim::SeamInput::fromB</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00211">sim::Garment::Boundary::length</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00212">m_boundary</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00190">m_dist</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00186">m_mass</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00188">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00195">m_orphan</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00213">m_outlines</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_prev</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00206">m_seam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00210">m_seamInput</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00208">m_tris</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_v</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00211">sim::Garment::Boundary::nodes</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00091">sim::Material::paperDefault()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00211">sim::Garment::Boundary::param</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00109">sim::SeamInput::pieceA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00110">sim::SeamInput::pieceB</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00205">publish()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00111">sim::SeamInput::reverseB</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00152">seams()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00754">setMaterial()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::tension</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00109">sim::SeamInput::toA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00110">sim::SeamInput::toB</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00211">sim::Garment::Boundary::vertexParam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::x</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::y</a>.</p>
 
 </div>
 </div>
@@ -361,9 +373,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01044">1044</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01134">1134</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00030">sim::V3::dot()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00031">sim::V3::len()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00199">m_boundary</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00179">m_nodeUV</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00030">sim::V3::dot()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00031">sim::V3::len()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00212">m_boundary</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00189">m_nodeUV</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>.</p>
 
 </div>
 </div>
@@ -413,11 +425,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">445</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">470</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">sim::Garment::Dist::a</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00164">sim::Garment::Bend::a</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00100">sim::PieceInput::angleDeg</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00099">sim::PieceInput::centerX</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00162">Edge</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00097">sim::PieceInput::grainDeg</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00102">sim::PieceInput::height</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00167">sim::Garment::Hinge::i</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">sim::Garment::Boundary::length</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00181">m_bend</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00183">m_border</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00199">m_boundary</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00180">m_dist</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_hinge</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00178">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00179">m_nodeUV</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00185">m_orphan</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00200">m_outlines</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00182">m_tether</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00196">m_triPiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00195">m_tris</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00103">sim::PieceInput::mirrored</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00430">nodeFor()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">sim::Garment::Boundary::nodes</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00096">sim::PieceInput::outline</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">sim::Garment::Boundary::param</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00162">Shear</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00162">Thread</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00101">sim::PieceInput::topY</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">sim::Garment::Boundary::vertexParam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::x</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::y</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00173">sim::Garment::Dist::a</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">sim::Garment::Bend::a</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00102">sim::PieceInput::angleDeg</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00101">sim::PieceInput::centerX</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00172">Edge</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00099">sim::PieceInput::grainDeg</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00104">sim::PieceInput::height</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00177">sim::Garment::Hinge::i</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00211">sim::Garment::Boundary::length</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00191">m_bend</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">m_border</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00212">m_boundary</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00190">m_dist</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00194">m_hinge</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00188">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00189">m_nodeUV</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00195">m_orphan</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00213">m_outlines</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00199">m_pieceTop</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00192">m_tether</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00209">m_triPiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00208">m_tris</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00105">sim::PieceInput::mirrored</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00455">nodeFor()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00211">sim::Garment::Boundary::nodes</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00098">sim::PieceInput::outline</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00211">sim::Garment::Boundary::param</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00172">Shear</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00172">Thread</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00103">sim::PieceInput::topY</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00211">sim::Garment::Boundary::vertexParam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::x</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::y</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>.</p>
 
 </div>
 </div>
@@ -444,9 +456,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00147">147</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00157">157</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00181">m_bend</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00180">m_dist</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00191">m_bend</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00190">m_dist</a>.</p>
+
+</div>
+</div>
+<a id="a50c4b2f21822104a692d470480f28ede" name="a50c4b2f21822104a692d470480f28ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50c4b2f21822104a692d470480f28ede">&#9670;&#160;</a></span>enableSeamsFromTop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sim::Garment::enableSeamsFromTop </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>depth</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01100">1100</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00109">sim::SeamInput::fromA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00213">m_outlines</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00199">m_pieceTop</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">m_seamEnabled</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00210">m_seamInput</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00109">sim::SeamInput::pieceA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00110">sim::SeamInput::pieceB</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00109">sim::SeamInput::toA</a>.</p>
 
 </div>
 </div>
@@ -474,9 +508,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00145">145</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00155">155</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00172">m_form</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00319">sim::DressForm::project()</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00182">m_form</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00332">sim::DressForm::project()</a>.</p>
+
+</div>
+</div>
+<a id="a1b40700e655e971be26078f0960ed482" name="a1b40700e655e971be26078f0960ed482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b40700e655e971be26078f0960ed482">&#9670;&#160;</a></span>latchClosedSeams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sim::Garment::latchClosedSeams </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>tol</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01091">1091</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00206">m_seam</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>.</p>
 
 </div>
 </div>
@@ -503,9 +559,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00155">155</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">165</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00196">m_triPiece</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00209">m_triPiece</a>.</p>
 
 </div>
 </div>
@@ -532,9 +588,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00154">154</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00164">164</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00195">m_tris</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00208">m_tris</a>.</p>
 
 </div>
 </div>
@@ -572,9 +628,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00144">144</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00154">154</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00178">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00177">m_nodePiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::x</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::y</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00188">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00187">m_nodePiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::x</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::y</a>.</p>
 
 </div>
 </div>
@@ -601,9 +657,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00146">146</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00156">156</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>.</p>
 
 </div>
 </div>
@@ -647,11 +703,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00430">430</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00455">455</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00187">m_nodeIndex</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00178">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00177">m_nodePiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00179">m_nodeUV</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::x</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::y</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00200">m_nodeIndex</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00188">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00187">m_nodePiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00189">m_nodeUV</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::x</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00035">sim::P2::y</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>.</p>
 
 </div>
 </div>
@@ -670,9 +726,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01023">1023</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01113">1113</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">m_seam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00197">m_seamInput</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00153">shownPositions()</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00206">m_seam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00210">m_seamInput</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">shownPositions()</a>.</p>
 
 </div>
 </div>
@@ -699,11 +755,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00192">192</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00205">205</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00190">m_shown</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00189">m_shownMutex</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00203">m_shown</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00202">m_shownMutex</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -730,9 +786,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00126">126</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00129">129</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00194">m_pins</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00207">m_pins</a>.</p>
 
 </div>
 </div>
@@ -759,9 +815,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00156">156</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00166">166</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00191">m_stop</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00204">m_stop</a>.</p>
 
 </div>
 </div>
@@ -780,9 +836,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01063">1063</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01153">1153</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">m_seam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00197">m_seamInput</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00206">m_seam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00210">m_seamInput</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>.</p>
 
 </div>
 </div>
@@ -802,9 +858,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01005">1005</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01073">1073</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::a0</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::a1</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::b0</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::b1</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00107">sim::SeamInput::fromA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">sim::Garment::Boundary::length</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00199">m_boundary</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">m_seam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00197">m_seamInput</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00107">sim::SeamInput::pieceA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::sewn</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00107">sim::SeamInput::toA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">sim::Garment::Boundary::vertexParam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::wa</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::wb</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::a0</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::a1</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::b0</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::b1</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00109">sim::SeamInput::fromA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00211">sim::Garment::Boundary::length</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00212">m_boundary</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00206">m_seam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00210">m_seamInput</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00109">sim::SeamInput::pieceA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::sewn</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00109">sim::SeamInput::toA</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00211">sim::Garment::Boundary::vertexParam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::wa</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::wb</a>.</p>
 
 </div>
 </div>
@@ -831,11 +887,41 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00142">142</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00152">152</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00197">m_seamInput</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00210">m_seamInput</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>.</p>
+
+</div>
+</div>
+<a id="a56c0a4d96cf58c15657721ff9e53ee21" name="a56c0a4d96cf58c15657721ff9e53ee21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56c0a4d96cf58c15657721ff9e53ee21">&#9670;&#160;</a></span>setAttraction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sim::Garment::setAttraction </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>cmPerStep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00136">136</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00197">m_attract</a>.</p>
 
 </div>
 </div>
@@ -863,9 +949,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00128">128</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00138">138</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00186">m_latch</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">m_seam</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00197">m_seamInput</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00196">m_latch</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00206">m_seam</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00210">m_seamInput</a>.</p>
 
 </div>
 </div>
@@ -885,11 +971,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00706">706</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00754">754</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00083">sim::Material::bendCompliance</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00084">sim::Material::density</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00081">sim::Material::lockAngleDeg</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00181">m_bend</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00183">m_border</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00180">m_dist</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00176">m_mass</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00173">m_mat</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00182">m_tether</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">m_w</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00078">sim::Material::paper</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00082">sim::Material::shearCompliance</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00086">sim::Material::stayStitch</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00079">sim::Material::stretchWarp</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00080">sim::Material::stretchWeft</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00162">Thread</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00085">sim::Material::bendCompliance</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00086">sim::Material::density</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00083">sim::Material::lockAngleDeg</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00191">m_bend</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">m_border</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00190">m_dist</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00186">m_mass</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00183">m_mat</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00192">m_tether</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00185">m_w</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00080">sim::Material::paper</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00084">sim::Material::shearCompliance</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00088">sim::Material::stayStitch</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00081">sim::Material::stretchWarp</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00082">sim::Material::stretchWeft</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00172">Thread</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>.</p>
 
 </div>
 </div>
@@ -909,9 +995,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00752">752</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00800">800</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00178">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00177">m_nodePiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00194">m_pins</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00188">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00187">m_nodePiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00207">m_pins</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>.</p>
 
 </div>
 </div>
@@ -939,9 +1025,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00151">151</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00161">161</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00188">m_progress</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00201">m_progress</a>.</p>
 
 </div>
 </div>
@@ -983,9 +1069,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">767</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">815</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">sim::Garment::Dist::a</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::a0</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::a1</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">sim::Garment::Dist::b</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::b0</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::b1</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00083">sim::Material::bendCompliance</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00030">sim::V3::dot()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00087">sim::Material::friction</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">sim::Garment::Dist::hi</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">sim::Garment::Dist::kind</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::lambda</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00031">sim::V3::len()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">sim::Garment::Dist::lo</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00183">m_border</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00180">m_dist</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00172">m_form</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_hinge</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00186">m_latch</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00173">m_mat</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00178">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00177">m_nodePiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00194">m_pins</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_prev</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00188">m_progress</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">m_seam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00197">m_seamInput</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00191">m_stop</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00182">m_tether</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_v</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">m_w</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00135">sim::Garment::Stats::maxMove</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00319">sim::DressForm::project()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00192">publish()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">sim::Garment::Dist::rest</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00135">sim::Garment::Stats::seconds</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::sewn</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00135">sim::Garment::Stats::steps</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00085">sim::Material::thickness</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00162">Thread</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::wa</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">sim::Garment::SeamPt::wb</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00022">sim::V3::x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00022">sim::V3::y</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00022">sim::V3::z</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00173">sim::Garment::Dist::a</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::a0</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::a1</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00173">sim::Garment::Dist::b</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::b0</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::b1</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00085">sim::Material::bendCompliance</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00319">sim::DressForm::distance()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00030">sim::V3::dot()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00089">sim::Material::friction</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00173">sim::Garment::Dist::hi</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00173">sim::Garment::Dist::kind</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::lambda</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00031">sim::V3::len()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00173">sim::Garment::Dist::lo</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00197">m_attract</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">m_border</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00190">m_dist</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00182">m_form</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00194">m_hinge</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00196">m_latch</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00183">m_mat</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00188">m_nodePattern</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00187">m_nodePiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00207">m_pins</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_prev</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00201">m_progress</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00206">m_seam</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">m_seamEnabled</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00210">m_seamInput</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00204">m_stop</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00192">m_tether</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_v</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00185">m_w</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00145">sim::Garment::Stats::maxMove</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00332">sim::DressForm::project()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00205">publish()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00173">sim::Garment::Dist::rest</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00145">sim::Garment::Stats::seconds</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::sewn</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00145">sim::Garment::Stats::steps</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00087">sim::Material::thickness</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00172">Thread</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::wa</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">sim::Garment::SeamPt::wb</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00022">sim::V3::x</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00022">sim::V3::y</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00022">sim::V3::z</a>.</p>
 
 </div>
 </div>
@@ -1012,11 +1098,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00153">153</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">163</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00190">m_shown</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00189">m_shownMutex</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00203">m_shown</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00202">m_shownMutex</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01023">openSeams()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01113">openSeams()</a>.</p>
 
 </div>
 </div>
@@ -1052,9 +1138,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01080">1080</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01170">1170</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00196">m_triPiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00195">m_tris</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00209">m_triPiece</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00208">m_tris</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>.</p>
 
 </div>
 </div>
@@ -1074,13 +1160,39 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01087">1087</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01177">1177</a> of file <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html">prova3d_engine.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00195">m_tris</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">m_x</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00208">m_tris</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">m_x</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3837aa7542a3fa0c9ae5b9085fe7f16e" name="a3837aa7542a3fa0c9ae5b9085fe7f16e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3837aa7542a3fa0c9ae5b9085fe7f16e">&#9670;&#160;</a></span>m_attract</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double sim::Garment::m_attract {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00197">197</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00136">setAttraction()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
+
+</div>
+</div>
 <a id="a6c33ef62f4e4698188edb125aed47671" name="a6c33ef62f4e4698188edb125aed47671"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c33ef62f4e4698188edb125aed47671">&#9670;&#160;</a></span>m_bend</h2>
 
@@ -1101,9 +1213,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00181">181</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00191">191</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00147">constraintCount()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00706">setMaterial()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00157">constraintCount()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00754">setMaterial()</a>.</p>
 
 </div>
 </div>
@@ -1127,9 +1239,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00183">183</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">193</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00706">setMaterial()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00754">setMaterial()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1153,9 +1265,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00199">199</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00212">212</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01044">borderRoughness()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01005">seamProfile()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01134">borderRoughness()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01073">seamProfile()</a>.</p>
 
 </div>
 </div>
@@ -1179,9 +1291,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00180">180</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00190">190</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00147">constraintCount()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00706">setMaterial()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00157">constraintCount()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00754">setMaterial()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1205,9 +1317,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00172">172</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00182">182</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00145">formSdf()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00155">formSdf()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1231,9 +1343,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">184</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00194">194</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1257,9 +1369,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00186">186</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00196">196</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00128">setLatchSeams()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00138">setLatchSeams()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1283,9 +1395,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00176">176</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00186">186</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00706">setMaterial()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00754">setMaterial()</a>.</p>
 
 </div>
 </div>
@@ -1309,9 +1421,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00173">173</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00183">183</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00706">setMaterial()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00754">setMaterial()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1335,9 +1447,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00187">187</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00200">200</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00430">nodeFor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00455">nodeFor()</a>.</p>
 
 </div>
 </div>
@@ -1361,9 +1473,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00178">178</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00188">188</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00144">nodeAt()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00430">nodeFor()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00752">setPins()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00154">nodeAt()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00455">nodeFor()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00800">setPins()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1387,9 +1499,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00177">177</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00187">187</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00144">nodeAt()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00430">nodeFor()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00752">setPins()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00154">nodeAt()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00455">nodeFor()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00800">setPins()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1413,9 +1525,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00179">179</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00189">189</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01044">borderRoughness()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00430">nodeFor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01134">borderRoughness()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00455">nodeFor()</a>.</p>
 
 </div>
 </div>
@@ -1439,9 +1551,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00185">185</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00195">195</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>.</p>
 
 </div>
 </div>
@@ -1465,9 +1577,35 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00200">200</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00213">213</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01100">enableSeamsFromTop()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>.</p>
+
+</div>
+</div>
+<a id="a75e4094647a7fc3d174b2d62623a69fc" name="a75e4094647a7fc3d174b2d62623a69fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75e4094647a7fc3d174b2d62623a69fc">&#9670;&#160;</a></span>m_pieceTop</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; sim::Garment::m_pieceTop</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00199">199</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01100">enableSeamsFromTop()</a>.</p>
 
 </div>
 </div>
@@ -1491,9 +1629,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00194">194</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00207">207</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00126">releasePins()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00752">setPins()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00129">releasePins()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00800">setPins()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1517,9 +1655,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">174</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">184</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1543,9 +1681,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00188">188</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00201">201</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00151">setProgress()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00161">setProgress()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1569,9 +1707,35 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00193">193</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00206">206</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01023">openSeams()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01063">seamGaps()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01005">seamProfile()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00128">setLatchSeams()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01091">latchClosedSeams()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01113">openSeams()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01153">seamGaps()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01073">seamProfile()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00138">setLatchSeams()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
+
+</div>
+</div>
+<a id="abc7193c654d6ddc8a68575442cee111e" name="abc7193c654d6ddc8a68575442cee111e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc7193c654d6ddc8a68575442cee111e">&#9670;&#160;</a></span>m_seamEnabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;char&gt; sim::Garment::m_seamEnabled</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00198">198</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01100">enableSeamsFromTop()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1595,9 +1759,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00197">197</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00210">210</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01023">openSeams()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01063">seamGaps()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01005">seamProfile()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00142">seams()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00128">setLatchSeams()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01100">enableSeamsFromTop()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01113">openSeams()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01153">seamGaps()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01073">seamProfile()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00152">seams()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00138">setLatchSeams()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1621,9 +1785,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00190">190</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00203">203</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00192">publish()</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00153">shownPositions()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00205">publish()</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">shownPositions()</a>.</p>
 
 </div>
 </div>
@@ -1647,9 +1811,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00189">189</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00202">202</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00192">publish()</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00153">shownPositions()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00205">publish()</a>, and <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00163">shownPositions()</a>.</p>
 
 </div>
 </div>
@@ -1673,9 +1837,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00191">191</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00204">204</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00156">requestStop()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00166">requestStop()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1699,9 +1863,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00182">182</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00192">192</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00706">setMaterial()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00754">setMaterial()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1725,9 +1889,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00196">196</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00209">209</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00155">meshTrianglePiece()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01080">triangles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00165">meshTrianglePiece()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01170">triangles()</a>.</p>
 
 </div>
 </div>
@@ -1751,9 +1915,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00195">195</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00208">208</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00154">meshTriangles()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01080">triangles()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01087">writeObj()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00164">meshTriangles()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01170">triangles()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01177">writeObj()</a>.</p>
 
 </div>
 </div>
@@ -1777,9 +1941,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">174</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">184</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1803,9 +1967,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00175">175</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00185">185</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00706">setMaterial()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00754">setMaterial()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>.</p>
 
 </div>
 </div>
@@ -1829,9 +1993,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00174">174</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00184">184</a> of file <a class="el" href="../../da/d99/prova3d__engine_8h_source.html">prova3d_engine.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01044">borderRoughness()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00445">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00360">Garment()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00144">nodeAt()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00146">nodeCount()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00430">nodeFor()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01023">openSeams()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00192">publish()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01063">seamGaps()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01005">seamProfile()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00706">setMaterial()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00752">setPins()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00767">settle()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01080">triangles()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01087">writeObj()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01134">borderRoughness()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00470">build()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00373">Garment()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01091">latchClosedSeams()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00154">nodeAt()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00156">nodeCount()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00455">nodeFor()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01113">openSeams()</a>, <a class="el" href="../../da/d99/prova3d__engine_8h_source.html#l00205">publish()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01153">seamGaps()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01073">seamProfile()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00754">setMaterial()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00800">setPins()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l00815">settle()</a>, <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01170">triangles()</a>, and <a class="el" href="../../d8/d02/prova3d__engine_8cpp_source.html#l01177">writeObj()</a>.</p>
 
 </div>
 </div>

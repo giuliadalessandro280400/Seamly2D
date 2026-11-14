@@ -30,10 +30,11 @@ var searchData=
   ['contentspecnode_27',['ContentSpecNode',['../dd/d17/classContentSpecNode.html',1,'']]],
   ['context_28',['Context',['../d0/d12/classRegularExpression_1_1Context.html',1,'RegularExpression']]],
   ['contourmark_29',['ContourMark',['../d3/db1/structPatternPieceTool_1_1ContourMark.html',1,'PatternPieceTool']]],
-  ['countedpointerto_30',['CountedPointerTo',['../d0/d5f/classCountedPointerTo.html',1,'']]],
-  ['curvedrag_31',['CurveDrag',['../df/df6/structPatternPieceTool_1_1CurveDrag.html',1,'PatternPieceTool']]],
-  ['curveedit_32',['CurveEdit',['../d2/da0/structPieceCurveEdit_1_1CurveEdit.html',1,'PieceCurveEdit']]],
-  ['customsarecord_33',['CustomSARecord',['../dc/d74/structCustomSARecord.html',1,'']]],
-  ['customvariable_34',['CustomVariable',['../d2/d16/classCustomVariable.html',1,'']]],
-  ['customvariabledata_35',['CustomVariableData',['../dc/d49/classCustomVariableData.html',1,'']]]
+  ['copy_30',['Copy',['../d0/dc4/structprova3d_1_1anonymous__namespace_02prova3d__setup_8cpp_03_1_1Copy.html',1,'prova3d::anonymous_namespace{prova3d_setup.cpp}']]],
+  ['countedpointerto_31',['CountedPointerTo',['../d0/d5f/classCountedPointerTo.html',1,'']]],
+  ['curvedrag_32',['CurveDrag',['../df/df6/structPatternPieceTool_1_1CurveDrag.html',1,'PatternPieceTool']]],
+  ['curveedit_33',['CurveEdit',['../d2/da0/structPieceCurveEdit_1_1CurveEdit.html',1,'PieceCurveEdit']]],
+  ['customsarecord_34',['CustomSARecord',['../dc/d74/structCustomSARecord.html',1,'']]],
+  ['customvariable_35',['CustomVariable',['../d2/d16/classCustomVariable.html',1,'']]],
+  ['customvariabledata_36',['CustomVariableData',['../dc/d49/classCustomVariableData.html',1,'']]]
 ];

@@ -4,6 +4,7 @@ var classsim_1_1DressForm =
     [ "DressForm", "df/d21/classsim_1_1DressForm.html#a76a8bd7cbe47369c01e811f14e20875f", null ],
     [ "bottom", "df/d21/classsim_1_1DressForm.html#abdd48aac63cd5a6a327419703965bf2b", null ],
     [ "buildSdf", "df/d21/classsim_1_1DressForm.html#af11687d7284a89c0f0f64b520e256598", null ],
+    [ "distance", "df/d21/classsim_1_1DressForm.html#a77cb44c5c0a2782dd782094594c9c3fe", null ],
     [ "mesh", "df/d21/classsim_1_1DressForm.html#ad432af388459579d3d10a7890ad4e8c5", null ],
     [ "project", "df/d21/classsim_1_1DressForm.html#a8b13630a248a6179972b43f899e1c3f6", null ],
     [ "radius", "df/d21/classsim_1_1DressForm.html#a87a199bfe292a582b53a4aea00318c45", null ],

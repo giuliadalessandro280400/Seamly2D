@@ -82,6 +82,31 @@ var namespaces_dup =
       [ "smallCaps", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#adde73f4b7c716d03e0e47d55a2797793", null ],
       [ "panelStyle", "dd/dfb/namespaceanonymous__namespace_02prova3d__panel_8cpp_03.html#a78273ea98827e29da16e5590bc471702", null ]
     ] ],
+    [ "anonymous_namespace{prova3d_setup_dialog.cpp}", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html", [
+      [ "PieceCol", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a371572c5f16ea0e4d2363736671e2fd5", [
+        [ "PUse", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a371572c5f16ea0e4d2363736671e2fd5aa06d78bdaeaa5150bb68398033d7359e", null ],
+        [ "PName", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a371572c5f16ea0e4d2363736671e2fd5a96426b41e2f7a076736417191d11a620", null ],
+        [ "PMode", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a371572c5f16ea0e4d2363736671e2fd5a45ea28234b57c5e1b7ebecc32b9c6014", null ],
+        [ "PC1", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a371572c5f16ea0e4d2363736671e2fd5abd50aec79aa8a864bb380194911c3b9b", null ],
+        [ "PC2", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a371572c5f16ea0e4d2363736671e2fd5a3b501ee2867d4455cb7f2e6005e26d4a", null ],
+        [ "PPos", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a371572c5f16ea0e4d2363736671e2fd5a7436b94b72b00e08d82c03bf4890c1d8", null ],
+        [ "PCount", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a371572c5f16ea0e4d2363736671e2fd5a866d207808c75b18c76c45fa9d8d1340", null ]
+      ] ],
+      [ "SeamCol", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a04fddf682f659df28a811a986df96d0f", [
+        [ "SA", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a04fddf682f659df28a811a986df96d0fa161ff8c7ebd7246355e4ae34768623d2", null ],
+        [ "SA1", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a04fddf682f659df28a811a986df96d0fad38ff67391ae287adbc4896a71ffffd3", null ],
+        [ "SA2", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a04fddf682f659df28a811a986df96d0fa8d4053526a0f67574dc86e325f204f03", null ],
+        [ "SB", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a04fddf682f659df28a811a986df96d0fa3df84a2b31aa19e62627340a02998f95", null ],
+        [ "SB1", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a04fddf682f659df28a811a986df96d0fa3b272e085390a143d96346f5a7bdc00f", null ],
+        [ "SB2", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a04fddf682f659df28a811a986df96d0faf449e54e1b2adbe48d27bbcfabc045b1", null ],
+        [ "SRev", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a04fddf682f659df28a811a986df96d0fa3c2f800ba47db1ebd6fb4e3677526a5f", null ],
+        [ "SSides", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a04fddf682f659df28a811a986df96d0faff6b6bbadea4cf91df464a40da25810f", null ],
+        [ "SCount", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a04fddf682f659df28a811a986df96d0fa811ef2e51116dcca89ac630dc2034ca4", null ]
+      ] ],
+      [ "cell", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a9390ba7bf439b3620ce2bf2f5a86ab51", null ],
+      [ "centred", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#ab9add2f4905ef792aaa92318a1789b8d", null ],
+      [ "guessCenter", "d9/dff/namespaceanonymous__namespace_02prova3d__setup__dialog_8cpp_03.html#a9d47e7d878d5e751ca4eff8f8ce075c1", null ]
+    ] ],
     [ "anonymous_namespace{savetooloptions.cpp}", "dd/da8/namespaceanonymous__namespace_02savetooloptions_8cpp_03.html", [
       [ "childElements", "dd/da8/namespaceanonymous__namespace_02savetooloptions_8cpp_03.html#a90bc00f8429f2767711cee83fd7c5b09", null ],
       [ "referencesChanged", "dd/da8/namespaceanonymous__namespace_02savetooloptions_8cpp_03.html#a37fef8eec386cdf9b1548406ee1b6175", null ]
@@ -370,6 +395,7 @@ var namespaces_dup =
       [ "parseList", "d9/df6/namespaceProportionalHandles.html#acedf20682d4847a41337f329b554a250", null ],
       [ "toStored", "d9/df6/namespaceProportionalHandles.html#a161dca6cbe06446fd26c211c1790e311", null ]
     ] ],
+    [ "prova3d", "db/d66/namespaceprova3d.html", "db/d66/namespaceprova3d" ],
     [ "qmu", "da/d92/namespaceqmu.html", "da/d92/namespaceqmu" ],
     [ "QT_WARNING_POP", "dd/db0/namespaceQT__WARNING__POP.html", [
       [ "AddAnchorPoint", "dd/db0/namespaceQT__WARNING__POP.html#a2b286f4796b5eee87dd0027e705ab661", null ],

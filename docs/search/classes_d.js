@@ -9,7 +9,7 @@ var searchData=
   ['namespacescope_6',['NamespaceScope',['../da/dd7/classNamespaceScope.html',1,'']]],
   ['ncnamedatatypevalidator_7',['NCNameDatatypeValidator',['../de/d22/classNCNameDatatypeValidator.html',1,'']]],
   ['newmeasurementsdialog_8',['NewMeasurementsDialog',['../dc/da3/classNewMeasurementsDialog.html',1,'']]],
-  ['nodeinfo_9',['NodeInfo',['../d7/d55/structNodeInfo.html',1,'']]],
+  ['nodeinfo_9',['NodeInfo',['../d7/d55/structNodeInfo.html',1,'NodeInfo'],['../d1/d62/structprova3d_1_1NodeInfo.html',1,'prova3d::NodeInfo']]],
   ['nonscalingfillpathitem_10',['NonScalingFillPathItem',['../df/d63/classNonScalingFillPathItem.html',1,'']]],
   ['notationdatatypevalidator_11',['NOTATIONDatatypeValidator',['../de/d18/classNOTATIONDatatypeValidator.html',1,'']]],
   ['notchdata_12',['NotchData',['../d2/daa/structNotchData.html',1,'']]]

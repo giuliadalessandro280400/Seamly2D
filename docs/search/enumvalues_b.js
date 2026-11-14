@@ -8,7 +8,7 @@ var searchData=
   ['lastpoint_5',['LastPoint',['../d5/d9d/vgeometrydef_8h.html#aea380938ffc14e1e5baefe358e7f1d8faa0ca1e5c3a2fb4139548a8d99a34f961',1,'vgeometrydef.h']]],
   ['layout_6',['Layout',['../d5/d9d/vgeometrydef_8h.html#a85a66cf8eff1eceb62457cf1931ddf1aaebd9bec4d70abc789d439c1f136b0538',1,'vgeometrydef.h']]],
   ['leaf_7',['Leaf',['../dd/d17/classContentSpecNode.html#a3f53dbb1a9eca6b60c643986bbff9dcbaf200a54466408fff8193f6036ab0eb13',1,'ContentSpecNode']]],
-  ['left_8',['Left',['../d4/da4/def_8h.html#ac8554770a804b795ffbfc2b15287a008a945d5e233cf7d6240f6b783b36a374ff',1,'def.h']]],
+  ['left_8',['Left',['../d4/da4/def_8h.html#ac8554770a804b795ffbfc2b15287a008a945d5e233cf7d6240f6b783b36a374ff',1,'Left():&#160;def.h'],['../db/d66/namespaceprova3d.html#abfdf1eb05329d6e1eb56bf76c74ac0d6a945d5e233cf7d6240f6b783b36a374ff',1,'prova3d::Left()']]],
   ['leftmostpoint_9',['LeftmostPoint',['../d0/d89/vabstractpattern_8h.html#a7a2eb4ed5c1958e5bf0fe28638ad6ef2a1127489e32f2f6802c3155a464434d72',1,'vabstractpattern.h']]],
   ['legal_10',['Legal',['../d4/da4/def_8h.html#aca73ca8ec1be60fec2512e2685077078aa10a9bcd450087de1ce1f80b35f44883',1,'def.h']]],
   ['lengthcolumn_11',['LengthColumn',['../d5/d6c/history__dialog_8cpp.html#adf764cbdea00d65edcd07bb9953ad2b7a92bd3f80f5228c0f2fc4360b0ff6aeb2',1,'history_dialog.cpp']]],

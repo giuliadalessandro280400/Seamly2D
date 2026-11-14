@@ -23,6 +23,16 @@ var annotated_dup =
       ] ],
       [ "CurveEdit", "d2/da0/structPieceCurveEdit_1_1CurveEdit.html", "d2/da0/structPieceCurveEdit_1_1CurveEdit" ]
     ] ],
+    [ "prova3d", "db/d66/namespaceprova3d.html", [
+      [ "anonymous_namespace{prova3d_setup.cpp}", "d7/da0/namespaceprova3d_1_1anonymous__namespace_02prova3d__setup_8cpp_03.html", [
+        [ "Copy", "d0/dc4/structprova3d_1_1anonymous__namespace_02prova3d__setup_8cpp_03_1_1Copy.html", "d0/dc4/structprova3d_1_1anonymous__namespace_02prova3d__setup_8cpp_03_1_1Copy" ]
+      ] ],
+      [ "Input", "d0/d50/structprova3d_1_1Input.html", "d0/d50/structprova3d_1_1Input" ],
+      [ "NodeInfo", "d1/d62/structprova3d_1_1NodeInfo.html", "d1/d62/structprova3d_1_1NodeInfo" ],
+      [ "PieceSetup", "d4/d30/structprova3d_1_1PieceSetup.html", "d4/d30/structprova3d_1_1PieceSetup" ],
+      [ "SeamSetup", "da/d35/structprova3d_1_1SeamSetup.html", "da/d35/structprova3d_1_1SeamSetup" ],
+      [ "Setup", "d5/d32/structprova3d_1_1Setup.html", "d5/d32/structprova3d_1_1Setup" ]
+    ] ],
     [ "qmu", "da/d92/namespaceqmu.html", [
       [ "Test", "d8/d1e/namespaceqmu_1_1Test.html", [
         [ "QmuParserTester", "da/d59/classqmu_1_1Test_1_1QmuParserTester.html", "da/d59/classqmu_1_1Test_1_1QmuParserTester" ]
@@ -521,6 +531,7 @@ var annotated_dup =
     [ "PreferencesPatternPage", "de/dcf/classPreferencesPatternPage.html", "de/dcf/classPreferencesPatternPage" ],
     [ "PrefMapElem", "db/dab/structPrefMapElem.html", "db/dab/structPrefMapElem" ],
     [ "Prova3dPanel", "db/dd6/classProva3dPanel.html", "db/dd6/classProva3dPanel" ],
+    [ "Prova3dSetupDialog", "d9/d7d/classProva3dSetupDialog.html", "d9/d7d/classProva3dSetupDialog" ],
     [ "Prova3dView", "d9/da2/classProva3dView.html", "d9/da2/classProva3dView" ],
     [ "PSVIAttribute", "d8/d99/classPSVIAttribute.html", "d8/d99/classPSVIAttribute" ],
     [ "PSVIAttributeList", "da/d25/classPSVIAttributeList.html", "da/d25/classPSVIAttributeList" ],

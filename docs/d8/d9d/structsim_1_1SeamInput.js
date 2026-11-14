@@ -1,5 +1,6 @@
 var structsim_1_1SeamInput =
 [
+    [ "autoDirection", "d8/d9d/structsim_1_1SeamInput.html#adc05bbd9a4a22ececdee3eade540fd64", null ],
     [ "fromA", "d8/d9d/structsim_1_1SeamInput.html#a3a572a41264fa423d84d386a09e0c0ca", null ],
     [ "fromB", "d8/d9d/structsim_1_1SeamInput.html#a7de7d0df844851debb3ed9d5325882f6", null ],
     [ "name", "d8/d9d/structsim_1_1SeamInput.html#a5fb76f568ce015168c946e46c6b8abe2", null ],

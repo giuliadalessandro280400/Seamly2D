@@ -1,7 +1,11 @@
 <map id="src/app/seamly2d/sim3d/prova3d_engine.h" name="src/app/seamly2d/sim3d/prova3d_engine.h">
-<area shape="rect" id="node1" title=" " alt="" coords="107,5,287,50"/>
-<area shape="rect" id="node2" href="$d8/d02/prova3d__engine_8cpp.html" title=" " alt="" coords="5,98,186,143"/>
-<area shape="rect" id="node3" href="$d7/d10/prova3d__panel_8h.html" title=" " alt="" coords="209,98,390,143"/>
-<area shape="rect" id="node4" href="$d8/dd9/mainwindow_8cpp.html" title=" " alt="" coords="55,199,304,227"/>
-<area shape="rect" id="node5" href="$dc/d41/prova3d__panel_8cpp.html" title=" " alt="" coords="328,191,508,235"/>
+<area shape="rect" id="node1" title=" " alt="" coords="329,5,510,50"/>
+<area shape="rect" id="node2" href="$d8/d02/prova3d__engine_8cpp.html" title=" " alt="" coords="201,98,382,143"/>
+<area shape="rect" id="node3" href="$d7/d10/prova3d__panel_8h.html" title=" " alt="" coords="226,191,407,235"/>
+<area shape="rect" id="node7" href="$d7/d6b/prova3d__setup_8h.html" title=" " alt="" coords="494,98,675,143"/>
+<area shape="rect" id="node4" href="$d8/dd9/mainwindow_8cpp.html" title=" " alt="" coords="5,292,255,320"/>
+<area shape="rect" id="node5" href="$dc/d41/prova3d__panel_8cpp.html" title=" " alt="" coords="498,283,679,328"/>
+<area shape="rect" id="node6" href="$df/d17/prova3d__setup__dialog_8cpp.html" title=" " alt="" coords="279,283,474,328"/>
+<area shape="rect" id="node8" href="$d8/d23/prova3d__setup_8cpp.html" title=" " alt="" coords="686,191,867,235"/>
+<area shape="rect" id="node9" href="$d1/d45/prova3d__setup__dialog_8h.html" title=" " alt="" coords="430,191,611,235"/>
 </map>

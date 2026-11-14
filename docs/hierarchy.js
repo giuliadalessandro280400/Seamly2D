@@ -22,6 +22,7 @@ var hierarchy =
       [ "SAX2XMLFilterImpl", "de/d91/classSAX2XMLFilterImpl.html", null ]
     ] ],
     [ "PatternPieceTool::ContourMark", "d3/db1/structPatternPieceTool_1_1ContourMark.html", null ],
+    [ "prova3d::anonymous_namespace{prova3d_setup.cpp}::Copy", "d0/dc4/structprova3d_1_1anonymous__namespace_02prova3d__setup_8cpp_03_1_1Copy.html", null ],
     [ "PatternPieceTool::CurveDrag", "df/df6/structPatternPieceTool_1_1CurveDrag.html", null ],
     [ "PieceCurveEdit::CurveEdit", "d2/da0/structPieceCurveEdit_1_1CurveEdit.html", null ],
     [ "CustomSARecord", "dc/d74/structCustomSARecord.html", null ],
@@ -280,6 +281,7 @@ var hierarchy =
     [ "HexBin", "dc/d8b/classHexBin.html", null ],
     [ "sim::Garment::Hinge", "d9/d18/structsim_1_1Garment_1_1Hinge.html", null ],
     [ "ICValueHasher", "da/d10/structICValueHasher.html", null ],
+    [ "prova3d::Input", "d0/d50/structprova3d_1_1Input.html", null ],
     [ "BaseLibrary::InsertResult", "d0/d35/structBaseLibrary_1_1InsertResult.html", null ],
     [ "JanitorMemFunCall< T >", "d9/db9/classJanitorMemFunCall.html", null ],
     [ "LexicalHandler", "d6/dad/classLexicalHandler.html", [
@@ -294,6 +296,7 @@ var hierarchy =
       [ "MemoryManagerImpl", "d2/d42/classMemoryManagerImpl.html", null ]
     ] ],
     [ "NodeInfo", "d7/d55/structNodeInfo.html", null ],
+    [ "prova3d::NodeInfo", "d1/d62/structprova3d_1_1NodeInfo.html", null ],
     [ "NotchData", "d2/daa/structNotchData.html", null ],
     [ "std::numpunct", null, [
       [ "qmu::QmuParserBase::change_dec_sep< TChar >", "d4/d39/classqmu_1_1QmuParserBase_1_1change__dec__sep.html", null ]
@@ -309,6 +312,7 @@ var hierarchy =
     ] ],
     [ "Pen", "d9/de7/classPen.html", null ],
     [ "sim::PieceInput", "d7/d67/structsim_1_1PieceInput.html", null ],
+    [ "prova3d::PieceSetup", "d4/d30/structprova3d_1_1PieceSetup.html", null ],
     [ "sim::Garment::Pin", "d0/dd2/structsim_1_1Garment_1_1Pin.html", null ],
     [ "sim::PinInput", "db/dc3/structsim_1_1PinInput.html", null ],
     [ "anonymous_namespace{vtoolimportdxf.cpp}::Placement", "d3/db2/structanonymous__namespace_02vtoolimportdxf_8cpp_03_1_1Placement.html", null ],
@@ -417,6 +421,7 @@ var hierarchy =
       [ "MeShortcutsDialog", "dd/d67/classMeShortcutsDialog.html", null ],
       [ "MeasurementDatabaseDialog", "d3/d63/classMeasurementDatabaseDialog.html", null ],
       [ "NewMeasurementsDialog", "dc/da3/classNewMeasurementsDialog.html", null ],
+      [ "Prova3dSetupDialog", "d9/d7d/classProva3dSetupDialog.html", null ],
       [ "SeamlyMeWelcomeDialog", "d5/d64/classSeamlyMeWelcomeDialog.html", null ],
       [ "SeamlyWelcomeDialog", "d4/d8f/classSeamlyWelcomeDialog.html", null ],
       [ "ShortcutsDialog", "de/d8e/classShortcutsDialog.html", null ],
@@ -1006,9 +1011,11 @@ var hierarchy =
     [ "SchemaSymbols", "d3/d5c/classSchemaSymbols.html", null ],
     [ "sim::SeamInput", "d8/d9d/structsim_1_1SeamInput.html", null ],
     [ "sim::Garment::SeamPt", "d1/d83/structsim_1_1Garment_1_1SeamPt.html", null ],
+    [ "prova3d::SeamSetup", "da/d35/structprova3d_1_1SeamSetup.html", null ],
     [ "SecurityManager", "d0/d59/classSecurityManager.html", null ],
     [ "VPE::VPropertyFormWidgetPrivate::SEditorWidget", "d9/d9b/structVPE_1_1VPropertyFormWidgetPrivate_1_1SEditorWidget.html", null ],
     [ "PieceCurveEdit::anonymous_namespace{piece_curve_edit.cpp}::SegmentFit", "dd/d6b/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1SegmentFit.html", null ],
+    [ "prova3d::Setup", "d5/d32/structprova3d_1_1Setup.html", null ],
     [ "sim::DressForm::Shape", "d0/d7d/structsim_1_1DressForm_1_1Shape.html", null ],
     [ "SlashSpread", "d4/d9a/classSlashSpread.html", null ],
     [ "SourceItem", "d9/d96/structSourceItem.html", null ],
