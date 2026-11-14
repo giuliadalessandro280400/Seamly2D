@@ -1,5 +1,5 @@
 <map id="Prova3dPanel" name="Prova3dPanel">
-<area shape="rect" id="node1" title="The whole panel: title, view, material, buttons and the notes on the seams." alt="" coords="471,2224,620,2649"/>
+<area shape="rect" id="node1" title="The whole panel: title, view, material, buttons and the notes on the seams." alt="" coords="471,2224,620,2666"/>
 <area shape="rect" id="node2" title=" " alt="" coords="192,1730,269,1814"/>
 <area shape="rect" id="node3" href="$d9/da2/classProva3dView.html" title="Draws the form and the garment, paper on paper. Drag to turn, wheel to zoom." alt="" coords="303,1888,508,2159"/>
 <area shape="rect" id="node4" title=" " alt="" coords="17,922,186,1006"/>

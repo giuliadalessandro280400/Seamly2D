@@ -11,6 +11,7 @@ var classProva3dPanel =
     [ "restart", "db/dd6/classProva3dPanel.html#abdf4d84e1ea51fbb5d1cebcdd07495c3", null ],
     [ "runPhase", "db/dd6/classProva3dPanel.html#a10f6e35277505565ea5226dac172aebf", null ],
     [ "setBusy", "db/dd6/classProva3dPanel.html#aa2cfec4623aa8c28205489b5799ce89d", null ],
+    [ "showEvent", "db/dd6/classProva3dPanel.html#a95364540454df1b3c20964a12c67272e", null ],
     [ "m_dropButton", "db/dd6/classProva3dPanel.html#a15b0e0e9d32d93f9a5ea1d04b877e67d", null ],
     [ "m_dropped", "db/dd6/classProva3dPanel.html#a1169891adad90f083ba6399b4ac76572", null ],
     [ "m_form", "db/dd6/classProva3dPanel.html#ab098f34cd5121303af510ca9948cfdc6", null ],

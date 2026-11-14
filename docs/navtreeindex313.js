@@ -1,5 +1,6 @@
 var NAVTREEINDEX313 =
 {
+"df/d08/macx_2include_2xercesc_2validators_2schema_2GeneralAttributeCheck_8hpp_source.html":[4,0,0,1,15,0,0,0,7,3,2],
 "df/d09/mingw_2include_2xercesc_2dom_2impl_2DOMNodeListImpl_8hpp.html":[4,0,0,1,15,1,0,0,0,0,31],
 "df/d09/mingw_2include_2xercesc_2dom_2impl_2DOMNodeListImpl_8hpp_source.html":[4,0,0,1,15,1,0,0,0,0,31],
 "df/d0a/mingw_2include_2xercesc_2util_2regx_2XMLRangeFactory_8hpp.html":[4,0,0,1,15,1,0,0,6,3,25],
@@ -248,6 +249,5 @@ var NAVTREEINDEX313 =
 "df/d1f/classXMLAttDef.html#a7555277eb326f0985448cb32b0f102a6a4ff88ebbf04b2bf0a2cda18a77d29022":[3,0,841,5,5],
 "df/d1f/classXMLAttDef.html#a7555277eb326f0985448cb32b0f102a6a4ff88ebbf04b2bf0a2cda18a77d29022":[3,0,841,5,7],
 "df/d1f/classXMLAttDef.html#a7555277eb326f0985448cb32b0f102a6a4ff88ebbf04b2bf0a2cda18a77d29022":[3,0,841,6,1],
-"df/d1f/classXMLAttDef.html#a7555277eb326f0985448cb32b0f102a6a4ff88ebbf04b2bf0a2cda18a77d29022":[3,0,841,6,3],
-"df/d1f/classXMLAttDef.html#a7555277eb326f0985448cb32b0f102a6a4ff88ebbf04b2bf0a2cda18a77d29022":[3,0,841,7,1]
+"df/d1f/classXMLAttDef.html#a7555277eb326f0985448cb32b0f102a6a4ff88ebbf04b2bf0a2cda18a77d29022":[3,0,841,6,3]
 };

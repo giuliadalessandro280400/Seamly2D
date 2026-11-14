@@ -1,5 +1,6 @@
 var NAVTREEINDEX325 =
 {
+"df/de5/classBinOutputStream.html#af8fbdbc9726626d5dcc6bfe918c7f2ad":[3,0,52,10],
 "df/de5/classBinOutputStream.html#af8fbdbc9726626d5dcc6bfe918c7f2ad":[3,0,52,7],
 "df/de5/classBinOutputStream.html#af8fbdbc9726626d5dcc6bfe918c7f2ad":[3,0,52,4],
 "df/de5/classVLayoutPiece.html":[3,0,713],
@@ -248,6 +249,5 @@ var NAVTREEINDEX325 =
 "df/df6/structPatternPieceTool_1_1CurveDrag.html#ab08e5c48d726b84a8a11e31268fe23e4":[3,0,405,1,4],
 "df/df6/structPatternPieceTool_1_1CurveDrag.html#ad6de6ae2d2c06b961c8f06ea06a4a2e5":[3,0,405,1,1],
 "df/df6/structPatternPieceTool_1_1CurveDrag.html#af528cd845cf7433874ebfbd7a7b5d402":[3,0,405,1,3],
-"df/df7/tst__vellipticalarc_8h.html":[4,0,0,2,2,26],
-"df/df7/tst__vellipticalarc_8h_source.html":[4,0,0,2,2,26]
+"df/df7/tst__vellipticalarc_8h.html":[4,0,0,2,2,26]
 };
