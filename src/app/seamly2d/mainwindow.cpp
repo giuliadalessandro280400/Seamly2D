@@ -6162,9 +6162,24 @@ void MainWindow::createMenus()
         addDockWidget(Qt::RightDockWidgetArea, dock);
         dock->hide();
         QAction *toggle = dock->toggleViewAction();
-        toggle->setShortcut(QKeySequence(Qt::ControlModifier | Qt::ShiftModifier | Qt::Key_3));
+        toggle->setShortcut(QKeySequence(Qt::Key_F3));
+        toggle->setIcon(QIcon(QStringLiteral(":/icon/32x32/prova3d.png")));
+        toggle->setToolTip(tr("3D Fitting (F3)"));
         ui->view_Menu->addSeparator();
         ui->view_Menu->addAction(toggle);
+        // beside Draft, Piece and Layout, like the 3D window of CLO
+        ui->mode_ToolBar->addAction(toggle);
+        connect(toggle, &QAction::toggled, this, [dock](bool on)
+        {
+            if (!on) return;
+            // never a sliver: if the dock area is too narrow, give it room
+            if (!dock->isFloating() && dock->width() < 360)
+            {
+                dock->setFloating(true);
+                dock->resize(460, 860);
+            }
+            dock->raise();
+        });
     }
 
     //Add dock menus

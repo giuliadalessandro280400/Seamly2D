@@ -7358,6 +7358,10 @@ Continuare?</translation>
         <translation>Prova 3D</translation>
     </message>
     <message>
+        <source>3D Fitting (F3)</source>
+        <translation>Prova 3D (F3)</translation>
+    </message>
+    <message>
         <source>Import AAMA DXF...</source>
         <translation>Importa DXF AAMA...</translation>
     </message>

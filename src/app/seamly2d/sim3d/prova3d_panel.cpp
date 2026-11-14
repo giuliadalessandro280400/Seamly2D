@@ -467,6 +467,12 @@ void Prova3dPanel::setBusy(bool busy)
     m_width->setEnabled(!busy);
 }
 
+void Prova3dPanel::showEvent(QShowEvent *event)
+{
+    QWidget::showEvent(event);
+    if (!m_form && m_worker == nullptr) runPhase(0);   // the form shows up as soon as the panel opens
+}
+
 void Prova3dPanel::fitInPaper()
 {
     runPhase(1);
@@ -545,6 +551,10 @@ void Prova3dPanel::runPhase(int phase)
             garment->settle(0, 4000, 0.002, seamForce);
             garment->settle(981, 4000, 0.002, seamForce);
             summary = tr("Paper fitting: %1 s").arg(QLocale().toString(timer.elapsed() / 1000.0, 'f', 1));
+        }
+        else if (phase == 0)
+        {
+            summary = tr("Put the test bodice on the form and fit it in paper.");
         }
         else if (m_garment)
         {

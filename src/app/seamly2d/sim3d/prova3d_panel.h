@@ -59,6 +59,9 @@ public:
     explicit Prova3dPanel(QWidget *parent = nullptr);
     ~Prova3dPanel() override;
 
+protected:
+    void showEvent(QShowEvent *event) override;
+
 signals:
     void phaseFinished(const QString &summary);
 
