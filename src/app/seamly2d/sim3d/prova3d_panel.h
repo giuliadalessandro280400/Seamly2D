@@ -33,16 +33,48 @@ public:
 
     void setForm(const sim::DressForm *form);
     void setGarment(std::shared_ptr<sim::Garment> garment, const std::vector<QString> &seamNames);
+
+    // pieces laid flat before the fitting, and the pins on the form
+    struct PreviewPiece { std::vector<sim::V3> outline; int piece; };
+    struct PreviewPin { sim::V3 on; sim::V3 from; };
+    void setPreview(const std::vector<PreviewPiece> &pieces, const std::vector<PreviewPin> &pins);
+
+    /// while on, a click on the form picks a point (snapped to the grid unless Alt is held)
+    void setPicking(bool on);
+    /// the garment shown is where the pieces start: no notes on the seams
+    void setShowSeams(bool on) { m_showSeams = on; update(); }
+
     QSize sizeHint() const override { return {420, 560}; }
+
+signals:
+    void picked(double theta, double y);
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void leaveEvent(QEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void wheelEvent(QWheelEvent *event) override;
     void mouseDoubleClickEvent(QMouseEvent *event) override;
 
 private:
+    bool pick(const QPoint &pos, double &theta, double &y, bool snap) const;
+    sim::V3 toView(const sim::V3 &v) const;
+    sim::V3 fromView(const sim::V3 &v) const;
+    double viewScale() const;
+
+    const sim::DressForm *m_form{nullptr};
+    struct GridSeg { sim::V3 a, b, n; bool tape; };
+    std::vector<GridSeg> m_grid;
+    std::vector<PreviewPiece> m_previewPieces;
+    std::vector<PreviewPin> m_previewPins;
+    bool m_picking{false};
+    bool m_showSeams{true};
+    bool m_hover{false};
+    double m_hoverTheta{0}, m_hoverY{0};
+    QString m_hoverLabel;
+    QPoint m_pressPos;
     std::vector<sim::V3> m_formVerts;
     std::vector<std::array<int, 3>> m_formTris;
     std::shared_ptr<sim::Garment> m_garment;
@@ -84,6 +116,11 @@ private slots:
     void onPhaseFinished(const QString &summary);
     void openSetup();
     void setSource(bool pattern);
+    void startPin(bool on);
+    void addPin(double theta, double y);
+    void removePin();
+    void refreshPins();
+    void refreshPreview();
 
 private:
     void runPhase(int phase);
@@ -106,6 +143,11 @@ private:
     QPushButton *m_demoSource{nullptr};
     QPushButton *m_setupButton{nullptr};
     QWidget *m_demoBox{nullptr};
+    QWidget *m_pinBox{nullptr};
+    class QComboBox *m_pinPiece{nullptr};
+    class QComboBox *m_pinPoint{nullptr};
+    QPushButton *m_pinButton{nullptr};
+    class QListWidget *m_pinList{nullptr};
     VAbstractPattern *m_doc{nullptr};
     const VContainer *m_data{nullptr};
     bool m_usePattern{true};

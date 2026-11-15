@@ -43,10 +43,20 @@ struct SeamSetup
     Sides   sides{Sides::Both};
 };
 
+// a point of a piece pinned on the form (as on the dress form, a pin through the tape)
+struct AnchorSetup
+{
+    quint32 piece{0};
+    quint32 node{0};
+    double  theta{0};   // around the form: 0 centre front, +pi/2 right side
+    double  y{0};       // height, cm
+};
+
 struct Setup
 {
     QVector<PieceSetup> pieces;
     QVector<SeamSetup>  seams;
+    QVector<AnchorSetup> anchors;
 
     static Setup load(const VAbstractPattern *doc);
     void save(VAbstractPattern *doc) const;
@@ -64,10 +74,16 @@ struct Input
     std::vector<sim::PieceInput> pieces;
     std::vector<sim::SeamInput>  seams;
     std::vector<std::pair<int, sim::P2>> pins;
+    struct AnchorIn { int piece; sim::P2 at; double theta; double y; };
+    std::vector<AnchorIn> anchors;   // user pins: where pieces are laid and held
     QStringList warnings;
 };
 
 bool buildInput(const Setup &setup, const VContainer *data, Input &out, QString *error);
+
+/// lays flat the pieces that have pins and turns those pins into held points (pieces without pins keep the
+/// automatic placement and pins)
+void applyAnchors(Input &in, const sim::DressForm &form);
 
 QString modeName(Mode m);
 QString positionName(Position p);

@@ -15,3 +15,6 @@ HEADERS += \
 SOURCES += \
     $$PWD/prova3d_setup.cpp \
     $$PWD/prova3d_setup_dialog.cpp
+
+HEADERS += $$PWD/prova3d_grid.h
+SOURCES += $$PWD/prova3d_grid.cpp

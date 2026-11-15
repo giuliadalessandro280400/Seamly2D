@@ -56,6 +56,14 @@ public:
     bool project(V3 &p, double thickness, V3 *normal) const;
     // distance from the form (negative inside) and the outward direction
     double distance(const V3 &p, V3 *normal) const;
+    // the point of the surface at angle theta (0 front, +pi/2 the +x side) and height y, with its outward normal
+    V3 surfacePoint(double theta, double y, V3 *normal = nullptr) const;
+    // angle and height of a point near the surface
+    void surfaceCoords(const V3 &p, double &theta, double &y) const;
+    // arc length around the section at height y, from angle t0 to t1 (signed)
+    double arcLength(double y, double t0, double t1) const;
+    // lines of the form a seam can be laid on, from their start (neck / underarm), on the right (+x) or left side
+    std::vector<V3> bodyLine(int kind, bool right, double offset) const;
     double bottom() const { return m_levels.front().y; }
     double top() const { return m_levels.back().y; }
     void mesh(std::vector<V3> &verts, std::vector<std::array<int, 3>> &tris, int around = 96) const;
@@ -103,7 +111,27 @@ struct PieceInput {
     double topY{0};           // pattern y that goes to height `height`
     double height{140};
     bool   mirrored{false};   // pattern +x goes to -theta
+    // or laid flat where the user pinned it: point = origin + ex * x + ey * y
+    bool   flat{false};
+    V3     origin, ex, ey;
+    // or wrapped around the form where the user pinned it: the pattern, turned and moved, on the form unrolled
+    bool   wrapped{false};
+    double wrapTheta0{0}, wrapRadius{16}, wrapCos{1}, wrapSin{0}, wrapTx{0}, wrapTy{0}, wrapGap{1.0};
+    bool   wrapFlip{false};
+    bool   canFlip{true};        // false for a piece that is whole: it can't be worn the wrong side out      // the piece turned over (a half on the fold or cut 2: the other half)
 };
+
+// where a point of a piece starts, before anything moves (flat placement or the wrap around the form)
+V3 initialPosition(const PieceInput &p, const P2 &q, double wrapRadius, const DressForm *form = nullptr);
+
+// a point of the pattern held at a point of the form
+struct Anchor { P2 at; V3 to; V3 normal; };
+
+// lays a flat piece so that its anchors land as close as possible on their points (in front of them by `gap`)
+void placeFlat(PieceInput &piece, const std::vector<Anchor> &anchors, double gap);
+// wraps a piece around the form so that its anchors land as close as possible on their points (theta, height)
+struct SurfaceAnchor { P2 at; double theta; double y; };
+void placeWrapped(PieceInput &piece, const std::vector<SurfaceAnchor> &anchors, double gap);
 
 struct SeamInput {
     int pieceA, fromA, toA;   // outline vertex indices, walked forward
@@ -111,6 +139,7 @@ struct SeamInput {
     bool reverseB{false};
     std::string name;
     bool autoDirection{false};   // walk each edge the short way between its two ends (ignores reverseB)
+    int bodyLine{0};             // where it is laid before sewing: 0 nowhere, 1 shoulder line, 2 side line
 };
 
 struct PinInput {
@@ -132,6 +161,8 @@ public:
     void enableSeamsFromTop(double depth);
     // the seams already closed (within tol cm) are taken as sewn: the paper then opens only those it can't keep
     void latchClosedSeams(double tol);
+    // preventive placement, as in CLO: both edges of every seam with a body line are pinned on that line
+    void arrangeOnBodyLines(double offset);
     // while dressing: the cloth is drawn gently towards the form (cm per step, 0 = off)
     void setAttraction(double cmPerStep) { m_attract = cmPerStep; }
     // seams that close get sewn (and then hold) only when this is on

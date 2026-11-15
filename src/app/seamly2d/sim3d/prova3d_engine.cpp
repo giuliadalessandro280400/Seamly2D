@@ -348,6 +348,68 @@ bool DressForm::project(V3 &p, double thickness, V3 *normal) const
     return true;
 }
 
+V3 DressForm::surfacePoint(double theta, double y, V3 *normal) const
+{
+    const double r = radius(theta, y);
+    V3 p(r * std::sin(theta), y, r * std::cos(theta));
+    if (normal) {
+        distance(p, normal);
+        if (normal->dot(*normal) < 0.5) *normal = V3(std::sin(theta), 0, std::cos(theta));
+    }
+    return p;
+}
+
+void DressForm::surfaceCoords(const V3 &p, double &theta, double &y) const
+{
+    theta = std::atan2(p.x, p.z);
+    y = p.y;
+}
+
+double DressForm::arcLength(double y, double t0, double t1) const
+{
+    const int n = std::max(2, int(std::fabs(t1 - t0) / 0.01));
+    double acc = 0;
+    V3 prev = surfacePoint(t0, y);
+    for (int i = 1; i <= n; ++i) {
+        const V3 q = surfacePoint(t0 + (t1 - t0) * i / n, y);
+        acc += (q - prev).len();
+        prev = q;
+    }
+    return t1 >= t0 ? acc : -acc;
+}
+
+std::vector<V3> DressForm::bodyLine(int kind, bool right, double offset) const
+{
+    std::vector<V3> line;
+    const double sx = right ? 1.0 : -1.0;
+    auto lift = [&](V3 p) {
+        V3 n;
+        distance(p, &n);
+        if (n.dot(n) > 0.5) p += n * offset;
+        return p;
+    };
+    if (kind == 1) {
+        // the shoulder ridge: for each distance from the axis, the highest point of the form
+        for (double x = 6.0; x <= 20.0; x += 0.5) {
+            double bestY = -1, bestZ = 0;
+            for (double z = -4; z <= 4; z += 0.5) {
+                for (double y = top(); y > bottom() + 40; y -= 0.1) {
+                    if (sdf(V3(sx * x, y, z)) <= 0) { if (y > bestY) { bestY = y; bestZ = z; } break; }
+                }
+            }
+            if (bestY < 0) break;
+            line.push_back(lift(V3(sx * x, bestY, bestZ)));
+        }
+    } else if (kind == 2) {
+        // the side: straight down from the underarm
+        for (double y = 123.0; y >= bottom() + 2; y -= 0.5) {
+            const double r = radius(sx * kPi / 2, y);
+            line.push_back(lift(V3(sx * r, y, 0)));
+        }
+    }
+    return line;
+}
+
 void DressForm::mesh(std::vector<V3> &verts, std::vector<std::array<int, 3>> &tris, int around) const
 {
     const int rows = 120;
@@ -561,19 +623,8 @@ void Garment::build(const PieceInput &p, int pieceIndex, double h, double R)
         }
     const int last = int(m_x.size());
 
-    // initial placement: wrapped on a cylinder
-    for (int k = first; k < last; ++k) {
-        const P2 &q = m_nodePattern[k];
-        const double th = p.angleDeg * kPi / 180 + (p.mirrored ? -1 : 1) * (q.x - p.centerX) / R;
-        const double Y = p.height - (q.y - p.topY);
-        // pieces hanging from the shoulders start leaning over them: front and back meet close above the shoulder
-        double rz = R;
-        if (p.height > 130) {
-            const double t = std::max(0.0, std::min(1.0, (Y - 126.0) / (139.0 - 126.0)));
-            rz = R + (9.0 - R) * t * t * (3 - 2 * t);
-        }
-        m_x[k] = V3(R * std::sin(th), Y, rz * std::cos(th));
-    }
+    // initial placement
+    for (int k = first; k < last; ++k) m_x[k] = initialPosition(p, m_nodePattern[k], R, &m_form);
 
     // nodes that ended up in no triangle (merged corners) are left out
     std::vector<char> used(last - first, 0);
@@ -843,7 +894,12 @@ Garment::Stats Garment::settle(double gravity, int maxSteps, double tol, double 
             m_v[k] += g * dt;
             m_x[k] += m_v[k] * dt;
         }
-        for (const Pin &p : m_pins) m_x[p.node] = p.to;
+        for (const Pin &p : m_pins) {
+            // a pin brings its point where it belongs gradually, at most 5 mm per step
+            const V3 d = p.to - m_prev[p.node];
+            const double l = d.len();
+            m_x[p.node] = l > 0.5 ? m_prev[p.node] + d * (0.5 / l) : p.to;
+        }
         if (m_attract > 0) {
             for (size_t k = 0; k < m_x.size(); ++k) {
                 if (w[k] == 0) continue;
@@ -1097,6 +1153,60 @@ void Garment::latchClosedSeams(double tol)
     }
 }
 
+void Garment::arrangeOnBodyLines(double offset)
+{
+    std::map<int, std::pair<V3, int>> targets;   // node -> sum of targets, count
+    auto pointOn = [](const std::vector<V3> &line, double s) {
+        if (line.empty()) return V3();
+        double acc = 0;
+        for (size_t i = 1; i < line.size(); ++i) {
+            const double l = (line[i] - line[i - 1]).len();
+            if (acc + l >= s) return line[i - 1] + (line[i] - line[i - 1]) * ((s - acc) / std::max(l, 1e-9));
+            acc += l;
+        }
+        if (line.size() < 2) return line.back();
+        const V3 d = line.back() - line[line.size() - 2];
+        return line.back() + d * ((s - acc) / std::max(d.len(), 1e-9));
+    };
+    for (size_t si = 0; si < m_seamInput.size(); ++si) {
+        const SeamInput &in = m_seamInput[si];
+        if (in.bodyLine == 0) continue;
+        std::vector<const SeamPt *> pts;
+        for (const SeamPt &s : m_seam) if (s.seam == int(si)) pts.push_back(&s);
+        if (pts.size() < 2) continue;
+        // which end of the seam is the start of the line (neck end of a shoulder, top of a side)
+        auto posA = [&](const SeamPt *s) { return m_x[s->a0] * (1 - s->wa) + m_x[s->a1] * s->wa; };
+        const V3 first = posA(pts.front()), last = posA(pts.back());
+        bool reversed;
+        if (in.bodyLine == 1) reversed = std::hypot(last.x, 0.0) < std::hypot(first.x, 0.0);
+        else reversed = last.y > first.y;
+        const bool right = (first.x + last.x) >= 0;
+        const std::vector<V3> line = m_form.bodyLine(in.bodyLine, right, offset);
+        if (line.size() < 2) continue;
+        double len = 0;
+        for (size_t k = 1; k < pts.size(); ++k) len += (posA(pts[k]) - posA(pts[k - 1])).len();
+        // the length on the pattern (not the wrapped one)
+        {
+            const Boundary &A = m_boundary[size_t(in.pieceA)];
+            double l = A.vertexParam[size_t(in.toA)] - A.vertexParam[size_t(in.fromA)];
+            if (l < 0) l += A.length;
+            len = l;
+        }
+        for (size_t k = 0; k < pts.size(); ++k) {
+            const double t = double(k) / double(pts.size() - 1);
+            const V3 target = pointOn(line, (reversed ? 1 - t : t) * len);
+            const SeamPt &s = *pts[k];
+            for (int node : {s.wa < 0.5 ? s.a0 : s.a1, s.wb < 0.5 ? s.b0 : s.b1}) {
+                auto &acc = targets[node];
+                acc.first += target;
+                acc.second += 1;
+            }
+        }
+    }
+    m_pins.clear();
+    for (const auto &kv : targets) m_pins.push_back({kv.first, kv.second.first * (1.0 / kv.second.second)});
+}
+
 void Garment::enableSeamsFromTop(double depth)
 {
     m_seamEnabled.assign(m_seamInput.size(), 1);
@@ -1181,6 +1291,131 @@ void Garment::writeObj(const std::string &path) const
     for (const auto &t : m_tris) f << "f " << t[0] + 1 << ' ' << t[1] + 1 << ' ' << t[2] + 1 << '\n';
 }
 
+} // namespace sim
+
+// ============================================================================ flat placement
+namespace sim {
+V3 initialPosition(const PieceInput &p, const P2 &q, double R, const DressForm *form)
+{
+    if (p.wrapped && form != nullptr) {
+        // pattern (x, -y) turned and moved onto the unrolled form (u = arc at the reference radius, v = height)
+        const double px = p.wrapFlip ? -q.x : q.x, py = -q.y;
+        const double u = p.wrapCos * px - p.wrapSin * py + p.wrapTx;
+        const double v = p.wrapSin * px + p.wrapCos * py + p.wrapTy;
+        const double th = p.wrapTheta0 + u / p.wrapRadius;
+        const double y = std::max(form->bottom(), std::min(form->top(), v));
+        V3 n;
+        const V3 on = form->surfacePoint(th, y, &n);
+        return V3(on.x, v, on.z) + V3(n.x, 0, n.z) * (p.wrapGap / std::max(1e-6, std::hypot(n.x, n.z)));
+    }
+    if (p.flat) return p.origin + p.ex * q.x + p.ey * q.y;
+    const double th = p.angleDeg * kPi / 180 + (p.mirrored ? -1 : 1) * (q.x - p.centerX) / R;
+    const double Y = p.height - (q.y - p.topY);
+    // pieces hanging from the shoulders start leaning over them: front and back meet close above the shoulder
+    double rz = R;
+    if (p.height > 130) {
+        const double t = std::max(0.0, std::min(1.0, (Y - 126.0) / (139.0 - 126.0)));
+        rz = R + (9.0 - R) * t * t * (3 - 2 * t);
+    }
+    return V3(R * std::sin(th), Y, rz * std::cos(th));
+}
+
+void placeWrapped(PieceInput &piece, const std::vector<SurfaceAnchor> &anchors, double gap)
+{
+    if (anchors.empty()) return;
+    // around the mean angle of the pins, so that the back doesn't wrap through +-pi
+    double sx = 0, sz = 0;
+    for (const SurfaceAnchor &a : anchors) { sx += std::sin(a.theta); sz += std::cos(a.theta); }
+    const double t0 = std::atan2(sx, sz);
+    const double R = 16.0;
+    std::vector<P2> src, dst;
+    for (const SurfaceAnchor &a : anchors) {
+        src.push_back({a.at.x, -a.at.y});
+        dst.push_back({std::remainder(a.theta - t0, 2 * kPi) * R, a.y});
+    }
+    // best rotation (no scaling: the paper keeps its size), the piece as it is or turned over
+    auto fit = [&](const std::vector<P2> &from, double &c, double &s, P2 &cs, P2 &cd) {
+        cs = {0, 0}; cd = {0, 0};
+        for (size_t i = 0; i < from.size(); ++i) { cs.x += from[i].x; cs.y += from[i].y; cd.x += dst[i].x; cd.y += dst[i].y; }
+        cs.x /= from.size(); cs.y /= from.size(); cd.x /= dst.size(); cd.y /= dst.size();
+        c = 1; s = 0;
+        if (from.size() >= 2) {
+            double num = 0, den = 0;
+            for (size_t i = 0; i < from.size(); ++i) {
+                const double ax = from[i].x - cs.x, ay = from[i].y - cs.y, bx = dst[i].x - cd.x, by = dst[i].y - cd.y;
+                num += ax * by - ay * bx;
+                den += ax * bx + ay * by;
+            }
+            const double a = std::atan2(num, den);
+            c = std::cos(a); s = std::sin(a);
+        }
+        double err = 0;
+        for (size_t i = 0; i < from.size(); ++i) {
+            const double ax = from[i].x - cs.x, ay = from[i].y - cs.y;
+            const double ex = c * ax - s * ay + cd.x - dst[i].x, ey = s * ax + c * ay + cd.y - dst[i].y;
+            err += ex * ex + ey * ey;
+        }
+        return err;
+    };
+    std::vector<P2> flipped = src;
+    for (P2 &p : flipped) p.x = -p.x;
+    double c, s, c2, s2;
+    P2 cs, cd, cs2, cd2;
+    const double e1 = fit(src, c, s, cs, cd);
+    const double e2 = fit(flipped, c2, s2, cs2, cd2);
+    // with one pin nothing says which way round: the piece stays upright as drawn
+    const bool flip = piece.canFlip && src.size() >= 2 && e2 + 1e-6 < e1;
+    if (flip) { c = c2; s = s2; cs = cs2; cd = cd2; }
+    piece.wrapFlip = flip;
+    piece.wrapped = true;
+    piece.flat = false;
+    piece.wrapTheta0 = t0;
+    piece.wrapRadius = R;
+    piece.wrapCos = c;
+    piece.wrapSin = s;
+    piece.wrapTx = cd.x - (c * cs.x - s * cs.y);
+    piece.wrapTy = cd.y - (s * cs.x + c * cs.y);
+    piece.wrapGap = gap;
+}
+
+void placeFlat(PieceInput &piece, const std::vector<Anchor> &anchors, double gap)
+{
+    if (anchors.empty()) return;
+    // the plane: facing out as the form does at the anchors, upright
+    V3 n;
+    V3 centre;
+    for (const Anchor &a : anchors) { n += a.normal; centre += a.to; }
+    centre = centre * (1.0 / anchors.size());
+    if (n.len() < 1e-9) n = V3(0, 0, 1);
+    n.y = 0;                                   // pieces hang upright
+    if (n.len() < 1e-9) n = V3(0, 0, 1);
+    n = n * (1.0 / n.len());
+    V3 up(0, 1, 0);
+    V3 right = cross(up, n);                   // pattern +x, seen from outside
+    right = right * (1.0 / right.len());
+    // pattern y goes down
+    V3 ex = right, ey = up * -1.0;
+    if (anchors.size() >= 2) {
+        // turn in the plane so that the first two anchors line up
+        const P2 d2{anchors[1].at.x - anchors[0].at.x, anchors[1].at.y - anchors[0].at.y};
+        const V3 d3 = anchors[1].to - anchors[0].to;
+        const double a2 = std::atan2(d2.y, d2.x);                       // in pattern axes
+        const double a3 = std::atan2(d3.dot(ey), d3.dot(ex));           // same axes, in the plane
+        const double r = a3 - a2;
+        const double c = std::cos(r), s = std::sin(r);
+        const V3 nx = ex * c + ey * s, ny = ex * -s + ey * c;
+        ex = nx; ey = ny;
+    }
+    // where the anchors land on average, shifted onto their targets and a little in front
+    V3 mapped, target;
+    for (const Anchor &a : anchors) { mapped += ex * a.at.x + ey * a.at.y; target += a.to; }
+    mapped = mapped * (1.0 / anchors.size());
+    target = target * (1.0 / anchors.size());
+    piece.flat = true;
+    piece.ex = ex;
+    piece.ey = ey;
+    piece.origin = target - mapped + n * gap;
+}
 } // namespace sim
 
 // ============================================================================ demo bodice

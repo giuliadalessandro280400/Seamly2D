@@ -16746,6 +16746,30 @@ di controllo</translation>
         <translation>Non ci sono ancora cuciture: aggiungile nella Preparazione 3D.</translation>
     </message>
     <message>
+        <source>Pins</source>
+        <translation>Spilli</translation>
+    </message>
+    <message>
+        <source>pin on the form</source>
+        <translation>appunta sul manichino</translation>
+    </message>
+    <message>
+        <source>Then click on the form: the point snaps to the grid (hold Alt for a free point)</source>
+        <translation>Poi clicca sul manichino: il punto si aggancia alla griglia (tieni premuto Alt per un punto libero)</translation>
+    </message>
+    <message>
+        <source>remove the selected pin</source>
+        <translation>togli lo spillo selezionato</translation>
+    </message>
+    <message>
+        <source>Click on the form where %1 goes.</source>
+        <translation>Clicca sul manichino dove va %1.</translation>
+    </message>
+    <message>
+        <source>%1 pinned at %2</source>
+        <translation>%1 appuntato a %2</translation>
+    </message>
+    <message>
         <source>Closed:</source>
         <translation>Chiuse:</translation>
     </message>
@@ -16878,6 +16902,89 @@ di controllo</translation>
     <message>
         <source>No piece is set up for the 3D fitting</source>
         <translation>Nessun pezzo è preparato per la prova 3D</translation>
+    </message>
+</context>
+<context>
+    <name>Prova3dGrid</name>
+    <message>
+        <source>neck base</source>
+        <translation>base collo</translation>
+    </message>
+    <message>
+        <source>bust</source>
+        <translation>seno</translation>
+    </message>
+    <message>
+        <source>under bust</source>
+        <translation>sottoseno</translation>
+    </message>
+    <message>
+        <source>waist</source>
+        <translation>vita</translation>
+    </message>
+    <message>
+        <source>high hip</source>
+        <translation>bacino alto</translation>
+    </message>
+    <message>
+        <source>hip</source>
+        <translation>bacino</translation>
+    </message>
+    <message>
+        <source>centre front</source>
+        <translation>centro davanti</translation>
+    </message>
+    <message>
+        <source>princess front R</source>
+        <translation>princesse davanti dx</translation>
+    </message>
+    <message>
+        <source>princess front L</source>
+        <translation>princesse davanti sx</translation>
+    </message>
+    <message>
+        <source>side R</source>
+        <translation>fianco dx</translation>
+    </message>
+    <message>
+        <source>side L</source>
+        <translation>fianco sx</translation>
+    </message>
+    <message>
+        <source>princess back R</source>
+        <translation>princesse dietro dx</translation>
+    </message>
+    <message>
+        <source>princess back L</source>
+        <translation>princesse dietro sx</translation>
+    </message>
+    <message>
+        <source>centre back</source>
+        <translation>centro dietro</translation>
+    </message>
+    <message>
+        <source>shoulder point R</source>
+        <translation>punto spalla dx</translation>
+    </message>
+    <message>
+        <source>shoulder point L</source>
+        <translation>punto spalla sx</translation>
+    </message>
+    <message>
+        <source>mid shoulder R</source>
+        <translation>metà spalla dx</translation>
+    </message>
+    <message>
+        <source>mid shoulder L</source>
+        <translation>metà spalla sx</translation>
+    </message>
+    <message>
+        <source>neck point R</source>
+        <translation>punto collo dx</translation>
+    </message>
+    <message>
+        <source>neck point L</source>
+        <translation>punto collo sx</translation>
     </message>
 </context>
 </TS>

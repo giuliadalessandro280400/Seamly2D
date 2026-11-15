@@ -21,6 +21,7 @@
 #include <QMap>
 
 #include <cmath>
+#include <map>
 
 namespace prova3d
 {
@@ -154,6 +155,15 @@ Setup Setup::load(const VAbstractPattern *doc)
             p.position = positionFromKey(e.attribute(QStringLiteral("position")));
             s.pieces.append(p);
         }
+        else if (e.tagName() == QLatin1String("anchor"))
+        {
+            AnchorSetup a;
+            a.piece = e.attribute(QStringLiteral("piece")).toUInt();
+            a.node = e.attribute(QStringLiteral("node")).toUInt();
+            a.theta = e.attribute(QStringLiteral("theta")).toDouble();
+            a.y = e.attribute(QStringLiteral("y")).toDouble();
+            s.anchors.append(a);
+        }
         else if (e.tagName() == QLatin1String("seam"))
         {
             SeamSetup m;
@@ -200,6 +210,15 @@ void Setup::save(VAbstractPattern *doc) const
         e.setAttribute(QStringLiteral("b2"), m.b2);
         if (m.reverse) e.setAttribute(QStringLiteral("reverse"), QStringLiteral("true"));
         e.setAttribute(QStringLiteral("sides"), sidesKey(m.sides));
+        el.appendChild(e);
+    }
+    for (const AnchorSetup &a : anchors)
+    {
+        QDomElement e = doc->createElement(QStringLiteral("anchor"));
+        e.setAttribute(QStringLiteral("piece"), a.piece);
+        e.setAttribute(QStringLiteral("node"), a.node);
+        e.setAttribute(QStringLiteral("theta"), QString::number(a.theta, 'f', 5));
+        e.setAttribute(QStringLiteral("y"), QString::number(a.y, 'f', 3));
         el.appendChild(e);
     }
     root.appendChild(el);
@@ -250,6 +269,8 @@ bool buildInput(const Setup &setup, const VContainer *data, Input &out, QString 
 {
     out = Input();
     QMap<quint32, QVector<Copy>> copies;     // piece id -> its copies in the simulation
+    struct HalfInfo { std::vector<sim::P2> pts; sim::P2 c1, c2; bool hasCenter; Mode mode; };
+    QMap<quint32, HalfInfo> halves;
     QMap<quint32, QMap<quint32, int>> nodeIndex;   // piece id -> node id -> index in the outline of the half
 
     for (const PieceSetup &ps : setup.pieces)
@@ -338,6 +359,7 @@ bool buildInput(const Setup &setup, const VContainer *data, Input &out, QString 
             in.mirrored = isBack ? (side > 0) : (side < 0);
             in.topY = minY;
             in.height = fromWaist ? 102.0 : 143.0;
+            in.canFlip = mode != Mode::Single;
             return in;
         };
 
@@ -397,6 +419,7 @@ bool buildInput(const Setup &setup, const VContainer *data, Input &out, QString 
             list << a;
         }
         copies.insert(ps.id, list);
+        halves.insert(ps.id, HalfInfo{pts, c1, c2, hasCenter, mode});
 
         // pins on the centre line, a little inside the piece
         if (hasCenter && !fromWaist)
@@ -431,6 +454,22 @@ bool buildInput(const Setup &setup, const VContainer *data, Input &out, QString 
     {
         if (error) *error = QCoreApplication::translate("Prova3dSetup", "No piece is set up for the 3D fitting");
         return false;
+    }
+
+    // the user's pins: on the half as set, mirrored on the other half
+    for (const AnchorSetup &a : setup.anchors)
+    {
+        if (!copies.contains(a.piece) || !nodeIndex.value(a.piece).contains(a.node)) continue;
+        const HalfInfo &hi = halves[a.piece];
+        const QVector<Copy> &cs = copies[a.piece];
+        const sim::P2 at = hi.pts[size_t(nodeIndex.value(a.piece).value(a.node))];
+        out.anchors.push_back({cs.first().index, at, a.theta, a.y});
+        if (cs.size() > 1 && hi.hasCenter)
+        {
+            const sim::P2 m = reflect(at, hi.c1, hi.c2);
+            if (std::hypot(m.x - at.x, m.y - at.y) > 0.1)
+                out.anchors.push_back({cs.at(1).index, m, -a.theta, a.y});
+        }
     }
 
     // seams: once on the half, on both halves unless separated
@@ -483,6 +522,19 @@ bool buildInput(const Setup &setup, const VContainer *data, Input &out, QString 
         }
     }
     return true;
+}
+
+void applyAnchors(Input &in, const sim::DressForm &form)
+{
+    std::map<int, std::vector<sim::SurfaceAnchor>> byPiece;
+    for (const Input::AnchorIn &a : in.anchors) byPiece[a.piece].push_back({a.at, a.theta, a.y});
+    (void)form;
+    if (byPiece.empty()) return;
+    // pieces with pins of their own are held by those, not by the automatic ones
+    std::vector<std::pair<int, sim::P2>> keep;
+    for (const auto &p : in.pins) if (!byPiece.count(p.first)) keep.push_back(p);
+    in.pins = keep;
+    for (auto &kv : byPiece) sim::placeWrapped(in.pieces[size_t(kv.first)], kv.second, 1.5);
 }
 
 } // namespace prova3d

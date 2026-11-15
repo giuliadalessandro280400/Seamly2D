@@ -814,6 +814,14 @@
                   <xs:attribute name="position" type="xs:string"/>
                 </xs:complexType>
               </xs:element>
+              <xs:element name="anchor">
+                <xs:complexType>
+                  <xs:attribute name="piece" type="xs:unsignedInt" use="required"/>
+                  <xs:attribute name="node" type="xs:unsignedInt" use="required"/>
+                  <xs:attribute name="theta" type="xs:double" use="required"/>
+                  <xs:attribute name="y" type="xs:double" use="required"/>
+                </xs:complexType>
+              </xs:element>
               <xs:element name="seam">
                 <xs:complexType>
                   <xs:attribute name="pieceA" type="xs:unsignedInt" use="required"/>
