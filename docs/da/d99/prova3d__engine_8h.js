@@ -7,6 +7,8 @@ var prova3d__engine_8h =
     [ "sim::DressForm::Shape", "d0/d7d/structsim_1_1DressForm_1_1Shape.html", "d0/d7d/structsim_1_1DressForm_1_1Shape" ],
     [ "sim::Material", "d4/db5/structsim_1_1Material.html", "d4/db5/structsim_1_1Material" ],
     [ "sim::PieceInput", "d7/d67/structsim_1_1PieceInput.html", "d7/d67/structsim_1_1PieceInput" ],
+    [ "sim::Anchor", "de/db9/structsim_1_1Anchor.html", "de/db9/structsim_1_1Anchor" ],
+    [ "sim::SurfaceAnchor", "d6/ddb/structsim_1_1SurfaceAnchor.html", "d6/ddb/structsim_1_1SurfaceAnchor" ],
     [ "sim::SeamInput", "d8/d9d/structsim_1_1SeamInput.html", "d8/d9d/structsim_1_1SeamInput" ],
     [ "sim::PinInput", "db/dc3/structsim_1_1PinInput.html", "db/dc3/structsim_1_1PinInput" ],
     [ "sim::Garment", "d4/d29/classsim_1_1Garment.html", "d4/d29/classsim_1_1Garment" ],
@@ -20,5 +22,8 @@ var prova3d__engine_8h =
     [ "sim::Garment::Boundary", "d8/d68/structsim_1_1Garment_1_1Boundary.html", "d8/d68/structsim_1_1Garment_1_1Boundary" ],
     [ "sim::Demo", "d0/ddd/structsim_1_1Demo.html", "d0/ddd/structsim_1_1Demo" ],
     [ "cross", "da/d99/prova3d__engine_8h.html#a5499f187d03844afcdfe5ed59cc27539", null ],
-    [ "demoBodice", "da/d99/prova3d__engine_8h.html#a6d30539c98d78878d1449e80aebde162", null ]
+    [ "demoBodice", "da/d99/prova3d__engine_8h.html#a6d30539c98d78878d1449e80aebde162", null ],
+    [ "initialPosition", "da/d99/prova3d__engine_8h.html#ab705f46dacf2e1260fb963b514f8f191", null ],
+    [ "placeFlat", "da/d99/prova3d__engine_8h.html#a825d05a12fe44b1cb597b7cceb970918", null ],
+    [ "placeWrapped", "da/d99/prova3d__engine_8h.html#a5c1d35c53f5d7572c8c7eb1d1a5da0fb", null ]
 ];

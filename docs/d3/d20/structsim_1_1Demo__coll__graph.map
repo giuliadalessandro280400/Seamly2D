@@ -1,12 +1,13 @@
 <map id="sim::Demo" name="sim::Demo">
-<area shape="rect" id="node1" title=" " alt="" coords="316,756,408,840"/>
-<area shape="rect" id="node2" title=" " alt="" coords="252,598,472,682"/>
-<area shape="rect" id="node3" href="$d7/d67/structsim_1_1PieceInput.html" title=" " alt="" coords="298,338,420,507"/>
-<area shape="rect" id="node4" title=" " alt="" coords="157,172,244,256"/>
-<area shape="rect" id="node9" href="$d8/d9d/structsim_1_1SeamInput.html" title=" " alt="" coords="114,321,239,524"/>
-<area shape="rect" id="node5" title=" " alt="" coords="131,5,270,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="275,172,443,256"/>
-<area shape="rect" id="node7" href="$d6/dfe/structsim_1_1P2.html" title=" " alt="" coords="324,5,394,107"/>
-<area shape="rect" id="node8" title=" " alt="" coords="5,598,228,682"/>
-<area shape="rect" id="node10" title=" " alt="" coords="496,589,654,691"/>
+<area shape="rect" id="node1" title=" " alt="" coords="316,1011,408,1095"/>
+<area shape="rect" id="node2" title=" " alt="" coords="252,853,472,937"/>
+<area shape="rect" id="node3" href="$d7/d67/structsim_1_1PieceInput.html" title=" " alt="" coords="288,525,409,779"/>
+<area shape="rect" id="node4" title=" " alt="" coords="87,257,173,341"/>
+<area shape="rect" id="node10" href="$d8/d9d/structsim_1_1SeamInput.html" title=" " alt="" coords="65,542,189,762"/>
+<area shape="rect" id="node5" title=" " alt="" coords="61,5,199,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="198,257,366,341"/>
+<area shape="rect" id="node7" href="$d6/dfe/structsim_1_1P2.html" title=" " alt="" coords="247,5,316,107"/>
+<area shape="rect" id="node8" href="$d9/dea/structsim_1_1V3.html" title=" " alt="" coords="390,172,513,426"/>
+<area shape="rect" id="node9" title=" " alt="" coords="5,853,228,937"/>
+<area shape="rect" id="node11" title=" " alt="" coords="496,844,654,946"/>
 </map>

@@ -14,6 +14,7 @@ var namespacesim =
       [ "pointInPolygon", "dd/d48/namespacesim_1_1anonymous__namespace_02prova3d__engine_8cpp_03.html#a169289e3536e616017a8689437118b1b", null ],
       [ "kPi", "dd/d48/namespacesim_1_1anonymous__namespace_02prova3d__engine_8cpp_03.html#a2e41e2a36456dcef2cf27d5e9e79a0ad", null ]
     ] ],
+    [ "Anchor", "de/db9/structsim_1_1Anchor.html", "de/db9/structsim_1_1Anchor" ],
     [ "Demo", "d0/ddd/structsim_1_1Demo.html", "d0/ddd/structsim_1_1Demo" ],
     [ "DressForm", "df/d21/classsim_1_1DressForm.html", "df/d21/classsim_1_1DressForm" ],
     [ "FormLevel", "d4/dbc/structsim_1_1FormLevel.html", "d4/dbc/structsim_1_1FormLevel" ],
@@ -23,7 +24,11 @@ var namespacesim =
     [ "PieceInput", "d7/d67/structsim_1_1PieceInput.html", "d7/d67/structsim_1_1PieceInput" ],
     [ "PinInput", "db/dc3/structsim_1_1PinInput.html", "db/dc3/structsim_1_1PinInput" ],
     [ "SeamInput", "d8/d9d/structsim_1_1SeamInput.html", "d8/d9d/structsim_1_1SeamInput" ],
+    [ "SurfaceAnchor", "d6/ddb/structsim_1_1SurfaceAnchor.html", "d6/ddb/structsim_1_1SurfaceAnchor" ],
     [ "V3", "d9/dea/structsim_1_1V3.html", "d9/dea/structsim_1_1V3" ],
     [ "cross", "d8/d7d/namespacesim.html#a5499f187d03844afcdfe5ed59cc27539", null ],
-    [ "demoBodice", "d8/d7d/namespacesim.html#a6d30539c98d78878d1449e80aebde162", null ]
+    [ "demoBodice", "d8/d7d/namespacesim.html#a6d30539c98d78878d1449e80aebde162", null ],
+    [ "initialPosition", "d8/d7d/namespacesim.html#ab705f46dacf2e1260fb963b514f8f191", null ],
+    [ "placeFlat", "d8/d7d/namespacesim.html#a825d05a12fe44b1cb597b7cceb970918", null ],
+    [ "placeWrapped", "d8/d7d/namespacesim.html#a5c1d35c53f5d7572c8c7eb1d1a5da0fb", null ]
 ];

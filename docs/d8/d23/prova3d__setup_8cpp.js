@@ -1,6 +1,7 @@
 var prova3d__setup_8cpp =
 [
     [ "prova3d::anonymous_namespace{prova3d_setup.cpp}::Copy", "d0/dc4/structprova3d_1_1anonymous__namespace_02prova3d__setup_8cpp_03_1_1Copy.html", "d0/dc4/structprova3d_1_1anonymous__namespace_02prova3d__setup_8cpp_03_1_1Copy" ],
+    [ "applyAnchors", "d8/d23/prova3d__setup_8cpp.html#a2afcab80288c9d98d089174a834bfdbf", null ],
     [ "buildInput", "d8/d23/prova3d__setup_8cpp.html#aa99843b8a019f6a529758dd4cbdcb644", null ],
     [ "distanceToLine", "d8/d23/prova3d__setup_8cpp.html#aaeb3bb587f36b1a643a92a49e2f373d8", null ],
     [ "modeFromKey", "d8/d23/prova3d__setup_8cpp.html#a02a70038c5814446401499f27827746b", null ],

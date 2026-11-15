@@ -131,6 +131,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d35/structprova3d_1_1SeamSetup.html">prova3d::SeamSetup</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/structprova3d_1_1AnchorSetup.html">prova3d::AnchorSetup</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d32/structprova3d_1_1Setup.html">prova3d::Setup</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d62/structprova3d_1_1NodeInfo.html">prova3d::NodeInfo</a></td></tr>
@@ -138,6 +140,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d50/structprova3d_1_1Input.html">prova3d::Input</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">What the simulator needs, built from the pattern and the setup.  <a href="../../d0/d50/structprova3d_1_1Input.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d6e/structprova3d_1_1Input_1_1AnchorIn.html">prova3d::Input::AnchorIn</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -172,6 +176,9 @@ Functions</h2></td></tr>
 <tr class="separator:a86e097b97ca00ade4b3125a09b662056"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa99843b8a019f6a529758dd4cbdcb644"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d66/namespaceprova3d.html#aa99843b8a019f6a529758dd4cbdcb644">prova3d::buildInput</a> (const Setup &amp;setup, const <a class="el" href="../../d2/d83/classVContainer.html">VContainer</a> *data, Input &amp;out, QString *error)</td></tr>
 <tr class="separator:aa99843b8a019f6a529758dd4cbdcb644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2afcab80288c9d98d089174a834bfdbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d66/namespaceprova3d.html#a2afcab80288c9d98d089174a834bfdbf">prova3d::applyAnchors</a> (Input &amp;in, const <a class="el" href="../../df/d21/classsim_1_1DressForm.html">sim::DressForm</a> &amp;form)</td></tr>
+<tr class="memdesc:a2afcab80288c9d98d089174a834bfdbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">lays flat the pieces that have pins and turns those pins into held points (pieces without pins keep the automatic placement and pins)  <br /></td></tr>
+<tr class="separator:a2afcab80288c9d98d089174a834bfdbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a693b59e4e62f3acfd65c8929346ed366"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d66/namespaceprova3d.html#a693b59e4e62f3acfd65c8929346ed366">prova3d::modeName</a> (<a class="el" href="../../d2/d02/visualization_8h.html#afcbd6bdd41f75046052efd922bdc95dc">Mode</a> m)</td></tr>
 <tr class="separator:a693b59e4e62f3acfd65c8929346ed366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae50eb834501f18f88594af977bafe65d"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d66/namespaceprova3d.html#ae50eb834501f18f88594af977bafe65d">prova3d::positionName</a> (<a class="el" href="../../d4/da4/def_8h.html#ac8554770a804b795ffbfc2b15287a008">Position</a> p)</td></tr>

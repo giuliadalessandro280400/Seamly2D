@@ -14,6 +14,7 @@ var classsim_1_1Garment =
       [ "Edge", "d4/d29/classsim_1_1Garment.html#a9c7985ec00635079eded4f6ad63fea39a38a3cf768754d4f6811178fa4c021240", null ]
     ] ],
     [ "Garment", "d4/d29/classsim_1_1Garment.html#aa965be7dc3f81ad8b12aa4937f1c75f5", null ],
+    [ "arrangeOnBodyLines", "d4/d29/classsim_1_1Garment.html#ac9c67785b9d65ee96d5d019d1b395120", null ],
     [ "borderRoughness", "d4/d29/classsim_1_1Garment.html#ab5692c095c3662b643cf61830628c582", null ],
     [ "build", "d4/d29/classsim_1_1Garment.html#a29ddd54e18dfbcfea19b2702df92e056", null ],
     [ "constraintCount", "d4/d29/classsim_1_1Garment.html#a8feecbe989e3ebe3ad2790d39bef6190", null ],

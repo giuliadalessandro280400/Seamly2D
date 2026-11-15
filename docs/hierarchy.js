@@ -3,6 +3,9 @@ var hierarchy =
     [ "AamaFile", "db/d58/structAamaFile.html", null ],
     [ "AamaPiece", "d0/df6/structAamaPiece.html", null ],
     [ "AlignTransform", "d6/d75/structAlignTransform.html", null ],
+    [ "sim::Anchor", "de/db9/structsim_1_1Anchor.html", null ],
+    [ "prova3d::Input::AnchorIn", "d3/d6e/structprova3d_1_1Input_1_1AnchorIn.html", null ],
+    [ "prova3d::AnchorSetup", "d3/d50/structprova3d_1_1AnchorSetup.html", null ],
     [ "AttributeList", "d3/d8d/classAttributeList.html", [
       [ "VecAttrListImpl", "d8/ddc/classVecAttrListImpl.html", null ]
     ] ],
@@ -243,6 +246,8 @@ var hierarchy =
     [ "FlagJanitor< T >", "de/dac/classFlagJanitor.html", null ],
     [ "sim::FormLevel", "d4/dbc/structsim_1_1FormLevel.html", null ],
     [ "sim::Garment", "d4/d29/classsim_1_1Garment.html", null ],
+    [ "prova3d::GridLine", "df/d91/structprova3d_1_1GridLine.html", null ],
+    [ "Prova3dView::GridSeg", "dd/ddd/structProva3dView_1_1GridSeg.html", null ],
     [ "GroupAttributes", "d8/d6b/structGroupAttributes.html", null ],
     [ "halfedge_s", "d3/d38/structhalfedge__s.html", null ],
     [ "HasDOMChildImpl", "d1/d9d/classHasDOMChildImpl.html", [
@@ -320,6 +325,8 @@ var hierarchy =
     [ "PieceCurveEdit::anonymous_namespace{piece_curve_edit.cpp}::Polyline", "d4/d03/structPieceCurveEdit_1_1anonymous__namespace_02piece__curve__edit_8cpp_03_1_1Polyline.html", null ],
     [ "XMLStringPool::PoolElem", "d9/d93/structXMLStringPool_1_1PoolElem.html", null ],
     [ "PosterData", "d1/dd2/structPosterData.html", null ],
+    [ "Prova3dView::PreviewPiece", "db/d3e/structProva3dView_1_1PreviewPiece.html", null ],
+    [ "Prova3dView::PreviewPin", "d3/d1b/structProva3dView_1_1PreviewPin.html", null ],
     [ "PSVIDefs", "dd/d8a/classPSVIDefs.html", null ],
     [ "PSVIElemContext", "d5/d3a/structPSVIElemContext.html", null ],
     [ "PSVIHandler", "df/da7/classPSVIHandler.html", [
@@ -1023,8 +1030,10 @@ var hierarchy =
     [ "StDOMNode< T >", "d8/d3c/classStDOMNode.html", null ],
     [ "qmu::SToken", "dc/d14/structqmu_1_1SToken.html", null ],
     [ "StringHasher", "d8/d6a/structStringHasher.html", null ],
+    [ "sim::SurfaceAnchor", "d6/ddb/structsim_1_1SurfaceAnchor.html", null ],
     [ "SvgGenerator", "d3/d0b/classSvgGenerator.html", null ],
     [ "XSValue::t_value", "d4/dee/unionXSValue_1_1t__value.html", null ],
+    [ "prova3d::Tape", "de/d51/structprova3d_1_1Tape.html", null ],
     [ "TextLine", "d8/de6/structTextLine.html", null ],
     [ "ThrowEOEJanitor", "d6/d5d/classThrowEOEJanitor.html", null ],
     [ "TranscodeFromStr", "d3/d55/classTranscodeFromStr.html", null ],

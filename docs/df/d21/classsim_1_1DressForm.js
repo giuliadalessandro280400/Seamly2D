@@ -2,6 +2,8 @@ var classsim_1_1DressForm =
 [
     [ "Shape", "d0/d7d/structsim_1_1DressForm_1_1Shape.html", "d0/d7d/structsim_1_1DressForm_1_1Shape" ],
     [ "DressForm", "df/d21/classsim_1_1DressForm.html#a76a8bd7cbe47369c01e811f14e20875f", null ],
+    [ "arcLength", "df/d21/classsim_1_1DressForm.html#adf266f503622c24b4a16306d80111e79", null ],
+    [ "bodyLine", "df/d21/classsim_1_1DressForm.html#a1b5d2f037d28af62aa10bf80026aadfa", null ],
     [ "bottom", "df/d21/classsim_1_1DressForm.html#abdd48aac63cd5a6a327419703965bf2b", null ],
     [ "buildSdf", "df/d21/classsim_1_1DressForm.html#af11687d7284a89c0f0f64b520e256598", null ],
     [ "distance", "df/d21/classsim_1_1DressForm.html#a77cb44c5c0a2782dd782094594c9c3fe", null ],
@@ -12,6 +14,8 @@ var classsim_1_1DressForm =
     [ "sdf", "df/d21/classsim_1_1DressForm.html#a690b1d2eb36b86f39aed2bcb4e7b5211", null ],
     [ "shapeAt", "df/d21/classsim_1_1DressForm.html#a0e85fef52bf195ac729373894785ffb4", null ],
     [ "standard42", "df/d21/classsim_1_1DressForm.html#ad594e1fda97acb5ae33fd91bd18736b4", null ],
+    [ "surfaceCoords", "df/d21/classsim_1_1DressForm.html#ae504be20dca9adc4ba5203d7ec73ace8", null ],
+    [ "surfacePoint", "df/d21/classsim_1_1DressForm.html#a50ba206dc871c725f52a8f10818cecf9", null ],
     [ "top", "df/d21/classsim_1_1DressForm.html#a328d23e6ff1218c1330adbe09298e237", null ],
     [ "m_cell", "df/d21/classsim_1_1DressForm.html#a13401150e31bbfffb90cfa16367d1f72", null ],
     [ "m_levels", "df/d21/classsim_1_1DressForm.html#ad646abfc8d8f2daadb9a6154db257830", null ],

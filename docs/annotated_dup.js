@@ -27,11 +27,14 @@ var annotated_dup =
       [ "anonymous_namespace{prova3d_setup.cpp}", "d7/da0/namespaceprova3d_1_1anonymous__namespace_02prova3d__setup_8cpp_03.html", [
         [ "Copy", "d0/dc4/structprova3d_1_1anonymous__namespace_02prova3d__setup_8cpp_03_1_1Copy.html", "d0/dc4/structprova3d_1_1anonymous__namespace_02prova3d__setup_8cpp_03_1_1Copy" ]
       ] ],
+      [ "AnchorSetup", "d3/d50/structprova3d_1_1AnchorSetup.html", "d3/d50/structprova3d_1_1AnchorSetup" ],
+      [ "GridLine", "df/d91/structprova3d_1_1GridLine.html", "df/d91/structprova3d_1_1GridLine" ],
       [ "Input", "d0/d50/structprova3d_1_1Input.html", "d0/d50/structprova3d_1_1Input" ],
       [ "NodeInfo", "d1/d62/structprova3d_1_1NodeInfo.html", "d1/d62/structprova3d_1_1NodeInfo" ],
       [ "PieceSetup", "d4/d30/structprova3d_1_1PieceSetup.html", "d4/d30/structprova3d_1_1PieceSetup" ],
       [ "SeamSetup", "da/d35/structprova3d_1_1SeamSetup.html", "da/d35/structprova3d_1_1SeamSetup" ],
-      [ "Setup", "d5/d32/structprova3d_1_1Setup.html", "d5/d32/structprova3d_1_1Setup" ]
+      [ "Setup", "d5/d32/structprova3d_1_1Setup.html", "d5/d32/structprova3d_1_1Setup" ],
+      [ "Tape", "de/d51/structprova3d_1_1Tape.html", "de/d51/structprova3d_1_1Tape" ]
     ] ],
     [ "qmu", "da/d92/namespaceqmu.html", [
       [ "Test", "d8/d1e/namespaceqmu_1_1Test.html", [
@@ -51,6 +54,7 @@ var annotated_dup =
       [ "SToken", "dc/d14/structqmu_1_1SToken.html", "dc/d14/structqmu_1_1SToken" ]
     ] ],
     [ "sim", "d8/d7d/namespacesim.html", [
+      [ "Anchor", "de/db9/structsim_1_1Anchor.html", "de/db9/structsim_1_1Anchor" ],
       [ "Demo", "d0/ddd/structsim_1_1Demo.html", "d0/ddd/structsim_1_1Demo" ],
       [ "DressForm", "df/d21/classsim_1_1DressForm.html", "df/d21/classsim_1_1DressForm" ],
       [ "FormLevel", "d4/dbc/structsim_1_1FormLevel.html", "d4/dbc/structsim_1_1FormLevel" ],
@@ -60,6 +64,7 @@ var annotated_dup =
       [ "PieceInput", "d7/d67/structsim_1_1PieceInput.html", "d7/d67/structsim_1_1PieceInput" ],
       [ "PinInput", "db/dc3/structsim_1_1PinInput.html", "db/dc3/structsim_1_1PinInput" ],
       [ "SeamInput", "d8/d9d/structsim_1_1SeamInput.html", "d8/d9d/structsim_1_1SeamInput" ],
+      [ "SurfaceAnchor", "d6/ddb/structsim_1_1SurfaceAnchor.html", "d6/ddb/structsim_1_1SurfaceAnchor" ],
       [ "V3", "d9/dea/structsim_1_1V3.html", "d9/dea/structsim_1_1V3" ]
     ] ],
     [ "Utils", "d4/d3d/namespaceUtils.html", [

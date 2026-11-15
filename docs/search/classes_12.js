@@ -60,5 +60,6 @@ var searchData=
   ['stringop_57',['StringOp',['../d9/ddc/classStringOp.html',1,'']]],
   ['stringtoken_58',['StringToken',['../d2/dc2/classStringToken.html',1,'']]],
   ['substitutiongroupcomparator_59',['SubstitutionGroupComparator',['../d7/d29/classSubstitutionGroupComparator.html',1,'']]],
-  ['svggenerator_60',['SvgGenerator',['../d3/d0b/classSvgGenerator.html',1,'']]]
+  ['surfaceanchor_60',['SurfaceAnchor',['../d6/ddb/structsim_1_1SurfaceAnchor.html',1,'sim']]],
+  ['svggenerator_61',['SvgGenerator',['../d3/d0b/classSvgGenerator.html',1,'']]]
 ];

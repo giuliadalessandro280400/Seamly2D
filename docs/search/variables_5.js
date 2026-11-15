@@ -17,11 +17,13 @@ var searchData=
   ['entities_14',['entities',['../da/d6e/structanonymous__namespace_02aamadxf_8cpp_03_1_1Block.html#a438daea0a413aae3208042b2670fedbc',1,'anonymous_namespace{aamadxf.cpp}::Block']]],
   ['enumerationliterals_15',['EnumerationLiterals',['../d2/dcb/classVPE_1_1VEnumProperty.html#ae2a2f1ca0e4097d0a9a6ece70f9c8732',1,'VPE::VEnumProperty']]],
   ['epsilon_16',['epsilon',['../d6/d2f/predicates_8cpp.html#a294322d88f49e20954d824785a25bd91',1,'predicates.cpp']]],
-  ['error_17',['error',['../de/d09/classVException.html#a6a2a1fb4627830eecbec7ad04642095d',1,'VException::error()'],['../db/d58/structAamaFile.html#aad2ea015926cc4e3f1ed152fe44ca8da',1,'AamaFile::error()'],['../d0/d35/structBaseLibrary_1_1InsertResult.html#a55ba94a4df6f71bd8bac30d7ca39dcd0',1,'BaseLibrary::InsertResult::error()']]],
+  ['error_17',['error',['../db/d58/structAamaFile.html#aad2ea015926cc4e3f1ed152fe44ca8da',1,'AamaFile::error()'],['../de/d09/classVException.html#a6a2a1fb4627830eecbec7ad04642095d',1,'VException::error()'],['../d0/d35/structBaseLibrary_1_1InsertResult.html#a55ba94a4df6f71bd8bac30d7ca39dcd0',1,'BaseLibrary::InsertResult::error()']]],
   ['errorchecking_18',['errorChecking',['../d9/d5a/classDOMDocumentImpl.html#acddfbf00bcf595d81d14c27556b9a4ba',1,'DOMDocumentImpl']]],
   ['errorcolor_19',['errorColor',['../d2/d7b/classDialogTool.html#a6a353f3802c04a2ece105e0283d6052e',1,'DialogTool']]],
-  ['exp_5ff_20',['exp_F',['../d6/d0b/def_8cpp.html#ae67530a59f92381ca67213f3c044c1a8',1,'exp_F():&#160;def.cpp'],['../d4/da4/def_8h.html#ae67530a59f92381ca67213f3c044c1a8',1,'exp_F():&#160;def.cpp']]],
-  ['expression_21',['expression',['../d6/d15/structVFormulaField.html#ad91a1bdc8d51df07c2dcff235d2e9edf',1,'VFormulaField']]],
-  ['extch_22',['extCh',['../de/d76/structXMLTransService_1_1TransRec.html#a917bde08c7c8cda8ee894990853bb5df',1,'XMLTransService::TransRec']]],
-  ['extended_5fcomment_23',['EXTENDED_COMMENT',['../d2/d0d/classRegularExpression.html#a095a12d57e1b482c22acf75e5ff248d0',1,'RegularExpression']]]
+  ['ex_20',['ex',['../d7/d67/structsim_1_1PieceInput.html#a63f7a33a018d778e69172f9e4d2431cf',1,'sim::PieceInput']]],
+  ['exp_5ff_21',['exp_F',['../d6/d0b/def_8cpp.html#ae67530a59f92381ca67213f3c044c1a8',1,'exp_F():&#160;def.cpp'],['../d4/da4/def_8h.html#ae67530a59f92381ca67213f3c044c1a8',1,'exp_F():&#160;def.cpp']]],
+  ['expression_22',['expression',['../d6/d15/structVFormulaField.html#ad91a1bdc8d51df07c2dcff235d2e9edf',1,'VFormulaField']]],
+  ['extch_23',['extCh',['../de/d76/structXMLTransService_1_1TransRec.html#a917bde08c7c8cda8ee894990853bb5df',1,'XMLTransService::TransRec']]],
+  ['extended_5fcomment_24',['EXTENDED_COMMENT',['../d2/d0d/classRegularExpression.html#a095a12d57e1b482c22acf75e5ff248d0',1,'RegularExpression']]],
+  ['ey_25',['ey',['../d7/d67/structsim_1_1PieceInput.html#aec68da68ac14fdbb17b68acd3721312b',1,'sim::PieceInput']]]
 ];

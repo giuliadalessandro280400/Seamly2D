@@ -1,11 +1,25 @@
 var structsim_1_1PieceInput =
 [
     [ "angleDeg", "d7/d67/structsim_1_1PieceInput.html#aac610c037cd9c93ad9b6782b2b949b4a", null ],
+    [ "canFlip", "d7/d67/structsim_1_1PieceInput.html#a4c39c898b3e10d7db0c114658f3af321", null ],
     [ "centerX", "d7/d67/structsim_1_1PieceInput.html#a2dc0e7aaf5d679b49a86faa4fcfe5f69", null ],
+    [ "ex", "d7/d67/structsim_1_1PieceInput.html#a63f7a33a018d778e69172f9e4d2431cf", null ],
+    [ "ey", "d7/d67/structsim_1_1PieceInput.html#aec68da68ac14fdbb17b68acd3721312b", null ],
+    [ "flat", "d7/d67/structsim_1_1PieceInput.html#a10a2597203bb32fbd2f02f38cd08aed9", null ],
     [ "grainDeg", "d7/d67/structsim_1_1PieceInput.html#a8ae952d8dd318e3782829e03471f6031", null ],
     [ "height", "d7/d67/structsim_1_1PieceInput.html#a8df8a129dd4b2d3bf881b88a5be1bd72", null ],
     [ "mirrored", "d7/d67/structsim_1_1PieceInput.html#a41ddb9dbdd13566ff431c3162961e451", null ],
     [ "name", "d7/d67/structsim_1_1PieceInput.html#ac25d3e887ec01c4e6923435b2b8c8058", null ],
+    [ "origin", "d7/d67/structsim_1_1PieceInput.html#ac82660ca755b3c232ca18b0091c8118c", null ],
     [ "outline", "d7/d67/structsim_1_1PieceInput.html#adb847763edbc78fcfbae76416c2187ec", null ],
-    [ "topY", "d7/d67/structsim_1_1PieceInput.html#a722e08fc0cd1ce5725100e610ea17d05", null ]
+    [ "topY", "d7/d67/structsim_1_1PieceInput.html#a722e08fc0cd1ce5725100e610ea17d05", null ],
+    [ "wrapCos", "d7/d67/structsim_1_1PieceInput.html#aacf620d63deb92ec5590fab983fdf3ca", null ],
+    [ "wrapFlip", "d7/d67/structsim_1_1PieceInput.html#a3e459a6faff26fe3c5a9171419823c48", null ],
+    [ "wrapGap", "d7/d67/structsim_1_1PieceInput.html#ab1f4ced5e6365837437d7b1d30e7e4a6", null ],
+    [ "wrapped", "d7/d67/structsim_1_1PieceInput.html#a262403680c04b74f060e563bb63e0de3", null ],
+    [ "wrapRadius", "d7/d67/structsim_1_1PieceInput.html#a0b8e498323375c57e43e14f330668bff", null ],
+    [ "wrapSin", "d7/d67/structsim_1_1PieceInput.html#a8931da12c3411f1cea739d47ebf4324b", null ],
+    [ "wrapTheta0", "d7/d67/structsim_1_1PieceInput.html#ab35f45dcbbef85d8605cca3e045bb76a", null ],
+    [ "wrapTx", "d7/d67/structsim_1_1PieceInput.html#a32abaf33c314fcd6a04768bbb34f0a7e", null ],
+    [ "wrapTy", "d7/d67/structsim_1_1PieceInput.html#a245c47671d2e0c4c78e268bced3c5541", null ]
 ];
